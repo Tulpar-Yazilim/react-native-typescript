@@ -42,6 +42,7 @@
     "paths": {
       "@config": ["./src/config"],
       "@screens": ["./src/screens"],
+      "@theme": ["./src/theme"],
       "@api": ["./src/api"],
       "@hook": ["./src/hook"],
       "@assets": ["./src/assets"],

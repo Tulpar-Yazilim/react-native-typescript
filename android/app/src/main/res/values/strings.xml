@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">MyTsProject</string>
+    <string name="app_name">React Native Typescript</string>
+
+    <string moduleConfig="true" name="CodePushDeploymentKey">**************</string>
 </resources>

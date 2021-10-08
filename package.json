@@ -6,10 +6,22 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "pod": "npx pod-install ios",
+    "clean:android": "cd android && ./gradlew clean && cd ..",
+    "apk-mac": "cd android && ./gradlew assembleRelease  && cd ..",
+    "apk-windows": "cd android && gradlew assembleRelease  && cd ..",
+    "clean:ios": "cd ios && xcodebuild clean && cd ..",
     "start": "react-native start",
     "start-reset-cache": "npm run start -- --reset-cache",
     "test": "jest",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "logcat": "adb logcat *:S ReactNative:V ReactNativeJS:V",
+    "icon": "npx react-native set-icon --path ./src/assets/images/app-icon.png",
+    "codepush:deploymentKey-android": "appcenter codepush deployment list --app ******* -k",
+    "codepush:deploymentKey-ios": "appcenter codepush deployment list --app ******* -k",
+    "codepush:ios": "appcenter codepush release -a ******* -d Production -c ./codePush/ios -t 1.0",
+    "codepush:android": "appcenter codepush release -a ******* -d Production -c ./codePush/android -t 1.0",
+    "codepush-release-android": "react-native bundle --platform android --entry-file index.js --bundle-output ./codePush/android/index.android.bundle --assets-dest ./codePush/android --dev false",
+    "codepush-release-ios": "react-native bundle --platform ios --entry-file index.js --bundle-output ./codePush/ios/index.ios.bundle --assets-dest ./codePush/ios --dev false"
   },
   "dependencies": {
     "@react-navigation/native": "^6.0.2",
@@ -17,16 +29,19 @@
     "axios": "^0.21.4",
     "i18n-js": "^3.8.0",
     "lodash": "^4.17.21",
+    "moment": "^2.29.1",
     "react": "17.0.2",
     "react-native": "0.65.1",
+    "react-native-code-push": "^7.0.3",
     "react-native-crypto-js": "^1.0.0",
     "react-native-localize": "^2.1.4",
     "react-native-safe-area-context": "^3.3.2",
-    "react-native-screens": "^3.7.2",
+    "react-native-screens": "^3.8.0",
     "react-native-vector-icons": "^8.1.0",
     "react-redux": "^7.2.5",
     "redux": "^4.1.1",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "yup": "^0.32.9"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
@@ -43,7 +58,8 @@
     "metro-react-native-babel-preset": "^0.66.2",
     "react-native-codegen": "^0.0.7",
     "react-test-renderer": "17.0.2",
-    "typescript": "^3.8.3"
+    "typescript": "^3.8.3",
+    "@bam.tech/react-native-make": "^3.0.3"
   },
   "resolutions": {
     "@types/react": "^17"

@@ -21,4 +21,10 @@ const addressAptNo = (t, key = 'apt_no') => ({
   [key]: yup.string().required().label(t('labels.apt_no')),
 });
 
-export { addressDetailValidation, addressTitleValidation, addressBuildNo, addressAptNo, fullAddressValidation };
+export {
+  addressDetailValidation,
+  addressTitleValidation,
+  addressBuildNo,
+  addressAptNo,
+  fullAddressValidation,
+};
