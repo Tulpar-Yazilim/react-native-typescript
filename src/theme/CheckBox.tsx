@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import {Icon, Text, Block} from './index';
+import {Text, Block} from './index';
 import {TouchableOpacity, StyleSheet} from 'react-native';
-import {IconTypes} from './Icon';
-import colors from '../config/colors';
-import {useGuid} from '../hooks';
+import {AppIcon, IconTypes} from '@components';
+import {useGuid} from '@hooks';
+import {COLORS} from '@theme';
 
 const CheckBox = ({
   onPress,
@@ -15,22 +15,22 @@ const CheckBox = ({
   selectedBackgroundColor,
   uncheckedStyle,
   iconColor,
-}) => {
+}: any) => {
   const getUncheckedStyle = {
     borderWidth: 1.5,
-    borderColor: colors.unselectedCheckboxBorder,
+    borderColor: COLORS.unselectedCheckboxBorder,
     ...uncheckedStyle,
   };
   const checkedStyle = {
     backgroundColor: selectedBackgroundColor
       ? selectedBackgroundColor
-      : colors.selectedCheckboxBackground,
+      : COLORS.selectedCheckboxBackground,
   };
   const checkIcon = {
     type: IconTypes.materialCommunity,
     name: 'check-bold',
     size: 18,
-    color: iconColor ? iconColor : colors.white,
+    color: iconColor ? iconColor : COLORS.white,
   };
 
   const [checked, setChecked] = useState(value);
@@ -44,7 +44,6 @@ const CheckBox = ({
       key={useGuid()}
       onPress={() => onPress(!checked)}
       style={[
-        styles.container,
         {
           marginBottom: marginBottom ? marginBottom : 0,
           marginTop: marginTop ? marginTop : 0,
@@ -61,7 +60,7 @@ const CheckBox = ({
             boxStyle,
           ]}
           noflex>
-          {checked && <Icon {...checkIcon} />}
+          {checked && <AppIcon {...checkIcon} />}
         </Block>
         {text ? <Text style={styles.text}>{text}</Text> : null}
       </Block>

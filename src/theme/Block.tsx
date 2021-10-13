@@ -7,10 +7,12 @@ import {
   View,
 } from 'react-native';
 
-import expoTheme from './Config';
-import {mergeTheme, getMargins, getPaddings} from './utils';
+import {SIZES, COLORS} from '@theme';
+import {getMargins, getPaddings} from '@utils';
 
-const Block = props => {
+import {LoadingScreen, LoadingCard} from '@components';
+
+const Block = (props: any) => {
   const {
     preloader = false,
     loading = null,
@@ -47,7 +49,6 @@ const Block = props => {
     wrap = false,
     // custom styling
     style = {},
-    theme = {},
     // variations
     animated = false,
     safe = false,
@@ -71,7 +72,7 @@ const Block = props => {
     // extra props
     ...rest
   } = props;
-  const {SIZES, COLORS} = mergeTheme(expoTheme, theme);
+
   const marginSpacing = getMargins({
     margin,
     marginHorizontal,

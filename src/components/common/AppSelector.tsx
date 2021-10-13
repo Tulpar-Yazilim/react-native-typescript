@@ -1,12 +1,11 @@
 import React from 'react';
 import {StyleSheet, TouchableOpacity} from 'react-native';
-import {Block, Text, Icon} from '../../theme';
+import {COLORS, Block, Text} from '@theme';
+import {AppIcon, IconTypes} from '@components';
 import Modal from 'react-native-modal';
-import colors from '../../config/colors';
 import Separator from './Separator';
-import {IconTypes} from '../../theme/Icon';
-import IconButton from './IconButton';
-import {FlatList} from '..';
+import AppIconButton from './AppIconButton';
+import AppFlatList from './AppFlatList';
 
 const AppSelector = ({
   isVisible,
@@ -14,12 +13,12 @@ const AppSelector = ({
   onSelect,
   itemsList,
   selectedItem,
-}) => {
+}: any) => {
   return (
     <Modal
       isVisible={isVisible}
       avoidKeyboard={true}
-      backdropColor={colors.black}
+      backdropColor={COLORS.black}
       backdropOpacity={0.8}
       animationIn={'slideInUp'}
       animationOut={'slideOutDown'}
@@ -39,7 +38,7 @@ const AppSelector = ({
           <Block center>
             <Block noflex style={styles.stick} />
           </Block>
-          <IconButton
+          <AppIconButton
             icon={{
               type: IconTypes.materialCommunity,
               name: 'window-close',
@@ -51,12 +50,12 @@ const AppSelector = ({
             }}
           />
         </Block>
-        <FlatList
+        <AppFlatList
           showsHorizontalScrollIndicator={false}
           contentContainerStyle={styles.contentContainer}
           data={itemsList}
           showsVerticalScrollIndicator={false}
-          renderItem={({item}) => (
+          renderItem={({item}: any) => (
             <TouchableOpacity
               onPress={() => {
                 onSelect(item);
@@ -67,7 +66,7 @@ const AppSelector = ({
                   {item.title}
                 </Text>
                 {selectedItem && selectedItem.value === item.value && (
-                  <Icon type={IconTypes.material} name={'check'} size={22} />
+                  <AppIcon type={IconTypes.material} name={'check'} size={22} />
                 )}
               </Block>
             </TouchableOpacity>

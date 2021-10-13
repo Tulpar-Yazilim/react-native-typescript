@@ -1,6 +1,6 @@
 export class ApiResult<T> {
-  message: string;
-  isSuccess: boolean;
+  message: string = '';
+  isSuccess: boolean = false;
   data: T;
   constructor(message: string, isSuccess: boolean, data: T) {
     this.message = message;

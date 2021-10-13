@@ -1,16 +1,13 @@
-import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
-import { ApiResult } from "./api-result";
-import { decrypt } from "./crypto-service";
-
-export const ApiVersion = "api/";
-export const baseURL = `https://api-url.com/${ApiVersion}`;
-export const Crypto = true;
+import axios, {AxiosError, AxiosRequestConfig, AxiosResponse} from 'axios';
+import {ApiResult} from './api-result';
+import {decrypt} from './crypto-service';
+import {baseURL, Crypto} from './config';
 
 // Config
 const config: AxiosRequestConfig = {
   baseURL,
   headers: {
-    "Content-Type": "application/json",
+    'Content-Type': 'application/json',
   },
   timeout: 10000,
 };
@@ -19,8 +16,8 @@ const config: AxiosRequestConfig = {
 const axiosInstance = axios.create(config);
 
 //  Interceptor Request
-axiosInstance.interceptors.request.use(async (requestConfig) => {
-  const token = "[USER_TOKEN]";
+axiosInstance.interceptors.request.use(async requestConfig => {
+  const token = '[USER_TOKEN]';
   if (token) {
     requestConfig.headers.Authorization = `Bearer ${token}`;
   }
@@ -32,7 +29,7 @@ const onFulFilled = async (response: AxiosResponse) => {
   const apiResult = new ApiResult(
     response.data?.message,
     response.data?.isSuccess,
-    Crypto ? decrypt(response.data.data) : response.data.data
+    Crypto ? decrypt(response.data.data) : response.data.data,
   );
 
   return apiResult;

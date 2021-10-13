@@ -1,5 +1,5 @@
 {
-  "name": "mytsproject",
+  "name": "reactnativetypescript",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -34,22 +34,29 @@
     "react-native": "0.65.1",
     "react-native-code-push": "^7.0.3",
     "react-native-crypto-js": "^1.0.0",
+    "react-native-fast-image": "^8.5.11",
+    "react-native-gesture-handler": "^1.10.3",
     "react-native-localize": "^2.1.4",
+    "react-native-modal": "^13.0.0",
+    "react-native-responsive-fontsize": "^0.5.1",
     "react-native-safe-area-context": "^3.3.2",
     "react-native-screens": "^3.8.0",
     "react-native-vector-icons": "^8.1.0",
     "react-redux": "^7.2.5",
     "redux": "^4.1.1",
     "redux-thunk": "^2.3.0",
+    "rn-placeholder": "^3.0.3",
     "yup": "^0.32.9"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "@babel/runtime": "^7.12.5",
+    "@bam.tech/react-native-make": "^3.0.3",
     "@react-native-community/eslint-config": "^2.0.0",
     "@types/i18n-js": "^3.8.2",
     "@types/jest": "^26.0.23",
     "@types/react-native": "^0.65.0",
+    "@types/react-native-vector-icons": "^6.4.9",
     "@types/react-test-renderer": "^17.0.1",
     "babel-jest": "^26.6.3",
     "babel-plugin-module-resolver": "^4.1.0",
@@ -58,8 +65,7 @@
     "metro-react-native-babel-preset": "^0.66.2",
     "react-native-codegen": "^0.0.7",
     "react-test-renderer": "17.0.2",
-    "typescript": "^3.8.3",
-    "@bam.tech/react-native-make": "^3.0.3"
+    "typescript": "^3.8.3"
   },
   "resolutions": {
     "@types/react": "^17"

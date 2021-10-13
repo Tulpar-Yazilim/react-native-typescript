@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, ActivityIndicator} from 'react-native';
-import {Text, Button, Block, Icon} from '../../theme/index';
-import {COLORS, SIZES} from '@theme';
+import {COLORS, SIZES, Text, Button, Block} from '@theme';
+import {AppIcon} from '@components';
 
 const AppButton = ({
   onPress = () => {},
@@ -22,7 +22,7 @@ const AppButton = ({
       style={[styles.default, style]}
       {...rest}>
       <Block center row middle>
-        {icon && <Icon {...icon} style={{marginRight: 6}} />}
+        {icon && <AppIcon {...icon} style={{marginRight: 6}} />}
         <Text
           center
           color={outlined ? COLORS.primary : COLORS.white}

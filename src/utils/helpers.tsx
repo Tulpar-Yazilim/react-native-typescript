@@ -16,7 +16,7 @@
  * const marginSpacing = spacing("margin", "0.5x", 12); // multiply 0.5 * 10 => margin 6
  */
 
-export const getSpacings = (value: any, defaultValue = 0): any => {
+const getSpacings = (value: any, defaultValue = 0): any => {
   // if the value is boolean return defaultValue
   if (typeof value === 'boolean') {
     return defaultValue;
@@ -60,7 +60,7 @@ export const getSpacings = (value: any, defaultValue = 0): any => {
   }
 };
 
-export const getMargins = ({
+const getMargins = ({
   margin,
   marginTop,
   marginBottom,
@@ -111,7 +111,7 @@ export const getMargins = ({
   return styles;
 };
 
-export const getPaddings = ({
+const getPaddings = ({
   padding,
   paddingTop,
   paddingBottom,
@@ -197,7 +197,7 @@ export const getPaddings = ({
  * COLORS.secondary will return value "green"
  */
 
-export const mergeTheme = (theme: any, extra: any) => {
+const mergeTheme = (theme: any, extra: any) => {
   const {COLORS, SIZES, FONTS, WEIGHTS, ...REST} = extra;
   return {
     COLORS: {...theme?.COLORS, ...COLORS},
@@ -207,3 +207,5 @@ export const mergeTheme = (theme: any, extra: any) => {
     ...REST,
   };
 };
+
+export {getSpacings, getMargins, getPaddings, mergeTheme};

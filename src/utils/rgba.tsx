@@ -1,7 +1,3 @@
-// Source file: https://github.com/misund/hex-to-rgba/blob/master/src/index.js
-// NPM: https://www.npmjs.com/package/hex-to-rgba
-// GitHub: https://github.com/misund/hex-to-rgba
-
 const removeHash = (hex: string) =>
   hex.charAt(0) === '#' ? hex.slice(1) : hex;
 
@@ -41,7 +37,7 @@ const hexesToDecimals = ({r, g, b, a}: any) => ({
   a: +(hexToDecimal(a) / 255).toFixed(2),
 });
 
-const isNumeric = (n: any) => !isNaN(parseFloat(n)) && isFinite(n); // eslint-disable-line no-restricted-globals, max-len
+const isNumeric = (n: any) => !isNaN(parseFloat(n)) && isFinite(n);
 
 const formatRgb = (decimalObject: any, parameterA: any) => {
   const {r, g, b, a: parsedA} = decimalObject;

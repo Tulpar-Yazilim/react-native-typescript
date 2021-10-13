@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {View, Text, FlatList} from 'react-native';
 import {category} from '@api';
-import {useApi} from '@hook';
+import {useApi} from '@hooks';
+import {Block} from '@theme';
 
 const DetailPage = () => {
   const [data, setData] = useState([]);
@@ -9,7 +10,9 @@ const DetailPage = () => {
 
   const loadData = async () => {
     const response = await categoryApi.request();
-    setData(response.data);
+    if (response.isSuccess) {
+      setData(response.data);
+    }
   };
 
   useEffect(() => {
@@ -27,7 +30,11 @@ const DetailPage = () => {
     <View>
       <FlatList
         data={data}
-        ListEmptyComponent={<Text>Empty</Text>}
+        ListEmptyComponent={
+          <Block marginTop={20} center middle>
+            <Text>Kayıt bulunamadı</Text>
+          </Block>
+        }
         renderItem={renderItem}
       />
     </View>

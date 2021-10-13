@@ -22,6 +22,11 @@ const COLORS = {
   warning: '#FFE358',
   success: '#4CD964',
   info: '#4DA1FF',
+
+  // app colors
+  selectedCheckboxBackground: '#48586E',
+  unselectedCheckboxBorder: '#D4D4D4',
+  placeholder: '#7E7E7E',
 };
 
 const SIZES = {
@@ -31,6 +36,10 @@ const SIZES = {
   radius: 8,
   padding: 16,
   radiusBtn: 8,
+
+  inputHeight: 45,
+  iconSize: 24,
+
   // font sizes
   h1: platform === 'android' ? 35 : 34,
   h2: 24,
@@ -40,6 +49,9 @@ const SIZES = {
   caption: 12,
   small: 10,
 
+  inputText: 15,
+  inputLabel: 14,
+  inputError: 13,
   // app dimensions
   width,
   height,
@@ -61,13 +73,49 @@ const SIZES = {
   starSize: width * 0.045,
 };
 const FONTS = {
-  h1: {fontSize: SIZES.h1, letterSpacing: 0.15},
-  h2: {fontSize: SIZES.h2, letterSpacing: 0},
-  h3: {fontSize: SIZES.h3, letterSpacing: 0.15},
-  title: {fontSize: SIZES.title, letterSpacing: 0.15},
-  subtitle: {fontSize: SIZES.subtitle},
-  caption: {fontSize: SIZES.caption, letterSpacing: 0.4},
-  small: {fontSize: SIZES.small, letterSpacing: 1.5},
+  h1: {
+    fontSize: SIZES.h1,
+    fontFamily: 'Roboto',
+    letterSpacing: 0.15,
+  },
+  h2: {
+    fontSize: SIZES.h2,
+    fontFamily: 'Roboto',
+    letterSpacing: 0,
+  },
+  h3: {
+    fontSize: SIZES.h3,
+    fontFamily: 'Roboto',
+    letterSpacing: 0.15,
+  },
+  title: {
+    fontSize: SIZES.title,
+    fontFamily: 'Roboto',
+    letterSpacing: 0.15,
+  },
+  subtitle: {
+    fontSize: SIZES.subtitle,
+    fontFamily: 'Roboto',
+  },
+  caption: {
+    fontSize: SIZES.caption,
+    fontFamily: 'Roboto',
+    letterSpacing: 0.4,
+  },
+  small: {
+    fontSize: SIZES.small,
+    fontFamily: 'Roboto',
+    letterSpacing: 1.5,
+  },
+  input: {
+    fontFamily: 'Roboto',
+  },
+  placeholder: {
+    fontFamily: 'Roboto',
+  },
+  button: {
+    fontFamily: 'Roboto',
+  },
 };
 const WEIGHTS = {
   regular: 'normal',

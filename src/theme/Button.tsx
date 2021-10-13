@@ -6,16 +6,18 @@ import {
   TouchableOpacity,
   TouchableWithoutFeedback,
 } from 'react-native';
-import expoTheme from './Config';
-import {getMargins, getPaddings, mergeTheme, rgba} from '@utils';
+
+import {Config} from '@theme';
+
+import {getMargins, getPaddings, mergeTheme} from '@utils';
 
 export const ButtonInstance = ({
   Touchable = TouchableOpacity,
-  children,
+  children = null,
   ...props
 }) => <Touchable {...props}>{children}</Touchable>;
 
-const Button = props => {
+const Button = (props: any) => {
   const {
     disabled,
     opacity,
@@ -64,7 +66,7 @@ const Button = props => {
     ...rest
   } = props;
 
-  const {SIZES, COLORS} = mergeTheme({...expoTheme}, theme);
+  const {SIZES, COLORS} = mergeTheme({...Config}, theme);
 
   const marginSpacing = getMargins({
     margin,
@@ -116,10 +118,8 @@ const Button = props => {
     style,
   ]);
 
-  const backgroundColor = StyleSheet.flatten(buttonStyles).backgroundColor;
-
   if (disabled) {
-    buttonStyles.backgroundColor = colors.grey;
+    buttonStyles.backgroundColor = COLORS.gray;
   }
 
   if (outlined) {

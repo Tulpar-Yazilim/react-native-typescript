@@ -1,7 +1,7 @@
-import ax from '../axios';
+import axios from '../axios';
 
 const SERVICE_NAME = 'GuideCategory';
 
-const CategoryList = () => ax.get(`${SERVICE_NAME}/GetList`);
+const CategoryList = () => axios.get(`${SERVICE_NAME}/GetList`);
 
 export default {CategoryList};

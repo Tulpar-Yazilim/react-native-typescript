@@ -6,8 +6,9 @@ import {
   Dimensions,
 } from 'react-native';
 import {Text, Block, Icon} from './index';
-import colors from '../config/colors';
+import {Config} from '@theme';
 import {RFValue} from 'react-native-responsive-fontsize';
+import {SIZES} from './Config';
 
 const TextInput = ({
   name,
@@ -25,7 +26,8 @@ const TextInput = ({
   multiline,
   flex = 0,
   ...otherProps
-}) => {
+}: any) => {
+  const {COLORS, FONTS} = Config;
   const [visible, setVisible] = useState(false);
   const handleVisible = () => {
     setVisible(!visible);
@@ -41,9 +43,7 @@ const TextInput = ({
         width: half ? '49%' : '100%',
       }}>
       {value.length > 0 && (
-        <Text
-          style={styles.label}
-          color={error ? colors.errorTextColor : 'black'}>
+        <Text style={styles.label} color={error ? COLORS.error : 'black'}>
           {placeholder}
         </Text>
       )}
@@ -52,12 +52,12 @@ const TextInput = ({
         style={[
           styles.textInputContainer,
           {
-            height: multiline ? 'auto' : 45,
+            height: multiline ? 'auto' : SIZES.inputHeight,
             borderColor: error
-              ? colors.errorBorderColor
+              ? COLORS.error
               : value.length > 0
               ? '#2A2F35'
-              : colors.grey,
+              : COLORS.gray,
           },
         ]}>
         <RNTextInput
@@ -65,11 +65,12 @@ const TextInput = ({
           onChangeText={onChangeText}
           style={[
             styles.textInput,
-            multiline ? styles.multilineTextInput : {height: 45},
+            FONTS.input,
+            multiline && styles.multilineTextInput,
           ]}
           placeholder={placeholder}
-          placeholderStyle={styles.placeholder}
-          placeholderTextColor={'#7E7E7E'}
+          placeholderStyle={[styles.placeholder, FONTS.placeholder]}
+          placeholderTextColor={COLORS.placeholder}
           secureTextEntry={password && !visible}
           multiline={multiline}
           {...otherProps}
@@ -79,15 +80,15 @@ const TextInput = ({
             <Icon
               type={'feather'}
               name={visible ? 'eye' : 'eye-off'}
-              size={20}
-              style={{color: colors.font}}
+              size={SIZES.iconSize}
+              style={{color: COLORS.font}}
             />
           </TouchableOpacity>
         )}
       </Block>
 
       {error && (
-        <Text style={styles.errorDescription} color={colors.errorTextColor}>
+        <Text style={styles.errorDescription} color={COLORS.error}>
           {errorText}
         </Text>
       )}
@@ -107,9 +108,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   textInput: {
+    height: SIZES.inputHeight,
     zIndex: 0,
-    fontSize: RFValue(15, Dimensions.get('window').height),
-    fontFamily: 'Nunito-Regular',
+    fontSize: RFValue(SIZES.inputText, Dimensions.get('window').height),
     flex: 1,
     paddingRight: 5,
   },
@@ -125,15 +126,14 @@ const styles = StyleSheet.create({
     top: 0,
     zIndex: 1,
     paddingHorizontal: 5,
-    fontSize: RFValue(14, Dimensions.get('window').height),
+    fontSize: RFValue(SIZES.inputLabel, Dimensions.get('window').height),
   },
   placeholder: {
-    fontSize: RFValue(15, Dimensions.get('window').height),
-    fontFamily: 'Nunito-Regular',
+    fontSize: RFValue(SIZES.inputText, Dimensions.get('window').height),
   },
   errorDescription: {
     paddingLeft: 15,
     paddingTop: 5,
-    fontSize: RFValue(13, Dimensions.get('window').height),
+    fontSize: RFValue(SIZES.inputError, Dimensions.get('window').height),
   },
 });

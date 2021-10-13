@@ -1,9 +1,9 @@
 import React from 'react';
 import {Animated, StyleSheet, Text, Dimensions, Platform} from 'react-native';
 
-import {mergeTheme, getMargins, getPaddings} from './utils/index';
-import {RFPercentage, RFValue} from 'react-native-responsive-fontsize';
-import {COLORS, SIZES} from '@theme';
+import {mergeTheme, getMargins, getPaddings} from '@utils';
+import {RFValue} from 'react-native-responsive-fontsize';
+import {SIZES, COLORS, FONTS, WEIGHTS} from '@theme';
 
 /**
  * Usage:
@@ -129,8 +129,6 @@ const Typography = (props: any) => {
     ...rest
   } = props;
 
-  const {SIZES, COLORS, FONTS, WEIGHTS} = mergeTheme({...expoTheme}, theme);
-
   const marginSpacing = getMargins({
     margin,
     marginHorizontal,
@@ -155,7 +153,6 @@ const Typography = (props: any) => {
   const textStyles = StyleSheet.flatten([
     {
       fontSize: RFValue(SIZES.font, Dimensions.get('window').height),
-      fontFamily: 'Nunito-Regular',
       color: COLORS,
     },
     h1 && FONTS.h1,
@@ -176,17 +173,13 @@ const Typography = (props: any) => {
     underline && {textDecorationLine: 'underline'},
     through && {textDecorationLine: 'line-through'},
 
-    bold && {
-      fontFamily: 'Nunito-Bold',
-    },
-    medium && {
-      fontFamily: 'Nunito-SemiBold',
-    },
-    semibold && {fontWeight: WEIGHTS.semibold},
+    bold,
+    medium,
+    semibold,
 
-    light && {fontFamily: 'Nunito-Light'},
-    blackFont && {fontFamily: 'Nunito-Black'},
-    italic && {fontFamily: 'Nunito-Italic'},
+    light,
+    blackFont,
+    italic,
 
     center && styles.center,
     right && styles.right,

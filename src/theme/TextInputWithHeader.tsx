@@ -6,7 +6,8 @@ import {
   Dimensions,
 } from 'react-native';
 import {Text, Block, Icon} from './index';
-import colors from '../config/colors';
+import {Config} from '@theme';
+import {SIZES} from './Config';
 import {RFValue} from 'react-native-responsive-fontsize';
 
 const TextInputWithHeader = ({
@@ -21,10 +22,11 @@ const TextInputWithHeader = ({
   half,
   noflex = true,
   header = null,
-
+  multiline = false,
   ...otherProps
-}) => {
-  const [visible, setVisible] = useState(true);
+}: any) => {
+  const {COLORS, FONTS} = Config;
+  const [visible, setVisible] = useState(false);
   const [text, setText] = useState(value);
   const handleVisible = () => {
     setVisible(!visible);
@@ -47,23 +49,28 @@ const TextInputWithHeader = ({
           styles.textInputContainer,
           {
             borderColor: error
-              ? colors.errorBorderColor
+              ? COLORS.error
               : value.length > 0
-              ? 'black'
-              : '#D8D8D8',
+              ? COLORS.black
+              : COLORS.gray,
           },
         ]}>
         <RNTextInput
-          value={text}
+          value={value}
           onChangeText={value => {
             setText(value);
             onChangeText(value);
           }}
-          style={styles.textInput}
+          style={[
+            styles.textInput,
+            FONTS.input,
+            multiline ? styles.multilineTextInput : {height: SIZES.inputHeight},
+          ]}
           placeholder={placeholder}
-          placeholderStyle={styles.placeholder}
-          placeholderTextColor={'#707070'}
-          secureTextEntry={password && visible}
+          placeholderStyle={[styles.placeholder, FONTS.placeholder]}
+          placeholderTextColor={COLORS.placeholder}
+          secureTextEntry={password && !visible}
+          multiline={multiline}
           {...otherProps}
         />
         {password && (
@@ -79,7 +86,7 @@ const TextInputWithHeader = ({
       </Block>
 
       {error && (
-        <Text style={styles.errorDescription} color={colors.errorTextColor}>
+        <Text style={styles.errorDescription} color={COLORS.error}>
           {errorText}
         </Text>
       )}
@@ -90,7 +97,7 @@ export default TextInputWithHeader;
 
 const styles = StyleSheet.create({
   textInputContainer: {
-    height: 45,
+    height: SIZES.inputHeight,
     borderRadius: 6,
     borderBottomWidth: 1,
     zIndex: 0,
@@ -98,12 +105,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   textInput: {
-    height: 45,
+    height: SIZES.inputHeight,
     zIndex: 0,
-    fontSize: RFValue(16, Dimensions.get('window').height),
-    fontFamily: 'Nunito-SemiBold',
+    fontSize: RFValue(SIZES.inputText, Dimensions.get('window').height),
     flex: 1,
     paddingRight: 5,
+  },
+  multilineTextInput: {
+    maxHeight: 120,
+    paddingTop: 12,
+    paddingBottom: 12,
   },
   label: {
     position: 'absolute',
@@ -112,15 +123,14 @@ const styles = StyleSheet.create({
     top: 0,
     zIndex: 1,
     paddingHorizontal: 5,
-    fontSize: RFValue(14, Dimensions.get('window').height),
+    fontSize: RFValue(SIZES.inputLabel, Dimensions.get('window').height),
   },
   placeholder: {
-    fontSize: RFValue(16, Dimensions.get('window').height),
-    fontFamily: 'Nunito-Regular',
+    fontSize: RFValue(SIZES.inputText, Dimensions.get('window').height),
   },
   errorDescription: {
     paddingLeft: 15,
     paddingTop: 5,
-    fontSize: RFValue(13, Dimensions.get('window').height),
+    fontSize: RFValue(SIZES.inputError, Dimensions.get('window').height),
   },
 });
