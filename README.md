@@ -6,7 +6,7 @@
 A collection of React Native Base Project profile README's examples.
 
 ```bash
-npm i install
+npm install
 ```
 
 ```bash
