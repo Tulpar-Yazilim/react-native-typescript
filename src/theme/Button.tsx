@@ -7,9 +7,9 @@ import {
   TouchableWithoutFeedback,
 } from 'react-native';
 
-import {Config} from '@theme';
+import {SIZES, COLORS} from './Config';
 
-import {getMargins, getPaddings, mergeTheme} from '@utils';
+import {getMargins, getPaddings} from '@utils';
 
 export const ButtonInstance = ({
   Touchable = TouchableOpacity,
@@ -65,8 +65,6 @@ const Button = (props: any) => {
     noRadius,
     ...rest
   } = props;
-
-  const {SIZES, COLORS} = mergeTheme({...Config}, theme);
 
   const marginSpacing = getMargins({
     margin,

@@ -1,9 +1,9 @@
 import React from 'react';
-import {Animated, StyleSheet, Text, Dimensions, Platform} from 'react-native';
+import {Animated, StyleSheet, Text, Dimensions} from 'react-native';
 
-import {mergeTheme, getMargins, getPaddings} from '@utils';
+import {getMargins, getPaddings} from '@utils';
 import {RFValue} from 'react-native-responsive-fontsize';
-import {SIZES, COLORS, FONTS, WEIGHTS} from '@theme';
+import {SIZES, COLORS, FONTS, WEIGHTS} from './Config';
 
 /**
  * Usage:

@@ -1,11 +1,10 @@
 import React from 'react';
-import {ActivityIndicator, Modal} from 'react-native';
-import {Block} from '@theme';
+import {ActivityIndicator, Modal, View} from 'react-native';
 
 const LoadingScreen = () => {
   return (
     <Modal>
-      <Block
+      <View
         style={{
           backgroundColor: 'rgba(0,0,0,0.7)',
           position: 'absolute',
@@ -18,7 +17,7 @@ const LoadingScreen = () => {
           justifyContent: 'center',
         }}>
         <ActivityIndicator color="#fff" size="large" />
-      </Block>
+      </View>
     </Modal>
   );
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, ActivityIndicator} from 'react-native';
 import {COLORS, SIZES, Text, Button, Block} from '@theme';
-import {AppIcon} from '@components';
+import AppIcon from './AppIcon';
 
 const AppButton = ({
   onPress = () => {},

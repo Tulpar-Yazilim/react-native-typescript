@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, TouchableOpacity} from 'react-native';
 import {COLORS, Block, Text} from '@theme';
-import {AppIcon, IconTypes} from '@components';
+import AppIcon, {IconTypes} from './AppIcon';
 import Modal from 'react-native-modal';
 import Separator from './Separator';
 import AppIconButton from './AppIconButton';

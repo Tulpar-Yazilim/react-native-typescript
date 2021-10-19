@@ -1,6 +1,6 @@
 import React from 'react';
-import {AppIcon} from '@components';
 import {TouchableOpacity} from 'react-native';
+import AppIcon from './AppIcon';
 
 const AppIconButton = ({onPress, icon, style}: any) => {
   return (
