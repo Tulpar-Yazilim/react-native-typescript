@@ -7,10 +7,11 @@ import {
   View,
 } from 'react-native';
 
-import {SIZES, COLORS} from '@theme';
+import {SIZES, COLORS} from './Config';
 import {getMargins, getPaddings} from '@utils';
 
-import {LoadingScreen, LoadingCard} from '@components';
+import LoadingScreen from '../components/common/LoadingScreen';
+import LoadingCard from '../components/common/LoadingCard';
 
 const Block = (props: any) => {
   const {

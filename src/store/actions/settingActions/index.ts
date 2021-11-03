@@ -1,5 +1,5 @@
-import {store} from '@store';
-import {actionTypes} from '@actions';
+import {store} from '../../index';
+import * as actionTypes from '../actionTypes';
 
 const changeLanguage = (lang: string) => {
   store.dispatch({

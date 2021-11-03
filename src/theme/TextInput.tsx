@@ -5,10 +5,11 @@ import {
   TouchableOpacity,
   Dimensions,
 } from 'react-native';
-import {Text, Block, Icon} from './index';
-import {Config} from '@theme';
+import Text from './Text';
+import Block from './Block';
+import {SIZES, COLORS, FONTS} from './Config';
+import AppIcon from '../components/common/AppIcon';
 import {RFValue} from 'react-native-responsive-fontsize';
-import {SIZES} from './Config';
 
 const TextInput = ({
   name,
@@ -27,7 +28,6 @@ const TextInput = ({
   flex = 0,
   ...otherProps
 }: any) => {
-  const {COLORS, FONTS} = Config;
   const [visible, setVisible] = useState(false);
   const handleVisible = () => {
     setVisible(!visible);
@@ -77,7 +77,7 @@ const TextInput = ({
         />
         {password && (
           <TouchableOpacity onPress={handleVisible}>
-            <Icon
+            <AppIcon
               type={'feather'}
               name={visible ? 'eye' : 'eye-off'}
               size={SIZES.iconSize}

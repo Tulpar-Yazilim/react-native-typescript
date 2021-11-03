@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import {Text, Block} from './index';
+import Text from './Text';
+import Block from './Block';
 import {TouchableOpacity, StyleSheet} from 'react-native';
-import {AppIcon, IconTypes} from '@components';
+import AppIcon, {IconTypes} from '../components/common/AppIcon';
 import {useGuid} from '@hooks';
-import {COLORS} from '@theme';
+import {COLORS} from './Config';
 
 const CheckBox = ({
   onPress,
