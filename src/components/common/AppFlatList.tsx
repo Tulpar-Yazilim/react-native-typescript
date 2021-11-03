@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/rules-of-hooks */
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {ActivityIndicator, FlatList as FList, View} from 'react-native';
 import {Block, COLORS} from '@theme';

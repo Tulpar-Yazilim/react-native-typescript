@@ -54,6 +54,15 @@
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 
+	<!-- Permissions -->
+	<key>NSCameraUsageDescription</key>
+  	<string>YOUR TEXT</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+ 	 <string>YOUR TEXT</string>
+  	<key>NSPhotoLibraryAddUsageDescription</key>
+ 	 <string>YOUR TEXT</string>
+	<!-- Permissions -->
+
 	<key>UIAppFonts</key>
 	<array>
  		 <string>AntDesign.ttf</string>
