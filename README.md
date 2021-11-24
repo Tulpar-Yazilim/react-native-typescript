@@ -1,7 +1,7 @@
 # Awesome React Native Base Project
 
-[![GitHub stars](https://img.shields.io/github/stars/themlphdstudent/awesome-github-profile-readme-templates.svg)](https://github.com/tulparyazilim/react-native-typescript)
-[![GitHub forks](https://img.shields.io/github/forks/themlphdstudent/awesome-github-profile-readme-templates.svg?color=blue)](https://github.com/tulparyazilim/react-native-typescript)
+[![GitHub stars](https://img.shields.io/github/stars/tulparyazilim/react-native-typescript.svg?color=red)](https://github.com/tulparyazilim/react-native-typescript)
+[![GitHub forks](https://img.shields.io/github/forks/tulparyazilim/react-native-typescript.svg?color=blue)](https://github.com/tulparyazilim/react-native-typescript)
 
 A collection of React Native Base Project profile README's examples.
 
