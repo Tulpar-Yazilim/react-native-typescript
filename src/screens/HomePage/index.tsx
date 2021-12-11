@@ -8,7 +8,7 @@ import lang from '@lang';
 import {settingActions} from '@actions';
 import {RootState} from '@store';
 import {Block, COLORS, Text} from '@theme';
-import {AppImage, AppIcon} from '@components';
+import {AppImage, AppIcon, AppPage} from '@components';
 import {requestPermissions, permissionsControll, PermissionsList} from '@utils';
 import {useFocusEffect} from '@react-navigation/native';
 
@@ -43,7 +43,7 @@ const HomePage = ({navigation}: any) => {
   );
 
   return (
-    <>
+    <AppPage scroll>
       <Block paddingLeft={10} paddingRight={10}>
         <Block noflex center middle marginTop={25} marginBottom={10}>
           <AppImage url={Images.TulparLogo} width={200} height={60} />
@@ -89,7 +89,7 @@ const HomePage = ({navigation}: any) => {
           )}
         </Block>
       </Block>
-    </>
+    </AppPage>
   );
 };
 

@@ -3,6 +3,7 @@ import {View, Text, FlatList} from 'react-native';
 import {category} from '@api';
 import {useApi} from '@hooks';
 import {Block} from '@theme';
+import {AppPage} from '@components';
 
 const DetailPage = () => {
   const [data, setData] = useState([]);
@@ -27,7 +28,7 @@ const DetailPage = () => {
   };
 
   return (
-    <View>
+    <AppPage scroll={false} goBack>
       <FlatList
         data={data}
         ListEmptyComponent={
@@ -37,7 +38,7 @@ const DetailPage = () => {
         }
         renderItem={renderItem}
       />
-    </View>
+    </AppPage>
   );
 };
 

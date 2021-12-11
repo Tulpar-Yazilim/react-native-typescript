@@ -8,7 +8,12 @@ const HomeStack = () => {
   return (
     <Stack.Navigator>
       {pages.map((el, index) => (
-        <Stack.Screen key={index} name={el.name} component={el.component} />
+        <Stack.Screen
+          key={index}
+          name={el.name}
+          component={el.component}
+          options={{headerShown: el.headerShown}}
+        />
       ))}
     </Stack.Navigator>
   );

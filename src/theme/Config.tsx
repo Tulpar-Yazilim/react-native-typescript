@@ -23,6 +23,10 @@ const COLORS = {
   success: '#4CD964',
   info: '#4DA1FF',
 
+  //ios statusbar color
+  statusbar_dark: 'light-content',
+  statusbar_light: 'dark-content',
+
   // app colors
   selectedCheckboxBackground: '#48586E',
   unselectedCheckboxBorder: '#D4D4D4',
