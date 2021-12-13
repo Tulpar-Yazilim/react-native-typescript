@@ -28,7 +28,7 @@ const DetailPage = () => {
   };
 
   return (
-    <AppPage scroll={false} goBack>
+    <AppPage title="Tulpar Yazılım Detay" scroll={false} goBack>
       <FlatList
         data={data}
         ListEmptyComponent={

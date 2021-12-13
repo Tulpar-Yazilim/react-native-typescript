@@ -1,4 +1,3 @@
-/* eslint-disable no-shadow */
 /* eslint-disable react-native/no-inline-styles */
 import React, {useState, useCallback} from 'react';
 import {TouchableOpacity} from 'react-native';
@@ -9,7 +8,7 @@ import {settingActions} from '@actions';
 import {RootState} from '@store';
 import {Block, COLORS, Text} from '@theme';
 import {AppImage, AppIcon, AppPage} from '@components';
-import {requestPermissions, permissionsControll, PermissionsList} from '@utils';
+import {requestPermissions, checkPermissions, PermissionsList} from '@utils';
 import {useFocusEffect} from '@react-navigation/native';
 
 const HomePage = ({navigation}: any) => {
@@ -18,8 +17,8 @@ const HomePage = ({navigation}: any) => {
     (state: RootState) => state.authReducer.isLoggedIn,
   );
 
-  const onChangeLang = (lang: string) => {
-    settingActions.changeLanguage(lang);
+  const onChangeLang = (language: string) => {
+    settingActions.changeLanguage(language);
   };
 
   const cameraPermissions = async () => {
@@ -30,7 +29,7 @@ const HomePage = ({navigation}: any) => {
   };
 
   const isSCameraPermissionsCheck = async () => {
-    const isCheckPermission: any = await permissionsControll(
+    const isCheckPermission: any = await checkPermissions(
       PermissionsList.camera,
     );
     setIsPermission(isCheckPermission);
@@ -43,7 +42,7 @@ const HomePage = ({navigation}: any) => {
   );
 
   return (
-    <AppPage scroll>
+    <AppPage title="Tulpar Yazılım" scroll>
       <Block paddingLeft={10} paddingRight={10}>
         <Block noflex center middle marginTop={25} marginBottom={10}>
           <AppImage url={Images.TulparLogo} width={200} height={60} />

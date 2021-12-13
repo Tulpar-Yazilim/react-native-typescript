@@ -22,6 +22,50 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>facebook</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>***************</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>google</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.****************-svrdp11sijr8cf33f8tj9g07emc42eum</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>twitter</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>twitterkit-***********</string>
+			</array>
+		</dict>
+	</array>
+	<key>FacebookAppID</key>
+	<string>***********</string>
+	<key>FacebookClientToken</key>
+	<string>*************</string>
+	<key>FacebookDisplayName</key>
+	<string>$(PRODUCT_NAME)</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>twitter</string>
+		<string>twitterauth</string>
+	</array>
 	<key>CodePushDeploymentKey</key>
 	<string>????</string>
 	<key>LSRequiresIPhoneOS</key>
@@ -37,8 +81,37 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>React Native Typescript uygulamasının fotoğraf çekimi veya resim seçebilmesi için kameranıza erişmesi gerekir. Lütfen gerekli izinleri veriniz.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>React Native Typescript uygulamasının fotoğraf çekimi veya resim seçebilmesi için kameranıza erişmesi gerekir. Lütfen gerekli izinleri veriniz.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>React Native Typescript uygulamasının fotoğraf çekimi veya resim seçebilmesi için kameranıza erişmesi gerekir. Lütfen gerekli izinleri veriniz.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string>React Native Typescript uygulaması lokasyon bilgilerinize ihtiyaç duymaktadır. Lütfen gerekli izinleri veriniz.</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>AntDesign.ttf</string>
+		<string>Entypo.ttf</string>
+		<string>EvilIcons.ttf</string>
+		<string>Feather.ttf</string>
+		<string>FontAwesome.ttf</string>
+		<string>FontAwesome5_Brands.ttf</string>
+		<string>FontAwesome5_Regular.ttf</string>
+		<string>FontAwesome5_Solid.ttf</string>
+		<string>Foundation.ttf</string>
+		<string>Ionicons.ttf</string>
+		<string>MaterialIcons.ttf</string>
+		<string>MaterialCommunityIcons.ttf</string>
+		<string>SimpleLineIcons.ttf</string>
+		<string>Octicons.ttf</string>
+		<string>Zocial.ttf</string>
+		<string>Fontisto.ttf</string>
+	</array>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -53,34 +126,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-
-	<!-- Permissions -->
-	<key>NSCameraUsageDescription</key>
-  	<string>YOUR TEXT</string>
-	<key>NSPhotoLibraryUsageDescription</key>
- 	 <string>YOUR TEXT</string>
-  	<key>NSPhotoLibraryAddUsageDescription</key>
- 	 <string>YOUR TEXT</string>
-	<!-- Permissions -->
-
-	<key>UIAppFonts</key>
-	<array>
- 		 <string>AntDesign.ttf</string>
- 		 <string>Entypo.ttf</string>
- 		 <string>EvilIcons.ttf</string>
- 		 <string>Feather.ttf</string>
- 		 <string>FontAwesome.ttf</string>
- 		 <string>FontAwesome5_Brands.ttf</string>
- 		 <string>FontAwesome5_Regular.ttf</string>
- 		 <string>FontAwesome5_Solid.ttf</string>
- 		 <string>Foundation.ttf</string>
- 		 <string>Ionicons.ttf</string>
- 		 <string>MaterialIcons.ttf</string>
- 		 <string>MaterialCommunityIcons.ttf</string>
- 		 <string>SimpleLineIcons.ttf</string>
- 		 <string>Octicons.ttf</string>
- 		 <string>Zocial.ttf</string>
- 		 <string>Fontisto.ttf</string>
-	</array>
 </dict>
 </plist>

@@ -2,4 +2,7 @@
     <string name="app_name">React Native Typescript</string>
 
     <string moduleConfig="true" name="CodePushDeploymentKey">**************</string>
+    <string name="facebook_app_id">**************</string>
+    <string name="fb_login_protocol_scheme">************</string> 
+    <string name="facebook_client_token">*************</string>
 </resources>

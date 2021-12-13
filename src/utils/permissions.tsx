@@ -10,7 +10,7 @@ const requestPermissions = async (permissions: any) => {
   }
 };
 
-const permissionsControll = async (permissions: any) => {
+const checkPermissions = async (permissions: any) => {
   const isCheckPermission = await check(permissions);
   if (isCheckPermission === 'granted') {
     return true;
@@ -19,4 +19,4 @@ const permissionsControll = async (permissions: any) => {
   }
 };
 
-export {requestPermissions, permissionsControll};
+export {requestPermissions, checkPermissions};

@@ -6,6 +6,7 @@ platform :ios, '11.0'
 target 'reactnativetypescript' do
   config = use_native_modules!  
   
+  #pod 'TwitterKit', '~> 3.3.0'
   permissions_path = '../node_modules/react-native-permissions/ios'
   pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
   pod 'Permission-PhotoLibrary', :path => "#{permissions_path}/PhotoLibrary"
@@ -26,9 +27,12 @@ target 'reactnativetypescript' do
   #
   # Note that if you have use_frameworks! enabled, Flipper will not work and
   # you should disable the next line.
-  use_flipper!()
-
+  use_flipper!() 
   post_install do |installer|
-    react_native_post_install(installer) 
-  end
+     react_native_post_install(installer) 
+   end
+end
+
+target 'OneSignalNotificationServiceExtension' do
+  pod 'OneSignalXCFramework', '>= 3.0', '< 4.0'
 end

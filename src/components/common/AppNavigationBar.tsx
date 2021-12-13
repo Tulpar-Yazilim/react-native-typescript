@@ -2,11 +2,12 @@ import React from 'react';
 import {SafeAreaView, StatusBar} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {Block, COLORS, Text} from '@theme';
-import {AppIcon} from '@components';
+import AppIcon from './AppIcon';
 import {useNavigation} from '@react-navigation/native';
 import PropTypes from 'prop-types';
 
 const AppNavigationBar = ({
+  title = '',
   goBack = false,
   rightComponent = <></>,
   barStyle = 'dark-content',
@@ -20,7 +21,7 @@ const AppNavigationBar = ({
         backgroundColor={COLORS.primary}
       />
       <Block row height={35}>
-        <Block left>
+        <Block noflex alignItems="flex-start" middle>
           {goBack && (
             <Block paddingLeft={10}>
               <TouchableOpacity onPress={() => navigation.goBack()}>
@@ -34,46 +35,28 @@ const AppNavigationBar = ({
             </Block>
           )}
         </Block>
-        <Block center>
-          <Text bold white center size={19}>
-            TULPAR YAZILIM
+        <Block flex={1} center middle>
+          <Text bold white size={19}>
+            {title}
           </Text>
         </Block>
-        <Block alignItems="flex-end">{rightComponent}</Block>
-      </Block>
-      {/* <Block noflex backgroundColor={COLORS.primary} height={35}>
-        <Block>
-          {goBack && (
-            <TouchableOpacity onPress={() => navigation.goBack()}>
-              <Block paddingLeft={10} position="absolute">
-                <AppIcon
-                  type="ionicon"
-                  name="arrow-back"
-                  size={30}
-                  color={COLORS.white}
-                />
-              </Block>
-            </TouchableOpacity>
-          )}
-
-          <Block>
-            <Text bold white center size={20}>
-              TULPAR YAZILIM
-            </Text>
-          </Block>
+        <Block noflex alignItems="flex-end" middle>
+          {rightComponent}
         </Block>
-      </Block> */}
+      </Block>
     </SafeAreaView>
   );
 };
 
 AppNavigationBar.propTypes = {
+  title: PropTypes.string,
   barStyle: PropTypes.string,
   goBack: PropTypes.bool,
   rightComponent: PropTypes.node,
 };
 
 AppNavigationBar.defaultProps = {
+  title: '',
   barStyle: 'dark-content',
   goBack: false,
   rightComponent: <></>,
