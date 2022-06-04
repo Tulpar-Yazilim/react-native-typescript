@@ -7,16 +7,31 @@ import LoadingCard from './LoadingCard';
 import LoadingScreen from './LoadingScreen';
 import AppPage from './AppPage';
 import AppNavigationBar from './AppNavigationBar';
-export * from './AppIcon';
+import AppImageBackground from './AppImageBackground';
+import AppCalendar from './AppCalendar';
+import AppTab from './AppTab';
+import AppBottomSheet from './AppBottomSheet';
+import AppLottieView from './AppLottieView';
+import Seperator from './Separator';
+
+import AppIcon, {IconTypes} from './AppIcon';
 
 export {
   AppAlert,
   AppImage,
   AppButton,
+  AppIcon,
+  IconTypes,
   AppFlatList,
   AppSelector,
   LoadingCard,
   LoadingScreen,
   AppPage,
   AppNavigationBar,
+  AppImageBackground,
+  AppCalendar,
+  AppTab,
+  AppBottomSheet,
+  AppLottieView,
+  Seperator,
 };

@@ -18,6 +18,7 @@ const COLORS = {
 
   // color variations
   gray: '#535453',
+  lightGray: '#EFF1F3',
   error: '#DC3545',
   warning: '#FFE358',
   success: '#4CD964',
@@ -75,8 +76,15 @@ const SIZES = {
   buttonHeight: 45,
 
   starSize: width * 0.045,
+
+  shadow: {
+    shadowColor: 'rgba(0,0,0,0.075)',
+    shadowOffset: {width: 0, height: 2},
+    shadowRadius: 4,
+  },
 };
 const FONTS = {
+  fontFamily: 'Roboto',
   h1: {
     fontSize: SIZES.h1,
     fontFamily: 'Roboto',
@@ -121,12 +129,13 @@ const FONTS = {
     fontFamily: 'Roboto',
   },
 };
+
 const WEIGHTS = {
-  regular: 'normal',
-  bold: 'bold',
-  semibold: '500',
-  medium: '400',
-  light: '300',
+  regular: {fontFamily: 'Roboto-Regular'},
+  bold: {fontFamily: 'Roboto-Bold'},
+  semibold: {fontFamily: 'Roboto-SemiBold'},
+  medium: {fontFamily: 'Roboto-Medium'},
+  light: {fontFamily: 'Roboto-Light'},
 };
 
 export {COLORS, SIZES, FONTS, WEIGHTS};

@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {memo} from 'react';
 import {Animated, StyleSheet, Text, Dimensions} from 'react-native';
 
 import {getMargins, getPaddings} from '@utils';
 import {RFValue} from 'react-native-responsive-fontsize';
 import {SIZES, COLORS, FONTS, WEIGHTS} from './Config';
+import {useTranslate} from '@hooks';
 
 /**
  * Usage:
@@ -106,47 +107,84 @@ const Typography = (props: any) => {
     success,
     info,
     animated,
-    theme,
     style,
     children,
+    params = {},
     // sizing props
     margin,
+    m,
     marginHorizontal,
+    mx,
     marginVertical,
+    my,
     marginTop,
+    mt,
     marginBottom,
+    mb,
     marginLeft,
+    ml,
     marginRight,
+    mr,
     padding,
+    p,
     paddingHorizontal,
+    px,
     paddingVertical,
+    py,
     paddingTop,
+    pt,
     paddingBottom,
+    pb,
     paddingLeft,
+    pl,
     paddingRight,
+    pr,
+
+    // text style
     underline,
     through,
     ...rest
   } = props;
 
+  // Translations
+  const _translate = useTranslate(children, params);
+  const i18nText = _translate ? _translate : children;
+
+  // Content
+  const content = i18nText || '';
+
   const marginSpacing = getMargins({
     margin,
+    m,
     marginHorizontal,
+    mx,
     marginVertical,
+    my,
     marginTop,
+    mt,
     marginBottom,
+    mb,
     marginLeft,
+    ml,
     marginRight,
+    mr,
     defaultValue: SIZES.base,
   });
   const paddingSpacing = getPaddings({
     padding,
+    p,
     paddingHorizontal,
+    px,
     paddingVertical,
+    py,
     paddingTop,
+    pt,
     paddingBottom,
+    pb,
     paddingLeft,
+    pl,
     paddingRight,
+    pr,
     defaultValue: SIZES.base,
   });
 
@@ -201,14 +239,14 @@ const Typography = (props: any) => {
   if (animated) {
     return (
       <Animated.Text {...rest} style={textStyles}>
-        {children}
+        {content}
       </Animated.Text>
     );
   }
 
   return (
     <Text {...rest} style={textStyles}>
-      {children || children !== '' ? children : ''}
+      {content || content !== '' ? content : ''}
     </Text>
   );
 };
@@ -253,7 +291,7 @@ Typography.defaultProps = {
   style: {},
 };
 
-export default Typography;
+export default memo(Typography);
 
 const styles = StyleSheet.create({
   // positioning

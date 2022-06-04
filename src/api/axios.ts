@@ -1,7 +1,12 @@
-import axios, {AxiosError, AxiosRequestConfig, AxiosResponse} from 'axios';
+import axios, {
+  AxiosError,
+  AxiosRequestConfig,
+  AxiosRequestHeaders,
+  AxiosResponse,
+} from 'axios';
 import {ApiResult} from './api-result';
-import {decrypt} from './crypto-service';
-import {baseURL, Crypto} from './config';
+import {baseURL} from './config';
+import {getUser} from '@utils';
 
 // Config
 const config: AxiosRequestConfig = {
@@ -17,26 +22,24 @@ const axiosInstance = axios.create(config);
 
 //  Interceptor Request
 axiosInstance.interceptors.request.use(async requestConfig => {
-  const token = '[USER_TOKEN]';
-  if (token) {
-    requestConfig.headers.Authorization = `Bearer ${token}`;
+  const headers: AxiosRequestHeaders = {};
+  const user = await getUser();
+  if (user && user?.access_token) {
+    headers.Authorization = `Bearer ${user?.access_token}`;
   }
+
+  requestConfig.headers = {...requestConfig.headers, ...headers};
   return requestConfig;
 });
 
 // on Ful Filled
 const onFulFilled = async (response: AxiosResponse) => {
-  const apiResult = new ApiResult(
-    response.data?.message,
-    response.data?.isSuccess,
-    Crypto ? decrypt(response.data.data) : response.data.data,
-  );
-
-  return apiResult;
+  return response;
 };
 
 // on Rejected
 const onRejected = async (error: AxiosError) => {
+  console.warn('onRejected', error.code);
   const apiResult: ApiResult<any> = {
     message: error?.message,
     isSuccess: false,

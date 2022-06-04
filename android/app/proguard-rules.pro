@@ -12,3 +12,6 @@
 -keep class your.package.* {
   *;
 }
+
+-keep class com.facebook.react.turbomodule.** { *; }
+-keep public class com.horcrux.svg.** {*;}

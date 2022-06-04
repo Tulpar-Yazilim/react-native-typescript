@@ -1,24 +1,25 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {useState, useCallback} from 'react';
-import {TouchableOpacity} from 'react-native';
+import {Pressable} from 'react-native';
 import {Images} from '@assets';
 import {useSelector} from 'react-redux';
-import lang from '@lang';
-import {settingActions} from '@actions';
+import {settingsActions} from '@actions';
 import {RootState} from '@store';
 import {Block, COLORS, Text} from '@theme';
-import {AppImage, AppIcon, AppPage} from '@components';
+import {AppImage, AppIcon, AppPage, AppButton} from '@components';
 import {requestPermissions, checkPermissions, PermissionsList} from '@utils';
 import {useFocusEffect} from '@react-navigation/native';
+import Routes from '../../navigation/Routes';
 
 const HomePage = ({navigation}: any) => {
   const [isPermission, setIsPermission] = useState(false);
-  const isLogin = useSelector(
-    (state: RootState) => state.authReducer.isLoggedIn,
+
+  const language = useSelector(
+    (state: RootState) => state.settingsReducer.language,
   );
 
-  const onChangeLang = (language: string) => {
-    settingActions.changeLanguage(language);
+  const onChangeLang = (_language: string) => {
+    settingsActions.changeLanguage(_language);
   };
 
   const cameraPermissions = async () => {
@@ -43,48 +44,46 @@ const HomePage = ({navigation}: any) => {
 
   return (
     <AppPage title="Tulpar Yazılım" scroll>
-      <Block paddingLeft={10} paddingRight={10}>
-        <Block noflex center middle marginTop={25} marginBottom={10}>
-          <AppImage url={Images.TulparLogo} width={200} height={60} />
+      <Block px={20}>
+        <Block center middle marginTop={25} marginBottom={10}>
+          <AppImage
+            resizeMode="contain"
+            url={Images.TulparLogo}
+            width={200}
+            height={60}
+          />
         </Block>
-        <Text style={{paddingBottom: 10, paddingTop: 10, textAlign: 'center'}}>
-          Giriş {isLogin ? 'Yapılmış' : 'Yapılmamış'}{' '}
-        </Text>
-        <TouchableOpacity onPress={() => navigation.navigate('DetailPage')}>
-          <Block noflex radius={15} backgroundColor={COLORS.black} height={30}>
-            <Block center middle>
-              <Text
-                style={{
-                  color: 'white',
-                  textAlign: 'center',
-                  fontSize: 17,
-                }}>
-                {lang('hello')}
-              </Text>
-            </Block>
-          </Block>
-        </TouchableOpacity>
+        <Text py={10}>Dil: {language}</Text>
 
-        <TouchableOpacity onPress={() => onChangeLang('tr')}>
-          <Block marginTop={10} noflex center middle>
-            <Text>Türkçe</Text>
-          </Block>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => onChangeLang('en')}>
-          <Block marginTop={10} noflex center middle>
-            <Text>İngilizce</Text>
-          </Block>
-        </TouchableOpacity>
-        <Block noflex marginTop={20} center middle>
-          <AppIcon name="rocket" size={30} color="#900" />
+        <AppButton
+          title={'Details'}
+          color={COLORS.font}
+          onPress={() => navigation.navigate(Routes.HOME_DETAIL_SCREEN)}
+        />
+
+        <AppButton
+          mt={5}
+          title={'Türkçe'}
+          color={COLORS.error}
+          onPress={() => onChangeLang('tr')}
+        />
+        <AppButton
+          mt={5}
+          title={'İngilizce'}
+          color={COLORS.secondary}
+          onPress={() => onChangeLang('en')}
+        />
+
+        <Block marginTop={20} center middle>
+          <AppIcon name="camera" size={30} color="#900" />
         </Block>
         <Block>
           {isPermission ? (
-            <Text center>{lang('camera_permissions')}</Text>
+            <Text center>camera_permissions</Text>
           ) : (
-            <TouchableOpacity onPress={cameraPermissions}>
-              <Text center>{lang('permissions')}</Text>
-            </TouchableOpacity>
+            <Pressable onPress={cameraPermissions}>
+              <Text center>permissions</Text>
+            </Pressable>
           )}
         </Block>
       </Block>

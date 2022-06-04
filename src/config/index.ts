@@ -1,2 +1,5 @@
 import config from './config';
-export default config;
+import linking from './linking';
+import locale from './locale';
+import toast from './toast';
+export {config, linking, locale, toast};

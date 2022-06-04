@@ -1,14 +1,14 @@
-import React from 'react';
+import React, {memo} from 'react';
 import {StyleSheet, ActivityIndicator} from 'react-native';
 import {COLORS, SIZES, Text, Button, Block} from '@theme';
 import AppIcon from './AppIcon';
 
 const AppButton = ({
   onPress = () => {},
-
   title = '',
+  color = COLORS.primary,
   icon = null,
-  style = null,
+  style = {},
   outlined = false,
   titleProps = null,
   loading = false,
@@ -17,7 +17,7 @@ const AppButton = ({
   return (
     <Button
       onPress={onPress}
-      color={COLORS.primary}
+      color={color}
       outlined={outlined}
       style={[styles.default, style]}
       {...rest}>
@@ -25,7 +25,7 @@ const AppButton = ({
         {icon && <AppIcon {...icon} style={{marginRight: 6}} />}
         <Text
           center
-          color={outlined ? COLORS.primary : COLORS.white}
+          color={outlined ? color : COLORS.white}
           blackFont
           {...titleProps}>
           {title}
@@ -38,10 +38,11 @@ const AppButton = ({
   );
 };
 
-export default AppButton;
-
 const styles = StyleSheet.create({
   default: {
     height: SIZES.buttonHeight,
+    paddingHorizontal: SIZES.padding,
   },
 });
+
+export default memo(AppButton);

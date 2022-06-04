@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import {TouchableOpacity} from 'react-native';
 import AppIcon from './AppIcon';
 
@@ -10,4 +10,4 @@ const AppIconButton = ({onPress, icon, style}: any) => {
   );
 };
 
-export default AppIconButton;
+export default memo(AppIconButton);

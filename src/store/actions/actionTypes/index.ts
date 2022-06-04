@@ -1,2 +1,2 @@
-export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const USER_CHANGE = 'USER_CHANGE';
 export const LANGUAGE_CHANGE = 'LANGUAGE_CHANGE';

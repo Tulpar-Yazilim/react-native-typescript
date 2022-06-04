@@ -1,5 +1,6 @@
+import {Platform} from 'react-native';
 import OneSignal from 'react-native-onesignal';
-import config from '@config';
+import {config} from '@config';
 
 const initializeOnesignal = () => {
   //OneSignal Init Code
@@ -7,10 +8,12 @@ const initializeOnesignal = () => {
   OneSignal.setAppId(config.ONESIGNAL_APP_ID);
   //END OneSignal Init Code
 
-  //Prompt for push on iOS
-  OneSignal.promptForPushNotificationsWithUserResponse(response => {
-    console.log('Prompt response:', response);
-  });
+  if (Platform.OS === 'ios') {
+    //Prompt for push on iOS
+    OneSignal.promptForPushNotificationsWithUserResponse(response => {
+      console.info('Prompt response:', response);
+    });
+  }
 
   //Method for handling notifications received while app in foreground
   OneSignal.setNotificationWillShowInForegroundHandler(

@@ -1,11 +1,8 @@
-import {NativeModules} from 'react-native';
 import {LoginManager, Settings, Profile} from 'react-native-fbsdk-next';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
 import {appleAuth} from '@invertase/react-native-apple-authentication';
-const {RNTwitterSignIn} = NativeModules;
 
 import {setStorage, getStorage} from './secure-storage';
-import config from '@config';
 
 const facebookLogin = async () => {
   try {
@@ -41,18 +38,6 @@ const googleLogin = async () => {
   }
 };
 
-const twitterLogin = async () => {
-  try {
-    RNTwitterSignIn.init(
-      config.TWITTER_COMSUMER_KEY,
-      config.TWITTER_CONSUMER_SECRET,
-    );
-    return await RNTwitterSignIn.logIn();
-  } catch (error) {
-    console.info('twitter login error', error);
-  }
-};
-
 const appleLogin = async () => {
   try {
     const appleAuthRequestResponse = await appleAuth.performRequest({
@@ -71,4 +56,4 @@ const appleLogin = async () => {
   }
 };
 
-export {facebookLogin, googleLogin, twitterLogin, appleLogin};
+export {facebookLogin, googleLogin, appleLogin};

@@ -1,11 +1,5 @@
-import React from 'react';
-import {
-  Animated,
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  View,
-} from 'react-native';
+import React, {memo} from 'react';
+import {Animated, ScrollView, StyleSheet, View} from 'react-native';
 
 import {SIZES, COLORS} from './Config';
 import {getMargins, getPaddings} from '@utils';
@@ -15,10 +9,12 @@ import LoadingCard from '../components/common/LoadingCard';
 
 const Block = (props: any) => {
   const {
+    // loading
     preloader = false,
     loading = null,
-    flex = true,
-    noflex = false,
+
+    flex = 0 || false,
+    noflex = true,
     row = false,
     column = false,
     center = false,
@@ -30,6 +26,7 @@ const Block = (props: any) => {
     card = false,
     shadow = null,
     elevation = 3,
+
     // colors
     color = null,
     primary = false,
@@ -42,63 +39,94 @@ const Block = (props: any) => {
     warning = false,
     success = false,
     info = false,
+
     // size & positioning
     width = null,
     height = null,
     space = null,
     radius = null,
     wrap = false,
-    // custom styling
-    style = {},
+
     // variations
     animated = false,
-    safe = false,
     scroll = false,
     children = null,
+
     // sizing props
     margin,
+    m,
     marginHorizontal,
+    mx,
     marginVertical,
+    my,
     marginTop,
+    mt,
     marginBottom,
+    mb,
     marginLeft,
+    ml,
     marginRight,
+    mr,
     padding,
+    p,
     paddingHorizontal,
+    px,
     paddingVertical,
+    py,
     paddingTop,
+    pt,
     paddingBottom,
+    pb,
     paddingLeft,
+    pl,
     paddingRight,
+    pr,
+
+    // custom styling
+    style = {},
     // extra props
     ...rest
   } = props;
 
   const marginSpacing = getMargins({
     margin,
+    m,
     marginHorizontal,
+    mx,
     marginVertical,
+    my,
     marginTop,
+    mt,
     marginBottom,
+    mb,
     marginLeft,
+    ml,
     marginRight,
+    mr,
     defaultValue: SIZES.base,
   });
   const paddingSpacing = getPaddings({
     padding,
+    p,
     paddingHorizontal,
+    px,
     paddingVertical,
+    py,
     paddingTop,
+    pt,
     paddingBottom,
+    pb,
     paddingLeft,
+    pl,
     paddingRight,
+    pr,
     defaultValue: SIZES.base,
   });
 
   const blockStyles = StyleSheet.flatten([
     styles.block,
+    noflex && {flex: 0},
     flex && {flex: flex === true ? 1 : flex},
-    (!flex || noflex) && {flex: 0},
     row && styles.row,
     column && styles.column,
     center && styles.center,
@@ -146,6 +174,7 @@ const Block = (props: any) => {
     return (
       <ScrollView
         showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
         style={blockStyles}
         {...rest}>
         {children}
@@ -161,14 +190,6 @@ const Block = (props: any) => {
     );
   }
 
-  if (safe) {
-    return (
-      <SafeAreaView {...rest} style={[blockStyles, {backgroundColor: '#fff'}]}>
-        {children}
-      </SafeAreaView>
-    );
-  }
-
   return (
     <View {...rest} style={blockStyles}>
       {loading && <LoadingScreen />}
@@ -178,7 +199,7 @@ const Block = (props: any) => {
   );
 };
 
-export default Block;
+export default memo(Block);
 
 export const styles = StyleSheet.create({
   block: {

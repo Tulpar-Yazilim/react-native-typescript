@@ -1,18 +1,18 @@
-import React, {useState, useEffect} from 'react';
+/* eslint-disable react-native/no-inline-styles */
+import React, {memo, useState} from 'react';
 import {
   TextInput as RNTextInput,
   StyleSheet,
-  TouchableOpacity,
+  Pressable,
   Dimensions,
 } from 'react-native';
 import Text from './Text';
 import Block from './Block';
 import {SIZES, COLORS, FONTS} from './Config';
-import AppIcon from '../components/common/AppIcon';
+import AppIcon, {IconTypes} from '../components/common/AppIcon';
 import {RFValue} from 'react-native-responsive-fontsize';
 
 const TextInputWithHeader = ({
-  name,
   value,
   onChangeText,
   placeholder = 'Giriniz..',
@@ -20,20 +20,15 @@ const TextInputWithHeader = ({
   errorText,
   password,
   marginTop = 0,
-  half,
   noflex = true,
   header = null,
   multiline = false,
   ...otherProps
 }: any) => {
   const [visible, setVisible] = useState(false);
-  const [text, setText] = useState(value);
   const handleVisible = () => {
     setVisible(!visible);
   };
-  useEffect(() => {
-    value && setText(value);
-  }, [value]);
   return (
     <Block noflex={noflex} style={{marginTop: marginTop}}>
       {header && (
@@ -57,10 +52,7 @@ const TextInputWithHeader = ({
         ]}>
         <RNTextInput
           value={value}
-          onChangeText={value => {
-            setText(value);
-            onChangeText(value);
-          }}
+          onChangeText={onChangeText}
           style={[
             styles.textInput,
             FONTS.input,
@@ -74,14 +66,14 @@ const TextInputWithHeader = ({
           {...otherProps}
         />
         {password && (
-          <TouchableOpacity onPress={handleVisible}>
+          <Pressable onPress={handleVisible}>
             <AppIcon
-              type={'feather'}
+              type={IconTypes.feather}
               name={visible ? 'eye' : 'eye-off'}
               size={20}
               style={{color: '#242424'}}
             />
-          </TouchableOpacity>
+          </Pressable>
         )}
       </Block>
 
@@ -93,7 +85,7 @@ const TextInputWithHeader = ({
     </Block>
   );
 };
-export default TextInputWithHeader;
+export default memo(TextInputWithHeader);
 
 const styles = StyleSheet.create({
   textInputContainer: {

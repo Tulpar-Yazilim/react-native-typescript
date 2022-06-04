@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from 'react';
+import React, {memo, useEffect, useState} from 'react';
 import Text from './Text';
 import Block from './Block';
-import {TouchableOpacity, StyleSheet} from 'react-native';
+import {StyleSheet, Pressable} from 'react-native';
 import AppIcon, {IconTypes} from '../components/common/AppIcon';
 import {useGuid} from '@hooks';
 import {COLORS} from './Config';
@@ -41,7 +41,7 @@ const CheckBox = ({
   }, [value]);
 
   return (
-    <TouchableOpacity
+    <Pressable
       key={useGuid()}
       onPress={() => onPress(!checked)}
       style={[
@@ -65,11 +65,11 @@ const CheckBox = ({
         </Block>
         {text ? <Text style={styles.text}>{text}</Text> : null}
       </Block>
-    </TouchableOpacity>
+    </Pressable>
   );
 };
 
-export default CheckBox;
+export default memo(CheckBox);
 
 const styles = StyleSheet.create({
   square: {

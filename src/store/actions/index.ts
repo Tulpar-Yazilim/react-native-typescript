@@ -1,4 +1,4 @@
 import * as actionTypes from './actionTypes';
-import settingActions from './settingActions';
+import settingsActions from './settingsActions';
 
-export {actionTypes, settingActions};
+export {actionTypes, settingsActions};

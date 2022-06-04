@@ -18,8 +18,16 @@ module.exports = {
           '@actions': './src/store/actions',
           '@utils': './src/utils',
           '@lang': './src/lang',
+          '@models': './src/models',
         },
       },
     ],
+    'module:react-native-dotenv',
+    'react-native-reanimated/plugin',
   ],
+  env: {
+    production: {
+      plugins: ['transform-remove-console'],
+    },
+  },
 };

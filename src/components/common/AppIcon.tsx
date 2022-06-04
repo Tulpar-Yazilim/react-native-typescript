@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import PropTypes from 'prop-types';
 import ZocialIcon from 'react-native-vector-icons/Zocial';
 import OcticonIcon from 'react-native-vector-icons/Octicons';
@@ -65,7 +65,8 @@ const getIconType = (type: string) => {
       return FontistoIcon;
   }
 };
-export const AppIcon = ({
+
+const AppIcon = ({
   name = '',
   type = IconTypes.fontAwesome,
   marginBottom = 0,
@@ -95,4 +96,5 @@ AppIcon.defaultProps = {
   marginBottom: 0,
   style: {},
 };
-export default AppIcon;
+
+export default memo(AppIcon);

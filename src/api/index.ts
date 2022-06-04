@@ -1,3 +1,3 @@
-import category from './services/category';
+import characters from './services/characters';
 
-export {category};
+export {characters};

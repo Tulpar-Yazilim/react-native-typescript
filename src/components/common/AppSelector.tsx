@@ -1,39 +1,50 @@
-import React from 'react';
-import {StyleSheet, TouchableOpacity} from 'react-native';
+import React, {memo} from 'react';
+import {Pressable, StyleSheet} from 'react-native';
 import {COLORS, Block, Text} from '@theme';
 import AppIcon, {IconTypes} from './AppIcon';
 import Modal from 'react-native-modal';
 import Separator from './Separator';
 import AppIconButton from './AppIconButton';
 import AppFlatList from './AppFlatList';
+import AppButton from './AppButton';
+import {useTranslation} from 'react-i18next';
 
 const AppSelector = ({
-  isVisible,
-  hideModal,
-  onSelect,
-  itemsList,
-  selectedItem,
-}: any) => {
+  headerTitle = '',
+  isVisible = false,
+  hideModal = () => {},
+  onSelect = ({}) => {},
+  itemsList = new Array<any>([]),
+  selectedItem = {title: '', value: '', icon: null},
+  containerStyle = {},
+}) => {
+  const {t} = useTranslation();
   return (
     <Modal
       isVisible={isVisible}
-      avoidKeyboard={true}
+      useNativeDriver
+      useNativeDriverForBackdrop
+      avoidKeyboard
       backdropColor={COLORS.black}
       backdropOpacity={0.8}
-      animationIn={'slideInUp'}
-      animationOut={'slideOutDown'}
-      animationInTiming={200}
-      animationOutTiming={200}
       style={{margin: 0}}
-      backdropTransitionInTiming={200}
-      backdropTransitionOutTiming={200}
+      animationInTiming={400}
+      animationOutTiming={400}
+      backdropTransitionInTiming={400}
+      backdropTransitionOutTiming={400}
+      onDismiss={() => {
+        hideModal && hideModal();
+      }}
+      onBackButtonPress={() => {
+        hideModal && hideModal();
+      }}
       onBackdropPress={() => {
-        hideModal();
+        hideModal && hideModal();
       }}
       onSwipeComplete={() => {
-        hideModal();
+        hideModal && hideModal();
       }}>
-      <Block padding={16} flex={0} style={styles.block} white>
+      <Block padding={16} flex={0} style={[styles.block, containerStyle]} white>
         <Block row marginBottom={16}>
           <Block center>
             <Block noflex style={styles.stick} />
@@ -46,39 +57,74 @@ const AppSelector = ({
             }}
             style={styles.closeButton}
             onPress={() => {
-              hideModal();
+              hideModal && hideModal();
             }}
           />
         </Block>
-        <AppFlatList
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={styles.contentContainer}
-          data={itemsList}
-          showsVerticalScrollIndicator={false}
-          renderItem={({item}: any) => (
-            <TouchableOpacity
+        {headerTitle?.length > 0 && (
+          <Block marginBottom={16} middle center noflex>
+            <Text>{headerTitle}</Text>
+          </Block>
+        )}
+
+        <Block>
+          <AppFlatList
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={styles.contentContainer}
+            data={itemsList}
+            showsVerticalScrollIndicator={false}
+            renderItem={({item}: any) => (
+              <Pressable
+                onPress={() => {
+                  onSelect && onSelect(item);
+                  hideModal && hideModal();
+                }}>
+                <Block noflex padding row>
+                  {item?.isIcon && (
+                    <Block middle noflex width="15%">
+                      <AppIcon
+                        type={item.iconType}
+                        name={item.iconName}
+                        size={22}
+                        color={item.iconColor ? item.iconColor : COLORS.primary}
+                      />
+                      {item.icon}
+                    </Block>
+                  )}
+                  <Text style={styles.itemTitle} medium size={18}>
+                    {item?.title}
+                  </Text>
+                  {selectedItem && selectedItem?.value === item?.value && (
+                    <Block middle noflex width="15%">
+                      <AppIcon
+                        type={IconTypes.material}
+                        name={'check'}
+                        size={22}
+                      />
+                    </Block>
+                  )}
+                </Block>
+              </Pressable>
+            )}
+            ItemSeparatorComponent={Separator}
+          />
+        </Block>
+
+        {selectedItem?.value !== '' && (
+          <Block marginBottom={20} noflex>
+            <AppButton
+              title={t('clear')}
               onPress={() => {
-                onSelect(item);
-                hideModal();
-              }}>
-              <Block padding row>
-                <Text style={styles.itemTitle} medium size={18}>
-                  {item.title}
-                </Text>
-                {selectedItem && selectedItem.value === item.value && (
-                  <AppIcon type={IconTypes.material} name={'check'} size={22} />
-                )}
-              </Block>
-            </TouchableOpacity>
-          )}
-          ItemSeparatorComponent={Separator}
-        />
+                onSelect({title: '', value: ''});
+                hideModal && hideModal();
+              }}
+            />
+          </Block>
+        )}
       </Block>
     </Modal>
   );
 };
-
-export default AppSelector;
 
 const styles = StyleSheet.create({
   block: {
@@ -106,3 +152,5 @@ const styles = StyleSheet.create({
     paddingBottom: 100,
   },
 });
+
+export default memo(AppSelector);

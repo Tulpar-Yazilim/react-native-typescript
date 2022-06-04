@@ -18,8 +18,6 @@ const parseHex = (nakedHex: string) => {
       ? `${nakedHex.slice(3, 4)}${nakedHex.slice(3, 4)}`
       : nakedHex.slice(6, 8)) || 'ff';
 
-  // const numericA = +((parseInt(a, 16) / 255).toFixed(2));
-
   return {
     r: twoDigitHexR,
     g: twoDigitHexG,
@@ -42,7 +40,6 @@ const isNumeric = (n: any) => !isNaN(parseFloat(n)) && isFinite(n);
 const formatRgb = (decimalObject: any, parameterA: any) => {
   const {r, g, b, a: parsedA} = decimalObject;
   const a = isNumeric(parameterA) ? parameterA : parsedA;
-
   return `rgba(${r}, ${g}, ${b}, ${a})`;
 };
 
@@ -55,11 +52,10 @@ const formatRgb = (decimalObject: any, parameterA: any) => {
  * @param a - An alpha value to apply. (optional) ('0.5', '0.25')
  * @return An rgb or rgba value. ('rgb(11, 22, 33)'. 'rgba(11, 22, 33, 0.5)')
  */
-const hexToRgba = (hex: string, a: string) => {
+const hexToRgba = (hex: string, a: number) => {
   const hashlessHex = removeHash(hex);
   const hexObject = parseHex(hashlessHex);
   const decimalObject = hexesToDecimals(hexObject);
-
   return formatRgb(decimalObject, a);
 };
 

@@ -1,17 +1,41 @@
-import I18n from 'i18n-js';
-import * as RNLocalize from 'react-native-localize';
+import i18n from 'i18next';
+import {initReactI18next} from 'react-i18next';
+
 import tr from './languages/tr';
 import en from './languages/en';
+import {getAppLanguage, setAppLanguage} from '@utils';
+import {settingsActions} from '@actions';
 
-const locales = RNLocalize.getLocales();
-I18n.locale = locales[0].languageTag;
+const initLocale = async () => {
+  const resources = {
+    tr: {
+      translation: tr,
+    },
+    en: {
+      translation: en,
+    },
+  };
 
-I18n.fallbacks = true;
-I18n.locales.no = 'tr';
-
-I18n.translations = {
-  tr,
-  en,
+  i18n
+    .use(initReactI18next)
+    .init({
+      compatibilityJSON: 'v3',
+      resources,
+      fallbackLng: 'tr',
+      react: {useSuspense: false},
+      initImmediate: false,
+      interpolation: {
+        escapeValue: false,
+      },
+    })
+    .then(async () => {
+      const appLanguage = await getAppLanguage();
+      if (appLanguage) {
+        await i18n.changeLanguage(appLanguage);
+      }
+      await setAppLanguage(i18n.language);
+      settingsActions.changeLanguage(i18n.language);
+    });
 };
 
-export default I18n;
+export {i18n, initLocale};

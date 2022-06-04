@@ -1,26 +1,17 @@
-import React from 'react';
-import {
-  StyleSheet,
-  TouchableHighlight,
-  TouchableNativeFeedback,
-  TouchableOpacity,
-  TouchableWithoutFeedback,
-} from 'react-native';
+import React, {memo} from 'react';
+import {Pressable, StyleSheet} from 'react-native';
 
 import {SIZES, COLORS} from './Config';
 
 import {getMargins, getPaddings} from '@utils';
 
-export const ButtonInstance = ({
-  Touchable = TouchableOpacity,
-  children = null,
-  ...props
-}) => <Touchable {...props}>{children}</Touchable>;
+const ButtonInstance = ({children = null, ...props}) => (
+  <Pressable {...props}>{children}</Pressable>
+);
 
 const Button = (props: any) => {
   const {
     disabled,
-    opacity,
     outlined,
     flex,
     height,
@@ -41,49 +32,74 @@ const Button = (props: any) => {
     info,
     borderColor,
     // support for touchables
-    highlight,
-    nativeFeedback,
-    withoutFeedback,
-    theme,
     style,
     children,
     // sizing props
     margin,
+    m,
     marginHorizontal,
+    mx,
     marginVertical,
+    my,
     marginTop,
+    mt,
     marginBottom,
+    mb,
     marginLeft,
+    ml,
     marginRight,
+    mr,
     padding,
+    p,
     paddingHorizontal,
+    px,
     paddingVertical,
+    py,
     paddingTop,
+    pt,
     paddingBottom,
+    pb,
     paddingLeft,
+    pl,
     paddingRight,
+    pr,
+
     noRadius,
     ...rest
   } = props;
 
   const marginSpacing = getMargins({
     margin,
+    m,
     marginHorizontal,
+    mx,
     marginVertical,
+    my,
     marginTop,
+    mt,
     marginBottom,
+    mb,
     marginLeft,
+    ml,
     marginRight,
+    mr,
     defaultValue: SIZES.base,
   });
   const paddingSpacing = getPaddings({
     padding,
+    p,
     paddingHorizontal,
+    px,
     paddingVertical,
+    py,
     paddingTop,
+    pt,
     paddingBottom,
+    pb,
     paddingLeft,
+    pl,
     paddingRight,
+    pr,
     defaultValue: SIZES.base,
   });
 
@@ -126,20 +142,10 @@ const Button = (props: any) => {
     buttonStyles.backgroundColor = 'transparent';
   }
 
-  const Touchable = highlight
-    ? TouchableHighlight
-    : nativeFeedback
-    ? TouchableNativeFeedback
-    : withoutFeedback
-    ? TouchableWithoutFeedback
-    : TouchableOpacity;
-
   return (
     <ButtonInstance
       disabled={disabled}
-      Touchable={Touchable}
       style={buttonStyles}
-      activeOpacity={opacity}
       children={children}
       {...rest}
     />
@@ -169,4 +175,4 @@ Button.defaultProps = {
   style: {},
 };
 
-export default Button;
+export default memo(Button);

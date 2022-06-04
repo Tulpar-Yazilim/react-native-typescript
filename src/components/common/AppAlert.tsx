@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {memo, useState} from 'react';
 import {StyleSheet, Modal, Text, Pressable, View, Platform} from 'react-native';
 import {FONTS} from '@theme';
 
@@ -71,10 +71,14 @@ const AppAlert = (props: any) => {
           },
         ]}
         onLayout={e => {
-          if (e.nativeEvent.layout.height > 60) setButtonLayoutHorizontal(0);
+          if (e.nativeEvent.layout.height > 60) {
+            setButtonLayoutHorizontal(0);
+          }
         }}>
         {buttonProps.map((item, index) => {
-          if (index > 2) return null;
+          if (index > 2) {
+            return null;
+          }
           const alignSelfProperty =
             buttonProps.length > 2 &&
             index === 0 &&
@@ -83,10 +87,14 @@ const AppAlert = (props: any) => {
               : 'flex-end';
           let defaultButtonText = 'OK';
           if (buttonProps.length > 2) {
-            if (index === 0) defaultButtonText = 'ASK ME LATER';
-            else if (index === 1) defaultButtonText = 'CANCEL';
-          } else if (buttonProps.length === 2 && index === 0)
+            if (index === 0) {
+              defaultButtonText = 'ASK ME LATER';
+            } else if (index === 1) {
+              defaultButtonText = 'CANCEL';
+            }
+          } else if (buttonProps.length === 2 && index === 0) {
             defaultButtonText = 'CANCEL';
+          }
           return (
             <View
               style={[
@@ -96,7 +104,9 @@ const AppAlert = (props: any) => {
               <Pressable
                 onPress={() => {
                   props.setModalVisible(false);
-                  if (item.func && typeof item.func === 'function') item.func();
+                  if (item.func && typeof item.func === 'function') {
+                    item.func();
+                  }
                 }}
                 style={[
                   {
@@ -156,15 +166,21 @@ const AppAlert = (props: any) => {
           },
         ]}
         onLayout={e => {
-          if (e.nativeEvent.layout.height > 60) setButtonLayoutHorizontal(0);
+          if (e.nativeEvent.layout.height > 60) {
+            setButtonLayoutHorizontal(0);
+          }
         }}>
         {buttonProps.map((item, index) => {
           let defaultButtonText = 'OK';
           if (buttonProps.length > 2) {
-            if (index === 0) defaultButtonText = 'ASK ME LATER';
-            else if (index === 1) defaultButtonText = 'CANCEL';
-          } else if (buttonProps.length === 2 && index === 0)
+            if (index === 0) {
+              defaultButtonText = 'ASK ME LATER';
+            } else if (index === 1) {
+              defaultButtonText = 'CANCEL';
+            }
+          } else if (buttonProps.length === 2 && index === 0) {
             defaultButtonText = 'CANCEL';
+          }
           const singleButtonWrapperStyle: any = {};
           let singleButtonWeight = iOSDefaults.button.fontWeight;
           if (index === buttonProps.length - 1) {
@@ -183,7 +199,9 @@ const AppAlert = (props: any) => {
               <Pressable
                 onPress={() => {
                   props.setModalVisible(false);
-                  if (item.func && typeof item.func === 'function') item.func();
+                  if (item.func && typeof item.func === 'function') {
+                    item.func();
+                  }
                 }}>
                 <View
                   style={[
@@ -371,4 +389,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default AppAlert;
+export default memo(AppAlert);

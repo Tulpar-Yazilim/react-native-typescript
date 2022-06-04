@@ -1,65 +1,121 @@
-import React from 'react';
-import {SafeAreaView, StatusBar} from 'react-native';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+import React, {memo} from 'react';
+import {Pressable, SafeAreaView, StatusBar} from 'react-native';
 import {Block, COLORS, Text} from '@theme';
 import AppIcon from './AppIcon';
 import {useNavigation} from '@react-navigation/native';
 import PropTypes from 'prop-types';
 
-const AppNavigationBar = ({
+const CustomStatusBar = ({
+  barStyle = COLORS.statusbar_dark,
+  barColor = COLORS.primary,
+  safeArea = true,
+}) => (
+  <>
+    {safeArea ? (
+      <SafeAreaView backgroundColor={barColor}>
+        <StatusBar barStyle={barStyle} backgroundColor={barColor} />
+      </SafeAreaView>
+    ) : (
+      <StatusBar barStyle={barStyle} backgroundColor={barColor} />
+    )}
+  </>
+);
+
+const Content = ({
   title = '',
   goBack = false,
+  leftComponent = <></>,
   rightComponent = <></>,
-  barStyle = 'dark-content',
+  barColor = COLORS.primary,
 }) => {
   const navigation = useNavigation();
   return (
-    <SafeAreaView backgroundColor={COLORS.primary}>
-      <StatusBar
-        animated
-        barStyle={barStyle}
-        backgroundColor={COLORS.primary}
-      />
-      <Block row height={35}>
-        <Block noflex alignItems="flex-start" middle>
-          {goBack && (
-            <Block paddingLeft={10}>
-              <TouchableOpacity onPress={() => navigation.goBack()}>
+    <>
+      <Block backgroundColor={barColor} row height={60}>
+        <Block noflex width="15%" paddingLeft={15} middle>
+          {leftComponent && (
+            <Block noflex middle center>
+              {leftComponent}
+            </Block>
+          )}
+          {goBack && navigation.canGoBack() && (
+            <Block noflex middle center>
+              <Pressable
+                style={{width: 26, height: 26}}
+                onPress={() => navigation.goBack()}>
                 <AppIcon
                   type="ionicon"
                   name="arrow-back"
-                  size={30}
+                  size={26}
                   color={COLORS.white}
                 />
-              </TouchableOpacity>
+              </Pressable>
             </Block>
           )}
         </Block>
-        <Block flex={1} center middle>
-          <Text bold white size={19}>
+        <Block width="70%" center middle>
+          <Text semibold white size={20}>
             {title}
           </Text>
         </Block>
-        <Block noflex alignItems="flex-end" middle>
-          {rightComponent}
+        <Block noflex width="15%" paddingRight={15} middle>
+          {rightComponent && (
+            <Block noflex middle center>
+              {rightComponent}
+            </Block>
+          )}
         </Block>
       </Block>
-    </SafeAreaView>
+    </>
+  );
+};
+
+const AppNavigationBar = ({
+  title = '',
+  goBack = false,
+  navBar = true,
+  safeArea = true,
+  leftComponent = <></>,
+  rightComponent = <></>,
+  barStyle = COLORS.statusbar_dark,
+  barColor = COLORS.primary,
+}) => {
+  return (
+    <>
+      <CustomStatusBar
+        barStyle={barStyle}
+        barColor={barColor}
+        safeArea={safeArea}
+      />
+      {navBar && (
+        <Content
+          title={title}
+          goBack={goBack}
+          leftComponent={leftComponent}
+          rightComponent={rightComponent}
+          barColor={barColor}
+        />
+      )}
+    </>
   );
 };
 
 AppNavigationBar.propTypes = {
   title: PropTypes.string,
   barStyle: PropTypes.string,
+  barColor: PropTypes.string,
   goBack: PropTypes.bool,
+  leftComponent: PropTypes.node,
   rightComponent: PropTypes.node,
 };
 
 AppNavigationBar.defaultProps = {
   title: '',
-  barStyle: 'dark-content',
+  barStyle: COLORS.statusbar_dark,
+  barColor: COLORS.primary,
   goBack: false,
+  leftComponent: <></>,
   rightComponent: <></>,
 };
 
-export default AppNavigationBar;
+export default memo(AppNavigationBar);

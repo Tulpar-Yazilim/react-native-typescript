@@ -39,4 +39,34 @@ const clearStorage = async () => {
   }
 };
 
-export {setStorage, getStorage, removeStorage, clearStorage};
+const getAppLanguage = async (): Promise<string> => {
+  return getStorage('Mobile_App_Selected_Language');
+};
+
+const setAppLanguage = async (language: string) => {
+  return setStorage('Mobile_App_Selected_Language', language);
+};
+
+const getUser = async () => {
+  return getStorage('Mobile_App_User');
+};
+
+const setUser = async (user: any) => {
+  return setStorage('Mobile_App_User', user);
+};
+
+const clearUser = async () => {
+  return removeStorage('Mobile_App_User');
+};
+
+export {
+  setStorage,
+  getStorage,
+  removeStorage,
+  clearStorage,
+  getAppLanguage,
+  setAppLanguage,
+  getUser,
+  setUser,
+  clearUser,
+};

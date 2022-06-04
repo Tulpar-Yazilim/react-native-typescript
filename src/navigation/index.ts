@@ -1,3 +1,4 @@
+import RootStack from './RootStack';
 import HomeStack from './HomeStack';
 
-export {HomeStack};
+export {RootStack, HomeStack};

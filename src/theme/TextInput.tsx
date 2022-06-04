@@ -1,18 +1,18 @@
-import React, {useState} from 'react';
+/* eslint-disable react-native/no-inline-styles */
+import React, {memo, useState} from 'react';
 import {
   TextInput as RNTextInput,
   StyleSheet,
-  TouchableOpacity,
   Dimensions,
+  Pressable,
 } from 'react-native';
 import Text from './Text';
 import Block from './Block';
 import {SIZES, COLORS, FONTS} from './Config';
-import AppIcon from '../components/common/AppIcon';
+import AppIcon, {IconTypes} from '../components/common/AppIcon';
 import {RFValue} from 'react-native-responsive-fontsize';
 
 const TextInput = ({
-  name,
   value,
   onChangeText,
   placeholder,
@@ -76,14 +76,14 @@ const TextInput = ({
           {...otherProps}
         />
         {password && (
-          <TouchableOpacity onPress={handleVisible}>
+          <Pressable onPress={handleVisible}>
             <AppIcon
-              type={'feather'}
+              type={IconTypes.feather}
               name={visible ? 'eye' : 'eye-off'}
               size={SIZES.iconSize}
               style={{color: COLORS.font}}
             />
-          </TouchableOpacity>
+          </Pressable>
         )}
       </Block>
 
@@ -95,7 +95,7 @@ const TextInput = ({
     </Block>
   );
 };
-export default TextInput;
+export default memo(TextInput);
 
 const styles = StyleSheet.create({
   textInputContainer: {

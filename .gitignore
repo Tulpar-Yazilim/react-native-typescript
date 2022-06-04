@@ -1,7 +1,7 @@
 # OSX
 #
 .DS_Store
-codePush/
+
 # Xcode
 #
 build/
@@ -20,6 +20,7 @@ DerivedData
 *.hmap
 *.ipa
 *.xcuserstate
+ios/.xcode.env.local
 
 # Android/IntelliJ
 #
@@ -28,13 +29,11 @@ build/
 .gradle
 local.properties
 *.iml
+*.hprof
 
 # node.js
 #
 node_modules/
-yarn.lock/
-yarn.lock
-package-lock.json
 npm-debug.log
 yarn-error.log
 
@@ -44,10 +43,6 @@ buck-out/
 *.keystore
 !debug.keystore
 
-# lock
-package-lock.json
-ios/Podfile.lock
-
 # fastlane
 #
 # It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the
@@ -55,13 +50,14 @@ ios/Podfile.lock
 # For more information about the recommended setup visit:
 # https://docs.fastlane.tools/best-practices/source-control/
 
-*/fastlane/report.xml
-*/fastlane/Preview.html
-*/fastlane/screenshots
+**/fastlane/report.xml
+**/fastlane/Preview.html
+**/fastlane/screenshots
+**/fastlane/test_output
 
 # Bundle artifact
 *.jsbundle
 
-# CocoaPods
+# Ruby / CocoaPods
 /ios/Pods/
-
+/vendor/bundle/

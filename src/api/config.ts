@@ -1,7 +1,6 @@
 import {AxiosRequestConfig} from 'axios';
 
-const ApiVersion = 'api/';
-export const baseURL = `https://api-url.com/${ApiVersion}`;
+export const baseURL = 'https://rickandmortyapi.com/api';
 export const Crypto = false;
 
 const multiForm: AxiosRequestConfig = {
