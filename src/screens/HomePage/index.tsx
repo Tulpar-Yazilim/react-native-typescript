@@ -1,25 +1,23 @@
-/* eslint-disable react-native/no-inline-styles */
 import React, {useState, useCallback} from 'react';
 import {Pressable} from 'react-native';
 import {Images} from '@assets';
 import {useSelector} from 'react-redux';
-import {settingsActions} from '@actions';
-import {RootState} from '@store';
 import {Block, COLORS, Text} from '@theme';
-import {AppImage, AppIcon, AppPage, AppButton} from '@components';
+import {AppImage, AppIcon, Screen, AppButton, AppAlert} from '@components';
 import {requestPermissions, checkPermissions, PermissionsList} from '@utils';
 import {useFocusEffect} from '@react-navigation/native';
-import Routes from '../../navigation/Routes';
+import Routes from '../../navigation/routes';
+import {RootState} from 'src/store/RootReducer';
+import store from '@store';
 
 const HomePage = ({navigation}: any) => {
   const [isPermission, setIsPermission] = useState(false);
 
-  const language = useSelector(
-    (state: RootState) => state.settingsReducer.language,
-  );
+  const language = useSelector<RootState>(({settings}) => settings.language);
 
   const onChangeLang = (_language: string) => {
-    settingsActions.changeLanguage(_language);
+    //settingsActions.changeLanguage(_language);
+    store.settingsRx.actions.changeLanguage(_language);
   };
 
   const cameraPermissions = async () => {
@@ -43,7 +41,7 @@ const HomePage = ({navigation}: any) => {
   );
 
   return (
-    <AppPage title="Tulpar Yazılım" scroll>
+    <Screen>
       <Block px={20}>
         <Block center middle marginTop={25} marginBottom={10}>
           <AppImage
@@ -54,12 +52,20 @@ const HomePage = ({navigation}: any) => {
           />
         </Block>
         <Text py={10}>Dil: {language}</Text>
-
+        <Text>mALİK KORUCU</Text>
         <AppButton
           title={'Details'}
           color={COLORS.font}
           onPress={() => navigation.navigate(Routes.HOME_DETAIL_SCREEN)}
         />
+
+        <AppButton
+          title={'test'}
+          color={COLORS.font}
+          onPress={() => navigation.navigate(Routes.HOME_DETAIL_SCREEN)}
+        />
+
+        <AppAlert modalVisible={false} setModalVisible={() => {}} />
 
         <AppButton
           mt={5}
@@ -87,7 +93,7 @@ const HomePage = ({navigation}: any) => {
           )}
         </Block>
       </Block>
-    </AppPage>
+    </Screen>
   );
 };
 

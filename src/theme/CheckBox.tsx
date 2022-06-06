@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, {memo, useEffect, useState} from 'react';
 import Text from './Text';
 import Block from './Block';

@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, {memo, useState} from 'react';
 import {StyleSheet, Modal, Text, Pressable, View, Platform} from 'react-native';
 import {FONTS} from '@theme';
@@ -57,6 +58,7 @@ const AppAlert = (props: any) => {
       fontFamily: FONTS.button.fontFamily,
     },
   };
+
   const AndroidButtonBox = () => {
     const [buttonLayoutHorizontal, setButtonLayoutHorizontal] = useState(1);
     const buttonProps: Array<any> =

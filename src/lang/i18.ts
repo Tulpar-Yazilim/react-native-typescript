@@ -4,7 +4,7 @@ import {initReactI18next} from 'react-i18next';
 import tr from './languages/tr';
 import en from './languages/en';
 import {getAppLanguage, setAppLanguage} from '@utils';
-import {settingsActions} from '@actions';
+import store from '@store';
 
 const initLocale = async () => {
   const resources = {
@@ -34,7 +34,7 @@ const initLocale = async () => {
         await i18n.changeLanguage(appLanguage);
       }
       await setAppLanguage(i18n.language);
-      settingsActions.changeLanguage(i18n.language);
+      store.settingsRx.actions.changeLanguage(i18n.language);
     });
 };
 

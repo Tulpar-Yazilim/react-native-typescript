@@ -7,6 +7,8 @@ PODS:
     - AppAuth/Core
   - Base64 (1.1.2)
   - boost (1.76.0)
+  - BVLinearGradient (2.5.6):
+    - React
   - CocoaAsyncSocket (7.6.5)
   - CodePush (7.0.4):
     - Base64 (~> 1.1)
@@ -366,14 +368,23 @@ PODS:
     - FBSDKGamingServicesKit (~> 13.2.0)
     - FBSDKShareKit (~> 13.2.0)
     - React-Core
+  - react-native-image-picker (4.8.3):
+    - React-Core
+  - react-native-image-resizer (1.4.5):
+    - React-Core
   - react-native-login-twitter (3.0.4):
     - React
     - TwitterKit5
+  - react-native-multiple-image-picker (0.4.10):
+    - React-Core
+    - TLPhotoPicker (= 2.1.4)
   - react-native-netinfo (8.3.1):
     - React-Core
   - react-native-onesignal (4.3.10):
     - OneSignalXCFramework (= 3.11.1)
     - React (< 1.0.0, >= 0.13.0)
+  - react-native-pager-view (5.4.24):
+    - React-Core
   - react-native-render-html (6.3.4):
     - React-Core
   - react-native-safe-area-context (4.2.5):
@@ -382,6 +393,8 @@ PODS:
     - RCTTypeSafety
     - React
     - ReactCommon/turbomodule/core
+  - react-native-splash-screen (3.3.0):
+    - React-Core
   - React-perflogger (0.69.0-rc.6)
   - React-RCTActionSheet (0.69.0-rc.6):
     - React-Core/RCTActionSheetHeaders (= 0.69.0-rc.6)
@@ -450,6 +463,16 @@ PODS:
     - React-perflogger (= 0.69.0-rc.6)
   - RNAppleAuthentication (2.2.0):
     - React-Core
+  - RNCAsyncStorage (1.17.6):
+    - React-Core
+  - RNCMaskedView (0.1.11):
+    - React
+  - RNCPicker (1.8.1):
+    - React-Core
+  - RNDateTimePicker (5.1.0):
+    - React-Core
+  - RNDeviceInfo (8.7.1):
+    - React-Core
   - RNFastImage (8.5.11):
     - React-Core
     - SDWebImage (~> 5.11.1)
@@ -459,7 +482,7 @@ PODS:
   - RNGoogleSignin (7.2.2):
     - GoogleSignIn (~> 6.1.0)
     - React-Core
-  - RNLocalize (2.2.1):
+  - RNLocalize (2.2.2):
     - React-Core
   - RNPermissions (3.3.1):
     - React-Core
@@ -493,6 +516,8 @@ PODS:
   - RNScreens (3.13.1):
     - React-Core
     - React-RCTImage
+  - RNSVG (12.3.0):
+    - React-Core
   - RNVectorIcons (9.1.0):
     - React-Core
   - SDWebImage (5.11.1):
@@ -503,6 +528,7 @@ PODS:
     - SDWebImage/Core (~> 5.10)
   - SocketRocket (0.6.0)
   - SSZipArchive (2.2.3)
+  - TLPhotoPicker (2.1.4)
   - TwitterCore (3.2.0)
   - TwitterKit5 (5.2.0):
     - TwitterCore (>= 3.1.0)
@@ -512,6 +538,7 @@ PODS:
 
 DEPENDENCIES:
   - boost (from `../node_modules/react-native/third-party-podspecs/boost.podspec`)
+  - BVLinearGradient (from `../node_modules/react-native-linear-gradient`)
   - CodePush (from `../node_modules/react-native-code-push`)
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - FBLazyVector (from `../node_modules/react-native/Libraries/FBLazyVector`)
@@ -538,6 +565,7 @@ DEPENDENCIES:
   - FlipperKit/FlipperKitUserDefaultsPlugin (= 0.125.0)
   - FlipperKit/SKIOSNetworkPlugin (= 0.125.0)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
+  - lottie-ios (from `../node_modules/lottie-ios`)
   - lottie-react-native (from `../node_modules/lottie-react-native`)
   - OpenSSL-Universal (= 1.1.1100)
   - Permission-Camera (from `../node_modules/react-native-permissions/ios/Camera`)
@@ -561,11 +589,16 @@ DEPENDENCIES:
   - React-logger (from `../node_modules/react-native/ReactCommon/logger`)
   - react-native-encrypted-storage (from `../node_modules/react-native-encrypted-storage`)
   - react-native-fbsdk-next (from `../node_modules/react-native-fbsdk-next`)
+  - react-native-image-picker (from `../node_modules/react-native-image-picker`)
+  - react-native-image-resizer (from `../node_modules/react-native-image-resizer`)
   - react-native-login-twitter (from `../node_modules/react-native-login-twitter`)
+  - "react-native-multiple-image-picker (from `../node_modules/@baronha/react-native-multiple-image-picker`)"
   - "react-native-netinfo (from `../node_modules/@react-native-community/netinfo`)"
   - react-native-onesignal (from `../node_modules/react-native-onesignal`)
+  - react-native-pager-view (from `../node_modules/react-native-pager-view`)
   - react-native-render-html (from `../node_modules/react-native-render-html`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
+  - react-native-splash-screen (from `../node_modules/react-native-splash-screen`)
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
   - React-RCTAnimation (from `../node_modules/react-native/Libraries/NativeAnimation`)
@@ -579,6 +612,11 @@ DEPENDENCIES:
   - React-runtimeexecutor (from `../node_modules/react-native/ReactCommon/runtimeexecutor`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - "RNAppleAuthentication (from `../node_modules/@invertase/react-native-apple-authentication`)"
+  - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
+  - "RNCMaskedView (from `../node_modules/@react-native-community/masked-view`)"
+  - "RNCPicker (from `../node_modules/@react-native-community/picker`)"
+  - "RNDateTimePicker (from `../node_modules/@react-native-community/datetimepicker`)"
+  - RNDeviceInfo (from `../node_modules/react-native-device-info`)
   - RNFastImage (from `../node_modules/react-native-fast-image`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - "RNGoogleSignin (from `../node_modules/@react-native-google-signin/google-signin`)"
@@ -586,6 +624,7 @@ DEPENDENCIES:
   - RNPermissions (from `../node_modules/react-native-permissions`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
+  - RNSVG (from `../node_modules/react-native-svg`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
@@ -616,13 +655,13 @@ SPEC REPOS:
     - JWT
     - libevent
     - libwebp
-    - lottie-ios
     - OneSignalXCFramework
     - OpenSSL-Universal
     - SDWebImage
     - SDWebImageWebPCoder
     - SocketRocket
     - SSZipArchive
+    - TLPhotoPicker
     - TwitterCore
     - TwitterKit5
     - YogaKit
@@ -630,6 +669,8 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   boost:
     :podspec: "../node_modules/react-native/third-party-podspecs/boost.podspec"
+  BVLinearGradient:
+    :path: "../node_modules/react-native-linear-gradient"
   CodePush:
     :path: "../node_modules/react-native-code-push"
   DoubleConversion:
@@ -640,6 +681,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/React/FBReactNativeSpec"
   glog:
     :podspec: "../node_modules/react-native/third-party-podspecs/glog.podspec"
+  lottie-ios:
+    :path: "../node_modules/lottie-ios"
   lottie-react-native:
     :path: "../node_modules/lottie-react-native"
   Permission-Camera:
@@ -680,16 +723,26 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-encrypted-storage"
   react-native-fbsdk-next:
     :path: "../node_modules/react-native-fbsdk-next"
+  react-native-image-picker:
+    :path: "../node_modules/react-native-image-picker"
+  react-native-image-resizer:
+    :path: "../node_modules/react-native-image-resizer"
   react-native-login-twitter:
     :path: "../node_modules/react-native-login-twitter"
+  react-native-multiple-image-picker:
+    :path: "../node_modules/@baronha/react-native-multiple-image-picker"
   react-native-netinfo:
     :path: "../node_modules/@react-native-community/netinfo"
   react-native-onesignal:
     :path: "../node_modules/react-native-onesignal"
+  react-native-pager-view:
+    :path: "../node_modules/react-native-pager-view"
   react-native-render-html:
     :path: "../node_modules/react-native-render-html"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
+  react-native-splash-screen:
+    :path: "../node_modules/react-native-splash-screen"
   React-perflogger:
     :path: "../node_modules/react-native/ReactCommon/reactperflogger"
   React-RCTActionSheet:
@@ -716,6 +769,16 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   RNAppleAuthentication:
     :path: "../node_modules/@invertase/react-native-apple-authentication"
+  RNCAsyncStorage:
+    :path: "../node_modules/@react-native-async-storage/async-storage"
+  RNCMaskedView:
+    :path: "../node_modules/@react-native-community/masked-view"
+  RNCPicker:
+    :path: "../node_modules/@react-native-community/picker"
+  RNDateTimePicker:
+    :path: "../node_modules/@react-native-community/datetimepicker"
+  RNDeviceInfo:
+    :path: "../node_modules/react-native-device-info"
   RNFastImage:
     :path: "../node_modules/react-native-fast-image"
   RNGestureHandler:
@@ -730,6 +793,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-reanimated"
   RNScreens:
     :path: "../node_modules/react-native-screens"
+  RNSVG:
+    :path: "../node_modules/react-native-svg"
   RNVectorIcons:
     :path: "../node_modules/react-native-vector-icons"
   Yoga:
@@ -739,8 +804,9 @@ SPEC CHECKSUMS:
   AppAuth: 80317d99ac7ff2801a2f18ff86b48cd315ed465d
   Base64: cecfb41a004124895a7bcee567a89bae5a89d49b
   boost: a7c83b31436843459a1961bfd74b96033dc77234
+  BVLinearGradient: e3aad03778a456d77928f594a649e96995f1c872
   CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
-  CodePush: b51b7ac64c07d4eacfc8cc5750a1dd28adbf2528
+  CodePush: 35a0d8be82686010ee70b510c3549ba8df5ca737
   DoubleConversion: 5189b271737e1565bdce30deb4a08d647e3f5f54
   FBAEMKit: c2b2895363b7e57192013d1dc49fdf498b28624c
   FBLazyVector: b6acb6d704a0717abd7bb02179aac6c7c37d8cc0
@@ -771,9 +837,9 @@ SPEC CHECKSUMS:
   lottie-react-native: a501112fa980529ccb80b9f3ee117a7f98c6af3a
   OneSignalXCFramework: 8bdcaa3b7f6082565bf29c5481435376a33e94f2
   OpenSSL-Universal: ebc357f1e6bc71fa463ccb2fe676756aff50e88c
-  Permission-Camera: bae27a8503530770c35aadfecbb97ec71823382a
-  Permission-PhotoLibrary: ddb5a158725b29cb12e9e477e8a5f5151c66cc3c
-  Permission-PhotoLibraryAddOnly: 104e42dbe894b0fccb370be26dd1b4a3c23578eb
+  Permission-Camera: 273b78e214eae8d734d1c497b67aa0030838c006
+  Permission-PhotoLibrary: 4b514739911744def3b903a5a48a20037cd01795
+  Permission-PhotoLibraryAddOnly: ccc162c1f823021321536c58dc3431831ba82f22
   RCT-Folly: 4d8508a426467c48885f1151029bc15fa5d7b3b8
   RCTRequired: aed6e42c1978aaa117dae6b497267dca30dce893
   RCTTypeSafety: 2735ccba1ca830b3e3fe9cff68068041201f8d25
@@ -788,13 +854,18 @@ SPEC CHECKSUMS:
   React-jsiexecutor: ed108fa941c623dda1cf25b0487e506ae5cd597f
   React-jsinspector: 96a6f470b24a0918d6f207c55f9186ee6d987ab8
   React-logger: 4542bced257f3ef658671bbe354a27d76070bee9
-  react-native-encrypted-storage: e78d848ce0fb663c2ce306e37921d026809322e6
+  react-native-encrypted-storage: 837c733334debf626204f03d867c7e01d8741e2f
   react-native-fbsdk-next: 79815a5b8f66ab0990fbb370b4a4b5bdf0a15e6c
+  react-native-image-picker: eb0a159c2a00bcfb49f0469fcc6b164329e9d4ca
+  react-native-image-resizer: 506412a2bdd70dde64a61e13505ce10f61a04369
   react-native-login-twitter: f0f71fa99f7ec2cd7578b0982c2ef11a4cc90a03
-  react-native-netinfo: 1a6035d3b9780221d407c277ebfb5722ace00658
-  react-native-onesignal: ebe25c107bc2d04aa1db040b1b5dee56f4df4436
-  react-native-render-html: 984dfe2294163d04bf5fe25d7c9f122e60e05ebe
-  react-native-safe-area-context: ebf8c413eb8b5f7c392a036a315eb7b46b96845f
+  react-native-multiple-image-picker: f13eb441e6bcb7bc33b5a8d710a7d1a7a28d2a67
+  react-native-netinfo: 0981b7054d93cf88d3ce1e279c34423ae3db1182
+  react-native-onesignal: 28e3ad45e18073665c57ee249624915ea21a6cf8
+  react-native-pager-view: 7d13a6fd573f856cfef9a5cb24d6c605b6135983
+  react-native-render-html: 5af9f6852f5e0cf9b74127537da3370984da51ee
+  react-native-safe-area-context: 923e8a02d3bd88ca7a6b6c9b3db1b94591044b0c
+  react-native-splash-screen: 4312f786b13a81b5169ef346d76d33bc0c6dc457
   React-perflogger: e3265731a720bfd153640721f0234e8167c49c2a
   React-RCTActionSheet: ea6a00519ba55aec249f940e388b95432478a70e
   React-RCTAnimation: 3896fcda72ab94404f77ea65710e702b0f044c3d
@@ -808,18 +879,25 @@ SPEC CHECKSUMS:
   React-runtimeexecutor: 2771ef006f731bb0286309c73c0d7ba95371d648
   ReactCommon: d6a7231176ff71a199b61048d02a69210db589a2
   RNAppleAuthentication: cbe1ab5c0f398ce07a215e6b247048092bf4feb3
+  RNCAsyncStorage: 86050d31a1cdc564876f68d8e342688b29f9b186
+  RNCMaskedView: f127cd9652acfa31b91dcff613e07ba18b774db6
+  RNCPicker: 914b557e20b3b8317b084aca9ff4b4edb95f61e4
+  RNDateTimePicker: cad741dac386f8178bf76e86f0a3c4b22173e0e4
+  RNDeviceInfo: af47a7d1a09d64c8cbb8b0c883db9bca422a9813
   RNFastImage: 1f2cab428712a4baaf78d6169eaec7f622556dd7
   RNGestureHandler: 61628a2c859172551aa2100d3e73d1e57878392f
-  RNGoogleSignin: d7f8368b82d94f1dec964785d496387ca7f19092
-  RNLocalize: cbcb55d0e19c78086ea4eea20e03fe8000bbbced
-  RNPermissions: 34d678157c800b25b22a488e4d8babb57456e796
+  RNGoogleSignin: 7580e6618798be9d090524bb31538378f92ce746
+  RNLocalize: 481e572c8605c1c84b8a4c116d35bd61ce9c96b3
+  RNPermissions: 7ad8d93b004e6bc85c89e27a102afcde90e07efa
   RNReanimated: a362ff32bd44dd587568272a41308cd4196375e7
   RNScreens: 40a2cb40a02a609938137a1e0acfbf8fc9eebf19
+  RNSVG: 302bfc9905bd8122f08966dc2ce2d07b7b52b9f8
   RNVectorIcons: 7923e585eaeb139b9f4531d25a125a1500162a0b
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
   SDWebImageWebPCoder: f93010f3f6c031e2f8fb3081ca4ee6966c539815
   SocketRocket: fccef3f9c5cedea1353a9ef6ada904fde10d6608
   SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
+  TLPhotoPicker: f486e8499e1c3f464d0e886697635e25a72a52b8
   TwitterCore: 8cbc9ad34d91c63a0035ea05bfbfc0d7ca72a28c
   TwitterKit5: 64095dfefcf39be2355711ef27112d55e340d90e
   Yoga: 30757bd18db6ed14e9788f601e375a563f08d525

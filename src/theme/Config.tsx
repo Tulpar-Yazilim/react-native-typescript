@@ -3,9 +3,10 @@ import {Dimensions, Platform} from 'react-native';
 const {width, height} = Dimensions.get('window');
 const platform = Platform.OS;
 
-const COLORS = {
+export const COLORS = {
   // default font color
   font: '#000000',
+  screenBgColor: '#ebebeb',
 
   // base colors
   primary: '#318AC3',
@@ -34,7 +35,7 @@ const COLORS = {
   placeholder: '#7E7E7E',
 };
 
-const SIZES = {
+export const SIZES = {
   // global sizes
   base: 8,
   font: 16,
@@ -83,59 +84,80 @@ const SIZES = {
     shadowRadius: 4,
   },
 };
-const FONTS = {
-  fontFamily: 'Roboto',
+
+export const FONTS = {
+  regular: 'Poppins-Regular',
+  black: 'Poppins-Black',
+  bold: 'Poppins-Bold',
+  extraBold: 'Poppins-ExtraBold',
+  medium: 'Poppins-Medium',
+  semiBold: 'Poppins-SemiBold',
+  thin: 'Poppins-Thin',
+  light: 'Poppins-Light',
+  fontFamily: 'Poppins-Regular',
   h1: {
     fontSize: SIZES.h1,
-    fontFamily: 'Roboto',
+    fontFamily: 'Poppins-Regular',
     letterSpacing: 0.15,
   },
   h2: {
     fontSize: SIZES.h2,
-    fontFamily: 'Roboto',
+    fontFamily: 'Poppins-Regular',
     letterSpacing: 0,
   },
   h3: {
     fontSize: SIZES.h3,
-    fontFamily: 'Roboto',
+    fontFamily: 'Poppins-Regular',
     letterSpacing: 0.15,
   },
   title: {
     fontSize: SIZES.title,
-    fontFamily: 'Roboto',
+    fontFamily: 'Poppins-Regular',
     letterSpacing: 0.15,
   },
   subtitle: {
     fontSize: SIZES.subtitle,
-    fontFamily: 'Roboto',
+    fontFamily: 'Poppins-Regular',
   },
   caption: {
     fontSize: SIZES.caption,
-    fontFamily: 'Roboto',
+    fontFamily: 'Poppins-Regular',
     letterSpacing: 0.4,
   },
   small: {
     fontSize: SIZES.small,
-    fontFamily: 'Roboto',
+    fontFamily: 'Poppins-Regular',
     letterSpacing: 1.5,
   },
   input: {
-    fontFamily: 'Roboto',
+    fontFamily: 'Poppins-Regular',
   },
   placeholder: {
-    fontFamily: 'Roboto',
+    fontFamily: 'Poppins-Regular',
   },
   button: {
-    fontFamily: 'Roboto',
+    fontFamily: 'Poppins-Regular',
   },
 };
 
-const WEIGHTS = {
-  regular: {fontFamily: 'Roboto-Regular'},
-  bold: {fontFamily: 'Roboto-Bold'},
-  semibold: {fontFamily: 'Roboto-SemiBold'},
-  medium: {fontFamily: 'Roboto-Medium'},
-  light: {fontFamily: 'Roboto-Light'},
+export const WEIGHTS = {
+  regular: {fontFamily: 'Poppins-Regular'},
+  bold: {fontFamily: 'Poppins-Bold'},
+  semibold: {fontFamily: 'Poppins-SemiBold'},
+  medium: {fontFamily: 'Poppins-Medium'},
+  light: {fontFamily: 'Poppins-Light'},
 };
 
-export {COLORS, SIZES, FONTS, WEIGHTS};
+export const window = {
+  offset: 16,
+  height: Dimensions.get('window').height,
+  width: Dimensions.get('window').width,
+};
+
+export const fontSize = [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30];
+
+export const padding = [5, 10, 15, 20, 25, 30, 35, 40, 45];
+
+export const bottomTabHeight = window.height < 680 ? 50 : 80;
+
+export const fingerSize = 40;
