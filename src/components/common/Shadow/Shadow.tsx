@@ -1,7 +1,5 @@
 import React, {FC} from 'react';
 import DropShadow from 'react-native-drop-shadow';
-import {Block} from '../Block/Block';
-import {Text} from '../Text/Text';
 
 type Props = {
   xs?: boolean;

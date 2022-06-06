@@ -6,9 +6,8 @@ import {Block, COLORS, Text} from '@theme';
 import {AppImage, AppIcon, Screen, AppButton, AppAlert} from '@components';
 import {requestPermissions, checkPermissions, PermissionsList} from '@utils';
 import {useFocusEffect} from '@react-navigation/native';
-import Routes from '../../navigation/routes';
-import {RootState} from 'src/store/RootReducer';
-import store from '@store';
+import {RootState, settingsRedux} from '@store';
+import Routes from '../../navigation/Routes';
 
 const HomePage = ({navigation}: any) => {
   const [isPermission, setIsPermission] = useState(false);
@@ -16,8 +15,7 @@ const HomePage = ({navigation}: any) => {
   const language = useSelector<RootState>(({settings}) => settings.language);
 
   const onChangeLang = (_language: string) => {
-    //settingsActions.changeLanguage(_language);
-    store.settingsRx.actions.changeLanguage(_language);
+    settingsRedux.actions.changeLanguage(_language);
   };
 
   const cameraPermissions = async () => {
@@ -52,15 +50,12 @@ const HomePage = ({navigation}: any) => {
           />
         </Block>
         <Text py={10}>Dil: {language}</Text>
-        <Text>mALİK KORUCU</Text>
-        <AppButton
-          title={'Details'}
-          color={COLORS.font}
-          onPress={() => navigation.navigate(Routes.HOME_DETAIL_SCREEN)}
-        />
+
+        <Text>ÖMER AKYOL</Text>
+        <Text pb={10}>MALİK KORUCU</Text>
 
         <AppButton
-          title={'test'}
+          title={'Details'}
           color={COLORS.font}
           onPress={() => navigation.navigate(Routes.HOME_DETAIL_SCREEN)}
         />

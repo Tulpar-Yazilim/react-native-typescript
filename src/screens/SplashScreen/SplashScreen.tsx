@@ -1,8 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, {FC, useRef} from 'react';
+import React, {FC, useEffect, useRef} from 'react';
 import {Animated, View, Easing, StyleSheet} from 'react-native';
 //import {Icon} from '../../assets/icons';
-import {useEffect} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import layout from '../../config/layout.json';

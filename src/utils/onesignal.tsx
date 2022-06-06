@@ -11,7 +11,7 @@ const initializeOnesignal = () => {
   if (Platform.OS === 'ios') {
     //Prompt for push on iOS
     OneSignal.promptForPushNotificationsWithUserResponse(response => {
-      console.info('Prompt response:', response);
+      console.info('OneSignal prompt response:', response);
     });
   }
 
