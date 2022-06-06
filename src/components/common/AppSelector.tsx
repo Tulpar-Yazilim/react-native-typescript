@@ -24,6 +24,7 @@ const AppSelector = ({
       isVisible={isVisible}
       useNativeDriver
       useNativeDriverForBackdrop
+      hideModalContentWhileAnimating
       avoidKeyboard
       backdropColor={COLORS.black}
       backdropOpacity={0.8}
