@@ -1,18 +1,18 @@
 import {HomeDetail} from '../../../screens/HomeDetail/HomeDetail';
 import {IScreen} from '../Models/IScreen';
-import Routes from '../../Routes';
+import routes from '../../routes';
 import {HomePage} from '@screens';
 
 const Screens = [
   {
     title: 'Ana Sayfa',
-    name: Routes.HOME_SCREEN,
+    name: routes.HOME_SCREEN,
     component: HomePage,
-    headerShown: false,
+    headerShown: true,
   },
   {
-    title: 'Home Detail',
-    name: Routes.HOME_DETAIL_SCREEN,
+    title: 'Detay Sayfası',
+    name: routes.HOME_DETAIL_SCREEN,
     component: HomeDetail,
     headerShown: true,
   },

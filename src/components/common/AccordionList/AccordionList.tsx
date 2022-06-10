@@ -1,26 +1,29 @@
-import React,{useState} from 'react';
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import React, {FC, useState} from 'react';
+import {View, Text, StyleSheet} from 'react-native';
 import Accordion from 'react-native-collapsible/Accordion';
 
-const SECTIONS = [
-    {
-      title: 'First',
-      content: 'Lorem ipsum...',
-    },
-    {
-      title: 'Second',
-      content: 'Lorem ipsum...',
-    },
-  ];
+interface ISection {
+  title?: string;
+  content?: string;
+}
 
-export const AccordionList = () => {
-  const [activeSections, setActiveSections] = useState([]);
+type Props = {
+  sections?: Array<ISection>;
+};
 
-  const _renderSectionTitle = (section: any) => {
-    return <View style={styles.content}></View>;
-  };
+export const AccordionList: FC<Props> = props => {
+  const {sections} = props;
+  const [activeSections, setActiveSections] = useState<Array<number>>([]);
 
-  const _renderHeader = (section: any) => {
+  //const _renderSectionTitle = (section: ISection) => {
+  //  return (
+  //    <View style={styles.content}>
+  //      <Text>{section.title}</Text>
+  //    </View>
+  //  );
+  //};
+
+  const _renderHeader = (section: ISection) => {
     return (
       <View style={styles.header}>
         <Text style={styles.headerText}>{section.title}</Text>
@@ -28,7 +31,7 @@ export const AccordionList = () => {
     );
   };
 
-  const _renderContent = (section: any) => {
+  const _renderContent = (section: ISection) => {
     return (
       <View style={styles.content}>
         <Text>{section.content}</Text>
@@ -36,15 +39,16 @@ export const AccordionList = () => {
     );
   };
 
-  const _updateSections = (activeSections: any) => {
-    setActiveSections(activeSections);
+  const _updateSections = (active_sections: Array<number>) => {
+    setActiveSections(active_sections);
   };
 
   return (
     <Accordion
-      sections={SECTIONS}
+      sections={sections}
       activeSections={activeSections}
-      renderSectionTitle={_renderSectionTitle}
+      // buna gerek yok fazla koymuşsunuz
+      //renderSectionTitle={_renderSectionTitle}
       renderHeader={_renderHeader}
       renderContent={_renderContent}
       onChange={_updateSections}
@@ -53,12 +57,11 @@ export const AccordionList = () => {
 };
 
 const styles = StyleSheet.create({
-    header: {
-        backgroundColor: '#f1f1f1',
-        borderWidth:1,
-        padding:6
-    },
-    headerText: {},
-    content: {},
-  });
-  
+  header: {
+    backgroundColor: '#f1f1f1',
+    borderWidth: 1,
+    padding: 6,
+  },
+  headerText: {},
+  content: {},
+});

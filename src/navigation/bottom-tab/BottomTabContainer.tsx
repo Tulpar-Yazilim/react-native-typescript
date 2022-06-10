@@ -33,7 +33,7 @@ export const BottomTabContainer: FC<any> = props => {
             borderTopLeftRadius: 20,
             borderTopRightRadius: 20,
             alignItems: 'center',
-            backgroundColor: COLORS.white,
+            backgroundColor: COLORS.screenBgColor,
             position: 'absolute',
             bottom: 0,
             left: 0,
@@ -43,8 +43,8 @@ export const BottomTabContainer: FC<any> = props => {
             width: Dimensions.get('window').width,
             height: bottomTabConfig.height,
           }}>
-          {/* <AnimatedTabBar /> */}
-          {state.routes.map((route: any, index: number) => {
+          <AnimatedTabBar />
+          {/*{state.routes.map((route: any, index: number) => {
             const {options} = descriptors[route.key];
             const label =
               options.tabBarLabel !== undefined
@@ -73,7 +73,7 @@ export const BottomTabContainer: FC<any> = props => {
                 bottomTabConfig={bottomTabConfig}
               />
             );
-          })}
+          })}*/}
         </View>
       )}
     </>

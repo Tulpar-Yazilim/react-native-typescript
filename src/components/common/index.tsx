@@ -5,7 +5,6 @@ import AppFlatList from './AppFlatList';
 import AppSelector from './AppSelector';
 import LoadingCard from './LoadingCard';
 import LoadingScreen from './LoadingScreen';
-import AppPage from './AppPage';
 import AppNavigationBar from './AppNavigationBar';
 import AppImageBackground from './AppImageBackground';
 import AppCalendar from './AppCalendar';
@@ -26,7 +25,6 @@ export {
   AppSelector,
   LoadingCard,
   LoadingScreen,
-  AppPage,
   AppNavigationBar,
   AppImageBackground,
   AppCalendar,

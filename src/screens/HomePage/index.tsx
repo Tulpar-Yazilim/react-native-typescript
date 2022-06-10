@@ -7,7 +7,7 @@ import {AppImage, AppIcon, Screen, AppButton, AppAlert} from '@components';
 import {requestPermissions, checkPermissions, PermissionsList} from '@utils';
 import {useFocusEffect} from '@react-navigation/native';
 import {RootState, settingsRedux} from '@store';
-import Routes from '../../navigation/Routes';
+import Routes from '../../navigation/routes';
 
 const HomePage = ({navigation}: any) => {
   const [isPermission, setIsPermission] = useState(false);
@@ -39,8 +39,8 @@ const HomePage = ({navigation}: any) => {
   );
 
   return (
-    <Screen>
-      <Block px={20}>
+    <Screen scroll>
+      <Block>
         <Block center middle marginTop={25} marginBottom={10}>
           <AppImage
             resizeMode="contain"
