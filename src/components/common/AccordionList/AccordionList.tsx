@@ -8,11 +8,11 @@ interface ISection {
 }
 
 type Props = {
-  sections?: Array<ISection>;
+  sections?: Array<ISection> | any;
 };
 
 export const AccordionList: FC<Props> = props => {
-  const {sections} = props;
+  const {sections: SECTIONS} = props;
   const [activeSections, setActiveSections] = useState<Array<number>>([]);
 
   //const _renderSectionTitle = (section: ISection) => {
@@ -45,9 +45,8 @@ export const AccordionList: FC<Props> = props => {
 
   return (
     <Accordion
-      sections={sections}
+      sections={SECTIONS}
       activeSections={activeSections}
-      // buna gerek yok fazla koymuşsunuz
       //renderSectionTitle={_renderSectionTitle}
       renderHeader={_renderHeader}
       renderContent={_renderContent}

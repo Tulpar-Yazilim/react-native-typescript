@@ -1,27 +1,27 @@
 import React, {FC, useState} from 'react';
-import {Block, Input, Screen} from '@components';
+import {Block, AppInput, AppScreen} from '@components';
 
 export const AboutScreen: FC<any> = ({}) => {
   const [inputValue, setInputValue] = useState('');
 
   return (
-    <Screen keyboardScroll>
-      <Block>
-        <Input
+    <AppScreen keyboardScroll>
+      <Block mb={300}>
+        <AppInput
           value={inputValue}
           onChange={(text: string) => {
             setInputValue(text);
           }}
-          animatedPlaceholder="Name"
+          placeholder="test"
         />
       </Block>
-      <Input
+      <AppInput
         value={inputValue}
         onChange={(text: string) => {
           setInputValue(text);
         }}
         animatedPlaceholder="Name Name Name Name"
       />
-    </Screen>
+    </AppScreen>
   );
 };

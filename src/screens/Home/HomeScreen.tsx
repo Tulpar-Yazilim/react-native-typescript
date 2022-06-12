@@ -1,14 +1,14 @@
 import React from 'react';
-import {AppImage, Screen} from '@components';
+import {AppImage, AppScreen} from '@components';
 
 export const HomeScreen = () => {
   return (
-    <Screen scroll>
+    <AppScreen scroll>
       <AppImage
         height={50}
         width={150}
         url={require('../../assets/images/logo.png')}
       />
-    </Screen>
+    </AppScreen>
   );
 };

@@ -1,6 +1,6 @@
 import React, {FC, useLayoutEffect} from 'react';
 import {COLORS, FONTS} from '@theme';
-import {Button} from '@components';
+import {AppButton} from '@components';
 import {Icon} from '../../assets/icons/index';
 import {StatusBar} from 'react-native';
 
@@ -18,7 +18,7 @@ export const Header: FC<any> = ({navigation}) => {
       headerTitleAlign: 'center',
       headerLeft: (props: any) =>
         props.canGoBack && (
-          <Button
+          <AppButton
             type="icon"
             icon={
               <Icon width={33} height={33} name="BackButton" color="white" />

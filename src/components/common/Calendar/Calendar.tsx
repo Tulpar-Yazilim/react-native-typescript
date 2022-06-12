@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import {Block} from '@components';
 import React, {FC} from 'react';
 import {Dimensions} from 'react-native';

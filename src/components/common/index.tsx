@@ -1,5 +1,4 @@
 import AppAlert from './AppAlert';
-import AppButton from './AppButton';
 import AppImage from './AppImage';
 import AppFlatList from './AppFlatList';
 import AppSelector from './AppSelector';
@@ -18,7 +17,6 @@ import AppIcon, {IconTypes} from './AppIcon';
 export {
   AppAlert,
   AppImage,
-  AppButton,
   AppIcon,
   IconTypes,
   AppFlatList,

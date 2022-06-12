@@ -2,12 +2,13 @@ import React, {useState, useCallback} from 'react';
 import {Pressable} from 'react-native';
 import {Images} from '@assets';
 import {useSelector} from 'react-redux';
-import {Block, COLORS, Text} from '@theme';
-import {AppImage, AppIcon, Screen, AppButton, AppAlert} from '@components';
+import {Text} from '@theme';
+import {AppImage, AppIcon, AppScreen, AppAlert, AppButton} from '@components';
 import {requestPermissions, checkPermissions, PermissionsList} from '@utils';
 import {useFocusEffect} from '@react-navigation/native';
 import {RootState, settingsRedux} from '@store';
-import Routes from '../../navigation/routes';
+import {Block} from '../../components/common/Block/Block';
+import Routes from '../../navigation/Routes';
 
 const HomePage = ({navigation}: any) => {
   const [isPermission, setIsPermission] = useState(false);
@@ -39,9 +40,9 @@ const HomePage = ({navigation}: any) => {
   );
 
   return (
-    <Screen scroll>
+    <AppScreen>
       <Block>
-        <Block center middle marginTop={25} marginBottom={10}>
+        <Block center middle mt={25} mb={10}>
           <AppImage
             resizeMode="contain"
             url={Images.TulparLogo}
@@ -55,23 +56,26 @@ const HomePage = ({navigation}: any) => {
         <Text pb={10}>MALİK KORUCU</Text>
 
         <AppButton
-          title={'Details'}
-          color={COLORS.font}
-          onPress={() => navigation.navigate(Routes.HOME_DETAIL_SCREEN)}
+          mb={10}
+          type="primary"
+          title={'Detay Sayfası'}
+          onPress={() => {
+            navigation.navigate(Routes.HOME_DETAIL_SCREEN);
+          }}
         />
 
         <AppAlert modalVisible={false} setModalVisible={() => {}} />
 
         <AppButton
-          mt={5}
+          mb={10}
+          type="primary"
           title={'Türkçe'}
-          color={COLORS.error}
           onPress={() => onChangeLang('tr')}
         />
+
         <AppButton
-          mt={5}
+          type="primary"
           title={'İngilizce'}
-          color={COLORS.secondary}
           onPress={() => onChangeLang('en')}
         />
 
@@ -88,7 +92,7 @@ const HomePage = ({navigation}: any) => {
           )}
         </Block>
       </Block>
-    </Screen>
+    </AppScreen>
   );
 };
 

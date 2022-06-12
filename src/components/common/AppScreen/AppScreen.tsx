@@ -8,6 +8,7 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import {Header} from '../../../navigation/components/DefaultHeader';
 import {useNavigation} from '@react-navigation/native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import {memo} from 'react';
 
 type Props = {
   scroll?: boolean;
@@ -15,7 +16,7 @@ type Props = {
   keyboardScroll?: boolean;
 };
 
-export const Screen: FC<Props | any> = ({children, ...props}) => {
+const AppScreen: FC<Props | any> = ({children, ...props}) => {
   const {scroll, safe, keyboardScroll} = props;
   const navigation = useNavigation();
 
@@ -24,7 +25,7 @@ export const Screen: FC<Props | any> = ({children, ...props}) => {
     paddingBottom: layout.menu === 'bottom' && bottomTabHeight + window.offset,
     flex: 1,
     backgroundColor: COLORS.screenBgColor,
-  };
+  } as any;
 
   return (
     <>
@@ -142,3 +143,5 @@ export const Screen: FC<Props | any> = ({children, ...props}) => {
     </>
   );
 };
+
+export default memo(AppScreen);

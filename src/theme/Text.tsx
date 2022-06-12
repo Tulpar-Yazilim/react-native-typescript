@@ -1,10 +1,9 @@
 import React, {memo} from 'react';
 import {Animated, StyleSheet, Text, Dimensions} from 'react-native';
-
-import {getMargins, getPaddings} from '@utils';
 import {RFValue} from 'react-native-responsive-fontsize';
-import {SIZES, COLORS, FONTS, WEIGHTS} from './Config';
+import {SIZES, COLORS, FONTS, WEIGHTS, fontSize} from './Config';
 import {useTranslate} from '@hooks';
+import {getStyleShortcuts} from '../utils/StyleShortcut';
 
 const Typography = (props: any) => {
   const {
@@ -47,82 +46,15 @@ const Typography = (props: any) => {
     style,
     children,
     params = {},
-    // sizing props
-    margin,
-    m,
-    marginHorizontal,
-    mx,
-    marginVertical,
-    my,
-    marginTop,
-    mt,
-    marginBottom,
-    mb,
-    marginLeft,
-    ml,
-    marginRight,
-    mr,
-    padding,
-    p,
-    paddingHorizontal,
-    px,
-    paddingVertical,
-    py,
-    paddingTop,
-    pt,
-    paddingBottom,
-    pb,
-    paddingLeft,
-    pl,
-    paddingRight,
-    pr,
-
-    // text style
-    underline,
-    through,
     ...rest
   } = props;
 
   // Translations
   const _translate = useTranslate(children, params);
   const i18nText = _translate ? _translate : children;
+
   // Content
   const content = i18nText || '';
-
-  const marginSpacing = getMargins({
-    margin,
-    m,
-    marginHorizontal,
-    mx,
-    marginVertical,
-    my,
-    marginTop,
-    mt,
-    marginBottom,
-    mb,
-    marginLeft,
-    ml,
-    marginRight,
-    mr,
-    defaultValue: SIZES.base,
-  });
-  const paddingSpacing = getPaddings({
-    padding,
-    p,
-    paddingHorizontal,
-    px,
-    paddingVertical,
-    py,
-    paddingTop,
-    pt,
-    paddingBottom,
-    pb,
-    paddingLeft,
-    pl,
-    paddingRight,
-    pr,
-    defaultValue: SIZES.base,
-  });
 
   const textStyles = StyleSheet.flatten([
     {
@@ -137,15 +69,11 @@ const Typography = (props: any) => {
     caption && FONTS.caption,
     small && FONTS.small,
     size && {fontSize: RFValue(size, Dimensions.get('window').height)},
-    marginSpacing,
-    paddingSpacing,
     transform && {textTransform: transform},
     height && {lineHeight: height},
     spacing && {letterSpacing: spacing},
     weight && {fontWeight: weight},
     regular && {fontWeight: WEIGHTS.regular},
-    underline && {textDecorationLine: 'underline'},
-    through && {textDecorationLine: 'line-through'},
 
     bold,
     medium,
@@ -170,6 +98,7 @@ const Typography = (props: any) => {
     info && {color: COLORS.info},
     color && {color},
     style, // rewrite predefined styles
+    {...getStyleShortcuts(props)},
   ]);
 
   if (animated) {

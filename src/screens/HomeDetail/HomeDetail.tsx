@@ -5,7 +5,8 @@ import {useNavigation} from '@react-navigation/native';
 import {useState} from 'react';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {Icon} from '../../assets/icons';
-import {Screen} from '@components';
+import {Block, AppScreen} from '@components';
+import {ExampleForm} from '../../components/Example/Form';
 
 const HeaderRight: FC<any> = ({setCount, count}) => {
   return (
@@ -32,9 +33,9 @@ export const HomeDetail: FC<any> = () => {
   }, [navigation, count]);
 
   return (
-    <Screen>
-      <Text>test</Text>
-    </Screen>
+    <AppScreen>
+      <ExampleForm />
+    </AppScreen>
   );
 };
 

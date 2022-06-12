@@ -43,8 +43,8 @@ export const BottomTabContainer: FC<any> = props => {
             width: Dimensions.get('window').width,
             height: bottomTabConfig.height,
           }}>
-          <AnimatedTabBar />
-          {/*{state.routes.map((route: any, index: number) => {
+          {/*<AnimatedTabBar />*/}
+          {state.routes.map((route: any, index: number) => {
             const {options} = descriptors[route.key];
             const label =
               options.tabBarLabel !== undefined
@@ -73,7 +73,7 @@ export const BottomTabContainer: FC<any> = props => {
                 bottomTabConfig={bottomTabConfig}
               />
             );
-          })}*/}
+          })}
         </View>
       )}
     </>

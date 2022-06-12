@@ -3,7 +3,7 @@ import React, {FC, useState} from 'react';
 import {StyleSheet, TextInput} from 'react-native';
 import {Block} from '../Block/Block';
 import styles from './style';
-import {Text} from './../Text/Text';
+import {Text} from '../Text/Text';
 import Animated, {
   Easing,
   useAnimatedStyle,
@@ -13,22 +13,13 @@ import Animated, {
 import {FONTS} from '@theme';
 import {Icon} from '../../../assets/icons';
 import {Shadow} from '../Shadow/Shadow';
-
-type Props = {
-  placeholder?: string;
-  onChange?: ((text: string) => void) | undefined;
-  handleBlur?: ((event: any) => void) | undefined;
-  onFocus?: ((event: any) => void) | undefined;
-  value?: any;
-  errorMessage?: string;
-  animatedPlaceholder?: string;
-  icon?: string;
-};
+import {Props} from './app-input';
+import {memo} from 'react';
 
 const inputHeight = 58;
-const offsetHeight = inputHeight / 3.8;
+const offsetHeight = inputHeight / 3.9;
 
-export const Input: FC<Props | any> = props => {
+const AppInput: FC<Props | any> = props => {
   const {placeholder,onChange,value,errorMessage,handleBlur,animatedPlaceholder,icon,onFocus} = props; // prettier-ignore
   const offset = useSharedValue(offsetHeight);
   const scale = useSharedValue(1);
@@ -105,7 +96,13 @@ export const Input: FC<Props | any> = props => {
             onBlur={onBlur}
             onChangeText={onChangeText}
             placeholder={placeholder}
-            style={[styles.input, errorMessage && styles.errorInput]}
+            style={[
+              styles.input,
+              errorMessage && styles.errorInput,
+              {
+                bottom: animatedPlaceholder ? -3.6 : 2,
+              },
+            ]}
             allowFontScaling={false}
             value={value}
           />
@@ -122,6 +119,8 @@ export const Input: FC<Props | any> = props => {
     </Shadow>
   );
 };
+
+export default memo(AppInput);
 
 const style = StyleSheet.create({
   animatedPlaceholderStyle: {

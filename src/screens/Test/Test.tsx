@@ -1,9 +1,9 @@
-import {Screen, Text} from '@components';
+import {AppScreen, Text} from '@components';
 
 export const TestScreen = () => {
   return (
-    <Screen>
+    <AppScreen>
       <Text>test screen</Text>
-    </Screen>
+    </AppScreen>
   );
 };

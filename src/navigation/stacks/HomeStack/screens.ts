@@ -1,7 +1,8 @@
 import {HomeDetail} from '../../../screens/HomeDetail/HomeDetail';
 import {IScreen} from '../Models/IScreen';
-import routes from '../../routes';
 import {HomePage} from '@screens';
+import routes from '../../Routes';
+import {TestPage} from '../../../screens/TestPage';
 
 const Screens = [
   {
@@ -14,6 +15,12 @@ const Screens = [
     title: 'Detay Sayfası',
     name: routes.HOME_DETAIL_SCREEN,
     component: HomeDetail,
+    headerShown: true,
+  },
+  {
+    title: 'malik korucu',
+    name: 'test-page',
+    component: TestPage,
     headerShown: true,
   },
 ] as Array<IScreen>;

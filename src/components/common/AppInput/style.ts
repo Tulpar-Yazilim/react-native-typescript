@@ -16,7 +16,6 @@ const styles = StyleSheet.create({
     fontFamily: FONTS.regular,
     flex: 1,
     width: '100%',
-    bottom: -3.6,
     left: 8,
     paddingBottom: -5,
   },

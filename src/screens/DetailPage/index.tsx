@@ -3,8 +3,7 @@ import React, {useEffect, useState} from 'react';
 import {characters} from '@api';
 import {useApi} from '@hooks';
 import {Block, COLORS, SIZES, Text} from '@theme';
-import {AppFlatList, AppImage} from '@components';
-import {Screen} from '../../components/common/Screen/Screen';
+import {AppFlatList, AppImage, AppScreen} from '@components';
 
 const DetailPage = () => {
   const [data, setData] = useState([]);
@@ -40,7 +39,7 @@ const DetailPage = () => {
   };
 
   return (
-    <Screen scroll>
+    <AppScreen scroll>
       <Block flex pt={10} px={20}>
         <AppFlatList
           data={data}
@@ -52,7 +51,7 @@ const DetailPage = () => {
           renderItem={({item}: {item: any}) => renderItem(item)}
         />
       </Block>
-    </Screen>
+    </AppScreen>
   );
 };
 

@@ -2,7 +2,10 @@ import React, {FC} from 'react';
 import {View} from 'react-native';
 import {getStyleShortcuts} from '../../../utils/StyleShortcut';
 
-type Props = {};
+type Props = {
+  loading?: boolean;
+  preloader?: boolean;
+};
 
 export const Block: FC<Props | any> = ({children, ...props}) => {
   return (

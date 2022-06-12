@@ -6,8 +6,8 @@ import Modal from 'react-native-modal';
 import Separator from './Separator';
 import AppIconButton from './AppIconButton';
 import AppFlatList from './AppFlatList';
-import AppButton from './AppButton';
 import {useTranslation} from 'react-i18next';
+import {AppButton} from '@components';
 
 const AppSelector = ({
   headerTitle = '',
@@ -114,6 +114,7 @@ const AppSelector = ({
         {selectedItem?.value !== '' && (
           <Block marginBottom={20} noflex>
             <AppButton
+              type="primary"
               title={t('clear')}
               onPress={() => {
                 onSelect({title: '', value: ''});
