@@ -5,7 +5,7 @@ import {useNavigation} from '@react-navigation/native';
 import {useState} from 'react';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {Icon} from '../../assets/icons';
-import {Block, AppScreen} from '@components';
+import {AppScreen} from '@components';
 import {ExampleForm} from '../../components/Example/Form';
 
 const HeaderRight: FC<any> = ({setCount, count}) => {

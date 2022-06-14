@@ -51,7 +51,7 @@ export const ExampleForm = () => {
           <AppButton
             type="primary"
             title="AppButton Title"
-            onPress={handleSubmit}
+            onPress={(e: any) => handleSubmit(e)}
             disabled={loading || errors.email || errors.password}
             loading={loading}
           />

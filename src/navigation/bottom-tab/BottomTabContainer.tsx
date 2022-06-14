@@ -33,7 +33,7 @@ export const BottomTabContainer: FC<any> = props => {
             borderTopLeftRadius: 20,
             borderTopRightRadius: 20,
             alignItems: 'center',
-            backgroundColor: COLORS.screenBgColor,
+            backgroundColor: COLORS.white,
             position: 'absolute',
             bottom: 0,
             left: 0,

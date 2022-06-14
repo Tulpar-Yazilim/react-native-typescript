@@ -14,7 +14,7 @@ import {FONTS} from '@theme';
 import {Icon} from '../../../assets/icons';
 import {Shadow} from '../Shadow/Shadow';
 import {Props} from './app-input';
-import {memo} from 'react';
+//import {memo} from 'react';
 
 const inputHeight = 58;
 const offsetHeight = inputHeight / 3.9;
@@ -47,9 +47,9 @@ const AppInput: FC<Props | any> = props => {
   };
 
   const onBlur = (e: Event) => {
+    handleBlur && handleBlur(e);
     if (!text) {
       onAnimation({_offset: offsetHeight, _scale: 1});
-      handleBlur && handleBlur(e);
     }
   };
 
@@ -59,68 +59,70 @@ const AppInput: FC<Props | any> = props => {
   };
 
   return (
-    <Shadow sm>
-      <Block style={styles.container} fd="row">
-        {icon && (
-          <Block justify="center" align="center">
-            <Icon name={icon} width="35" height="35" />
-          </Block>
-        )}
-        <Block
-          flex={1}
-          style={[
-            //styles.container,
-            errorMessage && styles.errorContainer,
-            {
-              height: inputHeight,
-            },
-          ]}>
-          <Animated.View style={[{position: 'absolute'}, animatedStyles]}>
-            <Animated.View
-              style={[
-                animatedStylesText,
-                {
-                  flex: 1,
-                },
-              ]}>
-              <Text style={style.animatedPlaceholderStyle}>
-                {animatedPlaceholder}
-              </Text>
-            </Animated.View>
-          </Animated.View>
-
-          <TextInput
-            onFocus={() => {
-               onFocus ? onFocus() : onAnimation({_offset: 5, _scale: 0.75});
-              }} // prettier-ignore
-            onBlur={onBlur}
-            onChangeText={onChangeText}
-            placeholder={placeholder}
+    <>
+      <Shadow sm>
+        <Block style={styles.container} fd="row">
+          {icon && (
+            <Block justify="center" align="center">
+              <Icon name={icon} width="35" height="35" />
+            </Block>
+          )}
+          <Block
+            flex={1}
             style={[
-              styles.input,
-              errorMessage && styles.errorInput,
+              //styles.container,
+              errorMessage && styles.errorContainer,
               {
-                bottom: animatedPlaceholder ? -3.6 : 2,
+                height: inputHeight,
               },
-            ]}
-            allowFontScaling={false}
-            value={value}
-          />
-        </Block>
-        {errorMessage && (
-          <Block px={10}>
-            <Text fs={11} color="red">
-              <Text color="red">{'\u2022'} </Text>
-              {errorMessage}
-            </Text>
+            ]}>
+            <Animated.View style={[{position: 'absolute'}, animatedStyles]}>
+              <Animated.View
+                style={[
+                  animatedStylesText,
+                  {
+                    flex: 1,
+                  },
+                ]}>
+                <Text style={style.animatedPlaceholderStyle}>
+                  {animatedPlaceholder}
+                </Text>
+              </Animated.View>
+            </Animated.View>
+
+            <TextInput
+              onFocus={() => {
+                onFocus ? onFocus() : onAnimation({_offset: 5, _scale: 0.75});
+              }}
+              onBlur={onBlur}
+              onChangeText={onChangeText}
+              placeholder={placeholder}
+              style={[
+                styles.input,
+                errorMessage && styles.errorInput,
+                {
+                  bottom: animatedPlaceholder ? -3.6 : 2,
+                },
+              ]}
+              allowFontScaling={false}
+              value={value}
+            />
           </Block>
-        )}
-      </Block>
-    </Shadow>
+        </Block>
+      </Shadow>
+      {errorMessage && (
+        <Block px={10}>
+          <Text fs={11} color="red">
+            <Text color="red">{'\u2022'}</Text>
+            {errorMessage}
+          </Text>
+        </Block>
+      )}
+    </>
   );
 };
 
-export default memo(AppInput);
+export default AppInput;
 
 const style = StyleSheet.create({
   animatedPlaceholderStyle: {

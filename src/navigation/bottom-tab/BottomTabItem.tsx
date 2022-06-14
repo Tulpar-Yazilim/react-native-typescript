@@ -20,7 +20,7 @@ export const BottomTabItem: FC<Props> = props => {
   const {onPress, label, isFocused, currentIndex, bottomTabConfig} = props;
 
   return (
-    <View style={{flex: 1}}>
+    <View style={{flex: 1, justifyContent: 'center', height: '100%'}}>
       {BottomTabItemList.map(
         item =>
           item.label === label && (
