@@ -4,9 +4,10 @@ import React, {FC} from 'react';
 import {Dimensions} from 'react-native';
 // @ts-ignore
 import CalendarPicker from 'react-native-calendar-picker';
-import {font, window, color} from '@theme';
-import {Icon} from '../../../assets/icons';
+import {FONTS, COLORS, window} from '@theme';
+import AppSvgIcon from '../AppSvgIcon';
 import moment from 'moment';
+import {IconTypes} from '@assets';
 
 type Props = {
   onChange?: any;
@@ -31,9 +32,9 @@ export const Calendar: FC<Props> = props => {
         justifyContent: 'center',
       },
       textStyle: {
-        color: color.dark,
+        color: COLORS.black,
         fontSize: 16,
-        fontFamily: font.medium,
+        fontFamily: FONTS.medium,
       },
     };
   };
@@ -42,13 +43,13 @@ export const Calendar: FC<Props> = props => {
     return {
       style: {},
       textStyle: {
-        color: color.dark,
+        color: COLORS.black,
         // flex:1,
         // backgroundColor:'red',
         fontWeight: 'bold',
         alignItems: 'center',
         justifyContent: 'center',
-        fontFamily: font.medium,
+        fontFamily: FONTS.medium,
       },
 
       containerStyle: [
@@ -77,16 +78,16 @@ export const Calendar: FC<Props> = props => {
           }
         }
         dayShape="circle"
-        todayBackgroundColor={color.primary}
+        todayBackgroundColor={COLORS.primary}
         initialDate={new Date(initialDate) || new Date()}
         selectedStartDate={new Date(initialDate) || new Date()}
         selectedDayStyle={{
-          backgroundColor: color.primary,
+          backgroundColor: COLORS.primary,
           width: '100%',
           height: '100%',
           borderWidth: 0,
           borderRadius: 8,
-          borderColor: color.primary,
+          borderColor: COLORS.primary,
           color: 'red',
         }}
         selectedDayTextStyle={{
@@ -101,17 +102,21 @@ export const Calendar: FC<Props> = props => {
           height: 50,
           borderRadius: 10,
         }}
-        previousComponent={<Icon name="ArrowLeft" width={24} height={24} />}
-        nextComponent={<Icon name="ArrowRight" width={24} height={24} />}
+        previousComponent={
+          <AppSvgIcon name={IconTypes.ArrowBack} width={24} height={24} />
+        }
+        nextComponent={
+          <AppSvgIcon name={IconTypes.ArrowRight} width={24} height={24} />
+        }
         monthTitleStyle={{
           fontSize: 18,
-          fontFamily: font.bold,
-          color: color.primary,
+          fontFamily: FONTS.bold,
+          color: COLORS.primary,
         }}
         yearTitleStyle={{
           fontSize: 18,
-          fontFamily: font.bold,
-          color: color.primary,
+          fontFamily: FONTS.bold,
+          color: COLORS.primary,
         }}
         weekdays={['M', 'T', 'W', 'T', 'F', 'S', 'S']}
         onDateChange={onDateChange}

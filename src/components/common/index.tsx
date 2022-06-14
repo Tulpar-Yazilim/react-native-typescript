@@ -13,12 +13,14 @@ import AppLottieView from './AppLottieView';
 import Seperator from './Separator';
 
 import AppIcon, {IconTypes} from './AppIcon';
+import AppSvgIcon from './AppSvgIcon';
 
 export {
   AppAlert,
   AppImage,
   AppIcon,
   IconTypes,
+  AppSvgIcon,
   AppFlatList,
   AppSelector,
   LoadingCard,

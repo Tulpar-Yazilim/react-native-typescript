@@ -1,57 +1,45 @@
-import React, {FC} from 'react';
-import Car from './svg/car.svg';
-import Help from './svg/help.svg';
-import Search from './svg/search.svg';
-import Ticket from './svg/ticket.svg';
-import User from './svg/user.svg';
-import ArrowRight from './svg/arrow-right.svg';
-import ArrowLeft from './svg/arrow-back.svg';
-import Logo from './svg/logo.svg';
-import Passengers from './svg/passengers.svg';
-import Train from './svg/train.svg';
-import To from './svg/to.svg';
-import Calendar from './svg/calendar.svg';
-import BackButton from './svg/back-button.svg';
-import Heart from './svg/heart.svg';
+import ArrowBack from './arrow-back.svg';
+import ArrowRight from './arrow-right.svg';
+import BackButton from './back-button.svg';
+import Calendar from './calendar.svg';
+import Car from './car.svg';
+import Heart from './heart.svg';
+import Help from './help.svg';
+import Passengers from './passengers.svg';
+import Search from './search.svg';
+import Ticket from './ticket.svg';
+import To from './to.svg';
+import Train from './train.svg';
+import User from './user.svg';
 
-const icons = {
+export enum IconTypes {
+  ArrowBack = 'ArrowBack',
+  ArrowRight = 'ArrowRight',
+  BackButton = 'BackButton',
+  Calendar = 'Calendar',
+  Car = 'Car',
+  Heart = 'Heart',
+  Help = 'Help',
+  Passengers = 'Passengers',
+  Search = 'Search',
+  Ticket = 'Ticket',
+  To = 'To',
+  Train = 'Train',
+  User = 'User',
+}
+
+export const Icons = {
+  ArrowBack,
+  ArrowRight,
+  BackButton,
+  Calendar,
   Car,
+  Heart,
   Help,
+  Passengers,
   Search,
   Ticket,
-  User,
-  ArrowRight,
-  ArrowLeft,
-  Logo,
-  Passengers,
-  Train,
   To,
-  Calendar,
-  BackButton,
-  Heart,
+  Train,
+  User,
 } as any;
-
-type Props = {
-  name: string;
-  style?: any;
-  color?: string;
-  stroke?: any;
-  width?: number | string;
-  height?: number | string;
-};
-
-export const Icon: FC<Props> = ({
-  name,
-  style,
-  color = '#000',
-  stroke,
-  width = 16,
-  height = 16,
-}) =>
-  React.createElement(icons[name], {
-    style,
-    height,
-    width,
-    fill: color,
-    stroke,
-  });

@@ -11,7 +11,7 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 import {FONTS} from '@theme';
-import {Icon} from '../../../assets/icons';
+import AppSvgIcon from '../AppSvgIcon';
 import {Shadow} from '../Shadow/Shadow';
 import {Props} from './app-input';
 //import {memo} from 'react';
@@ -64,7 +64,7 @@ const AppInput: FC<Props | any> = props => {
         <Block style={styles.container} fd="row">
           {icon && (
             <Block justify="center" align="center">
-              <Icon name={icon} width="35" height="35" />
+              <AppSvgIcon name={icon} width="35" height="35" />
             </Block>
           )}
           <Block

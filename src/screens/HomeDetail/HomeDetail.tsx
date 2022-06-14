@@ -1,12 +1,10 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, {FC, useLayoutEffect} from 'react';
+import React, {FC, useState, useLayoutEffect} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import {useState} from 'react';
 import {TouchableOpacity} from 'react-native-gesture-handler';
-import {Icon} from '../../assets/icons';
-import {AppScreen} from '@components';
-import {ExampleForm} from '../../components/Example/Form';
+import {AppSvgIcon, AppScreen} from '@components';
+import {IconTypes} from '@assets';
 
 const HeaderRight: FC<any> = ({setCount, count}) => {
   return (
@@ -14,7 +12,7 @@ const HeaderRight: FC<any> = ({setCount, count}) => {
       <TouchableOpacity
         style={styles.headerRight}
         onPress={() => setCount(count + 1)}>
-        <Icon name="Car" />
+        <AppSvgIcon name={IconTypes.ArrowBack} />
         <Text style={{marginLeft: 10}}>Custom</Text>
       </TouchableOpacity>
     </View>
@@ -32,11 +30,7 @@ export const HomeDetail: FC<any> = () => {
     });
   }, [navigation, count]);
 
-  return (
-    <AppScreen>
-      <ExampleForm />
-    </AppScreen>
-  );
+  return <AppScreen></AppScreen>;
 };
 
 const styles = StyleSheet.create({
