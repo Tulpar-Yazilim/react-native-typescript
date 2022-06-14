@@ -84,7 +84,11 @@ const Block = (props: any) => {
 
     // custom styling
     style = {},
+    preloaderStyle,
     // extra props
+    zIndex = null,
+    overlow = false,
+
     ...rest
   } = props;
 
@@ -167,6 +171,9 @@ const Block = (props: any) => {
     row && {flex: 0},
     width && {width},
     height && {height},
+
+    overlow && {overflow: 'hidden'},
+    zIndex && {zIndex: zIndex},
     style, // rewrite predefined styles
   ]);
 
@@ -193,7 +200,18 @@ const Block = (props: any) => {
   return (
     <View {...rest} style={blockStyles}>
       {loading && <LoadingScreen />}
-      {preloader && <LoadingCard width={width} height={height} />}
+      {preloader && (
+        <LoadingCard
+          width={width}
+          height={height}
+          style={[
+            preloaderStyle,
+            {
+              width: width,
+            },
+          ]}
+        />
+      )}
       {children}
     </View>
   );
