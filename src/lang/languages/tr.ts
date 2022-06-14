@@ -1,5 +1,6 @@
 const tr = {
   warning: 'Uyarı',
+  login: 'Giriş Yap',
   confirm: 'Onayla',
   deny: 'Reddet',
   cancel: 'Vazgeç',

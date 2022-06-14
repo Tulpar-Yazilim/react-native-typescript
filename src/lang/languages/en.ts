@@ -1,4 +1,6 @@
 const en = {
+  submit: 'Submit',
+  login: 'Login',
   warning: 'Warning',
   confirm: 'Confirm',
   deny: 'Deny',

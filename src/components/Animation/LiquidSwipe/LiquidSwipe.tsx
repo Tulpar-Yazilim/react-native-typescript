@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dimensions, StyleSheet, View } from 'react-native';
+import {Dimensions, StyleSheet, View} from 'react-native';
 import Animated, {
   useSharedValue,
   useAnimatedGestureHandler,
@@ -13,16 +13,15 @@ import {
   PanGestureHandlerGestureEvent,
 } from 'react-native-gesture-handler';
 import Weave from './Weave';
-import { initialSideWidth, initialWaveCenter } from './WeaveHelpers';
+import {initialSideWidth, initialWaveCenter} from './WeaveHelpers';
 import Content from './Content';
-import Button from './Button';
 
 export const assets = [
   require('./assets/firstPageImage.png'),
   require('./assets/secondPageImage.png'),
 ];
 
-const { width } = Dimensions.get('window');
+const {width} = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   container: {
@@ -59,14 +58,14 @@ function LiquidSwipe(): React.ReactElement {
           event.translationX,
           [0, maxDist],
           [1, 0],
-          Extrapolate.CLAMP
+          Extrapolate.CLAMP,
         );
       } else {
         progress.value = interpolate(
           event.translationX,
           [-maxDist, 0],
           [0.4, 0],
-          Extrapolate.CLAMP
+          Extrapolate.CLAMP,
         );
       }
     },
@@ -107,7 +106,6 @@ function LiquidSwipe(): React.ReactElement {
               color="#fd5587"
             />
           </Weave>
-          <Button y={centerY} progress={progress} />
         </Animated.View>
       </PanGestureHandler>
     </View>

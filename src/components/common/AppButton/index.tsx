@@ -2,7 +2,7 @@
 import React, {FC} from 'react';
 import {View, TouchableOpacity, ActivityIndicator} from 'react-native';
 import styles, {buttonTypesStyles} from './style';
-import {Text} from '../Text/Text';
+import Text from '../Text/Text';
 import {COLORS} from '@theme';
 import {getStyleShortcuts} from '../../../utils/StyleShortcut';
 import {Props} from './app-button';
@@ -26,14 +26,16 @@ const AppButton: FC<Props> = props => {
       {loading && (
         <View style={{flexDirection: 'row'}}>
           <ActivityIndicator color={COLORS.white} style={{paddingRight: 12}} />
-          <Text style={[buttonTypesStyles[type].text, styles.text]}>
+          <Text white bold style={[buttonTypesStyles[type].text, styles.text]}>
             Please Wait ...
           </Text>
         </View>
       )}
 
       {!loading && (
-        <Text style={[buttonTypesStyles[type].text, styles.text]}>{title}</Text>
+        <Text white bold>
+          {title}
+        </Text>
       )}
 
       {type === 'icon' && icon}

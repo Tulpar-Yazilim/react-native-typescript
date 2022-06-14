@@ -31,26 +31,25 @@ const AppScreen: FC<Props | any> = ({children, ...props}) => {
     <>
       <Header navigation={navigation} />
       {scroll && safe && (
-        <Pressable
-          onPress={() => Keyboard.dismiss()}
-          style={[
-            {...screenCommonStyles},
-            {
-              backgroundColor: COLORS.screenBgColor,
-              paddingBottom: layout.menu === 'bottom' && bottomTabHeight,
-            },
-            getStyleShortcuts(props),
-          ]}>
-          <ScrollView
-            showsVerticalScrollIndicator={false}
-            showsHorizontalScrollIndicator={false}>
+        <ScrollView
+          style={{...screenCommonStyles, ...getStyleShortcuts(props)}}
+          showsVerticalScrollIndicator={false}
+          showsHorizontalScrollIndicator={false}>
+          <Pressable
+            onPress={() => Keyboard.dismiss()}
+            style={[
+              {
+                paddingBottom:
+                  layout.menu === 'bottom' ? bottomTabHeight + 20 : 50,
+              },
+            ]}>
             <SafeAreaView>{children}</SafeAreaView>
-          </ScrollView>
-        </Pressable>
+          </Pressable>
+        </ScrollView>
       )}
       {scroll && !safe && (
         <ScrollView
-          style={{...screenCommonStyles}}
+          style={{...screenCommonStyles, ...getStyleShortcuts(props)}}
           showsVerticalScrollIndicator={false}
           showsHorizontalScrollIndicator={false}>
           <Pressable
@@ -64,7 +63,6 @@ const AppScreen: FC<Props | any> = ({children, ...props}) => {
                   paddingBottom:
                     layout.menu === 'bottom' ? bottomTabHeight + 20 : 50,
                 },
-                getStyleShortcuts(props),
               ]}>
               {children}
             </View>

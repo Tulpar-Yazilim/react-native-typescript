@@ -1,3 +1,5 @@
+import {COLORS, FONTS, SIZES, WEIGHTS} from '@theme';
+
 export interface IStyleShortcuts {
   w?: number;
   h?: number;
@@ -92,6 +94,67 @@ const predefinedStyles = {
   },
 } as any;
 
+const predefinedTextStyles = {
+  xs: {
+    fontSize: SIZES.h1,
+    fontFamily: 'Poppins-Regular',
+    letterSpacing: 0.15,
+  },
+  sm: {
+    fontSize: SIZES.h2,
+    fontFamily: 'Poppins-Regular',
+    letterSpacing: 0,
+  },
+  md: {
+    fontSize: SIZES.h3,
+    fontFamily: 'Poppins-Regular',
+    letterSpacing: 0.15,
+  },
+  title: {
+    fontSize: SIZES.title,
+    fontFamily: 'Poppins-Regular',
+    letterSpacing: 0.15,
+  },
+  subtitle: {
+    fontSize: SIZES.subtitle,
+    fontFamily: 'Poppins-Regular',
+  },
+  caption: {
+    fontSize: SIZES.caption,
+    fontFamily: 'Poppins-Regular',
+    letterSpacing: 0.4,
+  },
+  small: {
+    fontSize: SIZES.small,
+    fontFamily: 'Poppins-Regular',
+    letterSpacing: 1.5,
+  },
+  input: {
+    fontFamily: 'Poppins-Regular',
+  },
+  placeholder: {
+    fontFamily: 'Poppins-Regular',
+  },
+  button: {
+    fontFamily: 'Poppins-Regular',
+  },
+  primary: {
+    color: COLORS.primary,
+  },
+  white: {
+    color: COLORS.white,
+  },
+  error: {
+    color: COLORS.error,
+  },
+  bold: {
+    ...WEIGHTS.bold,
+  },
+  italic: {
+    fontFamily: FONTS.italic,
+  },
+} as any;
+
 export const getStyleShortcuts = (props: IStyleShortcuts | any) => {
   let styles = {} as any;
 
@@ -101,6 +164,16 @@ export const getStyleShortcuts = (props: IStyleShortcuts | any) => {
     } else {
       styles = {...styles, ...predefinedStyles[prop]};
     }
+  });
+
+  return styles;
+};
+
+export const getTextStyleShortcuts = (props: any) => {
+  let styles = {} as any;
+
+  Object.keys(props).forEach((prop: any) => {
+    styles = {...styles, ...predefinedTextStyles[prop]};
   });
 
   return styles;

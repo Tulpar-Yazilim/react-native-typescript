@@ -5,6 +5,7 @@ import {useNavigation} from '@react-navigation/native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {AppSvgIcon, AppScreen} from '@components';
 import {IconTypes} from '@assets';
+import {ExampleForm} from '../../components/Example/Form';
 
 const HeaderRight: FC<any> = ({setCount, count}) => {
   return (
@@ -30,7 +31,11 @@ export const HomeDetail: FC<any> = () => {
     });
   }, [navigation, count]);
 
-  return <AppScreen></AppScreen>;
+  return (
+    <AppScreen>
+      <ExampleForm />
+    </AppScreen>
+  );
 };
 
 const styles = StyleSheet.create({

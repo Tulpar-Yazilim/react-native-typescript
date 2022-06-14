@@ -1,5 +1,5 @@
 import React, {memo, useEffect, useMemo, useRef} from 'react';
-import {Pressable, StatusBar, StyleSheet} from 'react-native';
+import {Modal, Pressable, StatusBar, StyleSheet} from 'react-native';
 import BottomSheet, {
   BottomSheetBackdropProps,
   BottomSheetScrollView,
@@ -7,7 +7,8 @@ import BottomSheet, {
   useBottomSheetDynamicSnapPoints,
   useBottomSheetTimingConfigs,
 } from '@gorhom/bottom-sheet';
-import {Block, COLORS, SIZES} from '@theme';
+import {COLORS, SIZES} from '@theme';
+import {Block} from '@components';
 
 import Animated, {
   Easing,
@@ -84,7 +85,15 @@ const AppBottomSheet = ({
   }, [isVisible]);
 
   return (
-    <>
+    <Modal
+      transparent
+      onShow={() => {
+        bottomSheetRef.current?.expand();
+      }}
+      onRequestClose={() => {
+        bottomSheetRef.current?.close();
+      }}
+      visible={isVisible}>
       <BottomSheet
         ref={bottomSheetRef}
         index={-1}
@@ -114,7 +123,7 @@ const AppBottomSheet = ({
           )}
         </Block>
       </BottomSheet>
-    </>
+    </Modal>
   );
 };
 

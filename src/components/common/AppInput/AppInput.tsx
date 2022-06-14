@@ -3,7 +3,7 @@ import React, {FC, useState} from 'react';
 import {StyleSheet, TextInput} from 'react-native';
 import {Block} from '../Block/Block';
 import styles from './style';
-import {Text} from '../Text/Text';
+import Text from '../../common/Text/Text';
 import Animated, {
   Easing,
   useAnimatedStyle,
@@ -14,7 +14,7 @@ import {FONTS} from '@theme';
 import AppSvgIcon from '../AppSvgIcon';
 import {Shadow} from '../Shadow/Shadow';
 import {Props} from './app-input';
-//import {memo} from 'react';
+import {memo} from 'react';
 
 const inputHeight = 58;
 const offsetHeight = inputHeight / 3.9;
@@ -84,9 +84,9 @@ const AppInput: FC<Props | any> = props => {
                     flex: 1,
                   },
                 ]}>
-                <Text style={style.animatedPlaceholderStyle}>
+                <Animated.Text style={style.animatedPlaceholderStyle}>
                   {animatedPlaceholder}
-                </Text>
+                </Animated.Text>
               </Animated.View>
             </Animated.View>
 
@@ -112,8 +112,8 @@ const AppInput: FC<Props | any> = props => {
       </Shadow>
       {errorMessage && (
         <Block px={10}>
-          <Text fs={11} color="red">
-            <Text color="red">{'\u2022'}</Text>
+          <Text error italic>
+            {'\u2022'}
             {errorMessage}
           </Text>
         </Block>
@@ -122,7 +122,7 @@ const AppInput: FC<Props | any> = props => {
   );
 };
 
-export default AppInput;
+export default memo(AppInput);
 
 const style = StyleSheet.create({
   animatedPlaceholderStyle: {

@@ -9,12 +9,15 @@ import AppImageBackground from './AppImageBackground';
 import AppCalendar from './AppCalendar';
 import AppBottomSheet from './AppBottomSheet';
 import AppLottieView from './AppLottieView';
-import Seperator from './Seperator';
+import Col from './Grid/Col';
+import Row from './Grid/Row';
 
 import AppIcon, {IconTypes} from './AppIcon';
 import AppSvgIcon from './AppSvgIcon';
 
 export {
+  Col,
+  Row,
   AppImage,
   AppButton,
   AppScreen,
@@ -29,5 +32,4 @@ export {
   AppCalendar,
   AppBottomSheet,
   AppLottieView,
-  Seperator,
 };
