@@ -1,13 +1,12 @@
 import React, {memo} from 'react';
 import {Pressable, StyleSheet} from 'react-native';
 import {COLORS, Block, Text} from '@theme';
-import AppIcon, {IconTypes} from './AppIcon';
+import AppIcon, {IconTypes} from '../AppIcon';
 import Modal from 'react-native-modal';
-import Separator from './Separator';
-import AppIconButton from './AppIconButton';
-import AppFlatList from './AppFlatList';
+import Separator from '../Seperator';
+import AppButton from '../AppButton';
+import AppFlatList from '../AppFlatList';
 import {useTranslation} from 'react-i18next';
-import {AppButton} from '@components';
 
 const AppSelector = ({
   headerTitle = '',
@@ -50,13 +49,15 @@ const AppSelector = ({
           <Block center>
             <Block noflex style={styles.stick} />
           </Block>
-          <AppIconButton
-            icon={{
-              type: IconTypes.materialCommunity,
-              name: 'window-close',
-              size: 22,
-            }}
-            style={styles.closeButton}
+          <AppButton
+            icon={
+              <AppIcon
+                type={IconTypes.materialCommunity}
+                name="window-close"
+                size={22}
+              />
+            }
+            type="icon"
             onPress={() => {
               hideModal && hideModal();
             }}

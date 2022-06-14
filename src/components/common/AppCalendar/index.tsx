@@ -1,7 +1,7 @@
 import React, {memo, useState} from 'react';
 import {StyleSheet, Pressable} from 'react-native';
 import {Block, Text, COLORS, SIZES, WEIGHTS} from '@theme';
-import AppIcon from './AppIcon';
+import AppIcon from '../AppIcon';
 
 import {Calendar} from 'react-native-calendars';
 import moment from 'moment';

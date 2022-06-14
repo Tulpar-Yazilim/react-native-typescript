@@ -3,7 +3,7 @@ import {Pressable} from 'react-native';
 import {Images} from '@assets';
 import {useSelector} from 'react-redux';
 import {Text} from '@theme';
-import {AppImage, AppIcon, AppScreen, AppAlert, AppButton} from '@components';
+import {AppImage, AppIcon, AppScreen, AppButton} from '@components';
 import {requestPermissions, checkPermissions, PermissionsList} from '@utils';
 import {useFocusEffect} from '@react-navigation/native';
 import {RootState, settingsRedux} from '@store';
@@ -63,8 +63,6 @@ const HomePage = ({navigation}: any) => {
             navigation.navigate(Routes.HOME_DETAIL_SCREEN);
           }}
         />
-
-        <AppAlert modalVisible={false} setModalVisible={() => {}} />
 
         <AppButton
           mb={10}

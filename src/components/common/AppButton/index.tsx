@@ -5,7 +5,7 @@ import styles, {buttonTypesStyles} from './style';
 import {Text} from '../Text/Text';
 import {COLORS} from '@theme';
 import {getStyleShortcuts} from '../../../utils/StyleShortcut';
-import {Props} from './app-button.d';
+import {Props} from './app-button';
 import {memo} from 'react';
 
 const AppButton: FC<Props> = props => {
