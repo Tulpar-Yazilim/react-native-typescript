@@ -1,6 +1,6 @@
 import BottomSheet from '../BottomSheet/BottomSheet';
 import React from 'react';
-import {Block} from '../Block/Block';
+import Block from '../Block';
 import {Calendar} from '../Calendar/Calendar';
 import {window} from '@theme';
 import {AppButton} from '@components';

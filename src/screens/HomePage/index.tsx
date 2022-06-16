@@ -2,8 +2,9 @@ import React, {useState, useCallback, useLayoutEffect} from 'react';
 import {Pressable} from 'react-native';
 import {Images} from '@assets';
 import {useSelector} from 'react-redux';
-import {Text} from '@components';
 import {
+  Text,
+  Block,
   AppImage,
   AppIcon,
   AppScreen,
@@ -16,7 +17,6 @@ import {
 import {requestPermissions, checkPermissions, PermissionsList} from '@utils';
 import {useFocusEffect} from '@react-navigation/native';
 import {RootState, settingsRedux} from '@store';
-import {Block} from '../../components/common/Block/Block';
 import Routes from '../../navigation/Routes';
 import useTag from '../../hooks/createTag';
 
@@ -25,7 +25,7 @@ const HomePage = ({navigation}: any) => {
   const [dateVisible, setDateVisible] = useState(false);
   const [bottomSheetVisibility, setBottomSheetVisibility] = useState(false);
 
-  const language = useSelector<RootState>(({settings}) => settings.language);
+  const language = useSelector<RootState>(state => state.settings.language);
 
   const onChangeLang = (_language: string) => {
     settingsRedux.actions.changeLanguage(_language);
@@ -155,13 +155,13 @@ const HomePage = ({navigation}: any) => {
           )}
         </Block>
       </AppScreen>
-      <AppBottomSheet
+      {/* <AppBottomSheet
         isVisible={bottomSheetVisibility}
         onClose={() => setBottomSheetVisibility(false)}>
         <Block h={200}>
           <Text>test</Text>
         </Block>
-      </AppBottomSheet>
+      </AppBottomSheet> */}
     </>
   );
 };

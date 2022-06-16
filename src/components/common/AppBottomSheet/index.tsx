@@ -1,5 +1,5 @@
 import React, {memo, useEffect, useMemo, useRef} from 'react';
-import {Modal, Pressable, StatusBar, StyleSheet} from 'react-native';
+import {Pressable, StatusBar, StyleSheet} from 'react-native';
 import BottomSheet, {
   BottomSheetBackdropProps,
   BottomSheetScrollView,
@@ -8,7 +8,8 @@ import BottomSheet, {
   useBottomSheetTimingConfigs,
 } from '@gorhom/bottom-sheet';
 import {COLORS, SIZES} from '@theme';
-import {Block} from '@components';
+
+import Block from '../Block';
 
 import Animated, {
   Easing,
@@ -17,6 +18,8 @@ import Animated, {
   useAnimatedStyle,
 } from 'react-native-reanimated';
 import {rgba} from '@utils';
+
+import {Portal} from 'react-native-portalize';
 
 const AppBottomSheet = ({
   children = <></>,
@@ -85,15 +88,7 @@ const AppBottomSheet = ({
   }, [isVisible]);
 
   return (
-    <Modal
-      transparent
-      onShow={() => {
-        bottomSheetRef.current?.expand();
-      }}
-      onRequestClose={() => {
-        bottomSheetRef.current?.close();
-      }}
-      visible={isVisible}>
+    <Portal>
       <BottomSheet
         ref={bottomSheetRef}
         index={-1}
@@ -123,7 +118,7 @@ const AppBottomSheet = ({
           )}
         </Block>
       </BottomSheet>
-    </Modal>
+    </Portal>
   );
 };
 

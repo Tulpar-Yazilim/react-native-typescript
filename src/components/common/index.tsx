@@ -1,3 +1,4 @@
+import Block from './Block';
 import AppImage from './AppImage';
 import AppScreen from './AppScreen';
 import AppButton from './AppButton';
@@ -16,6 +17,7 @@ import AppIcon, {IconTypes} from './AppIcon';
 import AppSvgIcon from './AppSvgIcon';
 
 export {
+  Block,
   Col,
   Row,
   AppImage,

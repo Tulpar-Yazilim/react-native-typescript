@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, {FC, useState} from 'react';
+import React, {FC, useState, memo} from 'react';
 import {StyleSheet, TextInput} from 'react-native';
-import {Block} from '../Block/Block';
+import Block from '../Block';
 import styles from './style';
 import Text from '../../common/Text/Text';
 import Animated, {
@@ -14,7 +14,6 @@ import {FONTS} from '@theme';
 import AppSvgIcon from '../AppSvgIcon';
 import {Shadow} from '../Shadow/Shadow';
 import {Props} from './app-input';
-import {memo} from 'react';
 
 const inputHeight = 58;
 const offsetHeight = inputHeight / 3.9;
