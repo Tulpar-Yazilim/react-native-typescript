@@ -1,26 +1,24 @@
-import {HomeDetail} from '../../../screens/HomeDetail/HomeDetail';
 import {IScreen} from '../Models/IScreen';
-import {HomePage} from '@screens';
+import {FetchDataPage, FormPage, HomePage} from '@screens';
 import routes from '../../Routes';
-import {TestPage} from '../../../screens/TestPage';
 
 const Screens = [
   {
-    title: 'Ana Sayfa',
+    title: 'Home',
     name: routes.HOME_SCREEN,
     component: HomePage,
     headerShown: true,
   },
   {
-    title: 'Detay Sayfası',
-    name: routes.HOME_DETAIL_SCREEN,
-    component: HomeDetail,
+    title: 'Fetch Data Example',
+    name: routes.FETCH_DATA_SCREEN,
+    component: FetchDataPage,
     headerShown: true,
   },
   {
-    title: 'malik korucu',
-    name: 'test-page',
-    component: TestPage,
+    title: 'Form Example',
+    name: routes.FORM_SCREEN,
+    component: FormPage,
     headerShown: true,
   },
 ] as Array<IScreen>;

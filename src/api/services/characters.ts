@@ -1,3 +1,5 @@
 import axios from '../axios';
 
-export const getCharacters = () => axios.get('/character');
+const getCharacters = () => axios.get('/character');
+
+export default {getCharacters};

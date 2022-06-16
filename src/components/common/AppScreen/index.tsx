@@ -1,14 +1,14 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, {FC} from 'react';
+import React, {memo, FC} from 'react';
 import {Keyboard, Pressable, ScrollView, View} from 'react-native';
 import {getStyleShortcuts} from '../../../utils/StyleShortcut';
 import layout from '../../../config/layout.json';
 import {window, bottomTabHeight, COLORS} from '@theme';
+import Block from '../Block';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {Header} from '../../../navigation/components/DefaultHeader';
 import {useNavigation} from '@react-navigation/native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
-import {memo} from 'react';
 
 type Props = {
   scroll?: boolean;
@@ -22,7 +22,7 @@ const AppScreen: FC<Props | any> = ({children, ...props}) => {
 
   const screenCommonStyles = {
     padding: window.offset,
-    paddingBottom: layout.menu === 'bottom' && bottomTabHeight + window.offset,
+    paddingBottom: layout.menu === 'bottom' && bottomTabHeight,
     flex: 1,
     backgroundColor: COLORS.screenBgColor,
   } as any;
@@ -126,17 +126,16 @@ const AppScreen: FC<Props | any> = ({children, ...props}) => {
         </KeyboardAwareScrollView>
       )}
       {!scroll && !safe && !keyboardScroll && (
-        <Pressable
+        <Block
           style={[
             {
               ...screenCommonStyles,
               flex: 1,
             },
             {...getStyleShortcuts(props)},
-          ]}
-          onPress={() => Keyboard.dismiss()}>
+          ]}>
           {children}
-        </Pressable>
+        </Block>
       )}
     </>
   );

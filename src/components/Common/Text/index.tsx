@@ -36,7 +36,7 @@ const Typography = (props: any) => {
 
   return (
     <Text {...rest} style={textStyles}>
-      {content || content !== '' ? content : ''}
+      {content}
     </Text>
   );
 };

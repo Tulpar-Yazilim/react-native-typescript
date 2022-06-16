@@ -6,7 +6,8 @@ import {
   View,
   ScrollView,
 } from 'react-native';
-import {Block, COLORS} from '@theme';
+import {COLORS} from '@theme';
+import Block from '../Block';
 
 const FlatList = ({
   data,
@@ -44,7 +45,6 @@ const FlatList = ({
   const PreloaderRenderItem = () => (
     <Block
       preloader
-      noflex
       height={preloaderHeight}
       width={preloaderWidth}
       preloaderStyle={preloaderStyle}

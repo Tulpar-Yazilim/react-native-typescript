@@ -53,7 +53,9 @@ export const SIZES = {
   title: 18,
   subtitle: 14,
   caption: 12,
+  medium: 12,
   small: 10,
+  extraSmall: 8,
 
   inputText: 15,
   inputLabel: 14,
@@ -141,16 +143,8 @@ export const FONTS = {
   },
 };
 
-export const WEIGHTS = {
-  regular: {fontFamily: 'Poppins-Regular'},
-  bold: {fontFamily: 'Poppins-Bold'},
-  semibold: {fontFamily: 'Poppins-SemiBold'},
-  medium: {fontFamily: 'Poppins-Medium'},
-  light: {fontFamily: 'Poppins-Light'},
-};
-
 export const window = {
-  offset: 16,
+  offset: 10,
   height: Dimensions.get('window').height,
   width: Dimensions.get('window').width,
 };

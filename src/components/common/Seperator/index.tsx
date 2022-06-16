@@ -1,13 +1,14 @@
 import React, {memo} from 'react';
 import {StyleSheet, View} from 'react-native';
-import {COLORS, Block} from '@theme';
+import {COLORS} from '@theme';
+import Block from '../Block';
 
 const Separator = ({color = COLORS.gray, isVertical = false, ...rest}) => {
   const separatorStyle = isVertical
     ? styles.verticalSeparator
     : styles.horizontalSeparator;
   return (
-    <Block noflex {...rest}>
+    <Block {...rest}>
       <View style={[separatorStyle, {backgroundColor: color}]} />
     </Block>
   );

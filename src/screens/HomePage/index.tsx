@@ -55,7 +55,7 @@ const HomePage = ({navigation}: any) => {
     navigation.setOptions({
       headerRight: () => (
         <Block px={10}>
-          <Text md py={10}>
+          <Text color="white" pr={10}>
             Dil: {language}
           </Text>
         </Block>
@@ -113,12 +113,22 @@ const HomePage = ({navigation}: any) => {
         </DatePickerArea>
 
         <DateTimePicker visible={dateVisible} setVisible={setDateVisible} />
+
         <AppButton
           mb={10}
           type="primary"
-          title={'Detay Sayfası'}
+          title={'Form Example'}
           onPress={() => {
-            navigation.navigate(Routes.HOME_DETAIL_SCREEN);
+            navigation.navigate(Routes.FORM_SCREEN);
+          }}
+        />
+
+        <AppButton
+          mb={10}
+          type="secondary"
+          title={'Fetch Data Example'}
+          onPress={() => {
+            navigation.navigate(Routes.FETCH_DATA_SCREEN);
           }}
         />
 

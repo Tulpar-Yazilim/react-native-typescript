@@ -22,7 +22,7 @@ const toastConfig = {
       text2Style={styles.message}
       text2NumberOfLines={2}
       renderLeadingIcon={() => (
-        <Block paddingLeft={10} noflex middle center>
+        <Block paddingLeft={10} middle center>
           <AppIcon
             type={IconTypes.simpleLineIcon}
             name="check"
@@ -41,7 +41,7 @@ const toastConfig = {
       text2Style={styles.message}
       text2NumberOfLines={2}
       renderLeadingIcon={() => (
-        <Block paddingLeft={10} noflex middle center>
+        <Block paddingLeft={10} middle center>
           <AppIcon
             type={IconTypes.simpleLineIcon}
             name="close"
@@ -60,7 +60,7 @@ const toastConfig = {
       text2Style={styles.message}
       text2NumberOfLines={2}
       renderLeadingIcon={() => (
-        <Block paddingLeft={10} noflex middle center>
+        <Block paddingLeft={10} middle center>
           <AppIcon
             type={IconTypes.ionicon}
             name="warning-outline"
@@ -79,7 +79,7 @@ const toastConfig = {
       text2Style={styles.message}
       text2NumberOfLines={2}
       renderLeadingIcon={() => (
-        <Block paddingLeft={10} noflex middle center>
+        <Block paddingLeft={10} middle center>
           <AppIcon
             type={IconTypes.simpleLineIcon}
             name="info"

@@ -2,7 +2,7 @@
 import React, {FC} from 'react';
 import {View, TouchableOpacity, ActivityIndicator} from 'react-native';
 import styles, {buttonTypesStyles} from './style';
-import Text from '../Text/Text';
+import Text from '../Text';
 import {COLORS} from '@theme';
 import {getStyleShortcuts} from '../../../utils/StyleShortcut';
 import {Props} from './app-button';

@@ -3,7 +3,7 @@ import React, {FC, useState, memo} from 'react';
 import {StyleSheet, TextInput} from 'react-native';
 import Block from '../Block';
 import styles from './style';
-import Text from '../../common/Text/Text';
+import Text from '../Text';
 import Animated, {
   Easing,
   useAnimatedStyle,
@@ -12,7 +12,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import {FONTS} from '@theme';
 import AppSvgIcon from '../AppSvgIcon';
-import {Shadow} from '../Shadow/Shadow';
+import Shadow from '../Shadow';
 import {Props} from './app-input';
 
 const inputHeight = 58;
@@ -111,8 +111,7 @@ const AppInput: FC<Props | any> = props => {
       </Shadow>
       {errorMessage && (
         <Block px={10}>
-          <Text error italic>
-            {'\u2022'}
+          <Text error italic size={12}>
             {errorMessage}
           </Text>
         </Block>

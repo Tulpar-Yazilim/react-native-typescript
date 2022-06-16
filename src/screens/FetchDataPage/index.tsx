@@ -2,57 +2,57 @@
 import React, {useEffect, useState} from 'react';
 import {characters} from '@api';
 import {useApi} from '@hooks';
-import {Block, COLORS, SIZES, Text} from '@theme';
-import {AppFlatList, AppImage, AppScreen} from '@components';
+import {COLORS, SIZES} from '@theme';
+import {AppFlatList, AppImage, AppScreen, Block, Text} from '@components';
 
-const DetailPage = () => {
+const FetchDataPage = () => {
   const [data, setData] = useState([]);
   const getCharactersApi = useApi(characters.getCharacters);
 
   const loadData = async () => {
     const response = await getCharactersApi.request();
-    setData(response.data?.results);
+    setData(response?.data?.results);
   };
 
   useEffect(() => {
     loadData();
   }, []);
 
-  const renderItem = (character: any) => {
+  const renderItem = ({item}: {item: any}) => {
     return (
       <Block
         mb={10}
-        p={[10, 10]}
+        px={10}
         borderRadius={SIZES.radius}
         backgroundColor={COLORS.lightGray}>
         <Block center row>
           <AppImage
-            url={character.image}
+            url={item?.image}
             width={40}
             height={40}
             borderRadius={SIZES.radius}
           />
-          <Text ml={20}>{character.name}</Text>
+          <Text ml={20}>{item?.name}</Text>
         </Block>
       </Block>
     );
   };
 
   return (
-    <AppScreen scroll>
-      <Block flex pt={10} px={20}>
+    <AppScreen>
+      <Block>
         <AppFlatList
           data={data}
           ListEmptyComponent={
-            <Block marginTop={20} center middle>
+            <Block pt={20} center middle>
               <Text>No records found.</Text>
             </Block>
           }
-          renderItem={({item}: {item: any}) => renderItem(item)}
+          renderItem={renderItem}
         />
       </Block>
     </AppScreen>
   );
 };
 
-export default DetailPage;
+export default FetchDataPage;

@@ -1,6 +1,6 @@
-import React, {FC} from 'react';
+import React, {FC, memo} from 'react';
 import DropShadow from 'react-native-drop-shadow';
-import {defaultShadows} from './shadow.style';
+import {defaultShadows} from './style';
 
 type Props = {
   xs?: boolean;
@@ -15,7 +15,7 @@ type Props = {
   children?: any;
 };
 
-export const Shadow: FC<Props> = ({children, ...props}) => {
+const Shadow: FC<Props> = ({children, ...props}) => {
   const {
     xs,
     sm,
@@ -45,3 +45,5 @@ export const Shadow: FC<Props> = ({children, ...props}) => {
     </DropShadow>
   );
 };
+
+export default memo(Shadow);

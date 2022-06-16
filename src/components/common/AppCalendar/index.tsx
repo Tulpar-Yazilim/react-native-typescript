@@ -1,7 +1,9 @@
 import React, {memo, useState} from 'react';
 import {StyleSheet, Pressable} from 'react-native';
-import {Block, Text, COLORS, SIZES, WEIGHTS} from '@theme';
+import {COLORS, FONTS, SIZES} from '@theme';
 import AppIcon from '../AppIcon';
+import Block from '../Block';
+import Text from '../Text';
 
 import {Calendar} from 'react-native-calendars';
 import moment from 'moment';
@@ -31,9 +33,9 @@ const AppCalendar = ({onSelectDay = (_date: string) => {}, ...props}) => {
         disabledArrowColor: COLORS.lightGray,
         monthTextColor: COLORS.gray,
         indicatorColor: COLORS.gray,
-        textDayFontFamily: WEIGHTS.regular.fontFamily,
-        textMonthFontFamily: WEIGHTS.medium.fontFamily,
-        textDayHeaderFontFamily: WEIGHTS.semibold.fontFamily,
+        textDayFontFamily: FONTS.regular,
+        textMonthFontFamily: FONTS.medium,
+        textDayHeaderFontFamily: FONTS.semiBold,
         textMonthFontWeight: '400',
         textDayFontSize: 14,
         textMonthFontSize: 20,
@@ -73,17 +75,15 @@ const AppCalendar = ({onSelectDay = (_date: string) => {}, ...props}) => {
               width={46}
               height={46}
               paddingTop={7}
-              paddingRight={12}
-              noflex>
-              <Block noflex>
+              paddingRight={12}>
+              <Block>
                 <Text right semibold size={14} color={COLORS.white}>
                   {date.day}
                 </Text>
               </Block>
               {marking?.marked && (
-                <Block paddingTop={7} paddingLeft={9} noflex>
+                <Block paddingTop={7} paddingLeft={9}>
                   <Block
-                    noflex
                     width={12}
                     height={4}
                     borderRadius={SIZES.radius}

@@ -1,4 +1,5 @@
 import HomePage from './HomePage';
-import DetailPage from './DetailPage';
+import FormPage from './FormPage';
+import FetchDataPage from './FetchDataPage';
 
-export {HomePage, DetailPage};
+export {HomePage, FormPage, FetchDataPage};

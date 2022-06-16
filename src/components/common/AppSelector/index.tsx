@@ -48,7 +48,7 @@ const AppSelector = ({
       <Block padding={16} flex={0} style={[styles.block, containerStyle]} white>
         <Block row marginBottom={16}>
           <Block center>
-            <Block noflex style={styles.stick} />
+            <Block style={styles.stick} />
           </Block>
           <AppButton
             icon={
@@ -65,7 +65,7 @@ const AppSelector = ({
           />
         </Block>
         {headerTitle?.length > 0 && (
-          <Block marginBottom={16} middle center noflex>
+          <Block marginBottom={16} middle center>
             <Text>{headerTitle}</Text>
           </Block>
         )}
@@ -82,9 +82,9 @@ const AppSelector = ({
                   onSelect && onSelect(item);
                   hideModal && hideModal();
                 }}>
-                <Block noflex padding row>
+                <Block padding row>
                   {item?.isIcon && (
-                    <Block middle noflex width="15%">
+                    <Block middle width="15%">
                       <AppIcon
                         type={item.iconType}
                         name={item.iconName}
@@ -98,7 +98,7 @@ const AppSelector = ({
                     {item?.title}
                   </Text>
                   {selectedItem && selectedItem?.value === item?.value && (
-                    <Block middle noflex width="15%">
+                    <Block middle width="15%">
                       <AppIcon
                         type={IconTypes.material}
                         name={'check'}
@@ -114,7 +114,7 @@ const AppSelector = ({
         </Block>
 
         {selectedItem?.value !== '' && (
-          <Block marginBottom={20} noflex>
+          <Block marginBottom={20}>
             <AppButton
               type="primary"
               title={t('clear')}

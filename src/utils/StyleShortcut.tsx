@@ -1,4 +1,4 @@
-import {COLORS, FONTS, SIZES, WEIGHTS} from '@theme';
+import {COLORS, FONTS, SIZES} from '@theme';
 
 export interface IStyleShortcuts {
   w?: number;
@@ -25,6 +25,7 @@ export interface IStyleShortcuts {
   backgoundColor?: string;
   flex?: number;
   radius?: number;
+  borderRadius?: number;
   color?: string;
 }
 
@@ -53,12 +54,16 @@ const shortcutStyles: IStyleShortcuts | any = {
   backgoundColor: 'bg',
   flex: 'flex',
   radius: 'borderRadius',
+  borderRadius: 'borderRadius',
   color: 'color',
   top: 'top',
 } as any;
 
 const predefinedStyles = {
   block: {
+    flex: 1,
+  },
+  flex: {
     flex: 1,
   },
   row: {
@@ -96,18 +101,15 @@ const predefinedStyles = {
 
 const predefinedTextStyles = {
   xs: {
-    fontSize: SIZES.h1,
-    fontFamily: 'Poppins-Regular',
+    fontSize: SIZES.extraSmall,
     letterSpacing: 0.15,
   },
   sm: {
-    fontSize: SIZES.h2,
-    fontFamily: 'Poppins-Regular',
+    fontSize: SIZES.small,
     letterSpacing: 0,
   },
   md: {
-    fontSize: SIZES.h3,
-    fontFamily: 'Poppins-Regular',
+    fontSize: SIZES.medium,
     letterSpacing: 0.15,
   },
   title: {
@@ -148,7 +150,7 @@ const predefinedTextStyles = {
     color: COLORS.error,
   },
   bold: {
-    ...WEIGHTS.bold,
+    fontFamily: FONTS.bold,
   },
   italic: {
     fontFamily: FONTS.italic,

@@ -1,4 +1,4 @@
-import React, {FC, useState} from 'react';
+import React, {FC, memo, useState} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import Accordion from 'react-native-collapsible/Accordion';
 
@@ -11,17 +11,17 @@ type Props = {
   sections?: Array<ISection> | any;
 };
 
-export const AccordionList: FC<Props> = props => {
+const AccordionList: FC<Props> = props => {
   const {sections: SECTIONS} = props;
   const [activeSections, setActiveSections] = useState<Array<number>>([]);
 
-  //const _renderSectionTitle = (section: ISection) => {
-  //  return (
-  //    <View style={styles.content}>
-  //      <Text>{section.title}</Text>
-  //    </View>
-  //  );
-  //};
+  const _renderSectionTitle = (section: ISection) => {
+    return (
+      <View style={styles.content}>
+        <Text>{section.title}</Text>
+      </View>
+    );
+  };
 
   const _renderHeader = (section: ISection) => {
     return (
@@ -47,13 +47,15 @@ export const AccordionList: FC<Props> = props => {
     <Accordion
       sections={SECTIONS}
       activeSections={activeSections}
-      //renderSectionTitle={_renderSectionTitle}
+      renderSectionTitle={_renderSectionTitle}
       renderHeader={_renderHeader}
       renderContent={_renderContent}
       onChange={_updateSections}
     />
   );
 };
+
+export default memo(AccordionList);
 
 const styles = StyleSheet.create({
   header: {
