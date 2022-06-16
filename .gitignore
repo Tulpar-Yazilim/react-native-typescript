@@ -63,3 +63,4 @@ buck-out/
 /ios/Pods/
 /vendor/bundle/ 
 ios/Podfile.lock
+package-lock.json

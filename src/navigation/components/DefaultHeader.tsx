@@ -1,8 +1,8 @@
 import React, {FC, useLayoutEffect} from 'react';
 import {COLORS, FONTS} from '@theme';
-import {Button} from '@components';
-import {Icon} from '../../assets/icons/index';
+import {AppButton, AppSvgIcon} from '@components';
 import {StatusBar} from 'react-native';
+import {IconTypes} from '@assets';
 
 export const Header: FC<any> = ({navigation}) => {
   useLayoutEffect(() => {
@@ -18,10 +18,15 @@ export const Header: FC<any> = ({navigation}) => {
       headerTitleAlign: 'center',
       headerLeft: (props: any) =>
         props.canGoBack && (
-          <Button
+          <AppButton
             type="icon"
             icon={
-              <Icon width={33} height={33} name="BackButton" color="white" />
+              <AppSvgIcon
+                width={33}
+                height={33}
+                name={IconTypes.BackButton}
+                color="white"
+              />
             }
             onPress={() => navigation.goBack()}
           />

@@ -1,4 +1,4 @@
-import React, {FC, SetStateAction, useState} from 'react';
+import React, {FC, SetStateAction} from 'react';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 
 type Props = {
@@ -7,7 +7,7 @@ type Props = {
 };
 
 export const DateTimePicker: FC<Props> = ({visible, setVisible}) => {
-  const handleConfirm = (date: any) => {
+  const handleConfirm = () => {
     setVisible(false);
   };
 

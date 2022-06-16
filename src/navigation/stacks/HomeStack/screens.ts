@@ -1,19 +1,26 @@
 import {HomeDetail} from '../../../screens/HomeDetail/HomeDetail';
 import {IScreen} from '../Models/IScreen';
-import Routes from '../../Routes';
 import {HomePage} from '@screens';
+import routes from '../../Routes';
+import {TestPage} from '../../../screens/TestPage';
 
 const Screens = [
   {
     title: 'Ana Sayfa',
-    name: Routes.HOME_SCREEN,
+    name: routes.HOME_SCREEN,
     component: HomePage,
-    headerShown: false,
+    headerShown: true,
   },
   {
-    title: 'Home Detail',
-    name: Routes.HOME_DETAIL_SCREEN,
+    title: 'Detay Sayfası',
+    name: routes.HOME_DETAIL_SCREEN,
     component: HomeDetail,
+    headerShown: true,
+  },
+  {
+    title: 'malik korucu',
+    name: 'test-page',
+    component: TestPage,
     headerShown: true,
   },
 ] as Array<IScreen>;

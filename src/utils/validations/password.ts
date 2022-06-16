@@ -14,17 +14,23 @@ const passwordValidation = (t, key = 'password') => ({
     .string()
     .required()
     .min(min)
-    .test('passwordStrong', t('validations.password.valid'), (value) => {
+    .test('passwordStrong', t('validations.password'), value => {
       const regex = new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[A-Za-z\\d]');
       const isValid = regex.test(value);
-      if (!isValid) return false;
+      if (!isValid) {
+        return false;
+      }
       return true;
     })
     .label(t('labels.password')),
 });
 
 // Validation
-const passwordConfirmationValidation = (t, key = 'password_confirmation', ref = 'password') => ({
+const passwordConfirmationValidation = (
+  t,
+  key = 'password_confirmation',
+  ref = 'password',
+) => ({
   [key]: yup
     .string()
     .required()
@@ -32,4 +38,4 @@ const passwordConfirmationValidation = (t, key = 'password_confirmation', ref = 
     .label(t('labels.password')),
 });
 
-export { passwordValidation, passwordConfirmationValidation };
+export {passwordValidation, passwordConfirmationValidation};

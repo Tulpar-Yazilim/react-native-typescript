@@ -3,7 +3,7 @@ import React, {useEffect, useState} from 'react';
 import {characters} from '@api';
 import {useApi} from '@hooks';
 import {Block, COLORS, SIZES, Text} from '@theme';
-import {AppFlatList, AppImage, AppPage} from '@components';
+import {AppFlatList, AppImage, AppScreen} from '@components';
 
 const DetailPage = () => {
   const [data, setData] = useState([]);
@@ -39,7 +39,7 @@ const DetailPage = () => {
   };
 
   return (
-    <AppPage title="Rick & Morty List" scroll={false} goBack>
+    <AppScreen scroll>
       <Block flex pt={10} px={20}>
         <AppFlatList
           data={data}
@@ -51,7 +51,7 @@ const DetailPage = () => {
           renderItem={({item}: {item: any}) => renderItem(item)}
         />
       </Block>
-    </AppPage>
+    </AppScreen>
   );
 };
 

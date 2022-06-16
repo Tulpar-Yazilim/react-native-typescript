@@ -1,9 +1,9 @@
 import BottomSheet from '../BottomSheet/BottomSheet';
 import React from 'react';
-import {Block} from '../Block/Block';
+import Block from '../Block';
 import {Calendar} from '../Calendar/Calendar';
 import {window} from '@theme';
-import {Button} from '@components';
+import {AppButton} from '@components';
 import {FC} from 'react';
 
 type Props = {
@@ -34,7 +34,7 @@ export const DateTimeSheet: FC<Props> = (props: any) => {
         <Button mr={10} type="secondary" title="Cancel" onPress={() => {}} />
       </Block>*/}
       <Block direction="row" px={window.offset + 7}>
-        <Button
+        <AppButton
           mr={10}
           flex={1}
           type="secondary"
@@ -43,7 +43,7 @@ export const DateTimeSheet: FC<Props> = (props: any) => {
             sheetRef.current.close();
           }}
         />
-        <Button
+        <AppButton
           flex={1}
           type="primary"
           title="Choose Date"

@@ -1,8 +1,9 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {FC} from 'react';
 import {Text, View, Alert} from 'react-native';
-import {Icon} from '../../assets/icons';
+import {AppSvgIcon} from '@components';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+import {IconTypes} from '@assets';
 
 export const HeaderRight: FC<any> = () => {
   return (
@@ -15,7 +16,7 @@ export const HeaderRight: FC<any> = () => {
           borderWidth: 1,
         }}
         onPress={() => Alert.alert('asdlfkjasdlşfkj')}>
-        <Icon name="Car" />
+        <AppSvgIcon name={IconTypes.Car} />
         <Text style={{marginLeft: 10}}>Default</Text>
       </TouchableOpacity>
     </View>
@@ -30,7 +31,7 @@ export const createNavigationOptions = (props: any) => {
     headerTitle: screen.title,
     // headerBackTitleVisible: false,
     headerTruncatedBackTitle: '',
-    // headerBackImage: () => <View style={{ paddingLeft: 16, paddingRight: 5 }}><Icon name="Car" /></View>,
+    // headerBackImage: () => <View style={{ paddingLeft: 16, paddingRight: 5 }}><AppSvgIcon name={IconTypes.Car} /></View>,
     headerBackImageStyle: {},
     headerBackTitleStyle: {
       fontSize: 15,

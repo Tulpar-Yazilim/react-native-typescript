@@ -21,8 +21,9 @@ import * as shape from 'd3-shape';
 import {IconProp} from '@fortawesome/fontawesome-svg-core';
 import {useNavigation} from '@react-navigation/native';
 import {BottomTabItemList} from './_BottomTabItemList';
+import {bottomTabHeight, COLORS} from '@theme';
 
-const {width, height} = Dimensions.get('window');
+const {width} = Dimensions.get('window');
 
 const tabs = BottomTabItemList;
 
@@ -45,17 +46,17 @@ const d = getPath();
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    backgroundColor: 'tomato',
+    backgroundColor: COLORS.primary,
   },
   tab: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    height: 64,
+    height: bottomTabHeight,
     zIndex: 2,
   },
   activeIcon: {
-    backgroundColor: 'white',
+    backgroundColor: 'transparent',
     width: 40,
     height: 40,
     borderRadius: 20,
@@ -188,7 +189,7 @@ function Bar() {
           />
         ))}
         <Svg width={tabWidth * 2} height={64}>
-          <Path fill="white" {...{d}} />
+          <Path fill={COLORS.screenBgColor} {...{d}} />
         </Svg>
       </Animated.View>
       {tabs.map((tab, index) => {
@@ -213,10 +214,12 @@ function Bar() {
 const tabBarStyles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: 'red',
   },
   dummyPusher: {
     flex: 1,
     height: 200,
+    backgroundColor: 'red',
   },
 });
 

@@ -2,7 +2,7 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {FC} from 'react';
 import {View, Text} from 'react-native';
-import {Icon} from '../../assets/icons';
+import {AppSvgIcon} from '@components';
 import {BottomTabItemList} from './_BottomTabItemList';
 import {COLORS, FONTS} from '@theme';
 import {TouchableOpacity} from 'react-native-gesture-handler';
@@ -20,7 +20,7 @@ export const BottomTabItem: FC<Props> = props => {
   const {onPress, label, isFocused, currentIndex, bottomTabConfig} = props;
 
   return (
-    <View style={{flex: 1}}>
+    <View style={{flex: 1, justifyContent: 'center', height: '100%'}}>
       {BottomTabItemList.map(
         item =>
           item.label === label && (
@@ -38,7 +38,7 @@ export const BottomTabItem: FC<Props> = props => {
                   alignItems: 'center',
                   justifyContent: 'flex-end',
                 }}>
-                <Icon
+                <AppSvgIcon
                   name={item.icon}
                   color={isFocused ? COLORS.secondary : COLORS.black}
                   width={bottomTabConfig.iconSize}

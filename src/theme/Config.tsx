@@ -87,6 +87,7 @@ export const SIZES = {
 
 export const FONTS = {
   regular: 'Poppins-Regular',
+  italic: 'Poppins-Italic',
   black: 'Poppins-Black',
   bold: 'Poppins-Bold',
   extraBold: 'Poppins-ExtraBold',

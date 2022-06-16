@@ -1,29 +1,44 @@
-import React, {FC} from 'react';
-import {Text as T} from 'react-native';
-import {COLORS as c, FONTS as f} from '@theme';
+import React, {memo} from 'react';
+import {Animated, StyleSheet, Text, Dimensions} from 'react-native';
+import {RFValue} from 'react-native-responsive-fontsize';
+import {SIZES, COLORS} from '@theme';
+import {useTranslate} from '@hooks';
+import {
+  getStyleShortcuts,
+  getTextStyleShortcuts,
+} from '../../../utils/StyleShortcut';
 
-type Props = {
-  ff?: string;
-  fs?: number;
-  color?: string;
-  style?: any;
-  children?: any;
-};
+const Typography = (props: any) => {
+  const {children, params, animated, ...rest} = props;
 
-export const Text: FC<Props> = ({children, ...props}) => {
-  const {ff, fs, color, style} = props;
+  // Translations
+  const _translate = useTranslate(children, params);
+  const i18nText = _translate ? _translate : children;
+
+  // Content
+  const content = i18nText || '';
+
+  const textStyles = StyleSheet.flatten([
+    {
+      fontSize: RFValue(SIZES.font, Dimensions.get('window').height),
+      color: COLORS.black,
+    },
+    {...getStyleShortcuts(props), ...getTextStyleShortcuts(props)},
+  ]);
+
+  if (animated) {
+    return (
+      <Animated.Text {...rest} style={textStyles}>
+        {content}
+      </Animated.Text>
+    );
+  }
 
   return (
-    <T
-      style={{
-        fontFamily: ff || f.regular,
-        color: color || c.black,
-        fontSize: fs || 16,
-        ...style,
-      }}
-      allowFontScaling={false}
-      {...props}>
-      {children}
-    </T>
+    <Text {...rest} style={textStyles}>
+      {content || content !== '' ? content : ''}
+    </Text>
   );
 };
+
+export default memo(Typography);

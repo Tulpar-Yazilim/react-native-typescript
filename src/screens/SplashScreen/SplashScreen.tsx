@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, {FC, useEffect, useRef} from 'react';
 import {Animated, View, Easing, StyleSheet} from 'react-native';
@@ -5,7 +6,7 @@ import {Animated, View, Easing, StyleSheet} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import layout from '../../config/layout.json';
-//import LottieView from 'lottie-react-native';
+import LottieView from 'lottie-react-native';
 
 export const SplashScreen: FC = () => {
   const navigation: StackNavigationProp<any> = useNavigation();
@@ -33,13 +34,13 @@ export const SplashScreen: FC = () => {
 
   return (
     <View style={styles.view}>
-      {/*<LottieView
-        source={require('./train.json')}
+      <LottieView
+        source={require('./loading-circles.json')}
         progress={progress.current}
         loop={true}
         autoPlay={true}
-        style={{width: 300, height: '100%'}}
-      />*/}
+        style={{width: 100, height: 200}}
+      />
     </View>
   );
 };

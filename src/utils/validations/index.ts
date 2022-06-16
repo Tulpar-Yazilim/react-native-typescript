@@ -1,6 +1,7 @@
 export * from './email';
 export * from './phone';
 export * from './name';
+export * from './iban';
 export * from './emailOrPhone';
 export * from './password';
 export * from './checkbox';

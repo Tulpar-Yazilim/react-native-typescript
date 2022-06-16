@@ -1,6 +1,6 @@
-import React, { useEffect, useState, useCallback, useMemo } from 'react';
-import { View, Text, LayoutChangeEvent, Image } from 'react-native';
-import { ScrollView, TapGestureHandler } from 'react-native-gesture-handler';
+import React, {useEffect, useState, useCallback, useMemo} from 'react';
+import {View, Text, LayoutChangeEvent, Image} from 'react-native';
+import {ScrollView, TapGestureHandler} from 'react-native-gesture-handler';
 import Animated, {
   BaseAnimationBuilder,
   BounceOut,
@@ -14,7 +14,6 @@ import Animated, {
   PinwheelOut,
   SequencedTransition,
 } from 'react-native-reanimated';
-import { Picker } from '@react-native-community/picker';
 
 const AnimatedImage = Animated.createAnimatedComponent(Image);
 type Props = {
@@ -48,7 +47,7 @@ function getLayoutTranistion(transition: string): BaseAnimationBuilder {
     case 'EntryExit':
       return combineTransition(
         PinwheelOut.duration(1000),
-        LightSpeedInLeft.duration(1000)
+        LightSpeedInLeft.duration(1000),
       ).delay(1000);
     default:
       return Layout.delay(1000).springify();
@@ -60,7 +59,7 @@ export function WaterfallGrid({
   transition = 'LinearTransition',
 }: Props) {
   const [poks, setPoks] = useState<Array<PokemonData>>([]);
-  const [dims, setDims] = useState({ width: 0, height: 0 });
+  const [dims, setDims] = useState({width: 0, height: 0});
   const handleOnLayout = useCallback(
     (e: LayoutChangeEvent) => {
       const newLayout = e.nativeEvent.layout;
@@ -68,10 +67,10 @@ export function WaterfallGrid({
         dims.width !== +newLayout.width ||
         dims.height !== +newLayout.height
       ) {
-        setDims({ width: newLayout.width, height: newLayout.height });
+        setDims({width: newLayout.width, height: newLayout.height});
       }
     },
-    [dims, setDims]
+    [dims, setDims],
   );
   const margin = 10;
   const width = (dims.width - (columns + 1) * margin) / columns;
@@ -120,25 +119,25 @@ export function WaterfallGrid({
           }}>
           <TapGestureHandler
             onHandlerStateChange={() => {
-              setPoks(poks.filter((it) => it.key !== pok.key));
+              setPoks(poks.filter(it => it.key !== pok.key));
             }}>
             <AnimatedImage
               layout={layoutTransition}
-              source={{ uri: pok.address }}
-              style={{ width: width, height: width }}
+              source={{uri: pok.address}}
+              style={{width: width, height: width}}
             />
           </TapGestureHandler>
-        </Animated.View>
+        </Animated.View>,
       );
     }
     return [cardsResult, Math.max(...heights) + margin / 2];
   }, [poks, columns, transition]);
   return (
-    <View onLayout={handleOnLayout} style={{ flex: 1 }}>
+    <View onLayout={handleOnLayout} style={{flex: 1}}>
       {cardsMemo.length === 0 && <Text> Loading </Text>}
       {cardsMemo.length !== 0 && (
         <ScrollView>
-          <View style={{ height: height }}>{cardsMemo}</View>
+          <View style={{height: height}}>{cardsMemo}</View>
         </ScrollView>
       )}
     </View>
@@ -146,11 +145,11 @@ export function WaterfallGrid({
 }
 export function WaterfallGridExample() {
   const [selectedTransition, setSelectedTransition] = useState<string>(
-    'SequencedTransition'
+    'SequencedTransition',
   );
   return (
-    <View style={{ flex: 1 }}>
-      <View
+    <View style={{flex: 1}}>
+      {/* <View
         style={{
           flexDirection: 'row',
           justifyContent: 'center',
@@ -160,9 +159,9 @@ export function WaterfallGridExample() {
         <Picker
           mode="dropdown"
           selectedValue={selectedTransition}
-          style={{ height: 50, width: 250 }}
-          itemStyle={{ height: 50 }}
-          onValueChange={(itemValue) => {
+          style={{height: 50, width: 250}}
+          itemStyle={{height: 50}}
+          onValueChange={itemValue => {
             setSelectedTransition(itemValue as string);
           }}>
           <Picker.Item label="LinearTransition" value="LinearTransition" />
@@ -176,7 +175,7 @@ export function WaterfallGridExample() {
           <Picker.Item label="CurvedTransition" value="CurvedTransition" />
           <Picker.Item label="EntryExit" value="EntryExit" />
         </Picker>
-      </View>
+      </View> */}
       <WaterfallGrid
         key={selectedTransition}
         columns={3}

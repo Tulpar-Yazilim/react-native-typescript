@@ -1,7 +1,8 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
 
-import {Block, COLORS, FONTS} from '@theme';
+import {COLORS, FONTS} from '@theme';
+import {Block} from '@components';
 import {AppIcon, IconTypes} from '@components';
 
 import {
