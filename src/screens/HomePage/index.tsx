@@ -155,13 +155,13 @@ const HomePage = ({navigation}: any) => {
           )}
         </Block>
       </AppScreen>
-      {/* <AppBottomSheet
+      <AppBottomSheet
         isVisible={bottomSheetVisibility}
         onClose={() => setBottomSheetVisibility(false)}>
         <Block h={200}>
           <Text>test</Text>
         </Block>
-      </AppBottomSheet> */}
+      </AppBottomSheet>
     </>
   );
 };
