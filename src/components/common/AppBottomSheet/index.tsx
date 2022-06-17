@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, {memo, useEffect, useMemo, useRef} from 'react';
 import {Pressable, StatusBar, StyleSheet} from 'react-native';
 import BottomSheet, {
@@ -39,7 +40,7 @@ const AppBottomSheet = ({
   } = useBottomSheetDynamicSnapPoints(initialSnapPoints);
 
   const animationConfigs = useBottomSheetTimingConfigs({
-    duration: 250,
+    duration: 200,
     easing: Easing.inOut(Easing.linear),
   });
 

@@ -1,16 +1,23 @@
 import React, {FC} from 'react';
-import {Alert, Image, StyleSheet, Text, View} from 'react-native';
+import {
+  Alert,
+  Image,
+  StyleSheet,
+  Text,
+  View,
+  Animated as RNAnimated,
+} from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {
   DrawerItem,
   createDrawerNavigator,
   DrawerContentScrollView,
 } from '@react-navigation/drawer';
-import {HomeScreen} from '../../screens/Home/HomeScreen';
+//import {HomeScreen} from '../../screens/Home/HomeScreen';
 import {Pressable} from 'react-native';
-import Animated from 'react-native-reanimated';
 import {DrawerMenuItemList} from './_DrawerMenuItemList';
 import {useEffect} from 'react';
+import Animated, {interpolateNode} from 'react-native-reanimated';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -45,6 +52,7 @@ const DrawerContent = (props: any) => {
   useEffect(() => {
     props.setProgress(props.progress);
   }, [props.progress]);
+
   return (
     <DrawerContentScrollView
       {...props}
@@ -94,12 +102,15 @@ const DrawerContent = (props: any) => {
 };
 
 export default () => {
-  const [progress, setProgress] = React.useState(new Animated.Value(0)) as any;
-  const scale = Animated.interpolateNode(progress, {
+  const [progress, setProgress] = React.useState(
+    new RNAnimated.Value(0),
+  ) as any;
+
+  const scale = interpolateNode(progress, {
     inputRange: [0, 1],
     outputRange: [1, 0.8],
   });
-  const borderRadius = Animated.interpolateNode(progress, {
+  const borderRadius = interpolateNode(progress, {
     inputRange: [0, 1],
     outputRange: [0, 16],
   });
@@ -110,15 +121,15 @@ export default () => {
     <View style={{flex: 1}}>
       <Drawer.Navigator
         // hideStatusBar
-        drawerType="slide"
-        overlayColor="transparent"
-        drawerStyle={styles.drawerStyles}
-        drawerContentOptions={{
-          activeBackgroundColor: 'transparent',
-          activeTintColor: 'white',
-          inactiveTintColor: 'white',
-        }}
-        sceneContainerStyle={{backgroundColor: 'transparent'}}
+        // drawerType="slide"
+        // overlayColor="transparent"
+        // drawerStyle={styles.drawerStyles}
+        // drawerContentOptions={{
+        //  activeBackgroundColor: 'transparent',
+        //  activeTintColor: 'white',
+        //  inactiveTintColor: 'white',
+        //}}
+        //sceneContainerStyle={{backgroundColor: 'transparent'}}
         drawerContent={props => {
           return <DrawerContent setProgress={setProgress} {...props} />;
         }}>
