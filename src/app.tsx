@@ -9,6 +9,8 @@ import {NavigationContainer} from '@react-navigation/native';
 import {StatusBar} from 'react-native';
 import MainStack from './navigation/stacks/_MainStack';
 import {store, persistor} from '@store';
+import {Host} from 'react-native-portalize';
+import AppLoader from './components/Common/AppLoader';
 
 const App = () => {
   useEffect(() => {
@@ -19,10 +21,13 @@ const App = () => {
     <>
       <Provider store={store}>
         <PersistGate persistor={persistor}>
-          <NavigationContainer linking={linking}>
-            <StatusBar barStyle="dark-content" />
-            <MainStack />
-          </NavigationContainer>
+          <Host>
+            <NavigationContainer linking={linking}>
+              <StatusBar barStyle="dark-content" />
+              <MainStack />
+            </NavigationContainer>
+            <AppLoader />
+          </Host>
         </PersistGate>
       </Provider>
       <Toast config={toastConfig} />

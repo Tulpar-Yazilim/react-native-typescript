@@ -1,7 +1,15 @@
 import React, {useLayoutEffect, useState} from 'react';
 import {Pressable, StyleSheet} from 'react-native';
 
-import {AppButton, Block, Text, AppInput, Row, Col} from '@components';
+import {
+  AppButton,
+  Block,
+  Text,
+  AppInput,
+  Row,
+  Col,
+  AppScreen,
+} from '@components';
 
 import {useNavigation} from '@react-navigation/native';
 
@@ -43,61 +51,71 @@ const FormPage = () => {
   }, [navigation, count]);
 
   return (
-    <Formik
-      validationSchema={ExampleSchema}
-      initialValues={{email: '', password: ''}}
-      onSubmit={values => {
-        setLoading(true);
-        setTimeout(() => {
-          setLoading(false);
-          console.log(values);
-        }, 3000);
-      }}>
-      {({handleChange, handleBlur, handleSubmit, values, touched, errors}) => (
-        <Block px={20}>
-          <Row pt={10}>
-            <Col col={12}>
-              <AppInput
-                name="email"
-                animatedPlaceholder="Username"
-                value={values.email}
-                handleBlur={handleBlur('email')}
-                onChange={handleChange('email')}
-                errorMessage={errors.email && touched.email && errors.email}
-              />
-            </Col>
-          </Row>
+    <AppScreen keyboardScroll>
+      <Formik
+        validationSchema={ExampleSchema}
+        validateOnMount
+        initialValues={{email: '', password: ''}}
+        onSubmit={values => {
+          setLoading(true);
+          setTimeout(() => {
+            setLoading(false);
+            console.log(values);
+          }, 3000);
+        }}>
+        {({
+          handleChange,
+          handleBlur,
+          handleSubmit,
+          values,
+          touched,
+          errors,
+        }) => (
+          <Block>
+            <Row pt={10}>
+              <Col col={12}>
+                <AppInput
+                  name="email"
+                  animatedPlaceholder="Username"
+                  value={values.email}
+                  handleBlur={handleBlur('email')}
+                  onChange={handleChange('email')}
+                  errorMessage={errors.email && touched.email && errors.email}
+                />
+              </Col>
+            </Row>
 
-          <Row pt={10}>
-            <Col col={12}>
-              <AppInput
-                name="password"
-                animatedPlaceholder="Password"
-                value={values.password}
-                handleBlur={handleBlur('password')}
-                onChange={handleChange('password')}
-                secureTextEntry
-                errorMessage={
-                  errors.password && touched.password && errors.password
-                }
-              />
-            </Col>
-          </Row>
+            <Row pt={10}>
+              <Col col={12}>
+                <AppInput
+                  name="password"
+                  animatedPlaceholder="Password"
+                  value={values.password}
+                  handleBlur={handleBlur('password')}
+                  onChange={handleChange('password')}
+                  secureTextEntry
+                  errorMessage={
+                    errors.password && touched.password && errors.password
+                  }
+                />
+              </Col>
+            </Row>
 
-          <Row pt={10}>
-            <Col col={12}>
-              <AppButton
-                type="primary"
-                title="login"
-                onPress={(e: any) => handleSubmit(e)}
-                disabled={loading || errors.email || errors.password}
-                loading={loading}
-              />
-            </Col>
-          </Row>
-        </Block>
-      )}
-    </Formik>
+            <Row pt={10}>
+              <Col col={12}>
+                <AppButton
+                  type="primary"
+                  title="login"
+                  onPress={(e: any) => handleSubmit(e)}
+                  disabled={loading || errors.email || errors.password}
+                  loading={loading}
+                />
+              </Col>
+            </Row>
+          </Block>
+        )}
+      </Formik>
+    </AppScreen>
   );
 };
 

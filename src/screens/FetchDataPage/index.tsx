@@ -7,7 +7,10 @@ import {AppFlatList, AppImage, AppScreen, Block, Text} from '@components';
 
 const FetchDataPage = () => {
   const [data, setData] = useState([]);
-  const getCharactersApi = useApi(characters.getCharacters);
+
+  const getCharactersApi = useApi(characters.getCharacters, {
+    useAppLoader: true,
+  });
 
   const loadData = async () => {
     const response = await getCharactersApi.request();
@@ -40,17 +43,15 @@ const FetchDataPage = () => {
 
   return (
     <AppScreen>
-      <Block>
-        <AppFlatList
-          data={data}
-          ListEmptyComponent={
-            <Block pt={20} center middle>
-              <Text>No records found.</Text>
-            </Block>
-          }
-          renderItem={renderItem}
-        />
-      </Block>
+      <AppFlatList
+        data={data}
+        ListEmptyComponent={
+          <Block pt={20} center middle>
+            <Text>No records found.</Text>
+          </Block>
+        }
+        renderItem={renderItem}
+      />
     </AppScreen>
   );
 };

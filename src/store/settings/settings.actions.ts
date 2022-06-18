@@ -9,3 +9,10 @@ export const changeLanguage = (lang: string) => {
     payload: lang,
   });
 };
+
+export const changeLoadingState = (payload: boolean) => {
+  store.dispatch({
+    type: actionTypes.CHANGE_APP_LOADER,
+    payload,
+  });
+};

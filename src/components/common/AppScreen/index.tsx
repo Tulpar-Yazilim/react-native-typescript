@@ -22,7 +22,7 @@ const AppScreen: FC<Props | any> = ({children, ...props}) => {
 
   const screenCommonStyles = {
     padding: window.offset,
-    paddingBottom: layout.menu === 'bottom' && bottomTabHeight,
+    paddingBottom: layout.menu === 'bottom' ? bottomTabHeight : 20,
     flex: 1,
     backgroundColor: COLORS.screenBgColor,
   } as any;
