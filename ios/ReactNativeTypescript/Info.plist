@@ -1,156 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>tr</string>
+	<key>CFBundleDisplayName</key>
+	<string>reactnativetypescript</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>$(PRODUCT_NAME)</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>$(MARKETING_VERSION)</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>NSAppTransportSecurity</key>
 	<dict>
-		<key>CFBundleAllowMixedLocalizations</key>
-		<string>true</string>
-		<key>CFBundleDevelopmentRegion</key>
-		<string>tr</string>
-		<key>CFBundleDisplayName</key>
-		<string>reactNativeTypescript</string>
-		<key>CFBundleExecutable</key>
-		<string>$(EXECUTABLE_NAME)</string>
-		<key>CFBundleIdentifier</key>
-		<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
-		<key>CFBundleInfoDictionaryVersion</key>
-		<string>6.0</string>
-		<key>CFBundleName</key>
-		<string>$(PRODUCT_NAME)</string>
-		<key>CFBundlePackageType</key>
-		<string>APPL</string>
-		<key>CFBundleShortVersionString</key>
-		<string>1.0</string>
-		<key>CFBundleSignature</key>
-		<string>????</string>
-		<key>CFBundleVersion</key>
-		<string>1</string>
-		<key>CFBundleURLTypes</key>
-		<array>
-			<dict>
-				<key>CFBundleTypeRole</key>
-				<string>Editor</string>
-				<key>CFBundleURLName</key>
-				<string>facebook</string>
-				<key>CFBundleURLSchemes</key>
-				<array>
-					<string>***************</string>
-				</array>
-			</dict>
-			<dict>
-				<key>CFBundleTypeRole</key>
-				<string>Editor</string>
-				<key>CFBundleURLName</key>
-				<string>google</string>
-				<key>CFBundleURLSchemes</key>
-				<array>
-					<string>com.googleusercontent.apps.****************-svrdp11sijr8cf33f8tj9g07emc42eum</string>
-				</array>
-			</dict>
-			<dict>
-				<key>CFBundleTypeRole</key>
-				<string>Editor</string>
-				<key>CFBundleURLName</key>
-				<string>twitter</string>
-				<key>CFBundleURLSchemes</key>
-				<array>
-					<string>twitterkit-***********</string>
-				</array>
-			</dict>
-		</array>
-		<key>FacebookAppID</key>
-		<string>***********</string>
-		<key>FacebookClientToken</key>
-		<string>*************</string>
-		<key>FacebookDisplayName</key>
-		<string>$(PRODUCT_NAME)</string>
-		<key>LSApplicationQueriesSchemes</key>
-		<array>
-			<string>twitter</string>
-			<string>twitterauth</string>
-			<string>itms-apps</string>
-			<string>mailto</string>
-			<string>tel</string>
-			<string>sms</string>
-			<string>https</string>
-			<string>http</string>
-		</array>
-		<key>CodePushDeploymentKey</key>
-		<string>????</string>
-		<key>LSRequiresIPhoneOS</key>
-		<true />
-		<key>NSAppTransportSecurity</key>
+		<key>NSExceptionDomains</key>
 		<dict>
-			<key>NSExceptionDomains</key>
+			<key>localhost</key>
 			<dict>
-				<key>localhost</key>
-				<dict>
-					<key>NSExceptionAllowsInsecureHTTPLoads</key>
-					<true />
-				</dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
 			</dict>
 		</dict>
-		<key>NSCameraUsageDescription</key>
-		<string>React Native Typescript uygulamasının fotoğraf çekimi veya resim seçebilmesi için kameranıza erişmesi gerekir. Lütfen gerekli izinleri veriniz.</string>
-		<key>NSPhotoLibraryAddUsageDescription</key>
-		<string>React Native Typescript uygulamasının fotoğraf çekimi veya resim seçebilmesi için kameranıza erişmesi gerekir. Lütfen gerekli izinleri veriniz.</string>
-		<key>NSPhotoLibraryUsageDescription</key>
-		<string>React Native Typescript uygulamasının fotoğraf çekimi veya resim seçebilmesi için kameranıza erişmesi gerekir. Lütfen gerekli izinleri veriniz.</string>
-		<key>NSLocationWhenInUseUsageDescription</key>
-		<string>React Native Typescript uygulaması lokasyon bilgilerinize ihtiyaç duymaktadır. Lütfen gerekli izinleri veriniz.</string>
-		<key>UIAppFonts</key>
-		<array>
-			<string>Poppins-Black.ttf</string>
-			<string>Poppins-BlackItalic.ttf</string>
-			<string>Poppins-Bold.ttf</string>
-			<string>Poppins-BoldItalic.ttf</string>
-			<string>Poppins-ExtraBold.ttf</string>
-			<string>Poppins-ExtraBoldItalic.ttf</string>
-			<string>Poppins-ExtraLight.ttf</string>
-			<string>Poppins-ExtraLightItalic.ttf</string>
-			<string>Poppins-Italic.ttf</string>
-			<string>Poppins-Light.ttf</string>
-			<string>Poppins-LightItalic.ttf</string>
-			<string>Poppins-Medium.ttf</string>
-			<string>Poppins-MediumItalic.ttf</string>
-			<string>Poppins-Regular.ttf</string>
-			<string>Poppins-SemiBold.ttf</string>
-			<string>Poppins-SemiBoldItalic.ttf</string>
-			<string>Poppins-Thin.ttf</string>
-			<string>Poppins-ThinItalic.ttf</string>
-			<string>AntDesign.ttf</string>
-			<string>Entypo.ttf</string>
-			<string>EvilIcons.ttf</string>
-			<string>Feather.ttf</string>
-			<string>FontAwesome.ttf</string>
-			<string>FontAwesome5_Brands.ttf</string>
-			<string>FontAwesome5_Regular.ttf</string>
-			<string>FontAwesome5_Solid.ttf</string>
-			<string>Foundation.ttf</string>
-			<string>Ionicons.ttf</string>
-			<string>MaterialIcons.ttf</string>
-			<string>MaterialCommunityIcons.ttf</string>
-			<string>SimpleLineIcons.ttf</string>
-			<string>Octicons.ttf</string>
-			<string>Zocial.ttf</string>
-			<string>Fontisto.ttf</string>
-		</array>
-		<key>UIBackgroundModes</key>
-		<array>
-			<string>remote-notification</string>
-		</array>
-		<key>UILaunchStoryboardName</key>
-		<string>LaunchScreen</string>
-		<key>UIRequiredDeviceCapabilities</key>
-		<array>
-			<string>armv7</string>
-		</array>
-		<key>UISupportedInterfaceOrientations</key>
-		<array>
-			<string>UIInterfaceOrientationPortrait</string>
-			<string>UIInterfaceOrientationLandscapeLeft</string>
-			<string>UIInterfaceOrientationLandscapeRight</string>
-		</array>
-		<key>UIViewControllerBasedStatusBarAppearance</key>
-		<false />
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>React Native Typescript uygulamasının fotoğraf çekimi veya resim seçebilmesi için kameranıza erişmesi gerekir. Lütfen gerekli izinleri veriniz.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>React Native Typescript uygulamasının fotoğraf çekimi veya resim seçebilmesi için kameranıza erişmesi gerekir. Lütfen gerekli izinleri veriniz.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>React Native Typescript uygulamasının fotoğraf çekimi veya resim seçebilmesi için kameranıza erişmesi gerekir. Lütfen gerekli izinleri veriniz.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>React Native Typescript uygulaması lokasyon bilgilerinize ihtiyaç duymaktadır. Lütfen gerekli izinleri veriniz.</string>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>armv7</string>
+	</array>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
+</dict>
 </plist>

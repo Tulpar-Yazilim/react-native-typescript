@@ -2,12 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:reactNativeTypescript.xcodeproj">
+      location = "group:reactnativetypescript.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:reactnativetypescript.xcodeproj">
    </FileRef>
 </Workspace>
