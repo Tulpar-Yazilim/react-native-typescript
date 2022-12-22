@@ -7,6 +7,8 @@ export const COLORS = {
   // default font color
   font: '#000000',
   screenBgColor: '#ebebeb',
+  headerBackgroundColor: '#318AC3',
+  headerColor: '#FFFFFF',
 
   // base colors
   primary: '#318AC3',

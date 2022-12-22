@@ -4,28 +4,29 @@ import {COLORS, FONTS} from '@theme';
 import {AppButton, AppIcon} from '@components';
 import {ICONS} from '@utils';
 
+const BackButton = ({props, navigation}) =>
+  props.canGoBack && (
+    <AppButton
+      type="icon"
+      icon={<AppIcon name={ICONS.chevronLeft} size={24} color={COLORS.white} />}
+      onPress={() => navigation.goBack()}
+    />
+  );
+
 export const Header: FC<any> = ({navigation}) => {
   useLayoutEffect(() => {
     navigation.setOptions({
       headerStyle: {
-        backgroundColor: COLORS.primary,
+        backgroundColor: COLORS.headerBackgroundColor,
       },
       headerTitleStyle: {
-        fontSize: 19,
-        fontFamily: FONTS.semiBold,
-        color: 'white',
+        ...FONTS.title,
+        color: COLORS.headerColor,
       },
       headerTitleAlign: 'center',
-      headerLeft: (props: any) =>
-        props.canGoBack && (
-          <AppButton
-            type="icon"
-            icon={
-              <AppIcon name={ICONS.arrowLeft} size={33} color={COLORS.white} />
-            }
-            onPress={() => navigation.goBack()}
-          />
-        ),
+      headerLeft: (props: any) => (
+        <BackButton props={props} navigation={navigation} />
+      ),
     });
   }, [navigation]);
 

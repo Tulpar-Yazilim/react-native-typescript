@@ -24,6 +24,7 @@ import {COLORS} from '@theme';
 const HomePage = ({navigation}: any) => {
   const [isPermission, setIsPermission] = useState(false);
   const [dateVisible, setDateVisible] = useState(false);
+  const [dateTimeVisible, setDateTimeVisible] = useState(false);
   const [bottomSheetVisibility, setBottomSheetVisibility] = useState(false);
 
   const language = useSelector<RootState>(state => state.settings.language);
@@ -103,10 +104,10 @@ const HomePage = ({navigation}: any) => {
             <Col col={6} pl={5}>
               <AppButton
                 mr={5}
-                title="Date Picker"
+                title="DateTime Picker"
                 type="primary"
                 onPress={() => {
-                  setDateVisible(true);
+                  setDateTimeVisible(true);
                 }}
               />
             </Col>
@@ -114,6 +115,11 @@ const HomePage = ({navigation}: any) => {
         </DatePickerArea>
 
         <DateTimePicker visible={dateVisible} setVisible={setDateVisible} />
+        <DateTimePicker
+          mode="datetime"
+          visible={dateTimeVisible}
+          setVisible={setDateTimeVisible}
+        />
 
         <AppButton
           mb={10}

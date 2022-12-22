@@ -17,6 +17,7 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "reset-cache": "npm start -- --reset-cache",
     "logcat": "adb logcat *:S ReactNative:V ReactNativeJS:V",
+    "fonts": "npx react-native-asset",
     "icon-list": "node icon-list.js"
   },
   "dependencies": {
