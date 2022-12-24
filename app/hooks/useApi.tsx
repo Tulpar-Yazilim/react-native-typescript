@@ -2,6 +2,7 @@ import {useState} from 'react';
 import {AxiosResponse} from 'axios';
 import {ApiResult} from '../api/api-result';
 import {settingsRedux} from '@store';
+import {useAppDispatch} from '@hooks';
 
 interface IConfig {
   useAppLoader: boolean;
@@ -11,6 +12,7 @@ const useApi = (
   apiFunc: {(): Promise<AxiosResponse>; (arg0: any): any},
   config?: IConfig,
 ) => {
+  const dispatch = useAppDispatch();
   const [data, setData] = useState([]);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -18,7 +20,7 @@ const useApi = (
   const request = async (...args: any[]): Promise<ApiResult<any>> => {
     setLoading(true);
 
-    config?.useAppLoader && settingsRedux.actions.changeLoadingState(true);
+    config?.useAppLoader && dispatch(settingsRedux.changeLoadingState(true));
 
     const response = await apiFunc(args);
     setError(!response?.status);
@@ -28,7 +30,7 @@ const useApi = (
     setData(response?.data);
     setLoading(false);
 
-    config?.useAppLoader && settingsRedux.actions.changeLoadingState(false);
+    config?.useAppLoader && dispatch(settingsRedux.changeLoadingState(false));
 
     const result: ApiResult<any> = {
       isSuccess: response?.status === 200,

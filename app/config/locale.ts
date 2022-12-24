@@ -3,9 +3,9 @@ import 'moment/locale/tr';
 import {initLocale} from '../lang/i18';
 import {LocaleConfig} from 'react-native-calendars';
 
-const locale = () => {
-  initLocale();
-  moment.locale('tr');
+const locale = (language: string = 'tr') => {
+  initLocale(language || 'tr');
+  moment.locale(language || 'tr');
   LocaleConfig.locales.tr = {
     monthNames: [
       'Ocak',

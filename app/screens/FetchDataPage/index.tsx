@@ -1,25 +1,26 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, {useEffect, useState} from 'react';
-import {characters} from '@api';
+import {useGetCharactersQuery} from '@api';
 import {useApi} from '@hooks';
 import {COLORS, SIZES} from '@theme';
 import {AppFlatList, AppImage, AppScreen, Block, Text} from '@components';
 
 const FetchDataPage = () => {
-  const [data, setData] = useState([]);
+  // const [data, setData] = useState([]);
 
-  const getCharactersApi = useApi(characters.getCharacters, {
-    useAppLoader: true,
-  });
+  const {data: characters, isLoading} = useGetCharactersQuery(1);
 
-  const loadData = async () => {
-    const response = await getCharactersApi.request();
-    setData(response?.data?.results);
-  };
+  // const getCharactersApi = useApi(characters.getCharacters, {
+  //   useAppLoader: true,
+  // });
 
-  useEffect(() => {
-    loadData();
-  }, []);
+  // const loadData = async () => {
+  //   const response = await getCharactersApi.request();
+  //   setData(response?.data?.results);
+  // };
+
+  // useEffect(() => {
+  //   loadData();
+  // }, []);
 
   const renderItem = ({item}: {item: any}) => {
     return (
@@ -42,9 +43,9 @@ const FetchDataPage = () => {
   };
 
   return (
-    <AppScreen>
+    <AppScreen isLoading={isLoading}>
       <AppFlatList
-        data={data}
+        data={characters?.results}
         ListEmptyComponent={
           <Block pt={20} center middle>
             <Text>No records found.</Text>

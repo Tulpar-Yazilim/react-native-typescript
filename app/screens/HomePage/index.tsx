@@ -1,7 +1,6 @@
 import React, {useState, useCallback, useLayoutEffect} from 'react';
 import {Pressable} from 'react-native';
 import {Images} from '@assets';
-import {useSelector} from 'react-redux';
 import {
   Text,
   Block,
@@ -14,23 +13,25 @@ import {
   Col,
   AppBottomSheet,
 } from '@components';
+import {useAppDispatch, useAppSelector, useTag} from '@hooks';
+import {COLORS} from '@theme';
 import {ICONS, Permission, PERMISSION_TYPE} from '@utils';
 import {useFocusEffect} from '@react-navigation/native';
-import {RootState, settingsRedux} from '@store';
+import {settingsRedux} from '@store';
 import Routes from '../../navigation/Routes';
-import useTag from '../../hooks/createTag';
-import {COLORS} from '@theme';
 
 const HomePage = ({navigation}: any) => {
+  const dispatch = useAppDispatch();
+
   const [isPermission, setIsPermission] = useState(false);
   const [dateVisible, setDateVisible] = useState(false);
   const [dateTimeVisible, setDateTimeVisible] = useState(false);
   const [bottomSheetVisibility, setBottomSheetVisibility] = useState(false);
 
-  const language = useSelector<RootState>(state => state.settings.language);
+  const language = useAppSelector(state => state.settings.language);
 
   const onChangeLang = (_language: string) => {
-    settingsRedux.actions.changeLanguage(_language);
+    dispatch(settingsRedux.changeLanguage(_language));
   };
 
   const cameraPermissions = async () => {
