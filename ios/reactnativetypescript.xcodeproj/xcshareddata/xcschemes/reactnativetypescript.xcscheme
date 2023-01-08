@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "reactNativeTypescript.app"
-               BlueprintName = "reactNativeTypescript"
-               ReferencedContainer = "container:reactNativeTypescript.xcodeproj">
+               BuildableName = "reactnativetypescript.app"
+               BlueprintName = "reactnativetypescript"
+               ReferencedContainer = "container:reactnativetypescript.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "reactNativeTypescriptTests.xctest"
-               BlueprintName = "reactNativeTypescriptTests"
-               ReferencedContainer = "container:reactNativeTypescript.xcodeproj">
+               BuildableName = "reactnativetypescriptTests.xctest"
+               BlueprintName = "reactnativetypescriptTests"
+               ReferencedContainer = "container:reactnativetypescript.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "reactNativeTypescript.app"
-            BlueprintName = "reactNativeTypescript"
-            ReferencedContainer = "container:reactNativeTypescript.xcodeproj">
+            BuildableName = "reactnativetypescript.app"
+            BlueprintName = "reactnativetypescript"
+            ReferencedContainer = "container:reactnativetypescript.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "reactNativeTypescript.app"
-            BlueprintName = "reactNativeTypescript"
-            ReferencedContainer = "container:reactNativeTypescript.xcodeproj">
+            BuildableName = "reactnativetypescript.app"
+            BlueprintName = "reactnativetypescript"
+            ReferencedContainer = "container:reactnativetypescript.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
