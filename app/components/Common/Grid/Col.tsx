@@ -9,8 +9,10 @@ type Props = {
 const Col: FC<Props | any> = props => {
   const {children, col} = props;
 
+  const s = `w-${(100 / 12) * col}%`;
+
   return (
-    <Block w={`${(100 / 12) * col}%`} {...props}>
+    <Block s={s} {...props}>
       {children}
     </Block>
   );

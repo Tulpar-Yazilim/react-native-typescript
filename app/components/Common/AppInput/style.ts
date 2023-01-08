@@ -3,9 +3,6 @@ import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
-    // borderColor: color.primary,
-    backgroundColor: '#fff',
-    height: 52,
     borderRadius: 10,
     paddingHorizontal: 10,
     marginVertical: 3,
@@ -14,10 +11,9 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: COLORS.black,
     fontFamily: FONTS.regular,
-    flex: 1,
-    width: '100%',
+    //backgroundColor: 'red',
     left: 8,
-    paddingBottom: -5,
+    paddingBottom: -8,
   },
   errorInput: {
     color: 'tomato',

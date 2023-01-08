@@ -1,24 +1,19 @@
-import {AboutScreen} from '../../screens/About/AboutScreen';
-import HomeStack from '../stacks/HomeStack/index';
-import {TicketsScreen} from '../../screens/Tickets/Tickets';
+import {FetchDataPage, HomePage} from '@screens';
+import HomeStack from '../stacks/HomeStack';
 
 export const BottomTabItemList = [
   {
-    label: 'Home',
+    label: 'Ana Sayfa',
     icon: 'home',
+    name: 'HomeScreen',
     component: HomeStack,
     headerShown: false,
   },
   {
-    label: 'Tickets',
-    icon: 'bookmark',
-    component: TicketsScreen,
-    headerShown: false,
-  },
-  {
-    label: 'Support',
-    icon: 'info',
-    component: AboutScreen,
+    label: 'Data',
+    icon: 'home',
+    name: 'FetchDataPage',
+    component: FetchDataPage,
     headerShown: true,
   },
 ];

@@ -4,11 +4,13 @@ import {i18next} from '@lang';
 interface ISettingsState {
   language: string;
   appLoader: boolean;
+  theme: 'light' | 'dark';
 }
 
 const initialState: ISettingsState = {
   language: 'tr',
   appLoader: false,
+  theme: 'light',
 };
 
 const settingsSlice = createSlice({
@@ -22,10 +24,13 @@ const settingsSlice = createSlice({
     changeLoadingState: (state, action) => {
       state.appLoader = action.payload;
     },
+    setTheme: (state, action) => {
+      state.theme = action.payload;
+    },
   },
 });
 
 const {actions, reducer} = settingsSlice;
-export const {changeLanguage, changeLoadingState} = actions;
+export const {changeLanguage, changeLoadingState, setTheme} = actions;
 
 export default reducer;

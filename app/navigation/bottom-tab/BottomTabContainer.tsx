@@ -2,10 +2,12 @@ import React, {FC, useState, useEffect} from 'react';
 import {Keyboard, View, Dimensions, StyleSheet} from 'react-native';
 import {BottomTabItem} from './BottomTabItem';
 import {COLORS, window, bottomTabHeight} from '@theme';
+import {useTheme} from '@hooks';
 
 export const BottomTabContainer: FC<any> = props => {
   const {state, descriptors, navigation} = props;
   const [showTab, setShowTab] = useState(true);
+  const {colors} = useTheme();
 
   useEffect(() => {
     Keyboard.addListener('keyboardDidShow', () => setShowTab(false));
@@ -18,14 +20,22 @@ export const BottomTabContainer: FC<any> = props => {
 
   const bottomTabConfig = {
     height: bottomTabHeight,
-    fontSize: window.height < 680 ? 10 : 12,
-    iconSize: window.height < 680 ? 25 : 30,
+    fontSize: 11,
+    iconSize: 24,
   };
 
   return (
     <>
       {showTab && (
-        <View style={[styles.tab, {height: bottomTabConfig.height}]}>
+        <View
+          style={[
+            styles.tab,
+            {
+              height: bottomTabConfig.height,
+              backgroundColor: colors.bottomTabColor,
+            },
+          ]}
+        >
           {state.routes.map((route: any, index: number) => {
             const {options} = descriptors[route.key];
             const label =

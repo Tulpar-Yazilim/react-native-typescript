@@ -1,11 +1,11 @@
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable react-native/no-inline-styles */
 import React, {FC} from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, Pressable} from 'react-native';
 import {AppIcon} from '@components';
 import {BottomTabItemList} from './_BottomTabItemList';
 import {COLORS, FONTS} from '@theme';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+import {useTheme} from '@hooks';
 
 type Props = {
   onPress: any;
@@ -18,9 +18,17 @@ type Props = {
 
 export const BottomTabItem: FC<Props> = props => {
   const {onPress, label, isFocused, bottomTabConfig} = props;
+  const {colors} = useTheme();
 
   return (
-    <View style={{flex: 1, justifyContent: 'center', height: '100%'}}>
+    <Pressable
+      onPress={onPress}
+      style={{
+        flex: 1,
+        justifyContent: 'center',
+        height: '100%',
+      }}
+    >
       {BottomTabItemList.map(
         item =>
           item.label === label && (
@@ -30,28 +38,30 @@ export const BottomTabItem: FC<Props> = props => {
                 flexDirection: 'row',
                 alignItems: 'center',
                 justifyContent: 'center',
-              }}>
-              <TouchableOpacity
-                onPress={onPress}
+              }}
+            >
+              <View
                 style={{
                   width: '100%',
                   alignItems: 'center',
                   justifyContent: 'flex-end',
-                }}>
+                }}
+              >
                 <AppIcon
                   name={item.icon}
-                  color={isFocused ? COLORS.secondary : COLORS.black}
+                  color={isFocused ? colors.tabItemFocused : colors.tabItem}
                   size={bottomTabConfig?.iconSize}
                 />
                 <Text
                   style={{
-                    color: isFocused ? COLORS.secondary : COLORS.black,
+                    color: isFocused ? colors.tabItemFocused : colors.tabItem,
                     fontSize: bottomTabConfig.fontSize,
                     fontFamily: FONTS.medium,
-                  }}>
+                  }}
+                >
                   {item.label}
                 </Text>
-              </TouchableOpacity>
+              </View>
               <View
                 style={{
                   width: 1,
@@ -59,10 +69,11 @@ export const BottomTabItem: FC<Props> = props => {
                   backgroundColor: COLORS.gray,
                   position: 'absolute',
                   right: 0,
-                }}></View>
+                }}
+              ></View>
             </View>
           ),
       )}
-    </View>
+    </Pressable>
   );
 };

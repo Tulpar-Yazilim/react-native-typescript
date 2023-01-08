@@ -3,38 +3,100 @@ import {Dimensions, Platform} from 'react-native';
 const {width, height} = Dimensions.get('window');
 const platform = Platform.OS;
 
+export const themeColors = {
+  light: {
+    cardBg: '#fff',
+    bottomTabColor: '#fff',
+    tabItem: '#212121',
+    tabItemFocused: '#fac422',
+    defaultTextColor: 'black',
+    inputBg: '#fff',
+    inputText: '#000',
+    // default font color
+    font: '#000000',
+    screenBgColor: '#ebebeb',
+    headerBackgroundColor: '#318AC3',
+    headerColor: '#fff',
+
+    // base colors
+    primary: '#318AC3',
+    secondary: '#044571',
+    tertiary: '#FFE358',
+
+    // non-colors
+    black: '#000000',
+    white: '#FFFFFF',
+
+    // color variations
+    gray: '#535453',
+    lightGray: '#EFF1F3',
+    error: '#DC3545',
+    errorBg: '#f9d7da',
+    warning: '#FFE358',
+    successBg: '#d4edda',
+    successText: '#155624',
+    info: '#4DA1FF',
+    primaryLightBg: '#feedb9',
+    primaryDark: '#cd9b04',
+
+    //ios statusbar color
+    statusbar_dark: 'light-content',
+    statusbar_light: 'dark-content',
+
+    // app colors
+    selectedCheckboxBackground: '#48586E',
+    unselectedCheckboxBorder: '#D4D4D4',
+    placeholder: '#7E7E7E',
+  },
+  dark: {
+    cardBg: '#303030',
+    inputBg: '#212121',
+    inputText: '#fff',
+    bottomTabColor: '#303030',
+    tabItem: '#000',
+    tabItemFocused: '#fff',
+    defaultTextColor: 'white',
+
+    // default font color
+    font: '#000000',
+    screenBgColor: '#121212',
+    headerBackgroundColor: '#212121',
+    headerColor: '#dedede',
+
+    // base colors
+    primary: '#212121',
+    secondary: '#403E3F',
+    tertiary: '#FFE358',
+
+    // non-colors
+    black: '#fff',
+    white: '#FFFFFF',
+
+    // color variations
+    gray: '#535453',
+    lightGray: '#EFF1F3',
+    error: '#DC3545',
+    errorBg: '#f9d7da',
+    warning: '#FFE358',
+    successBg: '#d4edda',
+    successText: '#155624',
+    info: '#4DA1FF',
+    primaryLightBg: '#feedb9',
+    primaryDark: '#cd9b04',
+
+    //ios statusbar color
+    statusbar_dark: 'light-content',
+    statusbar_light: 'dark-content',
+
+    // app colors
+    selectedCheckboxBackground: '#48586E',
+    unselectedCheckboxBorder: '#D4D4D4',
+    placeholder: '#7E7E7E',
+  },
+};
+
 export const COLORS = {
-  // default font color
-  font: '#000000',
-  screenBgColor: '#ebebeb',
-  headerBackgroundColor: '#318AC3',
-  headerColor: '#FFFFFF',
-
-  // base colors
-  primary: '#318AC3',
-  secondary: '#044571',
-  tertiary: '#FFE358',
-
-  // non-colors
-  black: '#000000',
-  white: '#FFFFFF',
-
-  // color variations
-  gray: '#535453',
-  lightGray: '#EFF1F3',
-  error: '#DC3545',
-  warning: '#FFE358',
-  success: '#4CD964',
-  info: '#4DA1FF',
-
-  //ios statusbar color
-  statusbar_dark: 'light-content',
-  statusbar_light: 'dark-content',
-
-  // app colors
-  selectedCheckboxBackground: '#48586E',
-  unselectedCheckboxBorder: '#D4D4D4',
-  placeholder: '#7E7E7E',
+  ...themeColors.light,
 };
 
 export const SIZES = {
@@ -68,6 +130,7 @@ export const SIZES = {
 
   // header
   header: 50,
+  subheader: 30,
 
   // bottom tab
   tabText: width * 0.035,
@@ -155,6 +218,6 @@ export const fontSize = [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30];
 
 export const padding = [5, 10, 15, 20, 25, 30, 35, 40, 45];
 
-export const bottomTabHeight = window.height < 680 ? 50 : 80;
+export const bottomTabHeight = window.height < 680 ? 50 : 75;
 
 export const fingerSize = 40;

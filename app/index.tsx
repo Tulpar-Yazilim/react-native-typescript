@@ -9,7 +9,7 @@ import {Host} from 'react-native-portalize';
 import Toast from 'react-native-toast-message';
 import {NavigationContainer} from '@react-navigation/native';
 
-import {initializeOnesignal} from '@utils';
+//import {initializeOnesignal} from '@utils';
 import {useAppSelector} from '@hooks';
 import {linking, locale, toastConfig} from '@config';
 import {store, persistor} from '@store';
@@ -24,9 +24,9 @@ const MainContainer = () => {
     locale(language);
   }, [language]);
 
-  useEffect(() => {
-    initializeOnesignal();
-  }, []);
+  //useEffect(() => {
+  //  initializeOnesignal();
+  //}, []);
 
   return (
     <Host>
@@ -41,14 +41,13 @@ const MainContainer = () => {
 
 const App = () => {
   return (
-    <>
-      <Provider store={store}>
-        <PersistGate persistor={persistor}>
-          <MainContainer />
-        </PersistGate>
-      </Provider>
+    <Provider store={store}>
+      <PersistGate persistor={persistor}>
+        <MainContainer />
+      </PersistGate>
+
       <Toast config={toastConfig} />
-    </>
+    </Provider>
   );
 };
 

@@ -25,6 +25,7 @@ export {authRedux, settingsRedux};
 const persistConfig = {
   key: 'root',
   version: 1,
+  //blacklist: [tattooApi.reducerPath],
   storage: EncryptedStorage,
 };
 
@@ -40,6 +41,7 @@ export const store = configureStore({
   reducer: persistedReducer,
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
+      immutableCheck: false,
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },

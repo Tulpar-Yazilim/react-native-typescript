@@ -28,7 +28,8 @@ const FetchDataPage = () => {
         mb={10}
         px={10}
         borderRadius={SIZES.radius}
-        backgroundColor={COLORS.lightGray}>
+        backgroundColor={COLORS.lightGray}
+      >
         <Block center row>
           <AppImage
             url={item?.image}
@@ -44,15 +45,17 @@ const FetchDataPage = () => {
 
   return (
     <AppScreen isLoading={isLoading}>
-      <AppFlatList
-        data={characters?.results}
-        ListEmptyComponent={
-          <Block pt={20} center middle>
-            <Text>No records found.</Text>
-          </Block>
-        }
-        renderItem={renderItem}
-      />
+      <Block flex>
+        <AppFlatList
+          data={characters?.results}
+          ListEmptyComponent={
+            <Block pt={20} center middle>
+              <Text>No records found.</Text>
+            </Block>
+          }
+          renderItem={renderItem}
+        />
+      </Block>
     </AppScreen>
   );
 };

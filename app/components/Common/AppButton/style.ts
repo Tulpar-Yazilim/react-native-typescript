@@ -7,6 +7,7 @@ const styles = StyleSheet.create({
     opacity: 0.5,
   },
   container: {
+    zIndex: 999,
     borderRadius: 10,
     alignItems: 'center',
     justifyContent: 'center',
@@ -23,17 +24,12 @@ const styles = StyleSheet.create({
 
 export const buttonTypesStyles: IButtonTypes = {
   primary: {
-    container: {
-      backgroundColor: COLORS.primary,
-    },
     text: {
-      color: COLORS.white,
+      color: COLORS.secondary,
+      fontWeight: 'bold',
     },
   },
   secondary: {
-    container: {
-      backgroundColor: COLORS.secondary,
-    },
     text: {
       color: COLORS.white,
     },

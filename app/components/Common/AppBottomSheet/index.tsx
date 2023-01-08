@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable react-native/no-inline-styles */
 import React, {memo, useEffect, useMemo, useRef} from 'react';
 import {Pressable, StatusBar, StyleSheet} from 'react-native';
@@ -21,15 +22,19 @@ import Animated, {
 import {rgba} from '@utils';
 
 import {Portal} from 'react-native-portalize';
+import {useTheme} from '@hooks';
+import {window} from '@theme';
 
 const AppBottomSheet = ({
   children = <></>,
   onClose = () => {},
   isFlatList = false,
   isVisible = false,
+  customStyles = {},
   ...props
 }) => {
   const bottomSheetRef = useRef<BottomSheet>(null);
+  const theme = useTheme();
 
   const initialSnapPoints = useMemo(() => ['CONTENT_HEIGHT'], []);
   const {
@@ -102,18 +107,38 @@ const AppBottomSheet = ({
         backdropComponent={BackdropComponent}
         style={SIZES.shadow}
         animationConfigs={animationConfigs}
-        {...props}>
+        backgroundStyle={{
+          backgroundColor: theme.colors.cardBg,
+        }}
+        {...props}
+      >
         <Block>
           {isFlatList ? (
             <BottomSheetView
               onLayout={handleContentLayout}
-              style={styles.bottomSheetView}>
+              style={[
+                styles.bottomSheetView,
+                customStyles,
+                {
+                  backgroundColor: theme.colors.cardBg,
+                  maxHeight: window.height - 100,
+                },
+              ]}
+            >
               {children}
             </BottomSheetView>
           ) : (
             <BottomSheetScrollView
               onLayout={handleContentLayout}
-              style={styles.bottomSheetView}>
+              style={[
+                styles.bottomSheetView,
+                customStyles,
+                {
+                  backgroundColor: theme.colors.cardBg,
+                  maxHeight: window.height - 100,
+                },
+              ]}
+            >
               {children}
             </BottomSheetScrollView>
           )}
@@ -126,6 +151,7 @@ const AppBottomSheet = ({
 const styles = StyleSheet.create({
   bottomSheetView: {
     paddingBottom: 30,
+    backgroundColor: 'red',
   },
 });
 

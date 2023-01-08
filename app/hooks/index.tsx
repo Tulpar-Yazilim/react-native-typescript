@@ -3,6 +3,8 @@ import useGuid from './useGuid';
 import useDebounce from './useDebounce';
 import useTranslate from './useTranslate';
 import useTag from './useTag';
+import useTheme from './useTheme';
+import useStyledTag from './useStyledTag';
 
 import {useDispatch, useSelector} from 'react-redux';
 import type {TypedUseSelectorHook} from 'react-redux';
@@ -20,4 +22,6 @@ export {
   useDebounce,
   useTranslate,
   useTag,
+  useTheme,
+  useStyledTag,
 };

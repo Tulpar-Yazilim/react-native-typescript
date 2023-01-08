@@ -13,7 +13,7 @@ export const BottomTabNavigation: FC<any> = () => {
         {BottomTabItemList.map((item: any) => (
           <Tab.Screen
             key={item.label}
-            options={{headerShown: item.headerShown}}
+            options={{headerShown: item.headerShown, headerTitle: item.label}}
             name={item.label}
             component={item.component}
           />

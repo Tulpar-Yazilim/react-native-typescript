@@ -20,8 +20,8 @@ export interface IButtonTypes {
 }
 
 export interface IButtonTypeItem {
-  container: ViewStyle;
-  text: TextStyle;
+  container?: ViewStyle;
+  text?: TextStyle;
 }
 
 export type EnumButtonType = 'primary' | 'secondary' | 'outline' | 'icon';

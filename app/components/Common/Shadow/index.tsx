@@ -13,6 +13,7 @@ type Props = {
   shadowRadius?: any;
   shadowOffset?: any;
   children?: any;
+  style?: any;
 };
 
 const Shadow: FC<Props> = ({children, ...props}) => {
@@ -26,6 +27,7 @@ const Shadow: FC<Props> = ({children, ...props}) => {
     shadowOpacity,
     shadowRadius,
     shadowOffset,
+    style,
   } = props;
 
   return (
@@ -40,7 +42,9 @@ const Shadow: FC<Props> = ({children, ...props}) => {
         shadowOpacity && {shadowOpacity},
         shadowRadius && {shadowRadius},
         shadowOffset && {shadowOffset},
-      ]}>
+        style,
+      ]}
+    >
       {children}
     </DropShadow>
   );

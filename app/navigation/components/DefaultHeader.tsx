@@ -3,32 +3,37 @@ import {StatusBar} from 'react-native';
 import {COLORS, FONTS} from '@theme';
 import {AppButton, AppIcon} from '@components';
 import {ICONS} from '@utils';
+import {useTheme} from '@hooks';
 
-const BackButton = ({props, navigation}) =>
+const BackButton = ({props, navigation}: any) =>
   props.canGoBack && (
     <AppButton
+      w-40
+      h-40
       type="icon"
       icon={<AppIcon name={ICONS.chevronLeft} size={24} color={COLORS.white} />}
       onPress={() => navigation.goBack()}
     />
   );
 
-export const Header: FC<any> = ({navigation}) => {
+export const Header: FC<any> = ({navigationOptions, navigation}) => {
+  const {colors} = useTheme();
   useLayoutEffect(() => {
     navigation.setOptions({
       headerStyle: {
-        backgroundColor: COLORS.headerBackgroundColor,
+        backgroundColor: colors.headerBackgroundColor,
       },
       headerTitleStyle: {
         ...FONTS.title,
-        color: COLORS.headerColor,
+        color: colors.headerColor,
       },
       headerTitleAlign: 'center',
       headerLeft: (props: any) => (
         <BackButton props={props} navigation={navigation} />
       ),
+      ...navigationOptions,
     });
-  }, [navigation]);
+  }, [navigation, colors]);
 
   return (
     <>

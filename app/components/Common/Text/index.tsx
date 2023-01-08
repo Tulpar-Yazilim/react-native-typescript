@@ -1,15 +1,12 @@
 import React, {memo} from 'react';
 import {Animated, StyleSheet, Text, Dimensions} from 'react-native';
 import {RFValue} from 'react-native-responsive-fontsize';
-import {SIZES, COLORS} from '@theme';
-import {useTranslate} from '@hooks';
-import {
-  getStyleShortcuts,
-  getTextStyleShortcuts,
-} from '../../../utils/style-shortcuts';
+import {SIZES} from '@theme';
+import {useTheme, useTranslate} from '@hooks';
 
 const Typography = (props: any) => {
   const {children, params, animated, ...rest} = props;
+  const {textStyles, styles} = useTheme(props);
 
   // Translations
   const _translate = useTranslate(children, params);
@@ -18,24 +15,25 @@ const Typography = (props: any) => {
   // Content
   const content = i18nText || '';
 
-  const textStyles = StyleSheet.flatten([
+  const insideStyles = StyleSheet.flatten([
     {
       fontSize: RFValue(SIZES.font, Dimensions.get('window').height),
-      color: COLORS.black,
     },
-    {...getStyleShortcuts(props), ...getTextStyleShortcuts(props)},
   ]);
 
   if (animated) {
     return (
-      <Animated.Text {...rest} style={textStyles}>
+      <Animated.Text
+        {...rest}
+        style={[insideStyles, textStyles, styles, props.styles]}
+      >
         {content}
       </Animated.Text>
     );
   }
 
   return (
-    <Text {...rest} style={textStyles}>
+    <Text {...rest} style={[insideStyles, textStyles, styles, props.styles]}>
       {content}
     </Text>
   );
