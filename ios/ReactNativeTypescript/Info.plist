@@ -51,6 +51,10 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
 	<key>NSCameraUsageDescription</key>
 	<string>React Native Typescript uygulamasının fotoğraf çekimi veya resim seçebilmesi için kameranıza erişmesi gerekir. Lütfen gerekli izinleri veriniz.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>

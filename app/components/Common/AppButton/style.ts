@@ -7,7 +7,6 @@ const styles = StyleSheet.create({
     opacity: 0.5,
   },
   container: {
-    zIndex: 999,
     borderRadius: 10,
     alignItems: 'center',
     justifyContent: 'center',
@@ -18,6 +17,9 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontFamily: FONTS.semiBold,
     height: 26,
+  },
+  activityIndicator: {
+    paddingRight: 10,
   },
 });
 

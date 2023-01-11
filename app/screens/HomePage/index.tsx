@@ -1,5 +1,3 @@
-/* eslint-disable react/no-unstable-nested-components */
-/* eslint-disable prettier/prettier */
 import React, {useState, useCallback, useLayoutEffect} from 'react';
 import {Pressable} from 'react-native';
 import {Images} from '@assets';
@@ -20,7 +18,7 @@ import {COLORS} from '@theme';
 import {ICONS, Permission, PERMISSION_TYPE} from '@utils';
 import {useFocusEffect} from '@react-navigation/native';
 import {settingsRedux} from '@store';
-import Routes from '../../navigation/Routes';
+import Routes from '@routes';
 
 const HomePage = ({navigation}: any) => {
   const dispatch = useAppDispatch();
@@ -66,9 +64,11 @@ const HomePage = ({navigation}: any) => {
   useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => (
-        <Block px={10}>
-          <Text color="white" pr={10}>
-            Dil: {language}
+        <Block row s="pr-20">
+          <Text white>language</Text>
+          <Text white>:</Text>
+          <Text white s="pl-5">
+            {language}
           </Text>
         </Block>
       ),
@@ -190,8 +190,7 @@ const HomePage = ({navigation}: any) => {
       </Block>
       <AppBottomSheet
         isVisible={bottomSheetVisibility}
-        onClose={() => setBottomSheetVisibility(false)}
-      >
+        onClose={() => setBottomSheetVisibility(false)}>
         <Block h={200}>
           <Text>test</Text>
         </Block>

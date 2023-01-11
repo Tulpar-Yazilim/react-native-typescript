@@ -168,6 +168,12 @@ const getTextStyles = (t: 'light' | 'dark'): any => {
     error: {
       color: colors.error,
     },
+    light: {
+      fontFamily: FONTS.light,
+    },
+    medium: {
+      fontFamily: FONTS.medium,
+    },
     bold: {
       fontFamily: FONTS.bold,
     },

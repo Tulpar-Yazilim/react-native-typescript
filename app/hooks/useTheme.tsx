@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import {useAppSelector} from '@hooks';
 import {COLORS, themeColors} from '@theme';
 import {getStyleShortcuts, getTextStyleShortcuts} from '@utils';

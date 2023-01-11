@@ -14,6 +14,7 @@ module.exports = {
           '@hooks': './app/hooks',
           '@assets': './app/assets',
           '@navigation': './app/navigation',
+          '@routes': './app/navigation/Routes',
           '@store': './app/store',
           '@actions': './app/store/actions',
           '@utils': './app/utils',

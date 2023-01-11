@@ -1,4 +1,5 @@
-import characters from './services/characters';
-import {useGetCharactersQuery} from './character-api';
+import {baseApi} from './base-api';
+import {rtkQueryErrorHandler} from './error-handler';
 
-export {characters, useGetCharactersQuery};
+export * from './character-api';
+export {baseApi, rtkQueryErrorHandler};

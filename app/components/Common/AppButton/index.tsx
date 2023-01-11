@@ -1,18 +1,26 @@
-/* eslint-disable react-native/no-inline-styles */
-import React, {FC} from 'react';
-import {View, TouchableOpacity, ActivityIndicator} from 'react-native';
-import styles, {buttonTypesStyles} from './style';
-import Text from '../Text';
+import React, {FC, memo} from 'react';
+import {ActivityIndicator} from 'react-native';
+
 import {COLORS} from '@theme';
-import {getStyleShortcuts} from '../../../utils/style-shortcuts';
-import {Props} from './app-button';
-import {memo} from 'react';
-import useTheme from '../../../hooks/useTheme';
-import {Pressable} from 'react-native';
+
+import Text from '../Text';
 import Block from '../Block';
+import {Props} from './app-button';
+
+import styles from './style';
+import {getStyleShortcuts} from '../../../utils/style-shortcuts';
+import useTheme from '../../../hooks/useTheme';
 
 const AppButton: FC<Props | any> = props => {
-  const {onPress, disabled, type, loading, title, icon} = props;
+  const {
+    onPress,
+    disabled,
+    type,
+    loading,
+    title,
+    icon,
+    loadingTitle = 'please_wait',
+  } = props;
 
   const theme = useTheme(props);
 
@@ -36,24 +44,32 @@ const AppButton: FC<Props | any> = props => {
       ]}
       disabled={disabled}
       {...props}
-      onPress={onPress}
-    >
+      onPress={onPress}>
       {loading && (
-        <View style={{flexDirection: 'row'}}>
-          <ActivityIndicator color={COLORS.white} style={{paddingRight: 12}} />
-          <Text white bold style={[buttonTypes[type].text, styles.text]}>
-            Please Wait ...
-          </Text>
-        </View>
+        <Block row middle center>
+          <Block>
+            <ActivityIndicator
+              color={COLORS.white}
+              style={styles.activityIndicator}
+            />
+          </Block>
+          <Block>
+            <Text medium white style={[buttonTypes[type].text, styles.text]}>
+              {loadingTitle}
+            </Text>
+          </Block>
+        </Block>
       )}
 
       {!loading && (
-        <Text default bold>
-          {title}
-        </Text>
-      )}
+        <>
+          <Text medium white>
+            {title}
+          </Text>
 
-      {type === 'icon' && icon}
+          {type === 'icon' && icon}
+        </>
+      )}
     </Block>
   );
 };
