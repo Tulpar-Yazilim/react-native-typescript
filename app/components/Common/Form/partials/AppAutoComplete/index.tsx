@@ -98,21 +98,14 @@ const AppAutoComplete: FC<AppAutoCompleteProps | any> = props => {
               setOpen(!open);
             }}
           >
-            <Block
-              pressable
-              flex
-              onPress={() => {
-                Keyboard.dismiss();
-              }}
-            >
+            <Block style={{flex: 1}}>
               <SafeAreaView
                 style={{flex: 1, backgroundColor: theme.colors.screenBgColor}}
               >
-                <Block flex py-20>
-                  <Block row center px-12>
-                    <Block pr-20>
+                <Block py-20 style={{flex: 1}}>
+                  <Block row center px-12 w-full>
+                    <Block style={{flex: 1}}>
                       <AppButton
-                        left
                         type="icon"
                         onPress={() => {
                           setOpen(false);
@@ -125,7 +118,7 @@ const AppAutoComplete: FC<AppAutoCompleteProps | any> = props => {
                         }
                       />
                     </Block>
-                    <Block w-full flex>
+                    <Block style={{flex: 6}}>
                       <AppInput
                         style={{}}
                         placeholder="Search"
@@ -209,7 +202,7 @@ const AppAutoComplete: FC<AppAutoCompleteProps | any> = props => {
 };
 const styles = StyleSheet.create({
   listItem: {
-    borderBottomWidth: 0.4,
+    borderBottomWidth: 1,
   },
 });
 

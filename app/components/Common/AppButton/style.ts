@@ -13,7 +13,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     flexDirection: 'row',
     height: 50,
-    width: '100%',
   },
   text: {
     fontSize: 18,

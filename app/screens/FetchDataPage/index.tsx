@@ -44,18 +44,17 @@ const FetchDataPage = () => {
   };
 
   return (
-    <AppScreen isLoading={isLoading}>
-      <Block flex>
-        <AppFlatList
-          data={characters?.results}
-          ListEmptyComponent={
-            <Block pt={20} center middle>
-              <Text>No records found.</Text>
-            </Block>
-          }
-          renderItem={renderItem}
-        />
-      </Block>
+    <AppScreen flatList>
+      <AppFlatList
+        contentContinerStyle={{flex: 1}}
+        data={characters?.results}
+        ListEmptyComponent={
+          <Block pt={20} center middle>
+            <Text>No records found.</Text>
+          </Block>
+        }
+        renderItem={renderItem}
+      />
     </AppScreen>
   );
 };

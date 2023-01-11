@@ -88,13 +88,13 @@ GEM
     zeitwerk (2.6.6)
 
 PLATFORMS
-  arm64-darwin-22
+  ruby
 
 DEPENDENCIES
-  cocoapods (~> 1.11, >= 1.11.3)
+  cocoapods (~> 1.11, >= 1.11.2)
 
 RUBY VERSION
-   ruby 2.7.6p219
+   ruby 2.7.5p203
 
 BUNDLED WITH
-   2.4.3
+   2.1.4

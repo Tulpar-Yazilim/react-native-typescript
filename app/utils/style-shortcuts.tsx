@@ -32,20 +32,7 @@ export interface IStyleShortcuts {
 const getStyles = (t: 'light' | 'dark'): any => {
   const colors: any = themeColors[t || 'light'];
   return {
-    shortcutStyles: {
-      bg: 'backgroundColor',
-      fs: 'fontSize',
-      bw: 'borderWidth',
-      align: 'alignItems',
-      justify: 'justifyContent',
-      fd: 'flexDirection',
-      backgoundColor: 'bg',
-      flex: 'flex',
-      radius: 'borderRadius',
-      borderRadius: 'borderRadius',
-      color: 'color',
-      top: 'top',
-    },
+    shortcutStyles: {},
     predefinedStyles: {
       'bg-primary': {
         backgroundColor: colors.primary,
@@ -223,7 +210,7 @@ export const getStyleShortcuts = (props: IStyleShortcuts | any, t?: any) => {
       if (shortcutStyles[prop]) {
         styles[shortcutStyles[prop]] = props[prop];
       } else {
-        styles = {...styles, ...predefinedStyles?.[prop], ...sizes?.[prop]};
+        styles = {...styles, ...sizes?.[prop], ...predefinedStyles?.[prop]};
       }
     });
   }

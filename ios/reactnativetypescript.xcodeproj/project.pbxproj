@@ -7,31 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00E356F31AD99517003FC87E /* reactnativetypescriptTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* reactnativetypescriptTests.m */; };
-		0B0F5024D675453497729397 /* Poppins-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 37EB63953BD04532A0C1D6C2 /* Poppins-Black.ttf */; };
-		0C80B921A6F3F58F76C31292 /* libPods-reactnativetypescript.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-reactnativetypescript.a */; };
+		00E356F31AD99517003FC87E /* ReactNativeTypescriptTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ReactNativeTypescriptTests.m */; };
+		075D54B059694BD8B2BD06AF /* Poppins-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18E7197822EC48D58C3C5C7F /* Poppins-Black.ttf */; };
+		0C80B921A6F3F58F76C31292 /* libPods-ReactNativeTypescript.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-ReactNativeTypescript.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		143EAD99010746558B9939C5 /* Poppins-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3BEB98A6E9FC4FE8B7C3223C /* Poppins-LightItalic.ttf */; };
-		194E48C702D14356B0434CD9 /* Poppins-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BCF0F86BB874A48BCAD833E /* Poppins-BoldItalic.ttf */; };
-		29311D944BCB49DE8A62926D /* Poppins-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD97692867944358AFC054B5 /* Poppins-SemiBoldItalic.ttf */; };
-		43295671D9B84DD89CC34242 /* Poppins-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 334B41EF87C54E34962BA4D6 /* Poppins-ExtraLight.ttf */; };
-		530AE66309EF45409588B4A5 /* Poppins-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F18E4173D5A74BB1A7BAA3D6 /* Poppins-Thin.ttf */; };
-		5EEF9842A3D34DE585E3D4B4 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AC2504205CD74EADA27FFED8 /* Poppins-SemiBold.ttf */; };
-		7699B88040F8A987B510C191 /* libPods-reactnativetypescript-reactnativetypescriptTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-reactnativetypescript-reactnativetypescriptTests.a */; };
+		15C202CEA68E4E5BA07EB74D /* Poppins-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AEE3C6AAEBDB4442B94195D3 /* Poppins-LightItalic.ttf */; };
+		16052F99543746C78D910A37 /* Poppins-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AF0B679D7AF34573B3DCD5E5 /* Poppins-ExtraLightItalic.ttf */; };
+		196DFB551C7D4F739F52A61B /* Poppins-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D511FDF06FE4CBEAE4424D7 /* Poppins-SemiBoldItalic.ttf */; };
+		1A64A5059C5F41E2875363EA /* Poppins-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 055783A514294E40A6B11673 /* Poppins-BoldItalic.ttf */; };
+		29133AF8E04A4EA1BE58486B /* Poppins-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B34CB3D6796F4982BBA8564F /* Poppins-MediumItalic.ttf */; };
+		4A034CCF197E400CB46D7EAD /* Poppins-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8A1776CF7CC45A18DBDDAD6 /* Poppins-ExtraBoldItalic.ttf */; };
+		597096AE6D47455D826BAEF7 /* Poppins-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CF136DD7ED8B4BC488905E41 /* Poppins-ExtraBold.ttf */; };
+		5F51F612C678417C9603562F /* Poppins-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C910484973F341FBBD0EA1CA /* Poppins-Thin.ttf */; };
+		7699B88040F8A987B510C191 /* libPods-ReactNativeTypescript-ReactNativeTypescriptTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-ReactNativeTypescript-ReactNativeTypescriptTests.a */; };
+		77ACB94CACE1423796D52C6D /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F459C14AAFB848BCABDDC549 /* Poppins-Regular.ttf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		84E7DAF5420D439ABBD15D60 /* Poppins-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 41989B176E4D4122AE499CD8 /* Poppins-ExtraLightItalic.ttf */; };
-		88BAF1C6F3234A7F8A0DE776 /* Poppins-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3AC194F6FBA247EC91C6D707 /* Poppins-ExtraBoldItalic.ttf */; };
-		90C3773F2DB9465491962C6A /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1582C5B5EFBE48C09AE1C9F6 /* Poppins-Regular.ttf */; };
-		A13398657C744E5D912076D0 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 720069F1797F45C5A0DD53EA /* Poppins-Medium.ttf */; };
-		B2419D5830174422A375EC4C /* Poppins-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4FD6D114D8E4E02BC11B275 /* Poppins-Italic.ttf */; };
-		BF05EC2F0B1C44A79A72B846 /* Poppins-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 54A968A010434720BA7B10D5 /* Poppins-MediumItalic.ttf */; };
-		C4B2745BB8A1435CBA23CFB4 /* Poppins-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C6538F230CB40D2A7EF3265 /* Poppins-ThinItalic.ttf */; };
-		CA6894B3569C49578BC7A09A /* Poppins-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F0EF1F2F81B4E2A9DEEB6FE /* Poppins-Light.ttf */; };
-		CFDDE49DD01A493E88C58A8D /* Poppins-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B67DB4B68144B9AA7D3C74D /* Poppins-ExtraBold.ttf */; };
-		E0CA144E281F4329B495D5B1 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E64392CA31C845EEA1E91C88 /* Poppins-Bold.ttf */; };
-		FCB2B80D80FC4C6CAF6AECC2 /* Poppins-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A84CDC6195BD4559A1FC745A /* Poppins-BlackItalic.ttf */; };
+		AA1486C84EF74CEFABF3A619 /* Poppins-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3BE2759F852C4B22AD0A7C4A /* Poppins-ThinItalic.ttf */; };
+		ACC1B5218DC548EBA1A628BE /* Poppins-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA48A06C86C64417B43B42AB /* Poppins-Italic.ttf */; };
+		C7EEB4B58FD14EBDABE73525 /* Poppins-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 31689882E97144DB96492570 /* Poppins-BlackItalic.ttf */; };
+		D4C949697CCE463A930608BF /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BE0836E3A4440B4BB7507EA /* Poppins-Bold.ttf */; };
+		DF58B20314DD402A92062BE5 /* Poppins-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4CA5C64459643478ADDCBC4 /* Poppins-Light.ttf */; };
+		E46EBD585CEA431D84F21152 /* Poppins-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD2790CA1B0E4220ABF10231 /* Poppins-ExtraLight.ttf */; };
+		F52252BD505447CA808249E3 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB751C7FD15849A3A744FD3A /* Poppins-Medium.ttf */; };
+		FDD4381060124C16BDB67530 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F882F0D355F44738387C17F /* Poppins-SemiBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,47 +40,46 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = reactnativetypescript;
+			remoteInfo = ReactNativeTypescript;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00E356EE1AD99517003FC87E /* reactnativetypescriptTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = reactnativetypescriptTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* ReactNativeTypescriptTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReactNativeTypescriptTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* reactnativetypescriptTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = reactnativetypescriptTests.m; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* reactnativetypescript.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = reactnativetypescript.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = reactnativetypescript/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = reactnativetypescript/AppDelegate.mm; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = reactnativetypescript/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = reactnativetypescript/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = reactnativetypescript/main.m; sourceTree = "<group>"; };
-		1582C5B5EFBE48C09AE1C9F6 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Regular.ttf"; path = "../app/assets/fonts/Poppins-Regular.ttf"; sourceTree = "<group>"; };
-		19F6CBCC0A4E27FBF8BF4A61 /* libPods-reactnativetypescript-reactnativetypescriptTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-reactnativetypescript-reactnativetypescriptTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1B67DB4B68144B9AA7D3C74D /* Poppins-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ExtraBold.ttf"; path = "../app/assets/fonts/Poppins-ExtraBold.ttf"; sourceTree = "<group>"; };
-		1F0EF1F2F81B4E2A9DEEB6FE /* Poppins-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Light.ttf"; path = "../app/assets/fonts/Poppins-Light.ttf"; sourceTree = "<group>"; };
-		334B41EF87C54E34962BA4D6 /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ExtraLight.ttf"; path = "../app/assets/fonts/Poppins-ExtraLight.ttf"; sourceTree = "<group>"; };
-		37EB63953BD04532A0C1D6C2 /* Poppins-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Black.ttf"; path = "../app/assets/fonts/Poppins-Black.ttf"; sourceTree = "<group>"; };
-		3AC194F6FBA247EC91C6D707 /* Poppins-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ExtraBoldItalic.ttf"; path = "../app/assets/fonts/Poppins-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
-		3B4392A12AC88292D35C810B /* Pods-reactnativetypescript.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reactnativetypescript.debug.xcconfig"; path = "Target Support Files/Pods-reactnativetypescript/Pods-reactnativetypescript.debug.xcconfig"; sourceTree = "<group>"; };
-		3BEB98A6E9FC4FE8B7C3223C /* Poppins-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-LightItalic.ttf"; path = "../app/assets/fonts/Poppins-LightItalic.ttf"; sourceTree = "<group>"; };
-		41989B176E4D4122AE499CD8 /* Poppins-ExtraLightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ExtraLightItalic.ttf"; path = "../app/assets/fonts/Poppins-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
-		54A968A010434720BA7B10D5 /* Poppins-MediumItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-MediumItalic.ttf"; path = "../app/assets/fonts/Poppins-MediumItalic.ttf"; sourceTree = "<group>"; };
-		5709B34CF0A7D63546082F79 /* Pods-reactnativetypescript.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reactnativetypescript.release.xcconfig"; path = "Target Support Files/Pods-reactnativetypescript/Pods-reactnativetypescript.release.xcconfig"; sourceTree = "<group>"; };
-		5B7EB9410499542E8C5724F5 /* Pods-reactnativetypescript-reactnativetypescriptTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reactnativetypescript-reactnativetypescriptTests.debug.xcconfig"; path = "Target Support Files/Pods-reactnativetypescript-reactnativetypescriptTests/Pods-reactnativetypescript-reactnativetypescriptTests.debug.xcconfig"; sourceTree = "<group>"; };
-		5C6538F230CB40D2A7EF3265 /* Poppins-ThinItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ThinItalic.ttf"; path = "../app/assets/fonts/Poppins-ThinItalic.ttf"; sourceTree = "<group>"; };
-		5DCACB8F33CDC322A6C60F78 /* libPods-reactnativetypescript.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-reactnativetypescript.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		720069F1797F45C5A0DD53EA /* Poppins-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Medium.ttf"; path = "../app/assets/fonts/Poppins-Medium.ttf"; sourceTree = "<group>"; };
-		7E971D49295397C800478474 /* reactnativetypescript.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = reactnativetypescript.entitlements; path = reactnativetypescript/reactnativetypescript.entitlements; sourceTree = "<group>"; };
-		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = reactnativetypescript/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		89C6BE57DB24E9ADA2F236DE /* Pods-reactnativetypescript-reactnativetypescriptTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reactnativetypescript-reactnativetypescriptTests.release.xcconfig"; path = "Target Support Files/Pods-reactnativetypescript-reactnativetypescriptTests/Pods-reactnativetypescript-reactnativetypescriptTests.release.xcconfig"; sourceTree = "<group>"; };
-		9BCF0F86BB874A48BCAD833E /* Poppins-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-BoldItalic.ttf"; path = "../app/assets/fonts/Poppins-BoldItalic.ttf"; sourceTree = "<group>"; };
-		A84CDC6195BD4559A1FC745A /* Poppins-BlackItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-BlackItalic.ttf"; path = "../app/assets/fonts/Poppins-BlackItalic.ttf"; sourceTree = "<group>"; };
-		AC2504205CD74EADA27FFED8 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-SemiBold.ttf"; path = "../app/assets/fonts/Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
-		E4FD6D114D8E4E02BC11B275 /* Poppins-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Italic.ttf"; path = "../app/assets/fonts/Poppins-Italic.ttf"; sourceTree = "<group>"; };
-		E64392CA31C845EEA1E91C88 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Bold.ttf"; path = "../app/assets/fonts/Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		00E356F21AD99517003FC87E /* ReactNativeTypescriptTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReactNativeTypescriptTests.m; sourceTree = "<group>"; };
+		055783A514294E40A6B11673 /* Poppins-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-BoldItalic.ttf"; path = "../app/assets/fonts/Poppins-BoldItalic.ttf"; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* ReactNativeTypescript.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReactNativeTypescript.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ReactNativeTypescript/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = ReactNativeTypescript/AppDelegate.mm; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ReactNativeTypescript/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ReactNativeTypescript/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ReactNativeTypescript/main.m; sourceTree = "<group>"; };
+		18E7197822EC48D58C3C5C7F /* Poppins-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Black.ttf"; path = "../app/assets/fonts/Poppins-Black.ttf"; sourceTree = "<group>"; };
+		19F6CBCC0A4E27FBF8BF4A61 /* libPods-ReactNativeTypescript-ReactNativeTypescriptTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReactNativeTypescript-ReactNativeTypescriptTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F882F0D355F44738387C17F /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-SemiBold.ttf"; path = "../app/assets/fonts/Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
+		31689882E97144DB96492570 /* Poppins-BlackItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-BlackItalic.ttf"; path = "../app/assets/fonts/Poppins-BlackItalic.ttf"; sourceTree = "<group>"; };
+		3B4392A12AC88292D35C810B /* Pods-ReactNativeTypescript.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeTypescript.debug.xcconfig"; path = "Target Support Files/Pods-ReactNativeTypescript/Pods-ReactNativeTypescript.debug.xcconfig"; sourceTree = "<group>"; };
+		3BE2759F852C4B22AD0A7C4A /* Poppins-ThinItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ThinItalic.ttf"; path = "../app/assets/fonts/Poppins-ThinItalic.ttf"; sourceTree = "<group>"; };
+		4D511FDF06FE4CBEAE4424D7 /* Poppins-SemiBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-SemiBoldItalic.ttf"; path = "../app/assets/fonts/Poppins-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		5709B34CF0A7D63546082F79 /* Pods-ReactNativeTypescript.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeTypescript.release.xcconfig"; path = "Target Support Files/Pods-ReactNativeTypescript/Pods-ReactNativeTypescript.release.xcconfig"; sourceTree = "<group>"; };
+		5B7EB9410499542E8C5724F5 /* Pods-ReactNativeTypescript-ReactNativeTypescriptTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeTypescript-ReactNativeTypescriptTests.debug.xcconfig"; path = "Target Support Files/Pods-ReactNativeTypescript-ReactNativeTypescriptTests/Pods-ReactNativeTypescript-ReactNativeTypescriptTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5DCACB8F33CDC322A6C60F78 /* libPods-ReactNativeTypescript.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReactNativeTypescript.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ReactNativeTypescript/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		89C6BE57DB24E9ADA2F236DE /* Pods-ReactNativeTypescript-ReactNativeTypescriptTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeTypescript-ReactNativeTypescriptTests.release.xcconfig"; path = "Target Support Files/Pods-ReactNativeTypescript-ReactNativeTypescriptTests/Pods-ReactNativeTypescript-ReactNativeTypescriptTests.release.xcconfig"; sourceTree = "<group>"; };
+		9BE0836E3A4440B4BB7507EA /* Poppins-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Bold.ttf"; path = "../app/assets/fonts/Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		AEE3C6AAEBDB4442B94195D3 /* Poppins-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-LightItalic.ttf"; path = "../app/assets/fonts/Poppins-LightItalic.ttf"; sourceTree = "<group>"; };
+		AF0B679D7AF34573B3DCD5E5 /* Poppins-ExtraLightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ExtraLightItalic.ttf"; path = "../app/assets/fonts/Poppins-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		B34CB3D6796F4982BBA8564F /* Poppins-MediumItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-MediumItalic.ttf"; path = "../app/assets/fonts/Poppins-MediumItalic.ttf"; sourceTree = "<group>"; };
+		BA48A06C86C64417B43B42AB /* Poppins-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Italic.ttf"; path = "../app/assets/fonts/Poppins-Italic.ttf"; sourceTree = "<group>"; };
+		BD2790CA1B0E4220ABF10231 /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ExtraLight.ttf"; path = "../app/assets/fonts/Poppins-ExtraLight.ttf"; sourceTree = "<group>"; };
+		C910484973F341FBBD0EA1CA /* Poppins-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Thin.ttf"; path = "../app/assets/fonts/Poppins-Thin.ttf"; sourceTree = "<group>"; };
+		CF136DD7ED8B4BC488905E41 /* Poppins-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ExtraBold.ttf"; path = "../app/assets/fonts/Poppins-ExtraBold.ttf"; sourceTree = "<group>"; };
+		E4CA5C64459643478ADDCBC4 /* Poppins-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Light.ttf"; path = "../app/assets/fonts/Poppins-Light.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		F18E4173D5A74BB1A7BAA3D6 /* Poppins-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Thin.ttf"; path = "../app/assets/fonts/Poppins-Thin.ttf"; sourceTree = "<group>"; };
-		FD97692867944358AFC054B5 /* Poppins-SemiBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-SemiBoldItalic.ttf"; path = "../app/assets/fonts/Poppins-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		F459C14AAFB848BCABDDC549 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Regular.ttf"; path = "../app/assets/fonts/Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		F8A1776CF7CC45A18DBDDAD6 /* Poppins-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ExtraBoldItalic.ttf"; path = "../app/assets/fonts/Poppins-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		FB751C7FD15849A3A744FD3A /* Poppins-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Medium.ttf"; path = "../app/assets/fonts/Poppins-Medium.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7699B88040F8A987B510C191 /* libPods-reactnativetypescript-reactnativetypescriptTests.a in Frameworks */,
+				7699B88040F8A987B510C191 /* libPods-ReactNativeTypescript-ReactNativeTypescriptTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,20 +95,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C80B921A6F3F58F76C31292 /* libPods-reactnativetypescript.a in Frameworks */,
+				0C80B921A6F3F58F76C31292 /* libPods-ReactNativeTypescript.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00E356EF1AD99517003FC87E /* reactnativetypescriptTests */ = {
+		00E356EF1AD99517003FC87E /* ReactNativeTypescriptTests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* reactnativetypescriptTests.m */,
+				00E356F21AD99517003FC87E /* ReactNativeTypescriptTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = reactnativetypescriptTests;
+			path = ReactNativeTypescriptTests;
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -120,10 +119,9 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* reactnativetypescript */ = {
+		13B07FAE1A68108700A75B9A /* ReactNativeTypescript */ = {
 			isa = PBXGroup;
 			children = (
-				7E971D49295397C800478474 /* reactnativetypescript.entitlements */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -131,42 +129,17 @@
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
-			name = reactnativetypescript;
+			name = ReactNativeTypescript;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				5DCACB8F33CDC322A6C60F78 /* libPods-reactnativetypescript.a */,
-				19F6CBCC0A4E27FBF8BF4A61 /* libPods-reactnativetypescript-reactnativetypescriptTests.a */,
+				5DCACB8F33CDC322A6C60F78 /* libPods-ReactNativeTypescript.a */,
+				19F6CBCC0A4E27FBF8BF4A61 /* libPods-ReactNativeTypescript-ReactNativeTypescriptTests.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		773C98B26AD94A8EA4F30F1F /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				37EB63953BD04532A0C1D6C2 /* Poppins-Black.ttf */,
-				A84CDC6195BD4559A1FC745A /* Poppins-BlackItalic.ttf */,
-				E64392CA31C845EEA1E91C88 /* Poppins-Bold.ttf */,
-				9BCF0F86BB874A48BCAD833E /* Poppins-BoldItalic.ttf */,
-				1B67DB4B68144B9AA7D3C74D /* Poppins-ExtraBold.ttf */,
-				3AC194F6FBA247EC91C6D707 /* Poppins-ExtraBoldItalic.ttf */,
-				334B41EF87C54E34962BA4D6 /* Poppins-ExtraLight.ttf */,
-				41989B176E4D4122AE499CD8 /* Poppins-ExtraLightItalic.ttf */,
-				E4FD6D114D8E4E02BC11B275 /* Poppins-Italic.ttf */,
-				1F0EF1F2F81B4E2A9DEEB6FE /* Poppins-Light.ttf */,
-				3BEB98A6E9FC4FE8B7C3223C /* Poppins-LightItalic.ttf */,
-				720069F1797F45C5A0DD53EA /* Poppins-Medium.ttf */,
-				54A968A010434720BA7B10D5 /* Poppins-MediumItalic.ttf */,
-				1582C5B5EFBE48C09AE1C9F6 /* Poppins-Regular.ttf */,
-				AC2504205CD74EADA27FFED8 /* Poppins-SemiBold.ttf */,
-				FD97692867944358AFC054B5 /* Poppins-SemiBoldItalic.ttf */,
-				F18E4173D5A74BB1A7BAA3D6 /* Poppins-Thin.ttf */,
-				5C6538F230CB40D2A7EF3265 /* Poppins-ThinItalic.ttf */,
-			);
-			name = Resources;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -179,13 +152,13 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* reactnativetypescript */,
+				13B07FAE1A68108700A75B9A /* ReactNativeTypescript */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* reactnativetypescriptTests */,
+				00E356EF1AD99517003FC87E /* ReactNativeTypescriptTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
-				773C98B26AD94A8EA4F30F1F /* Resources */,
+				C7F4DEE9389B4AD4B68BA5EC /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -195,8 +168,8 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* reactnativetypescript.app */,
-				00E356EE1AD99517003FC87E /* reactnativetypescriptTests.xctest */,
+				13B07F961A680F5B00A75B9A /* ReactNativeTypescript.app */,
+				00E356EE1AD99517003FC87E /* ReactNativeTypescriptTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -204,20 +177,46 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3B4392A12AC88292D35C810B /* Pods-reactnativetypescript.debug.xcconfig */,
-				5709B34CF0A7D63546082F79 /* Pods-reactnativetypescript.release.xcconfig */,
-				5B7EB9410499542E8C5724F5 /* Pods-reactnativetypescript-reactnativetypescriptTests.debug.xcconfig */,
-				89C6BE57DB24E9ADA2F236DE /* Pods-reactnativetypescript-reactnativetypescriptTests.release.xcconfig */,
+				3B4392A12AC88292D35C810B /* Pods-ReactNativeTypescript.debug.xcconfig */,
+				5709B34CF0A7D63546082F79 /* Pods-ReactNativeTypescript.release.xcconfig */,
+				5B7EB9410499542E8C5724F5 /* Pods-ReactNativeTypescript-ReactNativeTypescriptTests.debug.xcconfig */,
+				89C6BE57DB24E9ADA2F236DE /* Pods-ReactNativeTypescript-ReactNativeTypescriptTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		C7F4DEE9389B4AD4B68BA5EC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				18E7197822EC48D58C3C5C7F /* Poppins-Black.ttf */,
+				31689882E97144DB96492570 /* Poppins-BlackItalic.ttf */,
+				9BE0836E3A4440B4BB7507EA /* Poppins-Bold.ttf */,
+				055783A514294E40A6B11673 /* Poppins-BoldItalic.ttf */,
+				CF136DD7ED8B4BC488905E41 /* Poppins-ExtraBold.ttf */,
+				F8A1776CF7CC45A18DBDDAD6 /* Poppins-ExtraBoldItalic.ttf */,
+				BD2790CA1B0E4220ABF10231 /* Poppins-ExtraLight.ttf */,
+				AF0B679D7AF34573B3DCD5E5 /* Poppins-ExtraLightItalic.ttf */,
+				BA48A06C86C64417B43B42AB /* Poppins-Italic.ttf */,
+				E4CA5C64459643478ADDCBC4 /* Poppins-Light.ttf */,
+				AEE3C6AAEBDB4442B94195D3 /* Poppins-LightItalic.ttf */,
+				FB751C7FD15849A3A744FD3A /* Poppins-Medium.ttf */,
+				B34CB3D6796F4982BBA8564F /* Poppins-MediumItalic.ttf */,
+				F459C14AAFB848BCABDDC549 /* Poppins-Regular.ttf */,
+				1F882F0D355F44738387C17F /* Poppins-SemiBold.ttf */,
+				4D511FDF06FE4CBEAE4424D7 /* Poppins-SemiBoldItalic.ttf */,
+				C910484973F341FBBD0EA1CA /* Poppins-Thin.ttf */,
+				3BE2759F852C4B22AD0A7C4A /* Poppins-ThinItalic.ttf */,
+			);
+			name = Resources;
+			path = "";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* reactnativetypescriptTests */ = {
+		00E356ED1AD99517003FC87E /* ReactNativeTypescriptTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "reactnativetypescriptTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "ReactNativeTypescriptTests" */;
 			buildPhases = (
 				A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
@@ -231,14 +230,14 @@
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = reactnativetypescriptTests;
-			productName = reactnativetypescriptTests;
-			productReference = 00E356EE1AD99517003FC87E /* reactnativetypescriptTests.xctest */;
+			name = ReactNativeTypescriptTests;
+			productName = ReactNativeTypescriptTests;
+			productReference = 00E356EE1AD99517003FC87E /* ReactNativeTypescriptTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* reactnativetypescript */ = {
+		13B07F861A680F5B00A75B9A /* ReactNativeTypescript */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "reactnativetypescript" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "ReactNativeTypescript" */;
 			buildPhases = (
 				C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
@@ -253,9 +252,9 @@
 			);
 			dependencies = (
 			);
-			name = reactnativetypescript;
-			productName = reactnativetypescript;
-			productReference = 13B07F961A680F5B00A75B9A /* reactnativetypescript.app */;
+			name = ReactNativeTypescript;
+			productName = ReactNativeTypescript;
+			productReference = 13B07F961A680F5B00A75B9A /* ReactNativeTypescript.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -275,22 +274,21 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "reactnativetypescript" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "ReactNativeTypescript" */;
 			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
-				tr,
 			);
 			mainGroup = 83CBB9F61A601CBA00E9B192;
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* reactnativetypescript */,
-				00E356ED1AD99517003FC87E /* reactnativetypescriptTests */,
+				13B07F861A680F5B00A75B9A /* ReactNativeTypescript */,
+				00E356ED1AD99517003FC87E /* ReactNativeTypescriptTests */,
 			);
 		};
 /* End PBXProject section */
@@ -309,24 +307,24 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				0B0F5024D675453497729397 /* Poppins-Black.ttf in Resources */,
-				FCB2B80D80FC4C6CAF6AECC2 /* Poppins-BlackItalic.ttf in Resources */,
-				E0CA144E281F4329B495D5B1 /* Poppins-Bold.ttf in Resources */,
-				194E48C702D14356B0434CD9 /* Poppins-BoldItalic.ttf in Resources */,
-				CFDDE49DD01A493E88C58A8D /* Poppins-ExtraBold.ttf in Resources */,
-				88BAF1C6F3234A7F8A0DE776 /* Poppins-ExtraBoldItalic.ttf in Resources */,
-				43295671D9B84DD89CC34242 /* Poppins-ExtraLight.ttf in Resources */,
-				84E7DAF5420D439ABBD15D60 /* Poppins-ExtraLightItalic.ttf in Resources */,
-				B2419D5830174422A375EC4C /* Poppins-Italic.ttf in Resources */,
-				CA6894B3569C49578BC7A09A /* Poppins-Light.ttf in Resources */,
-				143EAD99010746558B9939C5 /* Poppins-LightItalic.ttf in Resources */,
-				A13398657C744E5D912076D0 /* Poppins-Medium.ttf in Resources */,
-				BF05EC2F0B1C44A79A72B846 /* Poppins-MediumItalic.ttf in Resources */,
-				90C3773F2DB9465491962C6A /* Poppins-Regular.ttf in Resources */,
-				5EEF9842A3D34DE585E3D4B4 /* Poppins-SemiBold.ttf in Resources */,
-				29311D944BCB49DE8A62926D /* Poppins-SemiBoldItalic.ttf in Resources */,
-				530AE66309EF45409588B4A5 /* Poppins-Thin.ttf in Resources */,
-				C4B2745BB8A1435CBA23CFB4 /* Poppins-ThinItalic.ttf in Resources */,
+				075D54B059694BD8B2BD06AF /* Poppins-Black.ttf in Resources */,
+				C7EEB4B58FD14EBDABE73525 /* Poppins-BlackItalic.ttf in Resources */,
+				D4C949697CCE463A930608BF /* Poppins-Bold.ttf in Resources */,
+				1A64A5059C5F41E2875363EA /* Poppins-BoldItalic.ttf in Resources */,
+				597096AE6D47455D826BAEF7 /* Poppins-ExtraBold.ttf in Resources */,
+				4A034CCF197E400CB46D7EAD /* Poppins-ExtraBoldItalic.ttf in Resources */,
+				E46EBD585CEA431D84F21152 /* Poppins-ExtraLight.ttf in Resources */,
+				16052F99543746C78D910A37 /* Poppins-ExtraLightItalic.ttf in Resources */,
+				ACC1B5218DC548EBA1A628BE /* Poppins-Italic.ttf in Resources */,
+				DF58B20314DD402A92062BE5 /* Poppins-Light.ttf in Resources */,
+				15C202CEA68E4E5BA07EB74D /* Poppins-LightItalic.ttf in Resources */,
+				F52252BD505447CA808249E3 /* Poppins-Medium.ttf in Resources */,
+				29133AF8E04A4EA1BE58486B /* Poppins-MediumItalic.ttf in Resources */,
+				77ACB94CACE1423796D52C6D /* Poppins-Regular.ttf in Resources */,
+				FDD4381060124C16BDB67530 /* Poppins-SemiBold.ttf in Resources */,
+				196DFB551C7D4F739F52A61B /* Poppins-SemiBoldItalic.ttf in Resources */,
+				5F51F612C678417C9603562F /* Poppins-Thin.ttf in Resources */,
+				AA1486C84EF74CEFABF3A619 /* Poppins-ThinItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,15 +353,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-reactnativetypescript/Pods-reactnativetypescript-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ReactNativeTypescript/Pods-ReactNativeTypescript-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-reactnativetypescript/Pods-reactnativetypescript-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ReactNativeTypescript/Pods-ReactNativeTypescript-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-reactnativetypescript/Pods-reactnativetypescript-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ReactNativeTypescript/Pods-ReactNativeTypescript-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */ = {
@@ -381,7 +379,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-reactnativetypescript-reactnativetypescriptTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-ReactNativeTypescript-ReactNativeTypescriptTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -403,7 +401,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-reactnativetypescript-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-ReactNativeTypescript-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -416,15 +414,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-reactnativetypescript-reactnativetypescriptTests/Pods-reactnativetypescript-reactnativetypescriptTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ReactNativeTypescript-ReactNativeTypescriptTests/Pods-ReactNativeTypescript-ReactNativeTypescriptTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-reactnativetypescript-reactnativetypescriptTests/Pods-reactnativetypescript-reactnativetypescriptTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ReactNativeTypescript-ReactNativeTypescriptTests/Pods-ReactNativeTypescript-ReactNativeTypescriptTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-reactnativetypescript-reactnativetypescriptTests/Pods-reactnativetypescript-reactnativetypescriptTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ReactNativeTypescript-ReactNativeTypescriptTests/Pods-ReactNativeTypescript-ReactNativeTypescriptTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E235C05ADACE081382539298 /* [CP] Copy Pods Resources */ = {
@@ -433,15 +431,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-reactnativetypescript/Pods-reactnativetypescript-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ReactNativeTypescript/Pods-ReactNativeTypescript-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-reactnativetypescript/Pods-reactnativetypescript-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ReactNativeTypescript/Pods-ReactNativeTypescript-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-reactnativetypescript/Pods-reactnativetypescript-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ReactNativeTypescript/Pods-ReactNativeTypescript-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F6A41C54EA430FDDC6A6ED99 /* [CP] Copy Pods Resources */ = {
@@ -450,15 +448,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-reactnativetypescript-reactnativetypescriptTests/Pods-reactnativetypescript-reactnativetypescriptTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ReactNativeTypescript-ReactNativeTypescriptTests/Pods-ReactNativeTypescript-ReactNativeTypescriptTests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-reactnativetypescript-reactnativetypescriptTests/Pods-reactnativetypescript-reactnativetypescriptTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ReactNativeTypescript-ReactNativeTypescriptTests/Pods-ReactNativeTypescript-ReactNativeTypescriptTests-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-reactnativetypescript-reactnativetypescriptTests/Pods-reactnativetypescript-reactnativetypescriptTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ReactNativeTypescript-ReactNativeTypescriptTests/Pods-ReactNativeTypescript-ReactNativeTypescriptTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -487,7 +485,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E356F31AD99517003FC87E /* reactnativetypescriptTests.m in Sources */,
+				00E356F31AD99517003FC87E /* ReactNativeTypescriptTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,7 +503,7 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* reactnativetypescript */;
+			target = 13B07F861A680F5B00A75B9A /* ReactNativeTypescript */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -513,14 +511,14 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-reactnativetypescript-reactnativetypescriptTests.debug.xcconfig */;
+			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-ReactNativeTypescript-ReactNativeTypescriptTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = reactnativetypescriptTests/Info.plist;
+				INFOPLIST_FILE = ReactNativeTypescriptTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -534,17 +532,17 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/reactnativetypescript.app/reactnativetypescript";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ReactNativeTypescript.app/ReactNativeTypescript";
 			};
 			name = Debug;
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-reactnativetypescript-reactnativetypescriptTests.release.xcconfig */;
+			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-ReactNativeTypescript-ReactNativeTypescriptTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				INFOPLIST_FILE = reactnativetypescriptTests/Info.plist;
+				INFOPLIST_FILE = ReactNativeTypescriptTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -558,36 +556,30 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/reactnativetypescript.app/reactnativetypescript";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ReactNativeTypescript.app/ReactNativeTypescript";
 			};
 			name = Release;
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-reactnativetypescript.debug.xcconfig */;
+			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-ReactNativeTypescript.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = reactnativetypescript/reactnativetypescript.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = D222ZTG634;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = reactnativetypescript/Info.plist;
+				INFOPLIST_FILE = ReactNativeTypescript/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rntest.ios;
-				PRODUCT_NAME = reactnativetypescript;
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = ReactNativeTypescript;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -596,26 +588,23 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-reactnativetypescript.release.xcconfig */;
+			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-ReactNativeTypescript.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = reactnativetypescript/reactnativetypescript.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = reactnativetypescript/Info.plist;
+				INFOPLIST_FILE = ReactNativeTypescript/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = reactnativetypescript;
+				PRODUCT_NAME = ReactNativeTypescript;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -761,7 +750,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "reactnativetypescriptTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "ReactNativeTypescriptTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -770,7 +759,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "reactnativetypescript" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "ReactNativeTypescript" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -779,7 +768,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "reactnativetypescript" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "ReactNativeTypescript" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,

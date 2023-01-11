@@ -107,7 +107,7 @@ const HomePage = ({navigation}: any) => {
       />
 
       <DatePickerArea>
-        <Row>
+        <Row row>
           <Col col-6 pr-2>
             <DatePickerButton
               mr={5}
@@ -157,7 +157,7 @@ const HomePage = ({navigation}: any) => {
       />
 
       <LanguageArea mt-5>
-        <Row>
+        <Row row>
           <Col col-6 pr-2>
             <AppButton
               mb={10}
