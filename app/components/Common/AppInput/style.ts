@@ -1,5 +1,5 @@
 import {COLORS, FONTS} from '@theme';
-import {StyleSheet} from 'react-native';
+import {Platform, StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -11,9 +11,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: COLORS.black,
     fontFamily: FONTS.regular,
-    //backgroundColor: 'red',
-    left: 8,
-    paddingBottom: -8,
+    left: Platform.OS === 'android' ? 5 : 8,
   },
   errorInput: {
     color: 'tomato',

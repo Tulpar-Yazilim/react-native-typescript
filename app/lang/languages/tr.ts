@@ -21,5 +21,10 @@ const tr = {
   hello: 'Merhaba',
   permissions: 'Kamera İzni Veriniz',
   camera_permissions: 'Kamera İzni Verilmiş',
+
+  language: 'Dil',
+
+  processing: 'İşlem Yapılıyor ...',
+  please_wait: 'Lütfen Bekleyiniz ...',
 };
 export default tr;

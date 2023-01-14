@@ -18,7 +18,7 @@ import {setupListeners} from '@reduxjs/toolkit/dist/query';
 import * as authRedux from './auth';
 import * as settingsRedux from './settings';
 
-import {characterApi} from '../api/character-api';
+import {baseApi, rtkQueryErrorHandler} from '@api';
 
 export {authRedux, settingsRedux};
 
@@ -32,7 +32,7 @@ const persistConfig = {
 export const rootReducer = combineReducers({
   auth: authRedux.default,
   settings: settingsRedux.default,
-  [characterApi.reducerPath]: characterApi.reducer,
+  [baseApi.reducerPath]: baseApi.reducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -45,7 +45,7 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }).concat(characterApi.middleware),
+    }).concat(baseApi.middleware, rtkQueryErrorHandler),
   devTools: process.env.NODE_ENV !== 'production',
 });
 

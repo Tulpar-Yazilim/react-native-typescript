@@ -13,11 +13,9 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 import {FONTS} from '@theme';
-import Shadow from '../Shadow';
 import {Props} from './app-input';
 import AppIcon from '../AppIcon';
 import {useEffect} from 'react';
-import {TouchableOpacity} from 'react-native-gesture-handler';
 import {useTheme} from '@hooks';
 
 const inputHeight = 50;
@@ -72,7 +70,7 @@ const AppInput: FC<Props | any> = props => {
 
   return (
     <Block {...props}>
-      <Shadow
+      <Block
         sm
         style={[
           styles.container,
@@ -83,7 +81,7 @@ const AppInput: FC<Props | any> = props => {
           },
         ]}
       >
-        <Block fd="row" {...rest}>
+        <Block row {...rest}>
           {icon && (
             <Block justify="center" align="center">
               <AppIcon name={icon} size={35} />
@@ -91,41 +89,53 @@ const AppInput: FC<Props | any> = props => {
           )}
 
           <Block
-            flex={1}
             style={[
               {
                 height: inputHeight,
+                flex: 1,
+                position: 'relative',
               },
             ]}
           >
-            <Animated.View style={[{position: 'absolute'}, animatedStyles]}>
-              <Animated.View
-                style={[
-                  animatedStylesText,
-                  {
-                    flex: 1,
-                  },
-                ]}
-              >
-                <Animated.Text
+            {onPress && (
+              <Block
+                pressable
+                onPress={() => {
+                  onPress && onPress();
+                }}
+                style={{
+                  position: 'absolute',
+                  zIndex: 99,
+                  left: 0,
+                  top: 0,
+                  bottom: 0,
+                  right: 0,
+                }}
+              ></Block>
+            )}
+            <Block>
+              <Animated.View style={[{position: 'absolute'}, animatedStyles]}>
+                <Animated.View
                   style={[
-                    style.animatedPlaceholderStyle,
+                    animatedStylesText,
                     {
-                      backgroundColor: colors.inputBg,
+                      flex: 1,
                     },
                   ]}
                 >
-                  {animatedPlaceholder}
-                </Animated.Text>
+                  <Animated.Text
+                    style={[
+                      style.animatedPlaceholderStyle,
+                      {
+                        backgroundColor: colors.inputBg,
+                      },
+                    ]}
+                  >
+                    {animatedPlaceholder}
+                  </Animated.Text>
+                </Animated.View>
               </Animated.View>
-            </Animated.View>
 
-            <TouchableOpacity
-              activeOpacity={0.6}
-              onPress={() => {
-                onPress && onPress();
-              }}
-            >
               <TextInput
                 onFocus={() => {
                   onFocus ? onFocus() : onAnimation({_offset: 5, _scale: 0.75});
@@ -138,7 +148,7 @@ const AppInput: FC<Props | any> = props => {
                 style={[
                   styles.input,
                   {
-                    bottom: animatedPlaceholder ? -(inputHeight / 12) : 0,
+                    bottom: animatedPlaceholder ? -(inputHeight / 8) : 0,
                     height: inputHeight,
                     color: error ? theme.colors.error : colors.inputText,
                   },
@@ -147,7 +157,7 @@ const AppInput: FC<Props | any> = props => {
                 value={value}
                 secureTextEntry={props.secureTextEntry}
               />
-            </TouchableOpacity>
+            </Block>
           </Block>
 
           <Block
@@ -175,7 +185,7 @@ const AppInput: FC<Props | any> = props => {
             )}
           </Block>
         </Block>
-      </Shadow>
+      </Block>
       {error && (
         <Block px={10}>
           <Text error md>

@@ -61,6 +61,6 @@ export default RenderItem;
 
 const styles = StyleSheet.create({
   listItem: {
-    borderBottomWidth: 0.4,
+    borderBottomWidth: 1,
   },
 });

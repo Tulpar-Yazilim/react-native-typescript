@@ -25,8 +25,7 @@ const Typography = (props: any) => {
     return (
       <Animated.Text
         {...rest}
-        style={[insideStyles, textStyles, styles, props.styles]}
-      >
+        style={[insideStyles, textStyles, styles, props.styles]}>
         {content}
       </Animated.Text>
     );

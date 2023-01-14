@@ -1,5 +1,4 @@
 import useApi from './useApi';
-import useGuid from './useGuid';
 import useDebounce from './useDebounce';
 import useTranslate from './useTranslate';
 import useTag from './useTag';
@@ -18,7 +17,6 @@ export {
   useAppDispatch,
   useAppSelector,
   useApi,
-  useGuid,
   useDebounce,
   useTranslate,
   useTag,

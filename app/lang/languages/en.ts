@@ -22,5 +22,10 @@ const en = {
   hello: 'Hello',
   permissions: 'Give Camera Permission',
   camera_permissions: 'Camera Permitted',
+
+  language: 'Language',
+
+  processing: 'Processing ...',
+  please_wait: 'Please Wait ...',
 };
 export default en;
