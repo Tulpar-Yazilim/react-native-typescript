@@ -1,6 +1,18 @@
-import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
+import Routes from '@routes';
+import React from 'react';
+import Dialog from '../../../components/Common/Dialog';
 import screens from './screens';
+
+/**
+ * fade animate trasition navigation
+ * @param {*} {current, closing}
+ */
+export const forFade = ({current}: any) => ({
+  cardStyle: {
+    opacity: current.progress,
+  },
+});
 
 const Stack = createStackNavigator();
 
@@ -13,10 +25,22 @@ const MainStack = () => {
           name={screen.name}
           component={screen.component}
           options={{
-            headerShown: false,
+            ...screen.options,
           }}
         />
       ))}
+      <Stack.Group
+        screenOptions={{presentation: 'transparentModal', headerShown: false}}>
+        <Stack.Screen
+          name={Routes.ALERT}
+          component={Dialog}
+          options={{
+            cardStyleInterpolator: forFade,
+            cardStyle: {backgroundColor: 'rgba(0, 0, 0, 0.7)'},
+            gestureEnabled: false,
+          }}
+        />
+      </Stack.Group>
     </Stack.Navigator>
   );
 };

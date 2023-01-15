@@ -6,17 +6,23 @@ const Screens = [
   {
     name: 'Splash',
     component: SplashScreen,
-    headerShown: false,
+    options: {
+      headerShown: false,
+    },
   },
   {
     name: 'DrawerTabNavigation',
     component: DrawerMenuNavigaiton,
-    headerShown: false,
+    options: {
+      headerShown: false,
+    },
   },
   {
     name: 'BottomTabNavigation',
     component: BottomTabNavigation,
-    headerShown: false,
+    options: {
+      headerShown: false,
+    },
   },
 ];
 

@@ -11,7 +11,13 @@ import {
   Row,
   Text,
 } from '@components';
-import {useAppDispatch, useAppSelector, useStyledTag, useTag} from '@hooks';
+import {
+  useAppDispatch,
+  useAppSelector,
+  useDialog,
+  useStyledTag,
+  useTag,
+} from '@hooks';
 import {useFocusEffect} from '@react-navigation/native';
 import Routes from '@routes';
 import {settingsRedux} from '@store';
@@ -22,6 +28,7 @@ import {Pressable} from 'react-native';
 
 const HomePage = ({navigation}: any) => {
   const dispatch = useAppDispatch();
+  const dialog = useDialog();
 
   const DatePickerArea = useTag(Block);
   const LanguageArea = useTag(Block);
@@ -155,6 +162,98 @@ const HomePage = ({navigation}: any) => {
           navigation.navigate(Routes.FETCH_DATA_SCREEN);
         }}
       />
+      <Row row>
+        <Col col-6 pr-2>
+          <AppButton
+            mt-5
+            type="primary"
+            title={'Left Alert'}
+            onPress={() => {
+              dialog.show({
+                type: 'warning',
+                position: 'left',
+                title: 'Camera Permission Warning',
+                message: 'You must give permission to take photos',
+                action: [
+                  {
+                    text: 'Cancel',
+                    onPress: () => console.log('Done'),
+                    style: 'cancel',
+                  },
+                ],
+              });
+            }}
+          />
+        </Col>
+        <Col col-6 pr-2>
+          <AppButton
+            mt-5
+            type="primary"
+            title={'Right Alert'}
+            onPress={() => {
+              dialog.show({
+                type: 'warning',
+                position: 'right',
+                title: 'Camera Permission Warning',
+                message: 'You must give permission to take photos',
+                action: [
+                  {
+                    text: 'Cancel',
+                    onPress: () => console.log('Done'),
+                    style: 'cancel',
+                  },
+                ],
+              });
+            }}
+          />
+        </Col>
+      </Row>
+      <Row row>
+        <Col col-6 pr-2>
+          <AppButton
+            mt-5
+            type="primary"
+            title={'Top Alert'}
+            onPress={() => {
+              dialog.show({
+                type: 'warning',
+                position: 'top',
+                title: 'Camera Permission Warning',
+                message: 'You must give permission to take photos',
+                action: [
+                  {
+                    text: 'Cancel',
+                    onPress: () => console.log('Done'),
+                    style: 'cancel',
+                  },
+                ],
+              });
+            }}
+          />
+        </Col>
+        <Col col-6 pr-2>
+          <AppButton
+            mt-5
+            type="primary"
+            title={'Bottom Alert'}
+            onPress={() => {
+              dialog.show({
+                type: 'warning',
+                position: 'bottom',
+                title: 'Camera Permission Warning',
+                message: 'You must give permission to take photos',
+                action: [
+                  {
+                    text: 'Cancel',
+                    onPress: () => console.log('Done'),
+                    style: 'cancel',
+                  },
+                ],
+              });
+            }}
+          />
+        </Col>
+      </Row>
 
       <LanguageArea mt-5>
         <Row row>

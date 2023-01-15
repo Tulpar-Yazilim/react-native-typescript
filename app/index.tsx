@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {StatusBar, useColorScheme} from 'react-native';
+import {LogBox, StatusBar, useColorScheme} from 'react-native';
 import 'react-native-gesture-handler';
 
 import {Host} from 'react-native-portalize';
@@ -55,6 +55,10 @@ const MainContainer = () => {
     </Host>
   );
 };
+
+LogBox.ignoreLogs([
+  'Non-serializable values were found in the navigation state',
+]);
 
 const App = () => {
   return (
