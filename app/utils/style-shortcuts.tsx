@@ -86,6 +86,9 @@ const getStyles = (t: 'light' | 'dark'): any => {
         borderWidth: 1,
         borderColor: 'gray',
       },
+      borderBottom: {
+        borderWidth: 1,
+      },
     },
   };
 };
