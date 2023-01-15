@@ -1,5 +1,5 @@
 {
-  "name": "ReactNativeTypescript",
+  "name": "boilerplate",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -16,8 +16,11 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "reset-cache": "npm start -- --reset-cache",
     "logcat": "adb logcat *:S ReactNative:V ReactNativeJS:V",
-    "fonts": "npx react-native-asset",
-    "icon-list": "node icon-list.js"
+    "icon-list": "node icon-list.js",
+    "app:name": "npx react-native-rename boilerplate -b com.boilerplate",
+    "xcode": "cd ios && xed . && cd ..",
+    "dev-clean": "rm -rf ~/Library/Developer/Xcode/DerivedData",
+    "app:asset": "npx react-native-asset"
   },
   "dependencies": {
     "react": "18.1.0",
