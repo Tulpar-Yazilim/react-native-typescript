@@ -1,7 +1,7 @@
-import React from 'react';
 import {useGetCharactersQuery} from '@api';
-import {COLORS, SIZES} from '@theme';
 import {AppFlatList, AppImage, AppScreen, Block, Text} from '@components';
+import {COLORS, SIZES} from '@theme';
+import React from 'react';
 
 const FetchDataPage = () => {
   const {data: characters, isLoading} = useGetCharactersQuery(1);

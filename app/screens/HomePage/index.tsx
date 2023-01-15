@@ -1,24 +1,24 @@
-import React, {useState, useCallback, useLayoutEffect} from 'react';
-import {Pressable} from 'react-native';
 import {Images} from '@assets';
 import {
-  Text,
-  Block,
-  AppImage,
-  AppIcon,
-  AppScreen,
+  AppBottomSheet,
   AppButton,
+  AppIcon,
+  AppImage,
+  AppScreen,
+  Block,
+  Col,
   DateTimePicker,
   Row,
-  Col,
-  AppBottomSheet,
+  Text,
 } from '@components';
 import {useAppDispatch, useAppSelector, useStyledTag, useTag} from '@hooks';
-import {COLORS} from '@theme';
-import {ICONS, Permission, PERMISSION_TYPE} from '@utils';
 import {useFocusEffect} from '@react-navigation/native';
-import {settingsRedux} from '@store';
 import Routes from '@routes';
+import {settingsRedux} from '@store';
+import {COLORS} from '@theme';
+import {ICONS, PERMISSION_TYPE, Permission} from '@utils';
+import React, {useCallback, useLayoutEffect, useState} from 'react';
+import {Pressable} from 'react-native';
 
 const HomePage = ({navigation}: any) => {
   const dispatch = useAppDispatch();

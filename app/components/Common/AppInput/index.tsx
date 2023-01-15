@@ -1,22 +1,21 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react-native/no-inline-styles */
-import React, {FC, useState, memo} from 'react';
+import {useTheme} from '@hooks';
+import {FONTS} from '@theme';
+import React, {FC, memo, useEffect, useState} from 'react';
 import {StyleSheet, TextInput} from 'react-native';
-import Block from '../Block';
-import styles from './style';
-import Text from '../Text';
 import Animated, {
   Easing,
   useAnimatedStyle,
   useSharedValue,
   withTiming,
 } from 'react-native-reanimated';
-import {FONTS} from '@theme';
-import {Props} from './app-input';
 import AppIcon from '../AppIcon';
-import {useEffect} from 'react';
-import {useTheme} from '@hooks';
+import Block from '../Block';
+import Text from '../Text';
+import {Props} from './app-input';
+import styles from './style';
 
 const inputHeight = 50;
 const offsetHeight = inputHeight / 3.9;
@@ -79,8 +78,7 @@ const AppInput: FC<Props | any> = props => {
             borderWidth: error ? 0.5 : 0,
             borderColor: theme.colors.error,
           },
-        ]}
-      >
+        ]}>
         <Block row {...rest}>
           {icon && (
             <Block justify="center" align="center">
@@ -95,8 +93,7 @@ const AppInput: FC<Props | any> = props => {
                 flex: 1,
                 position: 'relative',
               },
-            ]}
-          >
+            ]}>
             {onPress && (
               <Block
                 pressable
@@ -110,8 +107,7 @@ const AppInput: FC<Props | any> = props => {
                   top: 0,
                   bottom: 0,
                   right: 0,
-                }}
-              ></Block>
+                }}></Block>
             )}
             <Block>
               <Animated.View style={[{position: 'absolute'}, animatedStyles]}>
@@ -121,16 +117,14 @@ const AppInput: FC<Props | any> = props => {
                     {
                       flex: 1,
                     },
-                  ]}
-                >
+                  ]}>
                   <Animated.Text
                     style={[
                       style.animatedPlaceholderStyle,
                       {
                         backgroundColor: colors.inputBg,
                       },
-                    ]}
-                  >
+                    ]}>
                     {animatedPlaceholder}
                   </Animated.Text>
                 </Animated.View>
@@ -165,8 +159,7 @@ const AppInput: FC<Props | any> = props => {
               height: 50,
               alignItems: 'center',
               justifyContent: 'center',
-            }}
-          >
+            }}>
             {onClear && value && (
               <Block
                 pressable
@@ -176,8 +169,7 @@ const AppInput: FC<Props | any> = props => {
                 }}
                 center
                 middle
-                p-7
-              >
+                p-7>
                 <Text bold default>
                   X
                 </Text>
