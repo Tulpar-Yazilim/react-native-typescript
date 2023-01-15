@@ -1,28 +1,43 @@
-import 'react-native-gesture-handler';
 import React, {useEffect} from 'react';
-import {StatusBar} from 'react-native';
+import {StatusBar, useColorScheme} from 'react-native';
+import 'react-native-gesture-handler';
 
-import {Provider} from 'react-redux';
-import {PersistGate} from 'redux-persist/integration/react';
 import {Host} from 'react-native-portalize';
+import {Provider, useDispatch} from 'react-redux';
+import {PersistGate} from 'redux-persist/integration/react';
 
+import {
+  DarkTheme,
+  DefaultTheme,
+  NavigationContainer,
+} from '@react-navigation/native';
 import Toast from 'react-native-toast-message';
-import {NavigationContainer} from '@react-navigation/native';
 
 //import {initializeOnesignal} from '@utils';
-import {useAppSelector} from '@hooks';
 import {linking, locale, toastConfig} from '@config';
-import {store, persistor} from '@store';
+import {useAppSelector} from '@hooks';
+import {persistor, settingsRedux, store} from '@store';
 
-import MainStack from './navigation/stacks/MainStack';
 import AppLoader from './components/Common/AppLoader';
+import MainStack from './navigation/stacks/MainStack';
 
 const MainContainer = () => {
+  const dispatch = useDispatch();
+  const phoneTheme = useColorScheme() as any;
   const language = useAppSelector(state => state.settings.language);
+  const theme = useAppSelector(state => state.settings.theme);
 
   useEffect(() => {
     locale(language);
   }, [language]);
+
+  useEffect(() => {
+    if (phoneTheme) {
+      dispatch(
+        settingsRedux.setTheme(phoneTheme === 'light' ? 'dark' : 'light'),
+      );
+    }
+  }, [phoneTheme]);
 
   //useEffect(() => {
   //  initializeOnesignal();
@@ -30,7 +45,9 @@ const MainContainer = () => {
 
   return (
     <Host>
-      <NavigationContainer linking={linking}>
+      <NavigationContainer
+        linking={linking}
+        theme={theme === 'dark' ? DarkTheme : DefaultTheme}>
         <StatusBar barStyle="dark-content" />
         <MainStack />
       </NavigationContainer>

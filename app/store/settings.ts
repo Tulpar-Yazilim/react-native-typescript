@@ -1,5 +1,5 @@
-import {createSlice} from '@reduxjs/toolkit';
 import {i18next} from '@lang';
+import {createSlice} from '@reduxjs/toolkit';
 
 interface ISettingsState {
   language: string;
