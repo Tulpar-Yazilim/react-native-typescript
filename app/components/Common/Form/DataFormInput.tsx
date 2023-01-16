@@ -1,13 +1,14 @@
 /* eslint-disable no-duplicate-case */
 import * as React from 'react';
-import {SchemaMeta, SelectOptions} from './types/dataForm/types';
 import {SchemaField} from './types/dataForm/enums';
+import {SchemaMeta, SelectOptions} from './types/dataForm/types';
 
+import AppAutoComplete from './partials/AppAutoComplete';
 import {AppDateTimePicker} from './partials/AppDateTimePicker/index';
 import AppInput from './partials/AppInput/index';
-import AppSelector from './partials/AppSelector';
-import AppAutoComplete from './partials/AppAutoComplete';
 import AppMultipleSelect from './partials/AppMultipleSelect';
+import AppRadioButton from './partials/AppRadioButton';
+import AppSelector from './partials/AppSelector';
 
 interface IDataFormInput {
   name?: string;
@@ -65,6 +66,16 @@ export default function DataFormInput({name, meta, form, mb}: IDataFormInput) {
     case SchemaField.InputMultipleSelect:
       return (
         <AppMultipleSelect
+          {...meta}
+          key={inputName}
+          name={inputName}
+          form={form}
+          mb={mb}
+        />
+      );
+    case SchemaField.RadioButton:
+      return (
+        <AppRadioButton
           {...meta}
           key={inputName}
           name={inputName}

@@ -1,9 +1,9 @@
 /* eslint-disable prettier/prettier */
-import React, {useEffect, useState} from 'react';
-import {AppScreen, Form, fields, AppButton} from '@components';
-import * as Yup from 'yup';
-import {useForm} from 'react-hook-form';
+import {AppButton, AppScreen, Form, fields} from '@components';
 import {yupResolver} from '@hookform/resolvers/yup';
+import React, {useEffect, useState} from 'react';
+import {useForm} from 'react-hook-form';
+import * as Yup from 'yup';
 
 const SelectOptions = [
   {
@@ -38,7 +38,8 @@ const FormPage = () => {
     password: fields.password.label('Password').min(6,'En az 6 karakter olmalı').required('Lütfen parola giriniz'), // prettier-ignore
     select: fields.select(SelectOptions, 'string', 'name', 'id').label('Select').required('select required message'), // prettier-ignore
     autoComplete: fields.autoComplete(users, 'string', 'name.first', 'name.first').label('Auto Complete'), // prettier-ignore
-    multipleSelect: fields.multipleSelect(users, 'string', 'name.first', 'name.first').label('Multiple Select') // prettier-ignore
+    multipleSelect: fields.multipleSelect(users, 'string', 'name.first', 'name.first').label('Multiple Select'), // prettier-ignore
+    radio: fields.radio([{label: 'radio-1', value: 1},{label: 'radio 2', value: 2}]), // prettier-ignore
   });
 
   useEffect(() => {

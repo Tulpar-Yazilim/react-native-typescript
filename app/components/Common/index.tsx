@@ -17,6 +17,7 @@ import Col from './Grid/Col';
 import Row from './Grid/Row';
 import LoadingCard from './LoadingCard';
 import LoadingScreen from './LoadingScreen';
+import RadioButton from './RadioButton';
 import Text from './Text';
 export * from './Form';
 export {
@@ -43,6 +44,7 @@ export {
   AccordionList,
   Shadow,
   Alert,
+  RadioButton,
 };
 
 import AppIcon from './AppIcon';
