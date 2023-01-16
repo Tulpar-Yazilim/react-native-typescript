@@ -1,9 +1,10 @@
 /* eslint-disable react-native/no-inline-styles */
+import React, {FC, memo} from 'react';
 import {Text} from '@components';
 import {useTheme} from '@hooks';
 import {useNavigation} from '@react-navigation/native';
 import {bottomTabHeight, window} from '@theme';
-import React, {FC, memo} from 'react';
+
 import {Keyboard, Pressable, ScrollView, View} from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {SafeAreaView} from 'react-native-safe-area-context';
@@ -116,7 +117,6 @@ const AppScreen: FC<Props | any> = ({children, ...props}) => {
                 <View
                   style={[
                     {
-                      flex: 1,
                       paddingBottom:
                         layout.menu === 'bottom' ? bottomTabHeight + 20 : 50,
                     },
@@ -146,7 +146,7 @@ const AppScreen: FC<Props | any> = ({children, ...props}) => {
           )}
           {!scroll && !safe && !keyboardScroll && !flatList && (
             <Pressable style={{flex: 1}} onPress={() => Keyboard.dismiss()}>
-              <Block
+              <View
                 style={[
                   {
                     ...screenCommonStyles,
@@ -155,7 +155,7 @@ const AppScreen: FC<Props | any> = ({children, ...props}) => {
                   {...getStyleShortcuts(props)},
                 ]}>
                 {children}
-              </Block>
+              </View>
             </Pressable>
           )}
           {flatList && (

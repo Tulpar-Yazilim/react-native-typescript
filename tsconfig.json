@@ -2,6 +2,7 @@
   "extends": "@tsconfig/react-native/tsconfig.json",
   "requireConfigFile": false,
   "compilerOptions": {
+    "jsx": "react",
     "baseUrl": "./",
     "paths": {
       "@config": ["./app/config"],
