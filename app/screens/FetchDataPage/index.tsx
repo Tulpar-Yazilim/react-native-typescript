@@ -4,7 +4,13 @@ import {COLORS, SIZES} from '@theme';
 import React from 'react';
 
 const FetchDataPage = () => {
-  const {data: characters, isLoading} = useGetCharactersQuery(1);
+  const [page, setPage] = useState(1);
+  const {data: characters, isLoading} = useGetCharactersQuery(page);
+
+  const retrieveMore = () => {
+    console.log('Retrieving more');
+    setPage(page + 1);
+  };
 
   const renderItem = ({item}: {item: any}) => {
     return (
@@ -29,7 +35,7 @@ const FetchDataPage = () => {
   return (
     <AppScreen flatList>
       <AppFlatList
-        contentContinerStyle={{flex: 1}}
+        usePagination
         data={characters?.results}
         ListEmptyComponent={
           <Block pt={20} center middle>
@@ -37,6 +43,8 @@ const FetchDataPage = () => {
           </Block>
         }
         renderItem={renderItem}
+        onEndReached={retrieveMore}
+        refreshing={isLoading}
       />
     </AppScreen>
   );

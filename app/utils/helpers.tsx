@@ -13,8 +13,19 @@ import RenderHtml, {
 import NetInfo from '@react-native-community/netinfo';
 import Toast from 'react-native-toast-message';
 
+import notifee, {
+  Notification,
+  TimestampTrigger,
+  TriggerType,
+} from '@notifee/react-native';
+
 import {Permission, PERMISSION_TYPE} from './permission';
-import {Coordinates, ToastParams} from './models';
+import {
+  Coordinates,
+  LocalNotificationParams,
+  LocalNotificationType,
+  ToastParams,
+} from './models';
 import {ToastType} from './enums';
 import {ImagePickerResultType, ImageResizeResultType} from './types';
 
@@ -231,6 +242,56 @@ const launchSingleImage = async (): Promise<ImagePickerResultType> => {
   });
 };
 
+const createLocalNotification = async (
+  notification: LocalNotificationParams,
+) => {
+  // Request permissions (required for iOS)
+  await notifee.requestPermission();
+
+  // Create a channel (required for Android)
+  const channelId = await notifee.createChannel({
+    id: 'reactnativetypescript',
+    name: 'React Native Typescript',
+  });
+
+  const notificationDto: Notification = {
+    id: notification.id ?? new Date().getTime().toString(),
+    title: notification.title,
+    body: notification.message,
+    android: {
+      channelId,
+      smallIcon: 'ic_launcher', // optional, defaults to 'ic_launcher'.
+      // pressAction is needed if you want the notification to open the app when pressed
+      pressAction: {
+        id: 'default',
+      },
+    },
+  };
+
+  if (notification.type === LocalNotificationType.Schedule) {
+    // Create a time-based trigger
+    const trigger: TimestampTrigger = {
+      type: TriggerType.TIMESTAMP,
+      timestamp: notification.scheduleDate?.getTime() || 0,
+    };
+
+    // Display a notification
+    const notificationId = await notifee.createTriggerNotification(
+      notificationDto,
+      trigger,
+    );
+
+    return notificationId;
+  } else {
+    const notificationId = await notifee.displayNotification(notificationDto);
+    return notificationId;
+  }
+};
+
+const cancelLocalNotification = async (localNotificationId: string) => {
+  await notifee.cancelNotification(localNotificationId);
+};
+
 export {
   HtmlRender,
   base64,
@@ -247,4 +308,6 @@ export {
   resizeImageMultiple,
   launchMultipleImages,
   launchSingleImage,
+  createLocalNotification,
+  cancelLocalNotification,
 };
