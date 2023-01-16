@@ -13,6 +13,7 @@ export enum SchemaField {
   InputAutoComplete = 'InputAutoComplete',
   InputPhoneNumber = 'InputPhoneNumber',
   InputMultipleSelect = 'InputMultipleSelect',
+  RadioButton = 'RadioButton',
 }
 
 export enum SchemaInputType {
@@ -24,4 +25,5 @@ export enum SchemaInputType {
   textarea = 'textarea',
   number = 'number',
   password = 'password',
+  radio = 'radio',
 }

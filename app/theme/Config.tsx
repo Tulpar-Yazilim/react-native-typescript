@@ -27,6 +27,10 @@ export const themeColors = {
     black: '#000000',
     white: '#FFFFFF',
 
+    // radio button
+    radioButtonBorder: '#318AC3',
+    radioButtonChecked: '#318AC3',
+
     // color variations
     gray: '#535453',
     lightGray: '#EFF1F3',
@@ -71,6 +75,10 @@ export const themeColors = {
     // non-colors
     black: '#fff',
     white: '#FFFFFF',
+
+    // radio button
+    radioButtonBorder: '#fff',
+    radioButtonChecked: '#fff',
 
     // color variations
     gray: '#535453',
