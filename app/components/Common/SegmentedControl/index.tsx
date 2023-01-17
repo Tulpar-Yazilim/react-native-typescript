@@ -1,7 +1,6 @@
-/* eslint-disable react-native/no-inline-styles */
 import {Block, Text} from '@components';
-import {useTheme} from '@react-navigation/native';
-import React, {useEffect} from 'react';
+import {useTheme} from '@hooks';
+import React, {memo, useEffect} from 'react';
 import {StyleSheet} from 'react-native';
 import Animated, {
   useAnimatedStyle,
@@ -9,21 +8,30 @@ import Animated, {
   withSpring,
 } from 'react-native-reanimated';
 import {widthPercentageToDP} from 'react-native-responsive-screen';
-
+import {Props} from './segmented-control';
 function SegmentedControl({
   segments,
   currentIndex,
-  setActiveTab,
+  onChange,
+  containerMargin = 10,
+  tabColor,
+  activeColor,
   ...props
-}: any) {
-  const containerMargin = 10;
+}: Props) {
   const theme = useTheme();
+
   const width = widthPercentageToDP('100%') - containerMargin * 2;
   const translateValue = width / segments.length;
   const tabTranslateValue = useSharedValue(0);
 
-  //#region Animation
+  const memoizedTabPressCallback = React.useCallback(
+    (index: number) => {
+      onChange(index);
+    },
+    [onChange],
+  );
 
+  //#region Animation
   const DEFAULT_SPRING_CONFIG = {
     stiffness: 150,
     damping: 20,
@@ -46,11 +54,16 @@ function SegmentedControl({
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentIndex]);
-
   //#endregion
 
   return (
-    <Block bg-primary {...props} row wrap rounded-10 relative>
+    <Block
+      {...props}
+      row
+      wrap
+      rounded-10
+      relative
+      style={{backgroundColor: tabColor ?? theme.colors.segmentBar}}>
       <Animated.View
         style={[
           animatedStyles,
@@ -58,19 +71,17 @@ function SegmentedControl({
           styles.activeTab,
           {
             width: translateValue,
-            backgroundColor: theme.colors.primary,
+            backgroundColor: activeColor ?? theme.colors.activeSegment,
           },
         ]}
       />
       {segments?.map((segment: any, index: number) => (
-        <Block key={index} flex pressable onPress={() => setActiveTab(index)}>
-          <Block
-            /* style={activeTab === index ? {backgroundColor: 'red'} : {}} */
-            m-4
-            center
-            middle
-            h-35
-            rounded-10>
+        <Block
+          key={index}
+          flex
+          pressable
+          onPress={() => memoizedTabPressCallback(index)}>
+          <Block m-4 center middle h-35 rounded-10>
             <Text black>{segment.label}</Text>
           </Block>
         </Block>
@@ -84,9 +95,11 @@ const styles = StyleSheet.create({
     backgroundColor: 'red',
     left: 0,
     right: 0,
-    height: '100%',
+    bottom: 0,
+    top: 0,
+    margin: 3,
     borderRadius: 10,
   },
 });
 
-export default SegmentedControl;
+export default memo(SegmentedControl);

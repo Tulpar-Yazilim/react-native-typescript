@@ -97,16 +97,16 @@ const HomePage = ({navigation}: any) => {
       </Block>
 
       <SegmentedControl
-        mt-10
-        mb-10
+        currentIndex={activeTab}
+        onChange={(index: number) => setActiveTab(index)}
         segments={[
           {label: '1st'},
           {label: '2nd'},
           {label: '3nd'},
           {label: '4nd'},
         ]}
-        currentIndex={activeTab}
-        setActiveTab={(index: number) => setActiveTab(index)}
+        mt-10
+        mb-10
       />
 
       <AppButton
