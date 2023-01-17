@@ -12,6 +12,7 @@ import AppSelector from './AppSelector';
 import Block from './Block';
 import DateTimePicker from './DateTimePicker';
 import Alert from './Dialog';
+import FloatingButton from './FloatingButton';
 import Form from './Form/Form';
 import Col from './Grid/Col';
 import Row from './Grid/Row';
@@ -47,6 +48,7 @@ export {
   Alert,
   RadioButton,
   SegmentedControl,
+  FloatingButton,
 };
 
 import AppIcon from './AppIcon';

@@ -26,7 +26,10 @@ const FetchDataPage = () => {
             height={40}
             borderRadius={SIZES.radius}
           />
-          <Text ml={20}>{item?.name}</Text>
+          <Text ml={20} black>
+            {' '}
+            {item?.name}
+          </Text>
         </Block>
       </Block>
     );

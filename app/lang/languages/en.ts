@@ -27,5 +27,8 @@ const en = {
 
   processing: 'Processing ...',
   please_wait: 'Please Wait ...',
+
+  approve: 'Approve',
+  not_now: 'Not now',
 };
 export default en;
