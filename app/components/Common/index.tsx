@@ -18,6 +18,7 @@ import Row from './Grid/Row';
 import LoadingCard from './LoadingCard';
 import LoadingScreen from './LoadingScreen';
 import RadioButton from './RadioButton';
+import SegmentedControl from './SegmentedControl';
 import Text from './Text';
 export * from './Form';
 export {
@@ -45,6 +46,7 @@ export {
   Shadow,
   Alert,
   RadioButton,
+  SegmentedControl,
 };
 
 import AppIcon from './AppIcon';
