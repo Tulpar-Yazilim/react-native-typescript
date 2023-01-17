@@ -9,6 +9,7 @@ import {
   Col,
   DateTimePicker,
   Row,
+  SegmentedControl,
   Text,
 } from '@components';
 import {
@@ -41,6 +42,8 @@ const HomePage = ({navigation}: any) => {
   const [dateVisible, setDateVisible] = useState(false);
   const [dateTimeVisible, setDateTimeVisible] = useState(false);
   const [bottomSheetVisibility, setBottomSheetVisibility] = useState(false);
+
+  const [activeTab, setActiveTab] = useState<number>(0);
 
   const language = useAppSelector(state => state.settings.language);
 
@@ -92,6 +95,19 @@ const HomePage = ({navigation}: any) => {
           height={60}
         />
       </Block>
+
+      <SegmentedControl
+        currentIndex={activeTab}
+        onChange={(index: number) => setActiveTab(index)}
+        segments={[
+          {label: '1st'},
+          {label: '2nd'},
+          {label: '3nd'},
+          {label: '4nd'},
+        ]}
+        mt-10
+        mb-10
+      />
 
       <AppButton
         mb-5

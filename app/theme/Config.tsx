@@ -31,6 +31,10 @@ export const themeColors = {
     radioButtonBorder: '#318AC3',
     radioButtonChecked: '#318AC3',
 
+    // segment control
+    segmentBar: '#F2F5F6',
+    activeSegment: '#fff',
+
     // color variations
     gray: '#535453',
     lightGray: '#EFF1F3',
@@ -79,6 +83,10 @@ export const themeColors = {
     // radio button
     radioButtonBorder: '#fff',
     radioButtonChecked: '#fff',
+
+    // segment control
+    segmentBar: '#212121',
+    activeSegment: '#535453',
 
     // color variations
     gray: '#535453',
