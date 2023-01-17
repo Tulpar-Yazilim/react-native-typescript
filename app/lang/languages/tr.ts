@@ -26,5 +26,8 @@ const tr = {
 
   processing: 'İşlem Yapılıyor ...',
   please_wait: 'Lütfen Bekleyiniz ...',
+
+  approve: 'Onayla',
+  not_now: 'Şimdi değil',
 };
 export default tr;
