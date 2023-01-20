@@ -20,6 +20,7 @@ import LoadingCard from './LoadingCard';
 import LoadingScreen from './LoadingScreen';
 import RadioButton from './RadioButton';
 import SegmentedControl from './SegmentedControl';
+import Swipeable from './Swipeable';
 import Text from './Text';
 export * from './Form';
 export {
@@ -49,6 +50,7 @@ export {
   RadioButton,
   SegmentedControl,
   FloatingButton,
+  Swipeable,
 };
 
 import AppIcon from './AppIcon';
