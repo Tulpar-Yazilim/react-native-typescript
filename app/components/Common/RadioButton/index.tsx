@@ -22,14 +22,15 @@ function RadioButton({item, checked, setChecked}: RadioButton) {
   const checkedStyle = useAnimatedStyle(() => {
     return {
       backgroundColor: theme.colors.radioButtonChecked,
-      display: !checked && 'none',
+      display: checked ? 'flex' : 'none',
       borderRadius: 25,
       transform: [
         {
-          scale: withSpring(checked ? 1.4 : 0.7),
+          scale: withSpring(checked ? 1.5 : 0.7),
         },
       ],
       flex: 1,
+      zIndex: 9999,
     };
   });
 
