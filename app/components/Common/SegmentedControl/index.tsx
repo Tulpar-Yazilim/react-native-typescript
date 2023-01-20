@@ -1,13 +1,12 @@
 import {Block, Text} from '@components';
 import {useTheme} from '@hooks';
 import React, {memo, useEffect} from 'react';
-import {StyleSheet} from 'react-native';
+import {StyleSheet, useWindowDimensions} from 'react-native';
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
   withSpring,
 } from 'react-native-reanimated';
-import {widthPercentageToDP} from 'react-native-responsive-screen';
 import {Props} from './segmented-control';
 function SegmentedControl({
   segments,
@@ -19,9 +18,10 @@ function SegmentedControl({
   ...props
 }: Props) {
   const theme = useTheme();
+  const {width} = useWindowDimensions();
 
-  const width = widthPercentageToDP('100%') - containerMargin * 2;
-  const translateValue = width / segments.length;
+  const marginExtraction = width - containerMargin * 2;
+  const translateValue = marginExtraction / segments.length;
   const tabTranslateValue = useSharedValue(0);
 
   const memoizedTabPressCallback = React.useCallback(
@@ -70,7 +70,7 @@ function SegmentedControl({
           StyleSheet.absoluteFill,
           styles.activeTab,
           {
-            width: translateValue,
+            width: translateValue - 6,
             backgroundColor: activeColor ?? theme.colors.activeSegment,
           },
         ]}
