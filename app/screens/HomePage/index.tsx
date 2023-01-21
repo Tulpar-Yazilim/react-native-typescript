@@ -24,7 +24,12 @@ import {
 import Routes from '@/navigation/Routes';
 import {settingsRedux} from '@/store';
 import {COLORS} from '@/theme';
-import {ICONS, PERMISSION_TYPE, Permission} from '@/utils';
+import {
+  ICONS,
+  PERMISSION_TYPE,
+  Permission,
+  createLocalNotification,
+} from '@/utils';
 import {useFocusEffect} from '@react-navigation/native';
 import React, {useCallback, useLayoutEffect, useState} from 'react';
 import {Pressable} from 'react-native';
@@ -118,6 +123,18 @@ const HomePage = ({navigation}: any) => {
           title="Bottom Sheet / Switch / Dark Mode"
           onPress={() => {
             setBottomSheetVisibility(true);
+          }}
+        />
+
+        <AppButton
+          mb-5
+          type="primary"
+          title="Local Notifications"
+          onPress={async () => {
+            await createLocalNotification({
+              title: 'Time to Live',
+              message: `Hi 👋, time: ${new Date()}`,
+            });
           }}
         />
 
