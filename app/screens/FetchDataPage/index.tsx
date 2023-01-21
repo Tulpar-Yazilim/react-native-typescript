@@ -10,11 +10,17 @@ import {
 } from '@/components';
 import {COLORS, SIZES} from '@/theme';
 import {useTheme} from '@react-navigation/native';
-import React from 'react';
+import React, {useState} from 'react';
 
 const FetchDataPage = () => {
+  const [page, setPage] = useState(1);
   const {data: characters, isLoading} = useGetCharactersQuery(1);
   const theme = useTheme();
+
+  const retrieveMore = () => {
+    console.log('Retrieving more');
+    setPage(page + 1);
+  };
 
   const renderItem = ({item}: {item: any}) => {
     return (

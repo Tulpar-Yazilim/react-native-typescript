@@ -1,12 +1,12 @@
-import {config} from '@config';
+import {config} from '@/config';
+import {settingsRedux} from '@/store';
 import {
-  isRejected,
-  isRejectedWithValue,
+  Middleware,
   isFulfilled,
   isPending,
-  Middleware,
+  isRejected,
+  isRejectedWithValue,
 } from '@reduxjs/toolkit';
-import {settingsRedux} from '@store';
 
 export const rtkQueryLoaderHandler: Middleware =
   ({dispatch}) =>

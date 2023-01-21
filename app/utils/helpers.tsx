@@ -29,7 +29,7 @@ import {
 import {PERMISSION_TYPE, Permission} from './permission';
 import {ImagePickerResultType, ImageResizeResultType} from './types';
 
-import {FONTS as THEME_FONTS} from '@theme';
+import {FONTS as THEME_FONTS} from '@/theme';
 
 import {i18next} from '@/lang';
 import {Buffer} from 'buffer';
