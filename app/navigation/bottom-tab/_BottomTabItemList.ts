@@ -4,14 +4,14 @@ import {IconNames} from './../../components/Common/AppIcon/index';
 
 export const BottomTabItemList = [
   {
-    label: 'Ana Sayfa',
+    label: 'Home Page',
     icon: IconNames.home,
     name: 'HomeScreen',
     component: HomeStack,
     headerShown: false,
   },
   {
-    label: 'Data',
+    label: 'Fetch Page',
     icon: IconNames.home,
     name: 'FetchDataPage',
     component: FetchDataPage,

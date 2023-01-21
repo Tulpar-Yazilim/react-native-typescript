@@ -5,6 +5,7 @@ import {
   AppIcon,
   AppImage,
   AppScreen,
+  AppSwitch,
   Block,
   Col,
   DateTimePicker,
@@ -45,7 +46,7 @@ const HomePage = ({navigation}: any) => {
   const [bottomSheetVisibility, setBottomSheetVisibility] = useState(false);
 
   const [activeTab, setActiveTab] = useState<number>(0);
-  const [floatMenu, setFloatMenu] = useState<boolen>(false);
+  const [floatMenu, setFloatMenu] = useState<boolean>(false);
   const language = useAppSelector(state => state.settings.language);
 
   const onChangeLang = (_language: string) => {
@@ -114,20 +115,9 @@ const HomePage = ({navigation}: any) => {
         <AppButton
           mb-5
           type="primary"
-          title="Bottom Sheet"
+          title="Bottom Sheet / Switch / Dark Mode"
           onPress={() => {
             setBottomSheetVisibility(true);
-          }}
-        />
-
-        <AppButton
-          mb-5
-          type="primary"
-          title={`${theme === 'light' ? 'Dark' : 'Light'} Theme`}
-          onPress={() => {
-            dispatch(
-              settingsRedux.setTheme(theme === 'light' ? 'dark' : 'light'),
-            );
           }}
         />
 
@@ -174,19 +164,10 @@ const HomePage = ({navigation}: any) => {
 
         <AppButton
           mb-5
-          type="primary"
+          type="secondary"
           title={'Form Example'}
           onPress={() => {
             navigation.navigate(Routes.FORM_SCREEN);
-          }}
-        />
-
-        <AppButton
-          mb={10}
-          type="secondary"
-          title={'Fetch Data Example'}
-          onPress={() => {
-            navigation.navigate(Routes.FETCH_DATA_SCREEN);
           }}
         />
 
@@ -322,8 +303,22 @@ const HomePage = ({navigation}: any) => {
         <AppBottomSheet
           isVisible={bottomSheetVisibility}
           onClose={() => setBottomSheetVisibility(false)}>
-          <Block h={200}>
-            <Text>test</Text>
+          <Block h={200} mt-5 mb-25 px-10>
+            <Block row center pt-3>
+              <Text black>Dark Theme</Text>
+              <Block right flex>
+                <AppSwitch
+                  value={theme === 'dark'}
+                  onChange={() =>
+                    dispatch(
+                      settingsRedux.setTheme(
+                        theme === 'light' ? 'dark' : 'light',
+                      ),
+                    )
+                  }
+                />
+              </Block>
+            </Block>
           </Block>
         </AppBottomSheet>
       </AppScreen>

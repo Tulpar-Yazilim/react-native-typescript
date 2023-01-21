@@ -9,6 +9,7 @@ import AppInput from './AppInput';
 import AppLottieView from './AppLottieView';
 import AppScreen from './AppScreen';
 import AppSelector from './AppSelector';
+import AppSwitch from './AppSwitch';
 import Block from './Block';
 import DateTimePicker from './DateTimePicker';
 import Alert from './Dialog';
@@ -51,6 +52,7 @@ export {
   SegmentedControl,
   FloatingButton,
   Swipeable,
+  AppSwitch,
 };
 
 import AppIcon from './AppIcon';
