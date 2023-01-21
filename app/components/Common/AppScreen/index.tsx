@@ -1,8 +1,8 @@
 /* eslint-disable react-native/no-inline-styles */
-import {Text} from '@components';
-import {useTheme} from '@hooks';
+import {Text} from '@/components';
+import {useTheme} from '@/hooks';
+import {bottomTabHeight, window} from '@/theme';
 import {useNavigation} from '@react-navigation/native';
-import {bottomTabHeight, window} from '@theme';
 import React, {FC, memo} from 'react';
 import {Keyboard, Pressable, ScrollView, View} from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';

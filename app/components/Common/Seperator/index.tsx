@@ -1,6 +1,6 @@
+import {COLORS} from '@/theme';
 import React, {memo} from 'react';
 import {StyleSheet, View} from 'react-native';
-import {COLORS} from '@theme';
 import Block from '../Block';
 
 const Separator = ({color = COLORS.gray, isVertical = false, ...rest}) => {

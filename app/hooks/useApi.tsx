@@ -1,8 +1,8 @@
-import {useState} from 'react';
+import {useAppDispatch} from '@/hooks';
+import {settingsRedux} from '@/store';
 import {AxiosResponse} from 'axios';
+import {useState} from 'react';
 import {ApiResult} from '../api/api-result';
-import {settingsRedux} from '@store';
-import {useAppDispatch} from '@hooks';
 
 interface IConfig {
   useAppLoader: boolean;

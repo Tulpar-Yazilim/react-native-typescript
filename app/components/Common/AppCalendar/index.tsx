@@ -1,13 +1,13 @@
+import {COLORS, FONTS, SIZES} from '@/theme';
 import React, {memo, useState} from 'react';
-import {StyleSheet, Pressable} from 'react-native';
-import {COLORS, FONTS, SIZES} from '@theme';
+import {Pressable, StyleSheet} from 'react-native';
 import AppIcon from '../AppIcon';
 import Block from '../Block';
 import Text from '../Text';
 
-import {Calendar} from 'react-native-calendars';
+import {ICONS} from '@/utils';
 import moment from 'moment';
-import {ICONS} from '@utils';
+import {Calendar} from 'react-native-calendars';
 
 const AppCalendar = ({onSelectDay = (_date: string) => {}, ...props}) => {
   const [selectedDate, setSelectedDate] = useState(

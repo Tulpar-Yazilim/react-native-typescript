@@ -1,8 +1,8 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react-native/no-inline-styles */
-import {useTheme} from '@hooks';
-import {FONTS} from '@theme';
+import {useTheme} from '@/hooks';
+import {FONTS} from '@/theme';
 import React, {FC, memo, useEffect, useState} from 'react';
 import {StyleSheet, TextInput} from 'react-native';
 import Animated, {

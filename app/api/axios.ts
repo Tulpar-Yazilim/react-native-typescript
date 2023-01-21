@@ -1,3 +1,4 @@
+import {getUser} from '@/utils';
 import axios, {
   AxiosError,
   AxiosRequestConfig,
@@ -6,7 +7,6 @@ import axios, {
 } from 'axios';
 import {ApiResult} from './api-result';
 import {baseURL} from './config';
-import {getUser} from '@utils';
 
 // Config
 const config: AxiosRequestConfig = {

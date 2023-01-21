@@ -1,7 +1,7 @@
+import {AppInput as Input} from '@/components';
 import React, {FC, memo} from 'react';
-import {Props} from './app-input';
 import {Controller} from 'react-hook-form';
-import {AppInput as Input} from '@components';
+import {Props} from './app-input';
 
 const AppInput: FC<Props | any> = props => {
   const {label,form,name,secureTextEntry} = props; // prettier-ignore

@@ -1,5 +1,4 @@
-import {COLORS} from '@theme';
-import React, {FC, memo, SetStateAction} from 'react';
+import React, {FC, SetStateAction, memo} from 'react';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import useTheme from '../../../hooks/useTheme';
 

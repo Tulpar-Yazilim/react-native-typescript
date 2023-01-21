@@ -1,8 +1,8 @@
+import {useTheme, useTranslate} from '@/hooks';
+import {SIZES} from '@/theme';
 import React, {memo} from 'react';
-import {Animated, StyleSheet, Text, Dimensions} from 'react-native';
+import {Animated, Dimensions, StyleSheet, Text} from 'react-native';
 import {RFValue} from 'react-native-responsive-fontsize';
-import {SIZES} from '@theme';
-import {useTheme, useTranslate} from '@hooks';
 
 const Typography = (props: any) => {
   const {children, params, animated, ...rest} = props;

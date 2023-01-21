@@ -1,14 +1,13 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, {useState} from 'react';
-import {Block, Text, AppFlatList, AppIcon, AppButton} from '@components';
-import AppInput from '../../../AppInput';
-import {FC, useEffect} from 'react';
-import {Modal, SafeAreaView, Keyboard} from 'react-native';
+import {AppButton, AppFlatList, AppIcon, Block, Text} from '@/components';
+import {useTheme} from '@/hooks';
+import {ICONS} from '@/utils';
 import {debounce, get} from 'lodash';
+import React, {FC, useEffect, useState} from 'react';
 import {Controller} from 'react-hook-form';
-import {ICONS} from '@utils';
-import {useTheme} from '@hooks';
+import {Keyboard, Modal, SafeAreaView} from 'react-native';
+import AppInput from '../../../AppInput';
 import RenderItem from './RenderItem';
 
 interface AppMultipleSelectProps {
@@ -80,17 +79,14 @@ const AppMultipleSelect: FC<AppMultipleSelectProps | any> = props => {
             visible={open}
             onRequestClose={() => {
               setOpen(!open);
-            }}
-          >
+            }}>
             <Block
               style={{flex: 1}}
               onPress={() => {
                 Keyboard.dismiss();
-              }}
-            >
+              }}>
               <SafeAreaView
-                style={{flex: 1, backgroundColor: theme.colors.screenBgColor}}
-              >
+                style={{flex: 1, backgroundColor: theme.colors.screenBgColor}}>
                 <Block style={{flex: 1}} py-20>
                   <Block row center px-12 pb-20>
                     <Block pr-20>

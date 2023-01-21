@@ -1,29 +1,13 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, {useState} from 'react';
-import {
-  Block,
-  AppBottomSheet,
-  Text,
-  AppFlatList,
-  AppIcon,
-  AppButton,
-  Col,
-} from '@components';
-import AppInput from '../../../AppInput';
-import {FC, useEffect} from 'react';
-import {
-  Modal,
-  SafeAreaView,
-  StyleSheet,
-  Keyboard,
-  Pressable,
-} from 'react-native';
-import {COLORS} from '@theme';
+import {AppButton, AppFlatList, AppIcon, Block, Text} from '@/components';
+import {useTheme} from '@/hooks';
+import {ICONS} from '@/utils';
 import {debounce, get} from 'lodash';
+import React, {FC, useEffect, useState} from 'react';
 import {Controller} from 'react-hook-form';
-import {ICONS} from '@utils';
-import {useTheme} from '@hooks';
+import {Modal, Pressable, SafeAreaView, StyleSheet} from 'react-native';
+import AppInput from '../../../AppInput';
 
 interface AppAutoCompleteProps {
   placeholder?: string;
@@ -96,12 +80,10 @@ const AppAutoComplete: FC<AppAutoCompleteProps | any> = props => {
             visible={open}
             onRequestClose={() => {
               setOpen(!open);
-            }}
-          >
+            }}>
             <Block style={{flex: 1}}>
               <SafeAreaView
-                style={{flex: 1, backgroundColor: theme.colors.screenBgColor}}
-              >
+                style={{flex: 1, backgroundColor: theme.colors.screenBgColor}}>
                 <Block py-20 style={{flex: 1}}>
                   <Block row center px-12 w-full>
                     <Block style={{flex: 1}}>
@@ -138,8 +120,7 @@ const AppAutoComplete: FC<AppAutoCompleteProps | any> = props => {
                           setOpen(false);
                           setFilteredOptions(options);
                           onChange(get(item, valueProp));
-                        }}
-                      >
+                        }}>
                         <Block
                           pt-16
                           pb-16
@@ -150,8 +131,7 @@ const AppAutoComplete: FC<AppAutoCompleteProps | any> = props => {
                             {
                               borderBottomColor: theme.colors.defaultTextColor,
                             },
-                          ]}
-                        >
+                          ]}>
                           <Block row center>
                             {get(item, valueProp) ==
                               get(current, valueProp) && (
@@ -160,8 +140,7 @@ const AppAutoComplete: FC<AppAutoCompleteProps | any> = props => {
                                 styles={{
                                   fontSize: 9,
                                   color: theme.colors.defaultTextColor,
-                                }}
-                              >
+                                }}>
                                 {'\u2B24'}
                               </Text>
                             )}
@@ -182,8 +161,7 @@ const AppAutoComplete: FC<AppAutoCompleteProps | any> = props => {
                                   get(current, valueProp)
                                     ? 'bold'
                                     : 'normal',
-                              }}
-                            >
+                              }}>
                               {get(item, displayProp)}
                             </Text>
                           </Block>

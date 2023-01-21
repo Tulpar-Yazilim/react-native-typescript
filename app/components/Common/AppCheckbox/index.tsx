@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
-import {useStyledTag} from '@hooks';
-import React, {forwardRef, useImperativeHandle, useState} from 'react';
+import {useStyledTag} from '@/hooks';
+import React from 'react';
 import Block from '../Block';
 
 const AppCheckbox = (props: any) => {

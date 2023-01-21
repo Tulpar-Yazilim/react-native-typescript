@@ -1,12 +1,12 @@
 /* eslint-disable react-native/no-inline-styles */
+import {COLORS} from '@/theme';
 import React, {memo} from 'react';
 import {
   ActivityIndicator,
   FlatList as FList,
-  View,
   ScrollView,
+  View,
 } from 'react-native';
-import {COLORS} from '@theme';
 import Block from '../Block';
 
 const FlatList = ({
@@ -61,8 +61,7 @@ const FlatList = ({
           showsVerticalScrollIndicator={false}
           showsHorizontalScrollIndicator={false}
           horizontal
-          style={[preloaderContainerStyle]}
-        >
+          style={[preloaderContainerStyle]}>
           {[...Array(preloaderLength)]?.map((item, index) => (
             <PreloaderRenderItem key={'preloader_item_' + index} />
           ))}
@@ -76,8 +75,7 @@ const FlatList = ({
               justifyContent: 'center',
             },
             preloaderContainerStyle,
-          ]}
-        >
+          ]}>
           {[...Array(preloaderLength)]?.map((item, index) => (
             <PreloaderRenderItem key={'preloader_item_' + index} />
           ))}

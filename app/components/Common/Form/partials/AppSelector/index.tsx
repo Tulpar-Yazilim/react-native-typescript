@@ -2,17 +2,15 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable eqeqeq */
 /* eslint-disable react-native/no-inline-styles */
-import React, {memo, useEffect} from 'react';
-import {Block, AppBottomSheet, Text, AppFlatList, AppIcon} from '@components';
-import {useState} from 'react';
-import AppInput from '../../../AppInput';
-import {FC} from 'react';
+import {AppBottomSheet, AppFlatList, Block, Text} from '@/components';
+import {useTheme} from '@/hooks';
+import {COLORS} from '@/theme';
+import {get} from 'lodash';
+import React, {FC, memo, useEffect, useState} from 'react';
+import {Controller} from 'react-hook-form';
 import {StyleSheet} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
-import {COLORS} from '@theme';
-import {get} from 'lodash';
-import {Controller} from 'react-hook-form';
-import {useTheme} from '@hooks';
+import AppInput from '../../../AppInput';
 
 interface AppSelectorProps {
   placeholder?: string;
@@ -71,8 +69,7 @@ const AppSelector: FC<AppSelectorProps | any> = props => {
             <AppBottomSheet
               isFlatList
               isVisible={open}
-              onClose={() => setOpen(false)}
-            >
+              onClose={() => setOpen(false)}>
               <Block>
                 {current && (
                   <AppFlatList
@@ -85,8 +82,7 @@ const AppSelector: FC<AppSelectorProps | any> = props => {
                           setCurrent(item);
                           setOpen(false);
                           onChange(get(item, valueProp));
-                        }}
-                      >
+                        }}>
                         <Block pt-16 pb-16 mr-20 ml-20 style={styles.listItem}>
                           <Text
                             styles={{
@@ -102,8 +98,7 @@ const AppSelector: FC<AppSelectorProps | any> = props => {
                                 get(item, valueProp) == get(current, valueProp)
                                   ? 'bold'
                                   : 'normal',
-                            }}
-                          >
+                            }}>
                             {get(item, displayProp)}
                           </Text>
                         </Block>

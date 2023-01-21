@@ -1,4 +1,4 @@
-import {Block, Shadow, AppScreen} from '@components';
+import {AppScreen, Block, Shadow} from '@/components';
 import React from 'react';
 
 export const TicketsScreen = () => {

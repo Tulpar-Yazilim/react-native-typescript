@@ -1,11 +1,11 @@
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable react-native/no-inline-styles */
+import {AppIcon} from '@/components';
+import {useTheme} from '@/hooks';
+import {COLORS, FONTS} from '@/theme';
 import React, {FC} from 'react';
-import {View, Text, Pressable} from 'react-native';
-import {AppIcon} from '@components';
+import {Pressable, Text, View} from 'react-native';
 import {BottomTabItemList} from './_BottomTabItemList';
-import {COLORS, FONTS} from '@theme';
-import {useTheme} from '@hooks';
 
 type Props = {
   onPress: any;
@@ -27,8 +27,7 @@ export const BottomTabItem: FC<Props> = props => {
         flex: 1,
         justifyContent: 'center',
         height: '100%',
-      }}
-    >
+      }}>
       {BottomTabItemList.map(
         item =>
           item.label === label && (
@@ -38,15 +37,13 @@ export const BottomTabItem: FC<Props> = props => {
                 flexDirection: 'row',
                 alignItems: 'center',
                 justifyContent: 'center',
-              }}
-            >
+              }}>
               <View
                 style={{
                   width: '100%',
                   alignItems: 'center',
                   justifyContent: 'flex-end',
-                }}
-              >
+                }}>
                 <AppIcon
                   name={item.icon}
                   color={isFocused ? colors.tabItemFocused : colors.tabItem}
@@ -57,8 +54,7 @@ export const BottomTabItem: FC<Props> = props => {
                     color: isFocused ? colors.tabItemFocused : colors.tabItem,
                     fontSize: bottomTabConfig.fontSize,
                     fontFamily: FONTS.medium,
-                  }}
-                >
+                  }}>
                   {item.label}
                 </Text>
               </View>
@@ -69,8 +65,7 @@ export const BottomTabItem: FC<Props> = props => {
                   backgroundColor: COLORS.gray,
                   position: 'absolute',
                   right: 0,
-                }}
-              ></View>
+                }}></View>
             </View>
           ),
       )}

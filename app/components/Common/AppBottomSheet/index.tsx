@@ -1,7 +1,6 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable react-native/no-inline-styles */
-import React, {memo, useEffect, useMemo, useRef} from 'react';
-import {Pressable, StatusBar, StyleSheet} from 'react-native';
+import {COLORS, SIZES} from '@/theme';
 import BottomSheet, {
   BottomSheetBackdropProps,
   BottomSheetScrollView,
@@ -9,21 +8,22 @@ import BottomSheet, {
   useBottomSheetDynamicSnapPoints,
   useBottomSheetTimingConfigs,
 } from '@gorhom/bottom-sheet';
-import {COLORS, SIZES} from '@theme';
+import React, {memo, useEffect, useMemo, useRef} from 'react';
+import {Pressable, StatusBar, StyleSheet} from 'react-native';
 
 import Block from '../Block';
 
+import {rgba} from '@/utils';
 import Animated, {
   Easing,
   Extrapolate,
   interpolate,
   useAnimatedStyle,
 } from 'react-native-reanimated';
-import {rgba} from '@utils';
 
+import {useTheme} from '@/hooks';
+import {window} from '@/theme';
 import {Portal} from 'react-native-portalize';
-import {useTheme} from '@hooks';
-import {window} from '@theme';
 
 const AppBottomSheet = ({
   children = <></>,
@@ -110,8 +110,7 @@ const AppBottomSheet = ({
         backgroundStyle={{
           backgroundColor: theme.colors.cardBg,
         }}
-        {...props}
-      >
+        {...props}>
         <Block>
           {isFlatList ? (
             <BottomSheetView
@@ -123,8 +122,7 @@ const AppBottomSheet = ({
                   backgroundColor: theme.colors.cardBg,
                   maxHeight: window.height - 100,
                 },
-              ]}
-            >
+              ]}>
               {children}
             </BottomSheetView>
           ) : (
@@ -137,8 +135,7 @@ const AppBottomSheet = ({
                   backgroundColor: theme.colors.cardBg,
                   maxHeight: window.height - 100,
                 },
-              ]}
-            >
+              ]}>
               {children}
             </BottomSheetScrollView>
           )}

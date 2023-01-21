@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import {AppButton, AppScreen, Form, fields} from '@components';
+import {AppButton, AppScreen, Form, fields} from '@/components';
 import {yupResolver} from '@hookform/resolvers/yup';
 import React, {useEffect, useState} from 'react';
 import {useForm} from 'react-hook-form';

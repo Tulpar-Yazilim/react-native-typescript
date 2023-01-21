@@ -1,8 +1,8 @@
-import React, {useState} from 'react';
-import {AppInput, Block, DateTimePicker, Text} from '@components';
+import {AppInput, Block, DateTimePicker} from '@/components';
+import {useAppSelector} from '@/hooks';
 import moment from 'moment';
+import React, {useState} from 'react';
 import {Controller} from 'react-hook-form';
-import {useAppSelector} from '@hooks';
 
 export const AppDateTimePicker = (props: any) => {
   const {label} = props;

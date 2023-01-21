@@ -18,7 +18,7 @@ import {setupListeners} from '@reduxjs/toolkit/dist/query';
 import * as authRedux from './auth';
 import * as settingsRedux from './settings';
 
-import {baseApi, rtkQueryErrorHandler} from '@api';
+import {baseApi, rtkQueryErrorHandler} from '@/api';
 
 export {authRedux, settingsRedux};
 

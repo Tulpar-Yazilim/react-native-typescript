@@ -1,6 +1,6 @@
+import {config} from '@/config';
 import {Platform} from 'react-native';
 import OneSignal from 'react-native-onesignal';
-import {config} from '@config';
 
 const initializeOnesignal = () => {
   //OneSignal Init Code

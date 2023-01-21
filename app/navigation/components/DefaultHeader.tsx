@@ -1,9 +1,9 @@
+import {AppButton, AppIcon} from '@/components';
+import {useTheme} from '@/hooks';
+import {COLORS, FONTS} from '@/theme';
+import {ICONS} from '@/utils';
 import React, {FC, useLayoutEffect} from 'react';
 import {StatusBar} from 'react-native';
-import {COLORS, FONTS} from '@theme';
-import {AppButton, AppIcon} from '@components';
-import {ICONS} from '@utils';
-import {useTheme} from '@hooks';
 
 const BackButton = ({props, navigation}: any) =>
   props.canGoBack && (

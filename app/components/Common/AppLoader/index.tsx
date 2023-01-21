@@ -1,11 +1,11 @@
 /* eslint-disable react-native/no-inline-styles */
-import {rgba} from '@utils';
-import React, {useCallback, memo, useRef} from 'react';
-import {Animated, Easing, Modal} from 'react-native';
-import Block from '../Block';
-import {useSelector} from 'react-redux';
-import {RootState} from '@store';
+import {RootState} from '@/store';
+import {rgba} from '@/utils';
 import LottieView from 'lottie-react-native';
+import React, {memo, useCallback, useRef} from 'react';
+import {Animated, Easing, Modal} from 'react-native';
+import {useSelector} from 'react-redux';
+import Block from '../Block';
 
 const AppLoader = () => {
   const loading = useSelector<RootState>(

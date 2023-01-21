@@ -1,5 +1,5 @@
+import Routes from '@/navigation/Routes';
 import {useNavigation} from '@react-navigation/native';
-import Routes from '@routes';
 
 interface Action {
   text: string;

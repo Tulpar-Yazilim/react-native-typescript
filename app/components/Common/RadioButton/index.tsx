@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
-import {useTheme} from '@hooks';
+import {useTheme} from '@/hooks';
 import React, {memo} from 'react';
 import Animated, {useAnimatedStyle, withSpring} from 'react-native-reanimated';
 import Block from '../Block';

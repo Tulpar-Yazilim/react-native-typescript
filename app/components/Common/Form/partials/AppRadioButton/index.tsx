@@ -1,4 +1,4 @@
-import {Block, RadioButton, Text} from '@components';
+import {Block, RadioButton, Text} from '@/components';
 import {RadioButtonItem} from 'app/components/Common/RadioButton';
 import React, {FC, memo} from 'react';
 import {Controller} from 'react-hook-form';

@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
-import {Block, Text} from '@components';
-import {useAppSelector} from '@hooks';
-import {COLORS} from '@theme';
+import {Block, Text} from '@/components';
+import {useAppSelector} from '@/hooks';
+import {COLORS} from '@/theme';
 import React, {memo, useEffect} from 'react';
 import {StyleSheet} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';

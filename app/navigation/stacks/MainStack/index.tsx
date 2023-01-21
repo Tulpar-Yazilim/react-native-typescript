@@ -1,5 +1,5 @@
+import Routes from '@/navigation/Routes';
 import {createStackNavigator} from '@react-navigation/stack';
-import Routes from '@routes';
 import React from 'react';
 import Dialog from '../../../components/Common/Dialog';
 import screens from './screens';

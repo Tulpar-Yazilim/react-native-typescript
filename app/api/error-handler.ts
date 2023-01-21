@@ -1,5 +1,5 @@
-import {isRejectedWithValue, Middleware} from '@reduxjs/toolkit';
-import {authRedux} from '@store';
+import {authRedux} from '@/store';
+import {Middleware, isRejectedWithValue} from '@reduxjs/toolkit';
 
 export const rtkQueryErrorHandler: Middleware =
   ({dispatch}) =>

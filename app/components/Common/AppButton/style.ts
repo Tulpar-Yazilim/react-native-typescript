@@ -1,5 +1,5 @@
+import {COLORS, FONTS, fingerSize} from '@/theme';
 import {StyleSheet} from 'react-native';
-import {COLORS, FONTS, fingerSize} from '@theme';
 import {IButtonTypes} from './app-button';
 
 const styles = StyleSheet.create({

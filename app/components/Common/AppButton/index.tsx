@@ -1,15 +1,15 @@
 import React, {FC, memo} from 'react';
 import {ActivityIndicator} from 'react-native';
 
-import {COLORS} from '@theme';
+import {COLORS} from '@/theme';
 
-import Text from '../Text';
 import Block from '../Block';
+import Text from '../Text';
 import {Props} from './app-button';
 
-import styles from './style';
-import {getStyleShortcuts} from '../../../utils/style-shortcuts';
 import useTheme from '../../../hooks/useTheme';
+import {getStyleShortcuts} from '../../../utils/style-shortcuts';
+import styles from './style';
 
 const AppButton: FC<Props | any> = props => {
   const {

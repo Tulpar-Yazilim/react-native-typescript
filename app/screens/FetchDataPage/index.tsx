@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
-import {useGetCharactersQuery} from '@api';
+import {useGetCharactersQuery} from '@/api';
 import {
   AppFlatList,
   AppImage,
@@ -7,12 +7,14 @@ import {
   Block,
   Swipeable,
   Text,
-} from '@components';
-import {COLORS, SIZES} from '@theme';
+} from '@/components';
+import {COLORS, SIZES} from '@/theme';
+import {useTheme} from '@react-navigation/native';
 import React from 'react';
 
 const FetchDataPage = () => {
   const {data: characters, isLoading} = useGetCharactersQuery(1);
+  const theme = useTheme();
 
   const renderItem = ({item}: {item: any}) => {
     return (
@@ -44,7 +46,7 @@ const FetchDataPage = () => {
           },
         ]}>
         <Block
-          style={{backgroundColor: 'white', borderWidth: 0.2}}
+          style={{borderWidth: 0.2, backgroundColor: theme.colors.background}}
           px-10
           py-10
           br-10

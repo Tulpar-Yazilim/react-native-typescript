@@ -1,5 +1,5 @@
-import {Block, Text} from '@components';
-import {useTheme} from '@hooks';
+import {Block, Text} from '@/components';
+import {useTheme} from '@/hooks';
 import React, {memo, useEffect} from 'react';
 import {StyleSheet, useWindowDimensions} from 'react-native';
 import Animated, {

@@ -1,6 +1,6 @@
-import {useAppSelector} from '@hooks';
-import {COLORS, themeColors} from '@theme';
-import {getStyleShortcuts, getTextStyleShortcuts} from '@utils';
+import {useAppSelector} from '@/hooks';
+import {COLORS, themeColors} from '@/theme';
+import {getStyleShortcuts, getTextStyleShortcuts} from '@/utils';
 import {useColorScheme} from 'react-native';
 
 interface ITheme {
