@@ -10,7 +10,6 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import layout from '../../../config/layout.json';
 import {Header} from '../../../navigation/components/DefaultHeader';
 import {getStyleShortcuts} from '../../../utils/style-shortcuts';
-import Block from '../Block';
 
 type Props = {
   scroll?: boolean;
@@ -116,7 +115,6 @@ const AppScreen: FC<Props | any> = ({children, ...props}) => {
                 <View
                   style={[
                     {
-                      flex: 1,
                       paddingBottom:
                         layout.menu === 'bottom' ? bottomTabHeight + 20 : 50,
                     },
@@ -146,7 +144,7 @@ const AppScreen: FC<Props | any> = ({children, ...props}) => {
           )}
           {!scroll && !safe && !keyboardScroll && !flatList && (
             <Pressable style={{flex: 1}} onPress={() => Keyboard.dismiss()}>
-              <Block
+              <View
                 style={[
                   {
                     ...screenCommonStyles,
@@ -155,7 +153,7 @@ const AppScreen: FC<Props | any> = ({children, ...props}) => {
                   {...getStyleShortcuts(props)},
                 ]}>
                 {children}
-              </Block>
+              </View>
             </Pressable>
           )}
           {flatList && (

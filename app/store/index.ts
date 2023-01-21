@@ -25,7 +25,7 @@ export {authRedux, settingsRedux};
 const persistConfig = {
   key: 'root',
   version: 1,
-  //blacklist: [tattooApi.reducerPath],
+  blacklist: [baseApi.reducerPath],
   storage: EncryptedStorage,
 };
 
@@ -45,7 +45,7 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }).concat(baseApi.middleware, rtkQueryErrorHandler),
+    }).concat(baseApi.middleware, rtkQueryErrorHandler, rtkQueryLoaderHandler),
   devTools: process.env.NODE_ENV !== 'production',
 });
 

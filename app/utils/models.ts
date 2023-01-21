@@ -13,3 +13,15 @@ export class Coordinates {
   latitude: number = 0.0;
   longitude: number = 0.0;
 }
+
+export enum LocalNotificationType {
+  Instant,
+  Schedule,
+}
+export type LocalNotificationParams = {
+  id?: string;
+  type?: LocalNotificationType;
+  title: string;
+  message: string;
+  scheduleDate?: Date;
+};

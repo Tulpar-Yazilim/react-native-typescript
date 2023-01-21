@@ -70,7 +70,7 @@ const FetchDataPage = () => {
   return (
     <AppScreen flatList customStyle={{padding: 0}}>
       <AppFlatList
-        contentContinerStyle={{flex: 1}}
+        usePagination
         data={characters?.results}
         ListEmptyComponent={
           <Block pt={20} center middle>
@@ -78,6 +78,8 @@ const FetchDataPage = () => {
           </Block>
         }
         renderItem={renderItem}
+        onEndReached={retrieveMore}
+        refreshing={isLoading}
       />
     </AppScreen>
   );
