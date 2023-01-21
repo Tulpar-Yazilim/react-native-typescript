@@ -1,4 +1,4 @@
-import {i18next} from '@lang';
+import {i18next} from '@/lang';
 import {createSlice} from '@reduxjs/toolkit';
 
 interface ISettingsState {

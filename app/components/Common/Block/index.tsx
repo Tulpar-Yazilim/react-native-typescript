@@ -1,4 +1,4 @@
-import {useTheme} from '@hooks';
+import {useTheme} from '@/hooks';
 import React, {FC, memo} from 'react';
 import {Pressable, View} from 'react-native';
 

@@ -1,4 +1,4 @@
-import {FetchDataPage} from '@screens';
+import {FetchDataPage} from '@/screens';
 import HomeStack from '../stacks/HomeStack';
 import {IconNames} from './../../components/Common/AppIcon/index';
 

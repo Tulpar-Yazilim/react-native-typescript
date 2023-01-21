@@ -1,12 +1,12 @@
 /* eslint-disable react-native/no-inline-styles */
+import {COLORS} from '@/theme';
 import React, {memo} from 'react';
 import {
   ActivityIndicator,
   FlatList as FList,
-  View,
   ScrollView,
+  View,
 } from 'react-native';
-import {COLORS} from '@theme';
 import Block from '../Block';
 
 const FlatList = ({

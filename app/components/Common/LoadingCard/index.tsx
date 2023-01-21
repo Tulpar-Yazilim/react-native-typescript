@@ -1,6 +1,6 @@
+import {COLORS} from '@/theme';
 import React, {memo} from 'react';
-import {Placeholder, PlaceholderLine, Fade} from 'rn-placeholder';
-import {COLORS} from '@theme';
+import {Fade, Placeholder, PlaceholderLine} from 'rn-placeholder';
 
 const LoadingCard = ({
   height,

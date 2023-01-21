@@ -1,11 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable prettier/prettier */
+import {AppCheckbox, Block, Text} from '@/components';
+import {get} from 'lodash';
 import React, {useEffect, useState} from 'react';
 import {Pressable, StyleSheet} from 'react-native';
-import {AppCheckbox, Block, Text} from '@components';
-import {debounce, get} from 'lodash';
-import {useRef} from 'react';
-import {Alert} from 'react-native';
 
 const RenderItem = ({
   item,
@@ -28,8 +26,7 @@ const RenderItem = ({
       onPress={() => {
         setChecked(!checked);
         onChange(get(item, valueProp), !checked);
-      }}
-    >
+      }}>
       <Block
         pt-16
         pb-16
@@ -40,15 +37,13 @@ const RenderItem = ({
           {
             borderBottomColor: theme.colors.defaultTextColor,
           },
-        ]}
-      >
+        ]}>
         <Block row center>
           <AppCheckbox checked={checked} mr-13 />
           <Text
             styles={{
               color: theme.colors.defaultTextColor,
-            }}
-          >
+            }}>
             {get(item, displayProp)}
           </Text>
         </Block>

@@ -1,4 +1,4 @@
-import {COLORS, FONTS, SIZES, themeColors, window} from '@theme';
+import {COLORS, FONTS, SIZES, themeColors, window} from '@/theme';
 
 export interface IStyleShortcuts {
   w?: number;

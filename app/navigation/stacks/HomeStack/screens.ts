@@ -1,6 +1,6 @@
-import {IScreen} from '../Models/IScreen';
-import {FetchDataPage, FormPage, HomePage} from '@screens';
+import {FetchDataPage, FormPage, HomePage} from '@/screens';
 import routes from '../../Routes';
+import {IScreen} from '../Models/IScreen';
 
 const Screens = [
   {

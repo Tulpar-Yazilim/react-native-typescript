@@ -1,16 +1,16 @@
 import React, {memo} from 'react';
-import {Platform, Linking, Dimensions} from 'react-native';
+import {Dimensions, Linking, Platform} from 'react-native';
 
 import MultipleImagePicker from '@baronha/react-native-multiple-image-picker';
-import ImageResizer from 'react-native-image-resizer';
 import {launchImageLibrary} from 'react-native-image-picker';
+import ImageResizer from 'react-native-image-resizer';
 
-import RenderHtml, {
-  defaultSystemFonts,
-  HTMLElementModel,
-  HTMLContentModel,
-} from 'react-native-render-html';
 import NetInfo from '@react-native-community/netinfo';
+import RenderHtml, {
+  HTMLContentModel,
+  HTMLElementModel,
+  defaultSystemFonts,
+} from 'react-native-render-html';
 import Toast from 'react-native-toast-message';
 
 import notifee, {
@@ -19,21 +19,21 @@ import notifee, {
   TriggerType,
 } from '@notifee/react-native';
 
-import {Permission, PERMISSION_TYPE} from './permission';
+import {ToastType} from './enums';
 import {
   Coordinates,
   LocalNotificationParams,
   LocalNotificationType,
   ToastParams,
 } from './models';
-import {ToastType} from './enums';
+import {PERMISSION_TYPE, Permission} from './permission';
 import {ImagePickerResultType, ImageResizeResultType} from './types';
 
-import {FONTS as THEME_FONTS} from '@theme';
+import {FONTS as THEME_FONTS} from '@/theme';
 
+import {i18next} from '@/lang';
 import {Buffer} from 'buffer';
 import * as md5Encrypt from 'md5';
-import {i18next} from '@lang';
 
 const {width} = Dimensions.get('screen');
 const {t} = i18next;

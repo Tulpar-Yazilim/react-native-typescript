@@ -1,5 +1,5 @@
-import {Block} from '@components';
-import {COLORS} from '@theme';
+import {Block} from '@/components';
+import {COLORS} from '@/theme';
 import React, {memo} from 'react';
 import {Switch} from 'react-native';
 import {Props} from './app-switch';

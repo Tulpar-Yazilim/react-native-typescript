@@ -13,10 +13,10 @@ import {
 } from '@react-navigation/native';
 import Toast from 'react-native-toast-message';
 
-//import {initializeOnesignal} from '@utils';
-import {linking, locale, toastConfig} from '@config';
-import {useAppSelector} from '@hooks';
-import {persistor, store} from '@store';
+//import {initializeOnesignal} from '@/utils';
+import {linking, locale, toastConfig} from '@/config';
+import {useAppSelector} from '@/hooks';
+import {persistor, store} from '@/store';
 
 import AppLoader from './components/Common/AppLoader';
 import MainStack from './navigation/stacks/MainStack';

@@ -1,13 +1,13 @@
 /* eslint-disable react-native/no-inline-styles */
+import {AppButton, AppIcon, Block, Text} from '@/components';
+import {COLORS} from '@/theme';
+import {ICONS} from '@/utils';
 import React, {memo} from 'react';
-import {Pressable, StyleSheet} from 'react-native';
-import {COLORS} from '@theme';
-import Modal from 'react-native-modal';
-import Separator from '../Seperator';
-import AppFlatList from '../AppFlatList';
 import {useTranslation} from 'react-i18next';
-import {AppButton, Block, Text, AppIcon} from '@components';
-import {ICONS} from '@utils';
+import {Pressable, StyleSheet} from 'react-native';
+import Modal from 'react-native-modal';
+import AppFlatList from '../AppFlatList';
+import Separator from '../Seperator';
 
 const AppSelector = ({
   headerTitle = '',

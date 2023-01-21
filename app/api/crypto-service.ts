@@ -1,5 +1,5 @@
+import {config} from '@/config';
 import crypto from 'react-native-crypto-js';
-import {config} from '@config';
 
 const decrypt = (data: any) => {
   try {

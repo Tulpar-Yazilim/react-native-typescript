@@ -5,20 +5,7 @@
     "jsx": "react",
     "baseUrl": "./",
     "paths": {
-      "@config": ["./app/config"],
-      "@screens": ["./app/screens"],
-      "@theme": ["./app/theme"],
-      "@components": ["./app/components"],
-      "@api": ["./app/api"],
-      "@hooks": ["./app/hooks"],
-      "@assets": ["./app/assets"],
-      "@navigation": ["./app/navigation"],
-      "@routes": ["./app/navigation/Routes"],
-      "@store": ["./app/store"],
-      "@actions": ["./app/store/actions"],
-      "@utils": ["./app/utils"],
-      "@lang": ["./app/lang"],
-      "@models": ["./app/models"]
+      "@/*": ["./app/*"]
     }
   }
 }

@@ -1,18 +1,17 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
 
-import {COLORS, FONTS} from '@theme';
-import {Block} from '@components';
-import {AppIcon} from '@components';
+import {AppIcon, Block} from '@/components';
+import {COLORS, FONTS} from '@/theme';
 
+import {ICONS} from '@/utils';
 import {
-  SuccessToast,
-  ErrorToast,
   BaseToast,
+  ErrorToast,
   InfoToast,
+  SuccessToast,
   ToastProps,
 } from 'react-native-toast-message';
-import {ICONS} from '@utils';
 
 const toastConfig = {
   success: (props: ToastProps) => (

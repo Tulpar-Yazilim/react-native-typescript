@@ -1,8 +1,8 @@
-import React, {FC, useState, useEffect} from 'react';
-import {Keyboard, View, Dimensions, StyleSheet} from 'react-native';
+import {useTheme} from '@/hooks';
+import {COLORS, bottomTabHeight} from '@/theme';
+import React, {FC, useEffect, useState} from 'react';
+import {Dimensions, Keyboard, StyleSheet, View} from 'react-native';
 import {BottomTabItem} from './BottomTabItem';
-import {COLORS, window, bottomTabHeight} from '@theme';
-import {useTheme} from '@hooks';
 
 export const BottomTabContainer: FC<any> = props => {
   const {state, descriptors, navigation} = props;
@@ -34,8 +34,7 @@ export const BottomTabContainer: FC<any> = props => {
               height: bottomTabConfig.height,
               backgroundColor: colors.bottomTabColor,
             },
-          ]}
-        >
+          ]}>
           {state.routes.map((route: any, index: number) => {
             const {options} = descriptors[route.key];
             const label =

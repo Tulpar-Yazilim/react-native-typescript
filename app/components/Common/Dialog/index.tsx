@@ -1,5 +1,5 @@
-import {Block, Text} from '@components';
-import {useTheme} from '@hooks';
+import {Block, Text} from '@/components';
+import {useTheme} from '@/hooks';
 import React, {useEffect} from 'react';
 import {
   BackHandler,

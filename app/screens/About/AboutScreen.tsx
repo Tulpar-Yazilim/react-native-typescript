@@ -1,5 +1,5 @@
+import {AppInput, AppScreen, Block} from '@/components';
 import React, {FC, useState} from 'react';
-import {Block, AppInput, AppScreen} from '@components';
 
 export const AboutScreen: FC<any> = ({}) => {
   const [inputValue, setInputValue] = useState('');

@@ -1,3 +1,4 @@
+/* eslint-disable */
 import {configureStore} from '@reduxjs/toolkit';
 import {combineReducers} from 'redux';
 import {
@@ -18,7 +19,7 @@ import {setupListeners} from '@reduxjs/toolkit/dist/query';
 import * as authRedux from './auth';
 import * as settingsRedux from './settings';
 
-import {baseApi, rtkQueryErrorHandler, rtkQueryLoaderHandler} from '@api';
+import {baseApi, rtkQueryErrorHandler, rtkQueryLoaderHandler} from '@/api';
 
 export {authRedux, settingsRedux};
 
@@ -46,7 +47,7 @@ export const store = configureStore({
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }).concat(baseApi.middleware, rtkQueryErrorHandler, rtkQueryLoaderHandler),
-  devTools: process.env.NODE_ENV !== 'production',
+  devTools: process?.env.NODE_ENV !== 'production',
 });
 
 export const persistor = persistStore(store);

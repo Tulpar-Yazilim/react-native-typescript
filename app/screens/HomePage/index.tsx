@@ -1,4 +1,4 @@
-import {Images} from '@assets';
+import {Images} from '@/assets';
 import {
   AppBottomSheet,
   AppButton,
@@ -13,19 +13,19 @@ import {
   Row,
   SegmentedControl,
   Text,
-} from '@components';
+} from '@/components';
 import {
   useAppDispatch,
   useAppSelector,
   useDialog,
   useStyledTag,
   useTag,
-} from '@hooks';
+} from '@/hooks';
+import Routes from '@/navigation/Routes';
+import {settingsRedux} from '@/store';
+import {COLORS} from '@/theme';
+import {ICONS, PERMISSION_TYPE, Permission} from '@/utils';
 import {useFocusEffect} from '@react-navigation/native';
-import Routes from '@routes';
-import {settingsRedux} from '@store';
-import {COLORS} from '@theme';
-import {ICONS, PERMISSION_TYPE, Permission} from '@utils';
 import React, {useCallback, useLayoutEffect, useState} from 'react';
 import {Pressable} from 'react-native';
 

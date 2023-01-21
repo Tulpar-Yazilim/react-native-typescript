@@ -1,4 +1,4 @@
-import {Block, Text} from '@components';
+import {Block, Text} from '@/components';
 import React, {memo} from 'react';
 import {Animated, StyleSheet} from 'react-native';
 import {RectButton} from 'react-native-gesture-handler';

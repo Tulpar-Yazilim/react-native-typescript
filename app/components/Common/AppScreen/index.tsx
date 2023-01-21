@@ -1,17 +1,15 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, {FC, memo} from 'react';
-import {Text} from '@components';
-import {useTheme} from '@hooks';
+import {Text} from '@/components';
+import {useTheme} from '@/hooks';
+import {bottomTabHeight, window} from '@/theme';
 import {useNavigation} from '@react-navigation/native';
-import {bottomTabHeight, window} from '@theme';
-
+import React, {FC, memo} from 'react';
 import {Keyboard, Pressable, ScrollView, View} from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import layout from '../../../config/layout.json';
 import {Header} from '../../../navigation/components/DefaultHeader';
 import {getStyleShortcuts} from '../../../utils/style-shortcuts';
-import Block from '../Block';
 
 type Props = {
   scroll?: boolean;
