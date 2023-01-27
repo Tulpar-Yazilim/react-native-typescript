@@ -1,4 +1,5 @@
 import {COLORS, FONTS, SIZES, themeColors, window} from '@/theme';
+import {setupSizes} from './style/size';
 
 export interface IStyleShortcuts {
   w?: number;
@@ -35,7 +36,7 @@ const getStyles = (t: 'light' | 'dark'): any => {
     shortcutStyles: {},
     predefinedStyles: {
       'bg-primary': {
-        backgroundColor: colors.primary,
+        backgroundColor: colors.backgroundPrimary,
       },
       'bg-card': {
         backgroundColor: colors.cardBg,
@@ -186,29 +187,7 @@ const getTextStyles = (t: 'light' | 'dark'): any => {
   };
 };
 
-const sizes: any = {};
-
-Array.from({length: 300}).forEach((_, i: number) => {
-  let value = i;
-
-  sizes['rounded-' + i] = {borderRadius: value};
-  sizes['mx-' + i] = {marginHorizontal: value};
-  sizes['px-' + i] = {paddingHorizontal: value};
-  sizes['py-' + i] = {paddingVertical: value};
-  sizes['mr-' + i] = {marginRight: value};
-  sizes['ml-' + i] = {marginLeft: value};
-  sizes['mt-' + i] = {marginTop: value};
-  sizes['mb-' + i] = {marginBottom: value};
-  sizes['pr-' + i] = {paddingRight: value};
-  sizes['pl-' + i] = {paddingLeft: value};
-  sizes['pt-' + i] = {paddingTop: value};
-  sizes['pb-' + i] = {paddingBottom: value};
-  sizes['p-' + i] = {padding: value};
-  sizes['m-' + i] = {margin: value};
-  sizes['h-' + i] = {height: value};
-  sizes['w-' + i] = {width: value};
-  sizes['col-' + i] = {width: (100 / 12) * i + '%'};
-});
+const sizes: any = Object.freeze({...setupSizes});
 
 export const getStyleShortcuts = (props: IStyleShortcuts | any, t?: any) => {
   let styles = {} as any;
