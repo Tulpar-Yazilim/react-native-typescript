@@ -6,6 +6,7 @@ import AppFlatList from './AppFlatList';
 import AppImage from './AppImage';
 import AppImageBackground from './AppImageBackground';
 import AppInput from './AppInput';
+import AppLoader from './AppLoader';
 import AppLottieView from './AppLottieView';
 import AppScreen from './AppScreen';
 import AppSelector from './AppSelector';
@@ -53,6 +54,7 @@ export {
   FloatingButton,
   Swipeable,
   AppSwitch,
+  AppLoader,
 };
 
 import AppIcon from './AppIcon';

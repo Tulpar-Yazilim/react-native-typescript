@@ -2,17 +2,17 @@ import React, {useEffect} from 'react';
 import {StatusBar} from 'react-native';
 import 'react-native-gesture-handler';
 
+import {DarkTheme, DefaultTheme, NavigationContainer} from '@react-navigation/native';
 import {Host} from 'react-native-portalize';
+import Toast from 'react-native-toast-message';
 import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
-import Toast from 'react-native-toast-message';
-import {DarkTheme, DefaultTheme, NavigationContainer} from '@react-navigation/native';
 
 import {linking, locale, toastConfig} from '@/config';
 import {useAppSelector} from '@/hooks';
 import {persistor, store} from '@/store';
 
-import AppLoader from './components/common/AppLoader';
+import {AppLoader} from '@/components';
 import MainStack from './navigation/stacks/MainStack';
 
 const MainContainer = () => {

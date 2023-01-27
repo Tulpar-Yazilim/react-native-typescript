@@ -1,7 +1,7 @@
+import Dialog from '@/components/Common/Dialog';
 import Routes from '@/navigation/Routes';
 import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
-import Dialog from '../../../components/common/Dialog';
 import screens from './screens';
 
 /**
