@@ -1,16 +1,6 @@
-/* eslint-disable */
 import {configureStore} from '@reduxjs/toolkit';
 import {combineReducers} from 'redux';
-import {
-  FLUSH,
-  PAUSE,
-  PERSIST,
-  persistReducer,
-  persistStore,
-  PURGE,
-  REGISTER,
-  REHYDRATE,
-} from 'redux-persist';
+import {persistReducer, persistStore} from 'redux-persist';
 
 import EncryptedStorage from 'react-native-encrypted-storage';
 
@@ -23,31 +13,35 @@ import {baseApi, rtkQueryErrorHandler, rtkQueryLoaderHandler} from '@/api';
 
 export {authRedux, settingsRedux};
 
-const persistConfig = {
+const rootPersistConfig = {
   key: 'root',
   version: 1,
   blacklist: [baseApi.reducerPath],
   storage: EncryptedStorage,
 };
 
+const settingsPersistConfig = {
+  key: 'settings',
+  version: 1,
+  blacklist: ['appLoader'],
+  storage: EncryptedStorage,
+};
+
 export const rootReducer = combineReducers({
   auth: authRedux.default,
-  settings: settingsRedux.default,
+  settings: persistReducer(settingsPersistConfig, settingsRedux.default),
   [baseApi.reducerPath]: baseApi.reducer,
 });
 
-const persistedReducer = persistReducer(persistConfig, rootReducer);
+const persistedReducer = persistReducer(rootPersistConfig, rootReducer);
 
 export const store = configureStore({
   reducer: persistedReducer,
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       immutableCheck: false,
-      serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-      },
+      serializableCheck: false,
     }).concat(baseApi.middleware, rtkQueryErrorHandler, rtkQueryLoaderHandler),
-  devTools: process?.env.NODE_ENV !== 'production',
 });
 
 export const persistor = persistStore(store);

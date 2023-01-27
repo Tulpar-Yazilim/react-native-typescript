@@ -1,9 +1,9 @@
+import React, {FC, useLayoutEffect} from 'react';
+import {StatusBar} from 'react-native';
 import {AppButton, AppIcon} from '@/components';
 import {useTheme} from '@/hooks';
 import {COLORS, FONTS} from '@/theme';
 import {ICONS} from '@/utils';
-import React, {FC, useLayoutEffect} from 'react';
-import {StatusBar} from 'react-native';
 
 const BackButton = ({props, navigation}: any) =>
   props.canGoBack && (
@@ -33,7 +33,7 @@ export const Header: FC<any> = ({navigationOptions, navigation}) => {
       ),
       ...navigationOptions,
     });
-  }, [navigation, colors]);
+  }, [navigation, colors, navigationOptions]);
 
   return (
     <>

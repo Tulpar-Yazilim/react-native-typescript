@@ -1,7 +1,5 @@
 import type {AppDispatch, RootState} from '@/store';
-import type {TypedUseSelectorHook} from 'react-redux';
-import {useDispatch, useSelector} from 'react-redux';
-import useApi from './useApi';
+import {TypedUseSelectorHook, useDispatch, useSelector} from 'react-redux';
 import useDebounce from './useDebounce';
 import useDialog from './useDialog';
 import useStyledTag from './useStyledTag';
