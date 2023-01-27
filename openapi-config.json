@@ -1,0 +1,8 @@
+{
+  "schemaFile": "http://tattoo-system.tulparyazilim.com.tr/swagger/v1/swagger.json",
+  "apiFile": "./app/api/base-api.ts",
+  "apiImport": "baseApi",
+  "outputFile": "./app/api/example-api.ts",
+  "exportName": "exampleApi",
+  "hooks": {"queries": true, "lazyQueries": true, "mutations": true}
+}
