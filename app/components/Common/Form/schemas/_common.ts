@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import {ArraySchema, NumberSchema, StringSchema} from 'yup';
 import {MixedSchema} from 'yup/lib/mixed';
-import yup from '../schemas/_yup';
+import yup from './_yup';
 import {SelectOptions} from '../types';
 import {SchemaField, SchemaInputType} from '../types/dataForm/enums';
 
@@ -34,9 +34,7 @@ export const textarea: any = string.nullable().meta({
 
 export const date: any = string.nullable().meta({field: SchemaField.InputDate});
 
-export const email: any = string
-  .meta({field: SchemaField.InputText, type: SchemaInputType.email})
-  .email();
+export const email: any = string.meta({field: SchemaField.InputText, type: SchemaInputType.email}).email();
 
 export const phone: any = string.meta({field: SchemaField.InputPhoneNumber});
 
@@ -49,12 +47,7 @@ export const url: any = string.meta({
   type: SchemaInputType.url,
 });
 
-export const radio: any = (
-  options: SelectOptions,
-  type: string | number,
-  displayProp?: string,
-  valueProp?: string,
-) => {
+export const radio: any = (options: SelectOptions, type: string | number, displayProp?: string, valueProp?: string) => {
   return yup?.array().nullable().meta({
     field: SchemaField.RadioButton,
     options,
@@ -70,9 +63,7 @@ export const select: any = (
   valueProp?: string,
 ): any => {
   const _yup = yup as any;
-  return _yup?.[type]()
-    .nullable()
-    .meta({field: SchemaField.InputSelect, options, displayProp, valueProp});
+  return _yup?.[type]().nullable().meta({field: SchemaField.InputSelect, options, displayProp, valueProp});
 };
 
 export const autoComplete: any = (
@@ -90,14 +81,8 @@ export const autoComplete: any = (
   });
 };
 
-export const multipleAutoComplete: any = (
-  options: SelectOptions,
-  entries?: [key: string, value: any],
-) => {
-  return yup
-    ?.array()
-    .nullable()
-    .meta({field: SchemaField.InputMultipleAutoComplete, options, entries});
+export const multipleAutoComplete: any = (options: SelectOptions, entries?: [key: string, value: any]) => {
+  return yup?.array().nullable().meta({field: SchemaField.InputMultipleAutoComplete, options, entries});
 };
 
 export const multipleSelect: any = (
@@ -129,12 +114,7 @@ interface Fields {
   textarea: YStringSchema;
   name: YStringSchema;
   password: YStringSchema;
-  select: (
-    options: SelectOptions,
-    type: number | string,
-    displayProp?: string,
-    valueProp?: string,
-  ) => YStringSchema;
+  select: (options: SelectOptions, type: number | string, displayProp?: string, valueProp?: string) => YStringSchema;
   fileBase: YMixedSchema;
   autoComplete: (
     options: SelectOptions,
@@ -142,22 +122,11 @@ interface Fields {
     displayProp?: string,
     valueProp?: string,
   ) => YStringSchema;
-  multipleAutoComplete: (
-    options: SelectOptions,
-    entries?: [key: string, value: string],
-  ) => any;
-  multipleSelect: (
-    options: SelectOptions,
-    type: number | string,
-    displayProp?: string,
-    valueProp?: string,
-  ) => any;
+  multipleAutoComplete: (options: SelectOptions, entries?: [key: string, value: string]) => any;
+  multipleSelect: (options: SelectOptions, type: number | string, displayProp?: string, valueProp?: string) => any;
   phone: YStringSchema;
   number: YNumberSchema;
-  radio: (
-    options: SelectOptions,
-    entries?: [key: string, value: string],
-  ) => any;
+  radio: (options: SelectOptions, entries?: [key: string, value: string]) => any;
 }
 
 export const fields: Fields = {

@@ -5,20 +5,14 @@ import 'react-native-gesture-handler';
 import {Host} from 'react-native-portalize';
 import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
-
-import {
-  DarkTheme,
-  DefaultTheme,
-  NavigationContainer,
-} from '@react-navigation/native';
 import Toast from 'react-native-toast-message';
+import {DarkTheme, DefaultTheme, NavigationContainer} from '@react-navigation/native';
 
-//import {initializeOnesignal} from '@/utils';
 import {linking, locale, toastConfig} from '@/config';
 import {useAppSelector} from '@/hooks';
 import {persistor, store} from '@/store';
 
-import AppLoader from './components/Common/AppLoader';
+import AppLoader from './components/common/AppLoader';
 import MainStack from './navigation/stacks/MainStack';
 
 const MainContainer = () => {
@@ -29,15 +23,9 @@ const MainContainer = () => {
     locale(language);
   }, [language]);
 
-  //useEffect(() => {
-  //  initializeOnesignal();
-  //}, []);
-
   return (
     <Host>
-      <NavigationContainer
-        linking={linking}
-        theme={theme === 'dark' ? DarkTheme : DefaultTheme}>
+      <NavigationContainer linking={linking} theme={theme === 'dark' ? DarkTheme : DefaultTheme}>
         <StatusBar barStyle="dark-content" />
         <MainStack />
       </NavigationContainer>

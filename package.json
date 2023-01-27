@@ -21,7 +21,8 @@
     "app:name": "npx react-native-rename boilerplate -b com.boilerplate",
     "xcode": "cd ios && xed . && cd ..",
     "dev-clean": "rm -rf ~/Library/Developer/Xcode/DerivedData",
-    "app:asset": "npx react-native-asset"
+    "app:asset": "npx react-native-asset",
+    "swagger-generator": "npx @rtk-query/codegen-openapi openapi-config.json"
   },
   "dependencies": {
     "@baronha/react-native-multiple-image-picker": "^0.4.13",

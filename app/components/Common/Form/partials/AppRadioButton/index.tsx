@@ -1,5 +1,5 @@
 import {Block, RadioButton, Text} from '@/components';
-import {RadioButtonItem} from 'app/components/Common/RadioButton';
+import {RadioButtonItem} from '@/components/common/RadioButton';
 import React, {FC, memo} from 'react';
 import {Controller} from 'react-hook-form';
 import {Props} from './app-radio-button';
