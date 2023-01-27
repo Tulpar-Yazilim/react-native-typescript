@@ -6,11 +6,7 @@ import useStyledTag from './useStyledTag';
 import useTag from './useTag';
 import useTheme from './useTheme';
 import useTranslate from './useTranslate';
-
-// Use throughout your app instead of plain `useDispatch` and `useSelector`
-const useAppDispatch: () => AppDispatch = useDispatch;
-const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
-
+export * from './useImage';
 export {
   useAppDispatch,
   useAppSelector,
@@ -21,3 +17,7 @@ export {
   useStyledTag,
   useDialog,
 };
+
+// Use throughout your app instead of plain `useDispatch` and `useSelector`
+const useAppDispatch: () => AppDispatch = useDispatch;
+const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;

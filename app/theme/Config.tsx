@@ -3,9 +3,14 @@ import {Dimensions, Platform} from 'react-native';
 const {width, height} = Dimensions.get('window');
 const platform = Platform.OS;
 
+//#region theme colors
 export const themeColors = {
   light: {
+    //#region Backgrounds colors
+    backgroundPrimary: '#318AC3',
     cardBg: '#fff',
+    //#endregion
+
     bottomTabColor: '#fff',
     tabItem: '#212121',
     tabItemFocused: '#fac422',
@@ -57,7 +62,11 @@ export const themeColors = {
     placeholder: '#7E7E7E',
   },
   dark: {
+    //#region Backgrounds colors
+    backgroundPrimary: '#212121',
     cardBg: '#303030',
+    //#endregion
+
     inputBg: '#212121',
     inputText: '#fff',
     bottomTabColor: '#303030',
@@ -110,6 +119,7 @@ export const themeColors = {
     placeholder: '#7E7E7E',
   },
 };
+//#endregion theme colors
 
 export const COLORS = {
   ...themeColors.light,
