@@ -14,22 +14,11 @@ import {
   SegmentedControl,
   Text,
 } from '@/components';
-import {
-  useAppDispatch,
-  useAppSelector,
-  useDialog,
-  useStyledTag,
-  useTag,
-} from '@/hooks';
+import {useAppDispatch, useAppSelector, useDialog, useStyledTag, useTag} from '@/hooks';
 import Routes from '@/navigation/Routes';
 import {settingsRedux} from '@/store';
 import {COLORS} from '@/theme';
-import {
-  ICONS,
-  PERMISSION_TYPE,
-  Permission,
-  createLocalNotification,
-} from '@/utils';
+import {ICONS, PERMISSION_TYPE, Permission, createLocalNotification} from '@/utils';
 import {useFocusEffect} from '@react-navigation/native';
 import React, {useCallback, useLayoutEffect, useState} from 'react';
 import {Pressable} from 'react-native';
@@ -59,16 +48,12 @@ const HomePage = ({navigation}: any) => {
   };
 
   const cameraPermissions = async () => {
-    const cameraPermissionsStatus: any = await Permission.checkPermission(
-      PERMISSION_TYPE.camera,
-    );
+    const cameraPermissionsStatus: any = await Permission.checkPermission(PERMISSION_TYPE.camera);
     setIsPermission(cameraPermissionsStatus);
   };
 
   const isSCameraPermissionsCheck = async () => {
-    const isCheckPermission: any = await Permission.checkPermission(
-      PERMISSION_TYPE.camera,
-    );
+    const isCheckPermission: any = await Permission.checkPermission(PERMISSION_TYPE.camera);
     setIsPermission(isCheckPermission);
   };
 
@@ -96,23 +81,13 @@ const HomePage = ({navigation}: any) => {
     <React.Fragment>
       <AppScreen scroll>
         <Block center middle mb={20}>
-          <AppImage
-            resizeMode="contain"
-            url={Images.TulparLogo}
-            width={200}
-            height={60}
-          />
+          <AppImage resizeMode="contain" url={Images.TulparLogo} width={200} height={60} />
         </Block>
 
         <SegmentedControl
           currentIndex={activeTab}
           onChange={(index: number) => setActiveTab(index)}
-          segments={[
-            {label: '1st'},
-            {label: '2nd'},
-            {label: '3nd'},
-            {label: '4nd'},
-          ]}
+          segments={[{label: '1st'}, {label: '2nd'}, {label: '3nd'}]}
           mt-10
           mb-10
         />
@@ -173,11 +148,7 @@ const HomePage = ({navigation}: any) => {
         </DatePickerArea>
 
         <DateTimePicker visible={dateVisible} setVisible={setDateVisible} />
-        <DateTimePicker
-          mode="datetime"
-          visible={dateTimeVisible}
-          setVisible={setDateTimeVisible}
-        />
+        <DateTimePicker mode="datetime" visible={dateTimeVisible} setVisible={setDateTimeVisible} />
 
         <AppButton
           mb-5
@@ -284,19 +255,10 @@ const HomePage = ({navigation}: any) => {
         <LanguageArea mt-5>
           <Row row>
             <Col col-6 pr-2>
-              <AppButton
-                mb={10}
-                type="primary"
-                title={'Türkçe'}
-                onPress={() => onChangeLang('tr')}
-              />
+              <AppButton mb={10} type="primary" title={'Türkçe'} onPress={() => onChangeLang('tr')} />
             </Col>
             <Col col-6 pl-2>
-              <AppButton
-                type="primary"
-                title={'İngilizce'}
-                onPress={() => onChangeLang('en')}
-              />
+              <AppButton type="primary" title={'İngilizce'} onPress={() => onChangeLang('en')} />
             </Col>
           </Row>
         </LanguageArea>
@@ -317,22 +279,14 @@ const HomePage = ({navigation}: any) => {
             </Pressable>
           )}
         </Block>
-        <AppBottomSheet
-          isVisible={bottomSheetVisibility}
-          onClose={() => setBottomSheetVisibility(false)}>
+        <AppBottomSheet isVisible={bottomSheetVisibility} onClose={() => setBottomSheetVisibility(false)}>
           <Block h={200} mt-5 mb-25 px-10>
             <Block row center pt-3>
               <Text black>Dark Theme</Text>
               <Block right flex>
                 <AppSwitch
                   value={theme === 'dark'}
-                  onChange={() =>
-                    dispatch(
-                      settingsRedux.setTheme(
-                        theme === 'light' ? 'dark' : 'light',
-                      ),
-                    )
-                  }
+                  onChange={() => dispatch(settingsRedux.setTheme(theme === 'light' ? 'dark' : 'light'))}
                 />
               </Block>
             </Block>

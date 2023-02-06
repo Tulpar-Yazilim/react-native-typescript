@@ -1,8 +1,6 @@
 import React from 'react';
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import {DrawerMenuItemList} from './_DrawerMenuItemList';
-import {StatusBar} from 'react-native';
-
+import {DrawerMenuItemList} from './DrawerMenuItems';
 
 const Drawer = createDrawerNavigator();
 

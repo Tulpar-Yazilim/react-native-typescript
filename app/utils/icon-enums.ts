@@ -1,5 +1,5 @@
 export enum ICONS {
-  clear = 'clear',
+  close = 'close',
   bookmark = 'bookmark',
   list = 'list',
   home = 'home',

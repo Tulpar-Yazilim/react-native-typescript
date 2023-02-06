@@ -9,6 +9,7 @@ const createSizes = {};
 Array.from({length: 300}).forEach((_, i) => {
   let value = i;
 
+  createSizes['flex-' + i] = {flex: value};
   createSizes['rounded-' + i] = {borderRadius: value};
   createSizes['mx-' + i] = {marginHorizontal: value};
   createSizes['px-' + i] = {paddingHorizontal: value};
@@ -35,9 +36,7 @@ Array.from({length: 300}).forEach((_, i) => {
 });
 
 if (createSizes) {
-  const writeContent = `export const setupSizes: any = ${JSON.stringify(
-    createSizes,
-  )}`;
+  const writeContent = `export const setupSizes: any = ${JSON.stringify(createSizes)}`;
   fs.writeFile(SIZE_PATH, writeContent, err => {
     console.log('error: ', err);
   });

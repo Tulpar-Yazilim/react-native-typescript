@@ -1,5 +1,6 @@
+import SplashScreen from './SplashScreen';
+import LoginPage from './LoginPage';
 import FetchDataPage from './FetchDataPage';
 import FormPage from './FormPage';
 import HomePage from './HomePage';
-
-export {HomePage, FormPage, FetchDataPage};
+export {SplashScreen, LoginPage, HomePage, FormPage, FetchDataPage};

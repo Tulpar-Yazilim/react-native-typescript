@@ -6,26 +6,14 @@ import {launchImageLibrary} from 'react-native-image-picker';
 import ImageResizer from 'react-native-image-resizer';
 
 import NetInfo from '@react-native-community/netinfo';
-import RenderHtml, {
-  HTMLContentModel,
-  HTMLElementModel,
-  defaultSystemFonts,
-} from 'react-native-render-html';
+
+import RenderHtml, {HTMLContentModel, HTMLElementModel, defaultSystemFonts} from 'react-native-render-html';
 import Toast from 'react-native-toast-message';
 
-import notifee, {
-  Notification,
-  TimestampTrigger,
-  TriggerType,
-} from '@notifee/react-native';
+import notifee, {Notification, TimestampTrigger, TriggerType} from '@notifee/react-native';
 
 import {ToastType} from './enums';
-import {
-  Coordinates,
-  LocalNotificationParams,
-  LocalNotificationType,
-  ToastParams,
-} from './models';
+import {Coordinates, LocalNotificationParams, LocalNotificationType, ToastParams} from './models';
 import {PERMISSION_TYPE, Permission} from './permission';
 import {ImagePickerResultType, ImageResizeResultType} from './types';
 
@@ -71,13 +59,15 @@ const base64 = (sourceText: string): string => {
 
 const getIpAddress = async (): Promise<string> => {
   try {
-    const networkInfo: any = await NetInfo.fetch();
+    const networkInfo = (await getNetInfo()) as any;
     return networkInfo.details?.ipAddress;
   } catch (error) {
     console.error(error);
     return '';
   }
 };
+
+const getNetInfo = async () => await NetInfo.fetch();
 
 const md5 = (sourceText: string): string => {
   return md5Encrypt.default(sourceText).toUpperCase();
@@ -98,8 +88,7 @@ const openMap = (coordinates: Coordinates) => {
   if (Platform.OS === 'ios') {
     destionationUrl = 'maps://?q=' + destination;
   } else {
-    destionationUrl =
-      'geo:0,0?q=' + destination + '(' + coordinates.title + ')';
+    destionationUrl = 'geo:0,0?q=' + destination + '(' + coordinates.title + ')';
   }
   Linking.openURL(destionationUrl);
 };
@@ -180,9 +169,7 @@ const openEmail = async (email: string) => {
   }
 };
 
-const resizeImageSingle = async (
-  image: any,
-): Promise<ImageResizeResultType> => {
+const resizeImageSingle = async (image: any): Promise<ImageResizeResultType> => {
   try {
     let image_width: number = image.width / 5;
     let image_height: number = image.height / 5;
@@ -210,9 +197,7 @@ const resizeImageSingle = async (
   }
 };
 
-const resizeImageMultiple = async (
-  response: Array<any>,
-): Promise<Array<ImageResizeResultType>> => {
+const resizeImageMultiple = async (response: Array<any>): Promise<Array<ImageResizeResultType>> => {
   let resized_images = [];
   for (const element of response) {
     let resizedImage = await resizeImageSingle(element);
@@ -242,9 +227,7 @@ const launchSingleImage = async (): Promise<ImagePickerResultType> => {
   });
 };
 
-const createLocalNotification = async (
-  notification: LocalNotificationParams,
-) => {
+const createLocalNotification = async (notification: LocalNotificationParams) => {
   // Request permissions (required for iOS)
   await notifee.requestPermission();
 
@@ -276,10 +259,7 @@ const createLocalNotification = async (
     };
 
     // Display a notification
-    const notificationId = await notifee.createTriggerNotification(
-      notificationDto,
-      trigger,
-    );
+    const notificationId = await notifee.createTriggerNotification(notificationDto, trigger);
 
     return notificationId;
   } else {
@@ -292,10 +272,14 @@ const cancelLocalNotification = async (localNotificationId: string) => {
   await notifee.cancelNotification(localNotificationId);
 };
 
+const convertToCurrency = (amount: number | string, currency: string = '₺') =>
+  `${Number.parseFloat(amount.toString()).toFixed(2)} ${currency}`;
+
 export {
   HtmlRender,
   base64,
   getIpAddress,
+  getNetInfo,
   md5,
   ToastParams,
   showToast,
@@ -310,4 +294,5 @@ export {
   launchSingleImage,
   createLocalNotification,
   cancelLocalNotification,
+  convertToCurrency,
 };

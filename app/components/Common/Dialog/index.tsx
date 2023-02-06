@@ -1,22 +1,24 @@
-import {Block, Text} from '@/components';
-import {useTheme} from '@/hooks';
-import React, {useEffect} from 'react';
-import {
-  BackHandler,
-  Pressable,
-  StyleSheet,
-  TouchableOpacity,
-  View,
-} from 'react-native';
-import Animated, {
-  useAnimatedStyle,
-  useSharedValue,
-  withSpring,
-} from 'react-native-reanimated';
+import React, {useEffect, useState} from 'react';
+import {BackHandler, Keyboard, Pressable, StyleSheet} from 'react-native';
 
-export default function Alert({route, navigation}: any) {
+import Block from '../Block';
+import Text from '../Text';
+import AppInput from '../AppInput';
+
+import {useTheme} from '@/hooks';
+
+import Animated, {useAnimatedStyle, useSharedValue, withSpring} from 'react-native-reanimated';
+import {useNavigation} from '@react-navigation/native';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {random} from 'lodash';
+
+export default function Alert({route}: any) {
+  const navigation: StackNavigationProp<any> = useNavigation();
+
   const theme = useTheme();
-  const {title, message, action, option, position} = route?.params;
+  const {title, message, action, option, position, alertType, placeholder} = route?.params;
+
+  const [promptText, setPromptText] = useState<string>('');
 
   //#region Animation
   const offset = useSharedValue(0);
@@ -52,14 +54,11 @@ export default function Alert({route, navigation}: any) {
   //#region BackHandler
   useEffect(() => {
     const backAction = () => {
-      navigation.goBack();
+      navigation.canGoBack() && navigation.goBack();
       return true;
     };
 
-    const backHandler = BackHandler.addEventListener(
-      'hardwareBackPress',
-      backAction,
-    );
+    const backHandler = BackHandler.addEventListener('hardwareBackPress', backAction);
 
     return () => backHandler.remove();
   }, []);
@@ -69,18 +68,39 @@ export default function Alert({route, navigation}: any) {
   //#region Action Button
   const AcionButton = ({item}: any) => {
     return (
-      <TouchableOpacity
-        style={styles.button}
+      <Pressable
+        style={[
+          styles.button,
+          {
+            backgroundColor: item.style === 'confirm' ? theme.colors.primary : theme.colors.error,
+            marginLeft: action?.length > 1 ? 5 : 0,
+          },
+        ]}
         onPress={() => {
-          item?.onPress?.();
-          if (option?.cancelable) {
-            navigation.goBack();
+          if (alertType === 'prompt') {
+            if (item.style === 'confirm') {
+              if (promptText?.length > 0 && option?.cancelable) {
+                Keyboard.dismiss();
+                item?.onPress?.(promptText);
+                navigation.goBack();
+              }
+            } else {
+              item?.onPress?.();
+              if (option?.cancelable) {
+                navigation.goBack();
+              }
+            }
+          } else {
+            item?.onPress?.();
+            if (option?.cancelable) {
+              navigation.goBack();
+            }
           }
         }}>
-        <Text bold black>
+        <Text medium white>
           {item?.text}
         </Text>
-      </TouchableOpacity>
+      </Pressable>
     );
   };
   //#endregion
@@ -94,26 +114,34 @@ export default function Alert({route, navigation}: any) {
 
   return (
     <React.Fragment>
-      {option?.backgroundClose && (
-        <Pressable style={styles.bg} onPress={() => navigation.goBack()} />
-      )}
+      {option?.backgroundClose && <Pressable style={styles.bg} onPress={() => navigation.goBack()} />}
 
       <Animated.View style={[styles.contain, animatedStyles]}>
         <Block style={[styles.content, {backgroundColor: theme.colors.cardBg}]}>
           <Block>
-            <View style={styles.alertTitle}>
-              <Text py-20 px-10 black>
+            <Block borderBottom>
+              <Text py-15 px-15 black bold>
                 {title}
               </Text>
-            </View>
+            </Block>
 
-            <Text py-15 px-10 thin black>
+            <Text p-15 black>
               {message}
             </Text>
           </Block>
-          <Block style={[styles.contentButton]}>
-            {action?.map((item: any, index: number) => (
-              <AcionButton key={index} item={item} />
+          {alertType === 'prompt' && (
+            <Block bg-lightGrey py-10 px-15>
+              <AppInput
+                placeholder={placeholder}
+                value={promptText}
+                onChange={(_text: string) => setPromptText(_text)}
+                onClear={() => setPromptText('')}
+              />
+            </Block>
+          )}
+          <Block style={[styles.contentButton, {justifyContent: action?.length === 1 ? 'center' : 'flex-end'}]}>
+            {action?.map((item: any) => (
+              <AcionButton key={`${random(1000)}_action_button`} item={item} />
             ))}
           </Block>
         </Block>
@@ -137,10 +165,6 @@ const styles = StyleSheet.create({
     width: '90%',
     borderRadius: 8,
   },
-  alertTitle: {
-    borderBottomWidth: 0.5,
-    borderColor: 'gray',
-  },
   contentButton: {
     justifyContent: 'flex-end',
     padding: 10,
@@ -148,8 +172,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   button: {
-    alignItems: 'flex-end',
-    justifyContent: 'flex-end',
-    paddingLeft: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 10,
+    paddingHorizontal: 30,
+    borderRadius: 10,
   },
 });

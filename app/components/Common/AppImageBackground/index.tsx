@@ -1,5 +1,5 @@
 import React, {memo} from 'react';
-import {ImageBackground, StyleSheet} from 'react-native';
+import {ImageBackground, ImageResizeMode, StyleSheet} from 'react-native';
 import {createImageProgress} from 'react-native-image-progress';
 import PropTypes from 'prop-types';
 const Image = createImageProgress(ImageBackground);
@@ -7,7 +7,7 @@ const Image = createImageProgress(ImageBackground);
 const AppImageBackground = ({
   children = <></>,
   source = '',
-  resizeMode = 'cover',
+  resizeMode = 'cover' as ImageResizeMode,
   style = {},
   containerStyle = {},
 }) => (

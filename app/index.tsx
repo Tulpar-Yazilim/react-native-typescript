@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {StatusBar} from 'react-native';
+import {Keyboard, StatusBar} from 'react-native';
 import 'react-native-gesture-handler';
 
 import {DarkTheme, DefaultTheme, NavigationContainer} from '@react-navigation/native';
@@ -9,15 +9,28 @@ import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
 
 import {linking, locale, toastConfig} from '@/config';
-import {useAppSelector} from '@/hooks';
-import {persistor, store} from '@/store';
+import {useAppDispatch, useAppSelector} from '@/hooks';
+import {persistor, settingsRedux, store} from '@/store';
+
+import {navigationRef} from './navigation/RootNavigation';
 
 import {AppLoader} from '@/components';
 import MainStack from './navigation/stacks/MainStack';
 
 const MainContainer = () => {
+  const dispatch = useAppDispatch();
+
   const language = useAppSelector(state => state.settings.language);
   const theme = useAppSelector(state => state.settings.theme);
+
+  useEffect(() => {
+    Keyboard.addListener('keyboardDidShow', () => dispatch(settingsRedux.changeBottomTabDisplay(false)));
+    Keyboard.addListener('keyboardDidHide', () => dispatch(settingsRedux.changeBottomTabDisplay(true)));
+    return () => {
+      Keyboard.removeAllListeners('keyboardDidShow');
+      Keyboard.removeAllListeners('keyboardDidHide');
+    };
+  }, []);
 
   useEffect(() => {
     locale(language);
@@ -25,7 +38,7 @@ const MainContainer = () => {
 
   return (
     <Host>
-      <NavigationContainer linking={linking} theme={theme === 'dark' ? DarkTheme : DefaultTheme}>
+      <NavigationContainer ref={navigationRef} linking={linking} theme={theme === 'dark' ? DarkTheme : DefaultTheme}>
         <StatusBar barStyle="dark-content" />
         <MainStack />
       </NavigationContainer>

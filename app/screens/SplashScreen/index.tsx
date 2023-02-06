@@ -1,14 +1,12 @@
-/* eslint-disable react-native/no-inline-styles */
-/* eslint-disable react-hooks/exhaustive-deps */
-import React, {FC, useEffect, useRef} from 'react';
+import React, {memo, useEffect, useRef} from 'react';
 import {Animated, View, Easing, StyleSheet} from 'react-native';
-//import {Icon} from '../../assets/icons';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import layout from '../../config/layout.json';
 import LottieView from 'lottie-react-native';
+import Routes from '@/navigation/Routes';
 
-export const SplashScreen: FC = () => {
+const SplashScreen = () => {
   const navigation: StackNavigationProp<any> = useNavigation();
   const progress = useRef(new Animated.Value(0));
 
@@ -23,11 +21,7 @@ export const SplashScreen: FC = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      const navigationName =
-        layout.menu === 'drawer'
-          ? 'DrawerTabNavigation'
-          : 'BottomTabNavigation';
-
+      const navigationName = layout.menu === 'drawer' ? Routes.MAIN_DRAWER_ROOT : Routes.MAIN_TABS_ROOT;
       navigation.replace(navigationName);
     }, 2000);
   }, []);
@@ -53,3 +47,5 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
 });
+
+export default memo(SplashScreen);

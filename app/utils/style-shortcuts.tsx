@@ -1,4 +1,5 @@
 import {COLORS, FONTS, SIZES, themeColors, window} from '@/theme';
+import rgba from './rgba';
 import {setupSizes} from './style/size';
 
 export interface IStyleShortcuts {
@@ -88,7 +89,8 @@ const getStyles = (t: 'light' | 'dark'): any => {
         borderColor: 'gray',
       },
       borderBottom: {
-        borderWidth: 1,
+        borderBottomWidth: 0.3,
+        borderBottomColor: rgba(colors.defaultTextColor, 0.35),
       },
     },
   };

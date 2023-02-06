@@ -5,13 +5,7 @@ import {AppIcon, Block} from '@/components';
 import {COLORS, FONTS} from '@/theme';
 
 import {ICONS} from '@/utils';
-import {
-  BaseToast,
-  ErrorToast,
-  InfoToast,
-  SuccessToast,
-  ToastProps,
-} from 'react-native-toast-message';
+import {BaseToast, ErrorToast, InfoToast, SuccessToast, ToastProps} from 'react-native-toast-message';
 
 const toastConfig = {
   success: (props: ToastProps) => (
@@ -23,7 +17,7 @@ const toastConfig = {
       text2NumberOfLines={2}
       renderLeadingIcon={() => (
         <Block paddingLeft={10} middle center>
-          <AppIcon name={ICONS.checkCircle} color={COLORS.success} size={26} />
+          <AppIcon name={ICONS.checkCircle} color={COLORS.successText} size={26} />
         </Block>
       )}
     />
@@ -37,7 +31,7 @@ const toastConfig = {
       text2NumberOfLines={2}
       renderLeadingIcon={() => (
         <Block paddingLeft={10} middle center>
-          <AppIcon name={ICONS.clear} color={COLORS.error} size={26} />
+          <AppIcon name={ICONS.close} color={COLORS.error} size={26} />
         </Block>
       )}
     />
@@ -51,11 +45,7 @@ const toastConfig = {
       text2NumberOfLines={2}
       renderLeadingIcon={() => (
         <Block paddingLeft={10} middle center>
-          <AppIcon
-            name={ICONS.alertTriangle}
-            color={COLORS.warning}
-            size={26}
-          />
+          <AppIcon name={ICONS.alertTriangle} color={COLORS.warning} size={26} />
         </Block>
       )}
     />

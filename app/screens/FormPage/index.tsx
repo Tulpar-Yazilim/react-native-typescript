@@ -21,7 +21,7 @@ const SelectOptions = [
 ];
 
 const initial = {
-  name: 'asdfasdf',
+  name: '',
   date: null,
   password: '',
   select: '1',
@@ -64,12 +64,7 @@ const FormPage = () => {
   return (
     <AppScreen keyboardScroll>
       <Form schema={schema} form={form} />
-      <AppButton
-        mt-10
-        type="secondary"
-        onPress={form.handleSubmit(onSubmit)}
-        title="Submit"
-      />
+      <AppButton mt-10 type="secondary" onPress={form.handleSubmit(onSubmit)} title="Submit" />
     </AppScreen>
   );
 };

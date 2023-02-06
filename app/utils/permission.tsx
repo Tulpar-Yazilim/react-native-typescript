@@ -1,9 +1,4 @@
-import {
-  checkMultiple,
-  PERMISSIONS,
-  requestMultiple,
-  RESULTS,
-} from 'react-native-permissions';
+import {checkMultiple, PERMISSIONS, requestMultiple, RESULTS} from 'react-native-permissions';
 import {Platform} from 'react-native';
 
 const PLATFORM_CAMERA_PERMISSIONS = {
@@ -24,14 +19,28 @@ const PLATFORM_PHOTO_LIBRARY_PERMISSIONS = {
   ],
 } as any;
 
+const PLATFORM_BLUETOOTH_PERMISSIONS = {
+  ios: [PERMISSIONS.IOS.LOCATION_WHEN_IN_USE],
+  android: [PERMISSIONS.ANDROID.BLUETOOTH_CONNECT, PERMISSIONS.ANDROID.BLUETOOTH_SCAN],
+} as any;
+
+const PLATFORM_LOCATION_PERMISSIONS = {
+  ios: [PERMISSIONS.IOS.LOCATION_WHEN_IN_USE],
+  android: [PERMISSIONS.ANDROID.ACCESS_COARSE_LOCATION, PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION],
+} as any;
+
 const REQUEST_PERMISSION_TYPE = {
   camera: PLATFORM_CAMERA_PERMISSIONS,
   photo: PLATFORM_PHOTO_LIBRARY_PERMISSIONS,
+  bluetooth: PLATFORM_BLUETOOTH_PERMISSIONS,
+  location: PLATFORM_LOCATION_PERMISSIONS,
 } as any;
 
 const PERMISSION_TYPE = {
   camera: 'camera',
   photo: 'photo',
+  bluetooth: 'bluetooth',
+  location: 'location',
 };
 
 class AppPermission {

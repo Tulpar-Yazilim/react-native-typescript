@@ -1,4 +1,4 @@
-const selectionJson = require('./app/assets/selection.json');
+const selectionJson = require('../app/assets/selection.json');
 const fs = require('fs');
 const path = require('path');
 
@@ -11,7 +11,7 @@ const nameList = selectionJson.icons.map(icon => ({
   value: icon.properties.name.split(',')[0],
 }));
 
-const ABSOLUTE_PATH = './app/utils/icon-enums.ts';
+const ABSOLUTE_PATH = '../app/utils/icon-enums.ts';
 const PATH = path.resolve(__dirname, ABSOLUTE_PATH);
 
 fs.writeFile(

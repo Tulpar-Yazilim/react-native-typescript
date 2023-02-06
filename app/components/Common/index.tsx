@@ -10,6 +10,7 @@ import AppLoader from './AppLoader';
 import AppLottieView from './AppLottieView';
 import AppScreen from './AppScreen';
 import AppSelector from './AppSelector';
+import AppModal from './AppModal';
 import AppSwitch from './AppSwitch';
 import Block from './Block';
 import DateTimePicker from './DateTimePicker';
@@ -39,6 +40,7 @@ export {
   AppIcon,
   AppFlatList,
   AppSelector,
+  AppModal,
   LoadingCard,
   LoadingScreen,
   AppImageBackground,

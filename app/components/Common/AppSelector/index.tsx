@@ -1,149 +1,108 @@
-/* eslint-disable react-native/no-inline-styles */
-import {AppButton, AppIcon, Block, Text} from '@/components';
-import {COLORS} from '@/theme';
-import {ICONS} from '@/utils';
 import React, {memo} from 'react';
+import {Pressable, StyleProp, ViewStyle} from 'react-native';
 import {useTranslation} from 'react-i18next';
-import {Pressable, StyleSheet} from 'react-native';
-import Modal from 'react-native-modal';
+import {AppButton, AppIcon, Block, Text} from '@/components';
+import {useTheme} from '@/hooks';
+import AppBottomSheet from '../AppBottomSheet';
 import AppFlatList from '../AppFlatList';
-import Separator from '../Seperator';
+import {ICONS} from '@/utils';
+
+type ItemProp = {
+  title: string;
+  value: string | number;
+  icon?: React.ReactNode | React.ReactElement | null;
+  isIcon?: boolean;
+  iconColor?: string;
+  iconName?: string;
+};
+
+type Props = {
+  headerTitle?: string;
+  isVisible: boolean;
+  onClose?: () => void;
+  onSelect?: (_value: ItemProp) => void;
+  itemsList: ItemProp[];
+  selectedItem?: ItemProp;
+  containerStyle?: StyleProp<ViewStyle>;
+};
 
 const AppSelector = ({
   headerTitle = '',
   isVisible = false,
-  hideModal = () => {},
-  onSelect = ({}) => {},
-  itemsList = new Array<any>([]),
-  selectedItem = {title: '', value: '', icon: null},
-  containerStyle = {},
-}) => {
+  onClose,
+  onSelect,
+  itemsList = new Array<ItemProp>(),
+  selectedItem,
+  containerStyle,
+}: Props) => {
   const {t} = useTranslation();
+  const {colors} = useTheme();
   return (
-    <Modal
-      isVisible={isVisible}
-      useNativeDriver
-      useNativeDriverForBackdrop
-      hideModalContentWhileAnimating
-      avoidKeyboard
-      backdropColor={COLORS.black}
-      backdropOpacity={0.8}
-      style={{margin: 0}}
-      animationInTiming={400}
-      animationOutTiming={400}
-      backdropTransitionInTiming={400}
-      backdropTransitionOutTiming={400}
-      onDismiss={() => {
-        hideModal && hideModal();
-      }}
-      onBackButtonPress={() => {
-        hideModal && hideModal();
-      }}
-      onBackdropPress={() => {
-        hideModal && hideModal();
-      }}
-      onSwipeComplete={() => {
-        hideModal && hideModal();
-      }}>
-      <Block padding={16} flex={0} style={[styles.block, containerStyle]} white>
-        <Block row marginBottom={16}>
-          <Block center>
-            <Block style={styles.stick} />
-          </Block>
-          <AppButton
-            icon={<AppIcon name={ICONS.clear} size={22} />}
-            type="icon"
-            onPress={() => {
-              hideModal && hideModal();
-            }}
-          />
-        </Block>
+    <AppBottomSheet isFlatList isVisible={isVisible} onClose={onClose}>
+      <Block style={containerStyle}>
         {headerTitle?.length > 0 && (
-          <Block marginBottom={16} middle center>
-            <Text>{headerTitle}</Text>
+          <Block py-10 middle center>
+            <Text fs-18 black medium>
+              {headerTitle}
+            </Text>
           </Block>
         )}
-
         <Block>
           <AppFlatList
-            showsHorizontalScrollIndicator={false}
-            contentContainerStyle={styles.contentContainer}
             data={itemsList}
-            showsVerticalScrollIndicator={false}
-            renderItem={({item}: any) => (
+            renderItem={({item}: {item: ItemProp}) => (
               <Pressable
                 onPress={() => {
                   onSelect && onSelect(item);
-                  hideModal && hideModal();
+                  onClose && onClose();
                 }}>
-                <Block padding row>
+                <Block flex row middle pt-15 pb-15 px-30 borderBottom>
                   {item?.isIcon && (
-                    <Block middle width="15%">
+                    <Block left pr-15>
                       <AppIcon
-                        name={item.iconName}
+                        name={item.iconName || ''}
                         size={22}
-                        color={item.iconColor ? item.iconColor : COLORS.primary}
+                        color={item.iconColor ? item.iconColor : colors.primary}
                       />
                       {item.icon}
                     </Block>
                   )}
-                  <Text style={styles.itemTitle} medium size={18}>
-                    {item?.title}
-                  </Text>
+                  <Block flex>
+                    <Text
+                      styles={{
+                        color: item?.value === selectedItem?.value ? colors.primary : colors.defaultTextColor,
+                        fontSize: item?.value === selectedItem?.value ? 16 : 15,
+                        fontWeight: item?.value === selectedItem?.value ? 'bold' : 'normal',
+                      }}>
+                      {item?.title}
+                    </Text>
+                  </Block>
                   {selectedItem && selectedItem?.value === item?.value && (
-                    <Block middle width="15%">
-                      <AppIcon name={ICONS.checkCircle} size={22} />
+                    <Block right pl-20>
+                      <AppIcon name={ICONS.checkCircle} size={20} />
                     </Block>
                   )}
                 </Block>
               </Pressable>
             )}
-            ItemSeparatorComponent={Separator}
           />
         </Block>
 
-        {selectedItem?.value !== '' && (
-          <Block marginBottom={20}>
+        {!!selectedItem?.value && (
+          <Block px-20 pt-20>
             <AppButton
               type="primary"
               title={t('clear')}
               onPress={() => {
-                onSelect({title: '', value: ''});
-                hideModal && hideModal();
+                onSelect && onSelect({title: '', value: ''});
+                onClose && onClose();
               }}
             />
           </Block>
         )}
       </Block>
-    </Modal>
+    </AppBottomSheet>
   );
 };
-
-const styles = StyleSheet.create({
-  block: {
-    height: '50%',
-    marginTop: 'auto',
-  },
-  input: {
-    height: '100%',
-    textAlignVertical: 'top',
-    padding: 16,
-  },
-  itemTitle: {
-    flex: 1,
-  },
-  closeButton: {
-    alignSelf: 'flex-end',
-  },
-  stick: {
-    borderRadius: 8,
-    width: 110,
-    height: 4,
-    backgroundColor: '#F2F3F6',
-  },
-  contentContainer: {
-    paddingBottom: 100,
-  },
-});
 
 export default memo(AppSelector);

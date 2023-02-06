@@ -50,6 +50,7 @@
     "react-native-calendars": "^1.1292.0",
     "react-native-collapsible": "^1.6.0",
     "react-native-crypto-js": "^1.0.0",
+    "react-native-device-info": "^10.3.0",
     "react-native-dotenv": "^3.4.6",
     "react-native-drop-shadow": "^0.0.6",
     "react-native-encrypted-storage": "^4.0.3",

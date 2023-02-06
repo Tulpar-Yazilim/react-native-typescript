@@ -21,15 +21,7 @@ type Props = {
 };
 
 const AppScreen: FC<Props | any> = ({children, ...props}) => {
-  const {
-    scroll,
-    safe,
-    keyboardScroll,
-    customStyle,
-    navigationOptions,
-    flatList,
-    loading,
-  } = props;
+  const {scroll, safe, keyboardScroll, customStyle, navigationOptions, flatList, loading} = props;
   const navigation = useNavigation();
   const {colors} = useTheme();
 
@@ -39,7 +31,7 @@ const AppScreen: FC<Props | any> = ({children, ...props}) => {
     flex: 1,
     backgroundColor: colors.screenBgColor,
     ...customStyle,
-  } as any;
+  };
 
   return (
     <>
@@ -57,8 +49,7 @@ const AppScreen: FC<Props | any> = ({children, ...props}) => {
                 onPress={() => Keyboard.dismiss()}
                 style={[
                   {
-                    paddingBottom:
-                      layout.menu === 'bottom' ? bottomTabHeight + 20 : 50,
+                    paddingBottom: layout.menu === 'bottom' ? bottomTabHeight + 20 : 50,
                   },
                 ]}>
                 <SafeAreaView>{children}</SafeAreaView>
@@ -78,8 +69,7 @@ const AppScreen: FC<Props | any> = ({children, ...props}) => {
                 <View
                   style={[
                     {
-                      paddingBottom:
-                        layout.menu === 'bottom' ? bottomTabHeight + 20 : 50,
+                      paddingBottom: layout.menu === 'bottom' ? bottomTabHeight + 20 : 50,
                     },
                   ]}>
                   {children}
@@ -115,8 +105,7 @@ const AppScreen: FC<Props | any> = ({children, ...props}) => {
                 <View
                   style={[
                     {
-                      paddingBottom:
-                        layout.menu === 'bottom' ? bottomTabHeight + 20 : 50,
+                      paddingBottom: layout.menu === 'bottom' ? bottomTabHeight + 20 : 50,
                     },
                     getStyleShortcuts(props),
                   ]}>

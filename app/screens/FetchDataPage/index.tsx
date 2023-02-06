@@ -1,13 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 import {useGetCharactersQuery} from '@/api';
-import {
-  AppFlatList,
-  AppImage,
-  AppScreen,
-  Block,
-  Swipeable,
-  Text,
-} from '@/components';
+import {AppFlatList, AppImage, AppScreen, Block, Swipeable, Text} from '@/components';
 import {COLORS, SIZES} from '@/theme';
 import {useTheme} from '@react-navigation/native';
 import React, {useState} from 'react';
@@ -51,19 +44,9 @@ const FetchDataPage = () => {
             onPress: () => console.log('on press'),
           },
         ]}>
-        <Block
-          style={{borderWidth: 0.2, backgroundColor: theme.colors.background}}
-          px-10
-          py-10
-          br-10
-          border>
+        <Block style={{borderWidth: 0.2, backgroundColor: theme.colors.background}} px-10 py-10 br-10 border>
           <Block center row>
-            <AppImage
-              url={item?.image}
-              width={40}
-              height={40}
-              borderRadius={SIZES.radius}
-            />
+            <AppImage url={item?.image} width={40} height={40} borderRadius={SIZES.radius} />
             <Text ml-10 black>
               {item?.name}
             </Text>

@@ -1,6 +1,7 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable react-native/no-inline-styles */
-import {COLORS, SIZES} from '@/theme';
+import React, {memo, useEffect, useMemo, useRef} from 'react';
+import {Pressable, StatusBar, StyleSheet} from 'react-native';
+import {Portal} from 'react-native-portalize';
+
 import BottomSheet, {
   BottomSheetBackdropProps,
   BottomSheetScrollView,
@@ -8,22 +9,12 @@ import BottomSheet, {
   useBottomSheetDynamicSnapPoints,
   useBottomSheetTimingConfigs,
 } from '@gorhom/bottom-sheet';
-import React, {memo, useEffect, useMemo, useRef} from 'react';
-import {Pressable, StatusBar, StyleSheet} from 'react-native';
+import Animated, {Easing, Extrapolate, interpolate, useAnimatedStyle} from 'react-native-reanimated';
 
-import Block from '../Block';
-
+import {COLORS, SIZES, window} from '@/theme';
 import {rgba} from '@/utils';
-import Animated, {
-  Easing,
-  Extrapolate,
-  interpolate,
-  useAnimatedStyle,
-} from 'react-native-reanimated';
-
 import {useTheme} from '@/hooks';
-import {window} from '@/theme';
-import {Portal} from 'react-native-portalize';
+import Block from '../Block';
 
 const AppBottomSheet = ({
   children = <></>,
@@ -37,12 +28,8 @@ const AppBottomSheet = ({
   const theme = useTheme();
 
   const initialSnapPoints = useMemo(() => ['CONTENT_HEIGHT'], []);
-  const {
-    animatedHandleHeight,
-    animatedSnapPoints,
-    animatedContentHeight,
-    handleContentLayout,
-  } = useBottomSheetDynamicSnapPoints(initialSnapPoints);
+  const {animatedHandleHeight, animatedSnapPoints, animatedContentHeight, handleContentLayout} =
+    useBottomSheetDynamicSnapPoints(initialSnapPoints);
 
   const animationConfigs = useBottomSheetTimingConfigs({
     duration: 200,
@@ -52,12 +39,7 @@ const AppBottomSheet = ({
   const CustomBackdrop = ({style}: BottomSheetBackdropProps) => {
     // animated variables
     const containerAnimatedStyle = useAnimatedStyle(() => ({
-      opacity: interpolate(
-        isVisible ? 1 : 0,
-        [0, 1],
-        [0, 1],
-        Extrapolate.CLAMP,
-      ),
+      opacity: interpolate(isVisible ? 1 : 0, [0, 1], [0, 1], Extrapolate.CLAMP),
     }));
 
     // styles
@@ -148,7 +130,6 @@ const AppBottomSheet = ({
 const styles = StyleSheet.create({
   bottomSheetView: {
     paddingBottom: 30,
-    backgroundColor: 'red',
   },
 });
 

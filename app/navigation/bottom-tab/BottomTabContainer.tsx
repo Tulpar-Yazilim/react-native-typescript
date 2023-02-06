@@ -1,32 +1,27 @@
-import {useTheme} from '@/hooks';
+import React, {FC} from 'react';
+import {Dimensions, StyleSheet, View} from 'react-native';
+
+import {useAppSelector, useTheme} from '@/hooks';
 import {COLORS, bottomTabHeight} from '@/theme';
-import React, {FC, useEffect, useState} from 'react';
-import {Dimensions, Keyboard, StyleSheet, View} from 'react-native';
+
 import {BottomTabItem} from './BottomTabItem';
+import {random} from 'lodash';
 
 export const BottomTabContainer: FC<any> = props => {
-  const {state, descriptors, navigation} = props;
-  const [showTab, setShowTab] = useState(true);
-  const {colors} = useTheme();
+  const bottomTabDisplay = useAppSelector(state => state.settings.bottomTabDisplay);
 
-  useEffect(() => {
-    Keyboard.addListener('keyboardDidShow', () => setShowTab(false));
-    Keyboard.addListener('keyboardDidHide', () => setShowTab(true));
-    return () => {
-      Keyboard.removeAllListeners('keyboardDidShow');
-      Keyboard.removeAllListeners('keyboardDidHide');
-    };
-  }, []);
+  const {state, navigation} = props;
+  const {colors} = useTheme();
 
   const bottomTabConfig = {
     height: bottomTabHeight,
     fontSize: 11,
-    iconSize: 24,
+    iconSize: 26,
   };
 
   return (
     <>
-      {showTab && (
+      {bottomTabDisplay && (
         <View
           style={[
             styles.tab,
@@ -36,13 +31,6 @@ export const BottomTabContainer: FC<any> = props => {
             },
           ]}>
           {state.routes.map((route: any, index: number) => {
-            const {options} = descriptors[route.key];
-            const label =
-              options.tabBarLabel !== undefined
-                ? options.tabBarLabel
-                : options.title !== undefined
-                ? options.title
-                : route.name;
             const isFocused = state.index === index;
             const onPress = () => {
               const event = navigation.emit({
@@ -56,8 +44,8 @@ export const BottomTabContainer: FC<any> = props => {
             return (
               <BottomTabItem
                 isFocused={isFocused}
-                key={index}
-                label={label}
+                key={`${random(1000)}_tab_item`}
+                name={route.name}
                 onPress={onPress}
                 routesLength={state.routes}
                 currentIndex={index}

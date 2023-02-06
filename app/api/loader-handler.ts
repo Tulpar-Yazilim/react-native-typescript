@@ -1,28 +1,20 @@
 import {config} from '@/config';
 import {settingsRedux} from '@/store';
-import {
-  Middleware,
-  isFulfilled,
-  isPending,
-  isRejected,
-  isRejectedWithValue,
-} from '@reduxjs/toolkit';
+import {Middleware, isFulfilled, isPending, isRejected, isRejectedWithValue} from '@reduxjs/toolkit';
 
 export const rtkQueryLoaderHandler: Middleware =
-  ({dispatch}) =>
+  ({dispatch, getState}) =>
   next =>
   action => {
     if (config.USE_APP_LOADER && isPending(action)) {
       dispatch(settingsRedux.changeLoadingState(true));
-      console.info('rtkQueryLoaderHandler loading start: ', action);
     }
 
     if (
-      config.USE_APP_LOADER &&
+      (config.USE_APP_LOADER || getState().settings.appLoader) &&
       (isFulfilled(action) || isRejected(action) || isRejectedWithValue(action))
     ) {
       dispatch(settingsRedux.changeLoadingState(false));
-      console.info('rtkQueryLoaderHandler loading end: ', action);
     }
 
     return next(action);

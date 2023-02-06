@@ -1,10 +1,12 @@
 import Routes from '@/navigation/Routes';
 import {useNavigation} from '@react-navigation/native';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {useTranslation} from 'react-i18next';
 
 interface Action {
   text: string;
-  onPress: () => void;
-  style: 'cancel' | 'default';
+  onPress?: (_promptText?: string | null) => void;
+  style: 'cancel' | 'default' | 'confirm';
 }
 
 interface Option {
@@ -15,40 +17,39 @@ interface Option {
 interface DialogComponent {
   type: 'success' | 'warning' | 'error';
   position: 'top' | 'bottom' | 'left' | 'right';
+  placeholder?: string;
   title: string;
   message: string;
   option?: Option;
+  alertType?: 'confirm' | 'alert' | 'prompt';
   action?: Array<Action>;
 }
 
 export default function Dialog() {
-  const navigation = useNavigation() as any;
+  const {t} = useTranslation();
+  const navigation: StackNavigationProp<any> = useNavigation();
 
-  const show = ({
-    type,
-    title,
-    message,
-    position,
-    action,
-    option,
-  }: DialogComponent) => {
-    navigation.navigate(Routes.ALERT, {
-      type: type ?? 'warning',
-      position: position ?? 'bottom',
-      title: title ?? '',
-      message: message ?? '',
-      action: action ?? [
-        {
-          text: 'Cancel',
-          onPress: () => {},
-          style: 'cancel',
+  const show = ({type, title, message, position, action, option, alertType, placeholder}: DialogComponent) => {
+    setTimeout(() => {
+      navigation.navigate(Routes.ALERT, {
+        type: type ?? 'warning',
+        position: position ?? 'bottom',
+        title: title ?? '',
+        message: message ?? '',
+        alertType: alertType ?? 'alert',
+        placeholder: placeholder ?? '',
+        action: action ?? [
+          {
+            text: t('ok'),
+            style: 'confirm',
+          },
+        ],
+        option: {
+          cancelable: option?.cancelable ?? true,
+          backgroundClose: alertType === 'alert' ? option?.backgroundClose ?? true : false,
         },
-      ],
-      option: {
-        cancelable: option?.cancelable ?? true,
-        backgroundClose: option?.backgroundClose ?? true,
-      },
-    });
+      });
+    }, 50);
   };
 
   return {show};

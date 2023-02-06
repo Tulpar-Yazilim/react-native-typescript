@@ -1,8 +1,6 @@
 import React, {FC, memo} from 'react';
 import {ActivityIndicator} from 'react-native';
 
-import {COLORS} from '@/theme';
-
 import Block from '../Block';
 import Text from '../Text';
 import {Props} from './app-button';
@@ -10,15 +8,18 @@ import {Props} from './app-button';
 import useTheme from '../../../hooks/useTheme';
 import {getStyleShortcuts} from '../../../utils/style-shortcuts';
 import styles from './style';
+import {COLORS} from '@/theme';
 
 const AppButton: FC<Props | any> = props => {
   const {
     onPress,
     disabled,
     type,
-    loading,
     title,
+    titleColor = COLORS.white,
     icon,
+    width = '100%',
+    loading,
     loadingTitle = 'please_wait',
   } = props;
 
@@ -36,25 +37,18 @@ const AppButton: FC<Props | any> = props => {
   return (
     <Block
       pressable
-      style={[
-        styles.container,
-        buttonTypes[type],
-        disabled && styles.disabled,
-        {...getStyleShortcuts(props)},
-      ]}
+      style={[styles.container, buttonTypes[type], disabled && styles.disabled, {...getStyleShortcuts(props)}]}
       disabled={disabled}
-      {...props}
-      onPress={onPress}>
+      onPress={onPress}
+      width={width}
+      {...props}>
       {loading && (
         <Block row middle center>
           <Block>
-            <ActivityIndicator
-              color={COLORS.white}
-              style={styles.activityIndicator}
-            />
+            <ActivityIndicator style={styles.activityIndicator} color={titleColor} />
           </Block>
           <Block>
-            <Text medium white style={[buttonTypes[type].text, styles.text]}>
+            <Text medium style={[buttonTypes[type]?.text, styles.text]} styles={{color: titleColor}}>
               {loadingTitle}
             </Text>
           </Block>
@@ -63,7 +57,7 @@ const AppButton: FC<Props | any> = props => {
 
       {!loading && (
         <>
-          <Text medium white>
+          <Text medium style={[buttonTypes[type]?.text, styles.text]} styles={{color: titleColor}}>
             {title}
           </Text>
 

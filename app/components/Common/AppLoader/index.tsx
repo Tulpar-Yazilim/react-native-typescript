@@ -8,9 +8,7 @@ import {useSelector} from 'react-redux';
 import Block from '../Block';
 
 const AppLoader = () => {
-  const loading = useSelector<RootState>(
-    state => state.settings.appLoader,
-  ) as boolean;
+  const loading = useSelector<RootState>(state => state.settings.appLoader) as boolean;
 
   const progress = useRef(new Animated.Value(0));
 
@@ -28,7 +26,6 @@ const AppLoader = () => {
   return (
     <Modal visible={loading} transparent animationType="fade">
       <Block center middle bg={rgba('#fff', 0.8)} h="100%">
-        {/*<ActivityIndicator color={COLORS.white} size="large" />*/}
         <LottieView
           source={require('./loading-circles.json')}
           progress={progress.current}

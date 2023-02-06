@@ -1,24 +1,32 @@
-import {SplashScreen} from '../../../screens/SplashScreen/SplashScreen';
+import {LoginPage, SplashScreen} from '@/screens';
+import Routes from '../../../navigation/Routes';
 import {BottomTabNavigation} from '../../bottom-tab/BottomTabNavigation';
 import {DrawerMenuNavigaiton} from '../../drawer/DrawerMenuNavigation';
 
 const Screens = [
   {
-    name: 'Splash',
+    name: Routes.SPLASH_SCREEN,
     component: SplashScreen,
     options: {
       headerShown: false,
     },
   },
   {
-    name: 'DrawerTabNavigation',
+    name: Routes.LOGIN_SCREEN,
+    component: LoginPage,
+    options: {
+      headerShown: false,
+    },
+  },
+  {
+    name: Routes.MAIN_DRAWER_ROOT,
     component: DrawerMenuNavigaiton,
     options: {
       headerShown: false,
     },
   },
   {
-    name: 'BottomTabNavigation',
+    name: Routes.MAIN_TABS_ROOT,
     component: BottomTabNavigation,
     options: {
       headerShown: false,

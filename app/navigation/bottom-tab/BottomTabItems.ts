@@ -1,6 +1,6 @@
 import {FetchDataPage} from '@/screens';
 import HomeStack from '../stacks/HomeStack';
-import {ICONS} from './../../utils/icon-enums';
+import {ICONS} from '../../utils/icon-enums';
 
 export const BottomTabItemList = [
   {

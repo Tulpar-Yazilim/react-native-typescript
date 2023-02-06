@@ -1,16 +1,9 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable react-native/no-inline-styles */
 import {useTheme} from '@/hooks';
 import {FONTS} from '@/theme';
+import {ICONS} from '@/utils';
 import React, {FC, memo, useEffect, useState} from 'react';
 import {StyleSheet, TextInput} from 'react-native';
-import Animated, {
-  Easing,
-  useAnimatedStyle,
-  useSharedValue,
-  withTiming,
-} from 'react-native-reanimated';
+import Animated, {Easing, useAnimatedStyle, useSharedValue, withTiming} from 'react-native-reanimated';
 import AppIcon from '../AppIcon';
 import Block from '../Block';
 import Text from '../Text';
@@ -21,7 +14,23 @@ const inputHeight = 50;
 const offsetHeight = inputHeight / 3.9;
 
 const AppInput: FC<Props | any> = props => {
-  const {placeholder,onChange,value,error,onPress,onClear,handleBlur,animatedPlaceholder,icon,onFocus,editable=true,...rest} = props; // prettier-ignore
+  const {
+    reference,
+    returnKeyType,
+    onSubmitEditing,
+    placeholder,
+    onChange = (_text: string) => {},
+    value,
+    error,
+    onPress,
+    onClear,
+    handleBlur,
+    animatedPlaceholder,
+    icon,
+    onFocus,
+    editable = true,
+    ...rest
+  } = props;
   const offset = useSharedValue(offsetHeight);
   const scale = useSharedValue(1);
   const [text, setText] = useState('');
@@ -131,6 +140,7 @@ const AppInput: FC<Props | any> = props => {
               </Animated.View>
 
               <TextInput
+                ref={reference}
                 onFocus={() => {
                   onFocus ? onFocus() : onAnimation({_offset: 5, _scale: 0.75});
                 }}
@@ -150,6 +160,9 @@ const AppInput: FC<Props | any> = props => {
                 allowFontScaling={false}
                 value={value}
                 secureTextEntry={props.secureTextEntry}
+                returnKeyType={returnKeyType}
+                onSubmitEditing={onSubmitEditing}
+                {...props}
               />
             </Block>
           </Block>
@@ -170,9 +183,7 @@ const AppInput: FC<Props | any> = props => {
                 center
                 middle
                 p-7>
-                <Text bold default>
-                  X
-                </Text>
+                <AppIcon name={ICONS.close} color={colors.inputText} size={16} />
               </Block>
             )}
           </Block>

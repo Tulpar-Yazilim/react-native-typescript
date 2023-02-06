@@ -1,12 +1,8 @@
 /* eslint-disable react-native/no-inline-styles */
 import {COLORS} from '@/theme';
+import {random} from 'lodash';
 import React, {memo} from 'react';
-import {
-  ActivityIndicator,
-  FlatList as FList,
-  ScrollView,
-  View,
-} from 'react-native';
+import {ActivityIndicator, FlatList as FList, ScrollView, View} from 'react-native';
 import Block from '../Block';
 
 const FlatList = ({
@@ -36,12 +32,7 @@ const FlatList = ({
     }
     return (
       <Block center midle>
-        <ActivityIndicator
-          animating
-          color={COLORS.black}
-          size="large"
-          style={{marginTop: 15, marginBottom: 15}}
-        />
+        <ActivityIndicator animating color={COLORS.black} size="large" style={{marginTop: 15, marginBottom: 15}} />
       </Block>
     );
   };
@@ -64,8 +55,8 @@ const FlatList = ({
           showsHorizontalScrollIndicator={false}
           horizontal
           style={[preloaderContainerStyle]}>
-          {[...Array(preloaderLength)]?.map((item, index) => (
-            <PreloaderRenderItem key={'preloader_item_' + index} />
+          {[...Array(preloaderLength)]?.map(() => (
+            <PreloaderRenderItem key={`${random(1000)}_preloader_item`} />
           ))}
         </ScrollView>
       ) : (
@@ -78,8 +69,8 @@ const FlatList = ({
             },
             preloaderContainerStyle,
           ]}>
-          {[...Array(preloaderLength)]?.map((item, index) => (
-            <PreloaderRenderItem key={'preloader_item_' + index} />
+          {[...Array(preloaderLength)]?.map(() => (
+            <PreloaderRenderItem key={`${random(1000)}_preloader_item`} />
           ))}
         </View>
       )}

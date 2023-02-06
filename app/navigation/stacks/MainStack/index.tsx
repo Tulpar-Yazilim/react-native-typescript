@@ -1,6 +1,7 @@
 import Dialog from '@/components/Common/Dialog';
 import Routes from '@/navigation/Routes';
 import {createStackNavigator} from '@react-navigation/stack';
+import {random} from 'lodash';
 import React from 'react';
 import screens from './screens';
 
@@ -19,9 +20,9 @@ const Stack = createStackNavigator();
 const MainStack = () => {
   return (
     <Stack.Navigator>
-      {screens.map((screen: any, index: any) => (
+      {screens.map((screen: any) => (
         <Stack.Screen
-          key={index}
+          key={`${random(1000)}_main_stack_screen`}
           name={screen.name}
           component={screen.component}
           options={{
