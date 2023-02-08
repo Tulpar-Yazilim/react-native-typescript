@@ -1,4 +1,6 @@
 import * as yup from 'yup';
+import {TFunction} from 'i18next';
+
 // Constants
 const min = 6;
 
@@ -9,33 +11,29 @@ const min = 6;
 // En az bir sayı içermelidir.
 
 // Validation
-const passwordValidation = (t, key = 'password') => ({
-  [key]: yup
-    .string()
-    .required()
-    .min(min)
-    .test('passwordStrong', t('validations.password'), value => {
-      const regex = new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[A-Za-z\\d]');
-      const isValid = regex.test(value);
-      if (!isValid) {
-        return false;
-      }
-      return true;
-    })
-    .label(t('labels.password')),
+const passwordValidation = (t: TFunction<'translation', undefined, 'translation'>, key = 'password') => ({
+    [key]: yup
+        .string()
+        .required()
+        .min(min)
+        .test('passwordStrong', t('validations.password').toString(), value => {
+            const regex = new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[A-Za-z\\d]');
+            const isValid = regex.test(value || '');
+            if (!isValid) {
+                return false;
+            }
+            return true;
+        })
+        .label(t('labels.password')),
 });
 
 // Validation
-const passwordConfirmationValidation = (
-  t,
-  key = 'password_confirmation',
-  ref = 'password',
-) => ({
-  [key]: yup
-    .string()
-    .required()
-    .oneOf([yup.ref(ref), null], t('validations.password.not_match'))
-    .label(t('labels.password')),
+const passwordConfirmationValidation = (t: TFunction<'translation', undefined, 'translation'>, key = 'password_confirmation', ref = 'password') => ({
+    [key]: yup
+        .string()
+        .required()
+        .oneOf([yup.ref(ref), null], t('validations.password.not_match').toString())
+        .label(t('labels.password')),
 });
 
 export {passwordValidation, passwordConfirmationValidation};

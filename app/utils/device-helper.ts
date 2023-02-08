@@ -1,13 +1,8 @@
-import DeviceInfo from "react-native-device-info";
+import {getBatteryLevelSync, getSystemVersion, getUniqueIdSync, getVersion} from 'react-native-device-info';
 
-const getDeviceInfo = () => DeviceInfo.getUniqueIdSync();
-const getDeviceBatteryInfo = () => DeviceInfo.getBatteryLevelSync();
-const getDeviceSystemVersion = () => DeviceInfo.getSystemVersion();
-const getDeviceApplicationVersion = () => DeviceInfo.getVersion();
+const getDeviceInfo = () => getUniqueIdSync();
+const getDeviceBatteryInfo = () => getBatteryLevelSync();
+const getDeviceSystemVersion = () => getSystemVersion();
+const getDeviceApplicationVersion = () => getVersion();
 
-export {
-  getDeviceInfo,
-  getDeviceBatteryInfo,
-  getDeviceSystemVersion,
-  getDeviceApplicationVersion,
-};
+export {getDeviceInfo, getDeviceBatteryInfo, getDeviceSystemVersion, getDeviceApplicationVersion};

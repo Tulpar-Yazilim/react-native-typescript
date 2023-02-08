@@ -1,3 +1,3 @@
-import * as yup from "yup";
+import * as yup from 'yup';
 
 export default yup;
