@@ -24,6 +24,7 @@ const FlatList = ({
   sticky = false,
   contentContainerStyle,
   initialScrollIndex,
+  removeClippedSubviews = true,
   ...props
 }: any) => {
   const renderFooter = () => {
@@ -54,9 +55,10 @@ const FlatList = ({
           showsVerticalScrollIndicator={false}
           showsHorizontalScrollIndicator={false}
           horizontal
-          style={[preloaderContainerStyle]}>
-          {[...Array(preloaderLength)]?.map(() => (
-            <PreloaderRenderItem key={`${random(1000)}_preloader_item`} />
+          style={[preloaderContainerStyle]}
+        >
+          {[...Array(preloaderLength)]?.map((item, index) => (
+            <PreloaderRenderItem key={'preloader_item_' + index} />
           ))}
         </ScrollView>
       ) : (
@@ -68,9 +70,10 @@ const FlatList = ({
               justifyContent: 'center',
             },
             preloaderContainerStyle,
-          ]}>
-          {[...Array(preloaderLength)]?.map(() => (
-            <PreloaderRenderItem key={`${random(1000)}_preloader_item`} />
+          ]}
+        >
+          {[...Array(preloaderLength)]?.map((item, index) => (
+            <PreloaderRenderItem key={'preloader_item_' + index} />
           ))}
         </View>
       )}
@@ -87,7 +90,7 @@ const FlatList = ({
       refreshing={refreshing}
       keyExtractor={(_item, index) => 'flat_list_item_' + index}
       contentContainerStyle={contentContainerStyle}
-      removeClippedSubviews
+      removeClippedSubviews={removeClippedSubviews}
       showsVerticalScrollIndicator={false}
       showsHorizontalScrollIndicator={false}
       horizontal={horizontal}

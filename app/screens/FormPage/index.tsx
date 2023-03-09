@@ -33,13 +33,17 @@ const FormPage = () => {
   const [users, setUsers] = useState([]);
 
   const schema = Yup.object({
-    name: fields.text.label('Text Example').required('Bu alan zorunludur'),
-    date: fields.date.label('Date Picker').required('Tarih alanı zorunludur'),
+    name: fields.text.label('Text Example').required('Bu alan zorunludur').meta({
+      skipNext: true,
+    }),
+    date: fields.date.label('Date Picker').required('Tarih alanı zorunludur').meta({
+      skipNext: true,
+    }),
     password: fields.password.label('Password').min(6,'En az 6 karakter olmalı').required('Lütfen parola giriniz'), // prettier-ignore
     select: fields.select(SelectOptions, 'string', 'name', 'id').label('Select').required('select required message'), // prettier-ignore
     autoComplete: fields.autoComplete(users, 'string', 'name.first', 'name.first').label('Auto Complete'), // prettier-ignore
     multipleSelect: fields.multipleSelect(users, 'string', 'name.first', 'name.first').label('Multiple Select'), // prettier-ignore
-    radio: fields.radio([{label: 'radio-1', value: 1},{label: 'radio 2', value: 2}]), // prettier-ignore
+    radio: fields.radio([{label: 'radio-1', value: 1},{label: 'radio 2', value: 2}]) // prettier-ignore
   });
 
   useEffect(() => {

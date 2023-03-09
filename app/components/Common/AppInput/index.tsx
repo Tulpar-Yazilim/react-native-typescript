@@ -15,7 +15,6 @@ const offsetHeight = inputHeight / 3.9;
 
 const AppInput: FC<Props | any> = props => {
   const {
-    reference,
     returnKeyType,
     onSubmitEditing,
     placeholder,
@@ -29,8 +28,14 @@ const AppInput: FC<Props | any> = props => {
     icon,
     onFocus,
     editable = true,
+    reference,
+    inputProps,
+    form,
+    name,
+    skipNext = false,
     ...rest
   } = props;
+
   const offset = useSharedValue(offsetHeight);
   const scale = useSharedValue(1);
   const [text, setText] = useState('');
@@ -76,6 +81,17 @@ const AppInput: FC<Props | any> = props => {
     onChange(t);
   };
 
+  const goToNextInput = () => {
+    const values = Object.keys(form.getValues());
+    const currentIndex = values.indexOf(name);
+    const nextInput = values?.[currentIndex + 1];
+
+    if (text) {
+      onAnimation({_offset: 5, _scale: 0.75});
+    }
+    nextInput && form.setFocus(nextInput);
+  };
+
   return (
     <Block {...props}>
       <Block
@@ -87,7 +103,8 @@ const AppInput: FC<Props | any> = props => {
             borderWidth: error ? 0.5 : 0,
             borderColor: theme.colors.error,
           },
-        ]}>
+        ]}
+      >
         <Block row {...rest}>
           {icon && (
             <Block justify="center" align="center">
@@ -102,7 +119,8 @@ const AppInput: FC<Props | any> = props => {
                 flex: 1,
                 position: 'relative',
               },
-            ]}>
+            ]}
+          >
             {onPress && (
               <Block
                 pressable
@@ -116,7 +134,8 @@ const AppInput: FC<Props | any> = props => {
                   top: 0,
                   bottom: 0,
                   right: 0,
-                }}></Block>
+                }}
+              ></Block>
             )}
             <Block>
               <Animated.View style={[{position: 'absolute'}, animatedStyles]}>
@@ -126,14 +145,16 @@ const AppInput: FC<Props | any> = props => {
                     {
                       flex: 1,
                     },
-                  ]}>
+                  ]}
+                >
                   <Animated.Text
                     style={[
                       style.animatedPlaceholderStyle,
                       {
                         backgroundColor: colors.inputBg,
                       },
-                    ]}>
+                    ]}
+                  >
                     {animatedPlaceholder}
                   </Animated.Text>
                 </Animated.View>
@@ -161,8 +182,11 @@ const AppInput: FC<Props | any> = props => {
                 value={value}
                 secureTextEntry={props.secureTextEntry}
                 returnKeyType={returnKeyType}
-                onSubmitEditing={onSubmitEditing}
                 {...props}
+                onSubmitEditing={() => {
+                  skipNext && goToNextInput();
+                }}
+                //{...inputProps}
               />
             </Block>
           </Block>
@@ -172,7 +196,8 @@ const AppInput: FC<Props | any> = props => {
               height: 50,
               alignItems: 'center',
               justifyContent: 'center',
-            }}>
+            }}
+          >
             {onClear && value && (
               <Block
                 pressable
@@ -182,8 +207,11 @@ const AppInput: FC<Props | any> = props => {
                 }}
                 center
                 middle
-                p-7>
-                <AppIcon name={ICONS.close} color={colors.inputText} size={16} />
+                p-7
+              >
+                <Text bold default>
+                  X
+                </Text>
               </Block>
             )}
           </Block>

@@ -8,7 +8,6 @@ const useTranslate = (text = '', params = {}) => {
         try {
             return i18n.exists(text) ? t(text, params) : false;
         } catch (error) {
-            console.log('useTranslate error: ' + error);
             return false;
         }
     }, [t, i18n, text, params]);

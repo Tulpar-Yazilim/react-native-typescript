@@ -11,7 +11,6 @@ const FetchDataPage = () => {
     const theme = useTheme();
 
     const retrieveMore = () => {
-        console.log('Retrieving more');
         setPage(page + 1);
     };
 

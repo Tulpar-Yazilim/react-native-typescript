@@ -194,7 +194,6 @@ const resizeImageSingle = async (image: ImageType): Promise<ImageResizeResultTyp
 
         return Platform.OS === 'android' ? returnData : ({...image, ...newImage} as ImageResizeResultType);
     } catch (error) {
-        console.log('resizeImageSingle error: ', error);
         return {
             name: '',
             type: '',

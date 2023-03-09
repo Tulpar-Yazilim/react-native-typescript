@@ -67,7 +67,7 @@ const HomePage = ({navigation}: any) => {
         <React.Fragment>
             <AppScreen scroll>
                 <Block center middle mb={20}>
-                    <AppImage resizeMode="contain" url={Images.TulparLogo} width={200} height={60} />
+                    <AppImage resizeMode="contain" url={Images.TulparLogo.light} width={200} height={60} />
                 </Block>
 
                 <SegmentedControl currentIndex={activeTab} onChange={(index: number) => setActiveTab(index)} segments={[{label: '1st'}, {label: '2nd'}, {label: '3nd'}]} mt-10 mb-10 />

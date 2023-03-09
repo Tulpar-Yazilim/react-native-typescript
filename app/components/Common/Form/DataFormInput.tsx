@@ -23,66 +23,17 @@ export default function DataFormInput({name, meta, form, mb}: IDataFormInput) {
   const inputName = name || meta.name;
   switch (meta.field) {
     case SchemaField.InputText:
-      return (
-        <AppInput
-          {...meta}
-          key={inputName}
-          name={inputName}
-          form={form}
-          mb={mb}
-        />
-      );
+      return <AppInput {...meta} key={inputName} name={inputName} form={form} mb={mb} />;
     case SchemaField.InputDate:
-      return (
-        <AppDateTimePicker
-          {...meta}
-          key={inputName}
-          name={inputName}
-          form={form}
-          mb={mb}
-        />
-      );
+      return <AppDateTimePicker {...meta} key={inputName} name={inputName} form={form} mb={mb} />;
     case SchemaField.InputPassword:
-      return (
-        <AppInput
-          {...meta}
-          secureTextEntry
-          key={inputName}
-          name={inputName}
-          form={form}
-          mb={mb}
-        />
-      );
+      return <AppInput {...meta} secureTextEntry key={inputName} name={inputName} form={form} mb={mb} />;
     case SchemaField.InputAutoComplete:
-      return (
-        <AppAutoComplete
-          {...meta}
-          key={inputName}
-          name={inputName}
-          form={form}
-          mb={mb}
-        />
-      );
+      return <AppAutoComplete {...meta} key={inputName} name={inputName} form={form} mb={mb} />;
     case SchemaField.InputMultipleSelect:
-      return (
-        <AppMultipleSelect
-          {...meta}
-          key={inputName}
-          name={inputName}
-          form={form}
-          mb={mb}
-        />
-      );
+      return <AppMultipleSelect {...meta} key={inputName} name={inputName} form={form} mb={mb} />;
     case SchemaField.RadioButton:
-      return (
-        <AppRadioButton
-          {...meta}
-          key={inputName}
-          name={inputName}
-          form={form}
-          mb={mb}
-        />
-      );
+      return <AppRadioButton {...meta} key={inputName} name={inputName} form={form} mb={mb} />;
     case SchemaField.InputSelect:
       return <AppSelector {...meta} form={form} />;
     default:
