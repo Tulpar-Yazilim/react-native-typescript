@@ -143,7 +143,7 @@ export const SIZES = {
     title: 18,
     subtitle: 14,
     caption: 12,
-    medium: 12,
+    medium: 16,
     small: 10,
     extraSmall: 8,
 
@@ -238,6 +238,8 @@ export const window = {
     offset: 10,
     height: Dimensions.get('window').height,
     width: Dimensions.get('window').width,
+    designHeight: 810,
+    designWidth: 375,
 };
 
 export const fontSize = [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30];

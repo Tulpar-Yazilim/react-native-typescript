@@ -1,8 +1,11 @@
-import {Component, FunctionComponent, ReactElement, ReactInstance, ReactNode} from 'react';
+import {FunctionComponent} from 'react';
 
-export interface IScreen {
+export interface IScreen<T> {
     title?: string;
-    name: string;
+    name: keyof T;
+    icon?: string;
+    label?: string;
     component: FunctionComponent;
     headerShown?: boolean;
+    props?: never;
 }

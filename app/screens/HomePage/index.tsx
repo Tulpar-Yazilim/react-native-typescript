@@ -2,16 +2,18 @@ import {Images} from '@/assets';
 import {AppBottomSheet, AppButton, AppIcon, AppImage, AppScreen, AppSwitch, Block, Col, DateTimePicker, FloatingButton, Row, SegmentedControl, Text} from '@/components';
 import {useAppDispatch, useAppSelector, useDialog, useStyledTag, useTag} from '@/hooks';
 import Routes from '@/navigation/Routes';
+import {HomeStackNavigationPropsType} from '@/navigation/stacks/HomeStack/types';
 import {settingsRedux} from '@/store';
 import {COLORS} from '@/theme';
-import {ICONS, PERMISSION_TYPE, Permission, createLocalNotification} from '@/utils';
-import {useFocusEffect} from '@react-navigation/native';
+import {createLocalNotification, ICONS, Permission, PERMISSION_TYPE} from '@/utils';
+import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import React, {useCallback, useLayoutEffect, useState} from 'react';
 import {Pressable} from 'react-native';
 
-const HomePage = ({navigation}: any) => {
+const HomePage = () => {
     const dispatch = useAppDispatch();
     const dialog = useDialog();
+    const navigation = useNavigation<HomeStackNavigationPropsType>();
 
     const DatePickerArea = useTag(Block);
     const LanguageArea = useTag(Block);
@@ -34,12 +36,12 @@ const HomePage = ({navigation}: any) => {
     };
 
     const cameraPermissions = async () => {
-        const cameraPermissionsStatus: any = await Permission.checkPermission(PERMISSION_TYPE.camera);
+        const cameraPermissionsStatus = await Permission.checkPermission(PERMISSION_TYPE.camera);
         setIsPermission(cameraPermissionsStatus);
     };
 
     const isSCameraPermissionsCheck = async () => {
-        const isCheckPermission: any = await Permission.checkPermission(PERMISSION_TYPE.camera);
+        const isCheckPermission = await Permission.checkPermission(PERMISSION_TYPE.camera);
         setIsPermission(isCheckPermission);
     };
 
@@ -66,6 +68,15 @@ const HomePage = ({navigation}: any) => {
     return (
         <React.Fragment>
             <AppScreen scroll>
+                <AppButton
+                    type="primary"
+                    title="asdfas"
+                    onPress={() => {
+                        navigation.navigate(Routes.FORM_SCREEN, {
+                            detailId: 'asşldfkasjf',
+                        });
+                    }}
+                />
                 <Block center middle mb={20}>
                     <AppImage resizeMode="contain" url={Images.TulparLogo.light} width={200} height={60} />
                 </Block>
@@ -135,7 +146,7 @@ const HomePage = ({navigation}: any) => {
                     type="secondary"
                     title={'Form Example'}
                     onPress={() => {
-                        navigation.navigate(Routes.FORM_SCREEN);
+                        navigation.navigate(Routes.FORM_SCREEN, {detailId: '1'});
                     }}
                 />
 

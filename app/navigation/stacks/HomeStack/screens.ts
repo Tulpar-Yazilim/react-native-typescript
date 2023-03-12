@@ -1,6 +1,7 @@
-import {FetchDataPage, FormPage, HomePage} from '@/screens';
 import routes from '../../Routes';
 import {IScreen} from '../Models/IScreen';
+import {FetchDataPage, FormPage, HomePage} from '@/screens';
+import {HomeStackNavigationProps} from './types';
 
 const Screens = [
     {
@@ -21,6 +22,6 @@ const Screens = [
         component: FormPage,
         headerShown: true,
     },
-] as Array<IScreen>;
+] as Array<IScreen<HomeStackNavigationProps>>;
 
 export default Screens;

@@ -4,7 +4,7 @@
     "private": true,
     "scripts": {
         "android": "react-native run-android warning-mode=all",
-        "ios": "react-native run-ios",
+        "ios": "react-native run-ios --simulator='iPhone X'",
         "pod": "npx pod-install ios",
         "clean:android": "cd android && ./gradlew clean --warning-mode all && cd ..",
         "clean:ios": "cd ios && xcodebuild clean && cd ..",

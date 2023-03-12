@@ -1,4 +1,5 @@
-import {COLORS, FONTS, fingerSize} from '@/theme';
+import {COLORS, fingerSize, FONTS} from '@/theme';
+import {heightPixel} from '@/utils';
 import {StyleSheet} from 'react-native';
 import {IButtonTypes} from './app-button';
 
@@ -11,10 +12,10 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         flexDirection: 'row',
-        height: 50,
+        height: heightPixel(50),
     },
     text: {
-        fontSize: 18,
+        //fontSize: 18,
         fontFamily: FONTS.semiBold,
         height: 26,
     },

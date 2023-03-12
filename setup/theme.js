@@ -6,7 +6,7 @@ const SIZE_FILE_PATH = '../app/utils/style/size.ts';
 const SIZE_PATH = path.resolve(__dirname, SIZE_FILE_PATH);
 
 const createSizes = {};
-Array.from({length: 300}).forEach((_, i) => {
+Array.from({length: 200}).forEach((_, i) => {
     let value = i;
 
     createSizes['flex-' + i] = {flex: value};
@@ -24,10 +24,10 @@ Array.from({length: 300}).forEach((_, i) => {
     createSizes['pb-' + i] = {paddingBottom: value};
     createSizes['p-' + i] = {padding: value};
     createSizes['m-' + i] = {margin: value};
-    createSizes['h-' + i] = {height: value};
-    createSizes['w-' + i] = {width: value};
+    createSizes['h-' + i] = {height: `_heightPixel(${value})_`};
+    createSizes['w-' + i] = {width: `_widthPixel(${value})_`};
     createSizes['col-' + i] = {width: (100 / 12) * i + '%'};
-    createSizes['fs-' + i] = {fontSize: value};
+    createSizes['fs-' + i] = {fontSize: `_fontPixel(${value})_`};
     createSizes['right-' + i] = {right: value};
     createSizes['left-' + i] = {left: value};
     createSizes['top-' + i] = {top: value};
@@ -36,9 +36,15 @@ Array.from({length: 300}).forEach((_, i) => {
 });
 
 if (createSizes) {
-    const writeContent = `export const setupSizes: any = ${JSON.stringify(createSizes)}`;
-    fs.writeFile(SIZE_PATH, writeContent, err => {
-        console.log('error: ', err);
+    const writeContent = `
+    import {fontPixel,heightPixel,widthPixel} from "../size-helper"
+    export const setupSizes = ${JSON.stringify(createSizes)}`;
+
+    const temp = writeContent.replace(/"_/g, '').replace(/_"/g, '');
+    fs.writeFile(SIZE_PATH, temp, err => {
+        if (err) {
+            console.log('error: ', err);
+        }
     });
 }
 //#endregion

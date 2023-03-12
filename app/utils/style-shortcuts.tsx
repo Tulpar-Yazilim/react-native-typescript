@@ -6,6 +6,7 @@ import rgba from './rgba';
 import {setupSizes} from './style/size';
 
 import {COLORS, FONTS, SIZES, themeColors, window} from '@/theme';
+import {fontPixel} from '@/utils';
 
 const getStyles = (t: 'light' | 'dark') => {
     const colors = themeColors[t || 'light'];
@@ -83,43 +84,43 @@ const getTextStyles = (t: 'light' | 'dark') => {
             width: '100%',
         },
         xs: {
-            fontSize: SIZES.extraSmall,
+            fontSize: fontPixel(SIZES.extraSmall),
             letterSpacing: 0.15,
         },
         sm: {
-            fontSize: SIZES.small,
+            fontSize: fontPixel(SIZES.small),
             letterSpacing: 0,
         },
         md: {
-            fontSize: SIZES.medium,
+            fontSize: fontPixel(SIZES.medium),
             letterSpacing: 0.15,
         },
         header: {
-            fontSize: SIZES.header,
+            fontSize: fontPixel(SIZES.header),
             fontFamily: 'Poppins-Bold',
             letterSpacing: 0.15,
         },
         subheader: {
-            fontSize: SIZES.subheader,
+            fontSize: fontPixel(SIZES.subheader),
             fontFamily: 'Poppins-Regular',
             letterSpacing: 0.15,
         },
         title: {
-            fontSize: SIZES.title,
+            fontSize: fontPixel(SIZES.title),
             fontFamily: 'Poppins-Regular',
             letterSpacing: 0.15,
         },
         subtitle: {
-            fontSize: SIZES.subtitle,
+            fontSize: fontPixel(SIZES.subtitle),
             fontFamily: 'Poppins-Regular',
         },
         caption: {
-            fontSize: SIZES.caption,
+            fontSize: fontPixel(SIZES.caption),
             fontFamily: 'Poppins-Regular',
             letterSpacing: 0.4,
         },
         small: {
-            fontSize: SIZES.small,
+            fontSize: fontPixel(SIZES.small),
             fontFamily: 'Poppins-Regular',
             letterSpacing: 1.5,
         },

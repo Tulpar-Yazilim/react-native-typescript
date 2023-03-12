@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const en = {
     submit: 'Submit',
     login: 'Login',

@@ -1,0 +1,21 @@
+import Routes from '@/navigation/Routes';
+import {Keyof} from '@/utils';
+import {RouteProp} from '@react-navigation/native';
+import {StackNavigationProp} from '@react-navigation/stack';
+
+export type HomeScreen = {
+    name: string;
+};
+
+export type HomeStackNavigationProps = {
+    [Routes.HOME_SCREEN]: {
+        name: string;
+    };
+    [Routes.FORM_SCREEN]: {
+        detailId: string;
+    };
+};
+
+export type HomeStackNavigationPropsType = StackNavigationProp<HomeStackNavigationProps>;
+
+export type HomeStackNavigationRouteType<TPageName extends Keyof<HomeStackNavigationProps>> = RouteProp<HomeStackNavigationProps, TPageName>;

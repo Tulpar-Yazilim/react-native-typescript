@@ -7,6 +7,7 @@ export * from './secure-storage';
 export * from './style-shortcuts';
 export * from './validations';
 export * from './device-helper';
+export * from './size-helper';
 
 import rgba from './rgba';
 export {rgba};

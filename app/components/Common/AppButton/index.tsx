@@ -11,61 +11,45 @@ import styles from './style';
 import {COLORS} from '@/theme';
 
 const AppButton: FC<Props | any> = props => {
-  const {
-    onPress,
-    disabled,
-    type,
-    title,
-    titleColor = COLORS.white,
-    icon,
-    width = '100%',
-    loading,
-    loadingTitle = 'please_wait',
-  } = props;
+    const {onPress, disabled, type, title, titleColor = COLORS.white, icon, width = '100%', loading, loadingTitle = 'please_wait'} = props;
 
-  const theme = useTheme(props);
+    const theme = useTheme(props);
 
-  const buttonTypes: any = {
-    primary: {
-      backgroundColor: theme.colors.primary,
-    },
-    secondary: {
-      backgroundColor: theme.colors.secondary,
-    },
-  };
+    const buttonTypes: any = {
+        primary: {
+            backgroundColor: theme.colors.primary,
+        },
+        secondary: {
+            backgroundColor: theme.colors.secondary,
+        },
+    };
 
-  return (
-    <Block
-      pressable
-      style={[styles.container, buttonTypes[type], disabled && styles.disabled, {...getStyleShortcuts(props)}]}
-      disabled={disabled}
-      onPress={onPress}
-      width={width}
-      {...props}>
-      {loading && (
-        <Block row middle center>
-          <Block>
-            <ActivityIndicator style={styles.activityIndicator} color={titleColor} />
-          </Block>
-          <Block>
-            <Text medium style={[buttonTypes[type]?.text, styles.text]} styles={{color: titleColor}}>
-              {loadingTitle}
-            </Text>
-          </Block>
+    return (
+        <Block pressable style={[styles.container, buttonTypes[type], disabled && styles.disabled, {...getStyleShortcuts(props)}]} disabled={disabled} onPress={onPress} width={width} {...props}>
+            {loading && (
+                <Block row middle center>
+                    <Block>
+                        <ActivityIndicator style={styles.activityIndicator} color={titleColor} />
+                    </Block>
+                    <Block>
+                        <Text medium md style={[buttonTypes[type]?.text, styles.text]} styles={{color: titleColor}}>
+                            {loadingTitle}
+                        </Text>
+                    </Block>
+                </Block>
+            )}
+
+            {!loading && (
+                <>
+                    <Text medium md style={[buttonTypes[type]?.text, styles.text]} styles={{color: titleColor}}>
+                        {title}
+                    </Text>
+
+                    {type === 'icon' && icon}
+                </>
+            )}
         </Block>
-      )}
-
-      {!loading && (
-        <>
-          <Text medium style={[buttonTypes[type]?.text, styles.text]} styles={{color: titleColor}}>
-            {title}
-          </Text>
-
-          {type === 'icon' && icon}
-        </>
-      )}
-    </Block>
-  );
+    );
 };
 
 export default memo(AppButton);
