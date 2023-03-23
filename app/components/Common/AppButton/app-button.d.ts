@@ -11,6 +11,11 @@ export interface Props extends IStyleShortcuts {
   title?: string;
   icon?: ReactNode;
   children?: ReactNode;
+  titleColor?: ReactNode;
+  width?: number | string;
+  height?: number | string;
+  loadingTitle?: string;
+  style?: ReactNode;
 }
 
 export interface IButtonTypes {

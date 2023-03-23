@@ -1,149 +1,146 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable react-hooks/exhaustive-deps */
+import React, {FC, useEffect, useState} from 'react';
+import {Keyboard, Modal, SafeAreaView} from 'react-native';
+
+import {debounce, get} from 'lodash';
+import {Controller, UseFormReturn} from 'react-hook-form';
+
+import RenderItem from './RenderItem';
+import AppInput from '../../../AppInput';
+
 import {AppButton, AppFlatList, AppIcon, Block, Text} from '@/components';
 import {useTheme} from '@/hooks';
 import {ICONS} from '@/utils';
-import {debounce, get} from 'lodash';
-import React, {FC, useEffect, useState} from 'react';
-import {Controller} from 'react-hook-form';
-import {Keyboard, Modal, SafeAreaView} from 'react-native';
-import AppInput from '../../../AppInput';
-import RenderItem from './RenderItem';
 
 interface AppMultipleSelectProps {
-    placeholder?: string;
-    options: Array<any>;
-    valueProp: string;
-    displayProp: string;
-    form: any;
-    name?: string;
-    label: string;
+  placeholder?: string;
+  options?: Array<object>;
+  valueProp?: string;
+  displayProp?: string;
+  form?: UseFormReturn;
+  name?: string;
+  label?: string;
 }
 
-let selections: any = [];
+let selections: Array<object> = [];
 
-const AppMultipleSelect: FC<AppMultipleSelectProps | any> = props => {
-    const {options, valueProp, displayProp, label, name, form} = props;
-    const [open, setOpen] = useState(false);
-    const [current, setCurrent] = useState(null) as any;
-    const [filteredOptions, setFilteredOptions] = useState(options);
+const AppMultipleSelect: FC<AppMultipleSelectProps | never> = props => {
+  const {options, valueProp, displayProp, label, name = '', form} = props;
+  const [open, setOpen] = useState<boolean>(false);
+  const [current, setCurrent] = useState<object>();
+  const [filteredOptions, setFilteredOptions] = useState<Array<object>>(options ?? []);
 
-    const theme = useTheme();
+  const theme = useTheme();
 
-    const onFilter = debounce(text => {
-        setFilteredOptions(options.filter((item: any) => get(item, displayProp).toLowerCase().includes(text.toLowerCase())));
-    }, 300);
+  const onFilter = debounce(text => {
+    setFilteredOptions((options ?? [])?.filter(item => (get(item, displayProp as never) as string)?.toLowerCase()?.includes(text?.toLowerCase())));
+  }, 300);
 
-    useEffect(() => {
-        setFilteredOptions(options);
-    }, [options]);
+  useEffect(() => {
+    if (options) setFilteredOptions(options);
+  }, [options]);
 
-    useEffect(() => {
-        if (open) {
-            const value = form.getValues()?.[name];
-            selections = value;
-        }
-    }, [open]);
+  useEffect(() => {
+    if (open) {
+      const value = form?.getValues()?.[name as never];
+      selections = value;
+    }
+  }, [form, name, open]);
 
-    return (
-        <Controller
-            name={name}
-            control={form.control}
-            render={({field: {onChange}, fieldState: {error}}) => (
-                <>
-                    <AppInput
+  return (
+    <Controller
+      name={name}
+      control={form?.control}
+      render={({field: {onChange}, fieldState: {error}}) => (
+        <>
+          <AppInput
+            onPress={() => {
+              setOpen(true);
+            }}
+            editable={false}
+            animatedPlaceholder={label}
+            disabled
+            value={current && get(current, displayProp as never)}
+            onClear={() => {
+              setCurrent(undefined);
+              onChange('');
+            }}
+          />
+          <Block px={10}>
+            <Text error italic size={12}>
+              {error?.message}
+            </Text>
+          </Block>
+          <Modal
+            animationType="slide"
+            transparent={false}
+            visible={open}
+            onRequestClose={() => {
+              setOpen(!open);
+            }}>
+            <Block
+              style={{flex: 1}}
+              onPress={() => {
+                Keyboard.dismiss();
+              }}>
+              <SafeAreaView style={{flex: 1, backgroundColor: theme.colors.screenBgColor}}>
+                <Block style={{flex: 1}} py-20>
+                  <Block row px-12 pb-20>
+                    <Block w-40 mr-10>
+                      <AppButton
+                        type="icon"
                         onPress={() => {
-                            setOpen(true);
+                          setOpen(false);
                         }}
-                        editable={false}
-                        animatedPlaceholder={label}
-                        disabled
-                        value={current && get(current, displayProp)}
-                        onClear={() => {
-                            setCurrent(null);
-                            onChange('');
-                        }}
-                    />
-                    <Block px={10}>
-                        <Text error italic size={12}>
-                            {error?.message}
-                        </Text>
+                        icon={<AppIcon name={ICONS.chevronLeft} color={theme.colors.defaultTextColor} />}
+                      />
                     </Block>
-                    <Modal
-                        animationType="slide"
-                        transparent={false}
-                        visible={open}
-                        onRequestClose={() => {
-                            setOpen(!open);
+                    <Block flex>
+                      <AppInput
+                        placeholder="Search"
+                        onChangeText={(text: string) => {
+                          onFilter(text);
                         }}
-                    >
-                        <Block
-                            style={{flex: 1}}
-                            onPress={() => {
-                                Keyboard.dismiss();
-                            }}
-                        >
-                            <SafeAreaView style={{flex: 1, backgroundColor: theme.colors.screenBgColor}}>
-                                <Block style={{flex: 1}} py-20>
-                                    <Block row px-12 pb-20>
-                                        <Block w-40 mr-10>
-                                            <AppButton
-                                                type="icon"
-                                                onPress={() => {
-                                                    setOpen(false);
-                                                }}
-                                                icon={<AppIcon name={ICONS.arrowLeft} color={theme.colors.defaultTextColor} />}
-                                            />
-                                        </Block>
-                                        <Block flex>
-                                            <AppInput
-                                                placeholder="Search"
-                                                onChange={(text: string) => {
-                                                    onFilter(text);
-                                                }}
-                                            />
-                                        </Block>
-                                    </Block>
-                                    <AppFlatList
-                                        preloader={false}
-                                        data={filteredOptions}
-                                        renderItem={({item}: any) => (
-                                            <RenderItem
-                                                name={name}
-                                                form={form}
-                                                item={item}
-                                                theme={theme}
-                                                displayProp={displayProp}
-                                                valueProp={valueProp}
-                                                selections={selections}
-                                                onChange={(renderItem: any, checked: any) => {
-                                                    if (checked) {
-                                                        selections = [...selections, renderItem];
-                                                    } else {
-                                                        selections = selections.filter((curr: any) => curr !== renderItem);
-                                                    }
-                                                }}
-                                            />
-                                        )}
-                                    />
-                                    <Block pxw>
-                                        <AppButton
-                                            type="secondary"
-                                            title="Ok"
-                                            onPress={() => {
-                                                onChange(selections);
-                                                setOpen(false);
-                                            }}
-                                        />
-                                    </Block>
-                                </Block>
-                            </SafeAreaView>
-                        </Block>
-                    </Modal>
-                </>
-            )}
-        />
-    );
+                      />
+                    </Block>
+                  </Block>
+                  <AppFlatList<object>
+                    preloader={false}
+                    data={filteredOptions}
+                    renderItem={({item}) => (
+                      <RenderItem
+                        name={name}
+                        item={item}
+                        displayProp={displayProp}
+                        valueProp={valueProp}
+                        selections={selections}
+                        onChange={(renderItem, checked) => {
+                          if (checked) {
+                            selections = [...selections, renderItem];
+                          } else {
+                            selections = selections.filter(curr => curr !== renderItem);
+                          }
+                        }}
+                      />
+                    )}
+                  />
+                  <Block pxw>
+                    <AppButton
+                      type="secondary"
+                      title="Ok"
+                      onPress={() => {
+                        onChange(selections);
+                        setOpen(false);
+                      }}
+                    />
+                  </Block>
+                </Block>
+              </SafeAreaView>
+            </Block>
+          </Modal>
+        </>
+      )}
+    />
+  );
 };
 
 export default AppMultipleSelect;

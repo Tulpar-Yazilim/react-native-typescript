@@ -1,5 +1,6 @@
 import React, {FC, memo, useState} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
+
 import Accordion from 'react-native-collapsible/Accordion';
 
 interface ISection {
@@ -8,7 +9,7 @@ interface ISection {
 }
 
 type Props = {
-  sections?: Array<ISection> | any;
+  sections: Array<ISection>;
 };
 
 const AccordionList: FC<Props> = props => {
@@ -39,19 +40,12 @@ const AccordionList: FC<Props> = props => {
     );
   };
 
-  const _updateSections = (active_sections: Array<number>) => {
-    setActiveSections(active_sections);
+  const _updateSections = (activeSectionIds: Array<number>) => {
+    setActiveSections(activeSectionIds);
   };
 
   return (
-    <Accordion
-      sections={SECTIONS}
-      activeSections={activeSections}
-      renderSectionTitle={_renderSectionTitle}
-      renderHeader={_renderHeader}
-      renderContent={_renderContent}
-      onChange={_updateSections}
-    />
+    <Accordion sections={SECTIONS} activeSections={activeSections} renderSectionTitle={_renderSectionTitle} renderHeader={_renderHeader} renderContent={_renderContent} onChange={_updateSections} />
   );
 };
 

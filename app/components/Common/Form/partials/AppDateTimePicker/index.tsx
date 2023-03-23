@@ -1,10 +1,20 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React, {useState} from 'react';
+
+import moment from 'moment';
+import {Controller, UseFormReturn} from 'react-hook-form';
+
 import {AppInput, Block, DateTimePicker} from '@/components';
 import {useAppSelector} from '@/hooks';
-import moment from 'moment';
-import React, {useState} from 'react';
-import {Controller} from 'react-hook-form';
 
-export const AppDateTimePicker = (props: any) => {
+interface AppDateTimePickerProps {
+  label: string;
+  form: UseFormReturn;
+  name: string;
+  skipNext?: boolean;
+}
+
+export const AppDateTimePicker = (props: AppDateTimePickerProps) => {
   const {label, form, name, skipNext = false} = props;
   const [open, setOpen] = useState(false);
   const [inputDate, setInputDate] = useState('');
@@ -27,6 +37,7 @@ export const AppDateTimePicker = (props: any) => {
         render={({field: {onChange, ref}, fieldState: {error}}) => (
           <>
             <AppInput
+              onChangeText={() => {}}
               reference={ref}
               onPress={() => {
                 setOpen(true);

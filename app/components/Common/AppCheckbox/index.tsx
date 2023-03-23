@@ -1,17 +1,30 @@
-import {useStyledTag} from '@/hooks';
 import React from 'react';
+
+import AppIcon from '../AppIcon';
 import Block from '../Block';
 
-const AppCheckbox = (props: any) => {
-    const {checked} = props;
-    const Checkbox = useStyledTag(Block, 'w-25 h-25 bg-primary rounded-6 center middle'); // prettier-ignore
-    const CheckboxInner = useStyledTag(Block, 'w-13 h-13 bg-card rounded-3');
+import {useStyledTag} from '@/hooks';
+import {COLORS} from '@/theme';
+import {ICONS} from '@/utils';
 
-    return (
-        <Checkbox pressable {...props}>
-            {checked && <CheckboxInner />}
-        </Checkbox>
-    );
+interface ICheckBox {
+  checked: boolean;
+  onPress: () => void;
+}
+
+const AppCheckbox = (props: ICheckBox) => {
+  const {checked, onPress} = props;
+  const Checkbox = useStyledTag(Block, 'w-18 h-18 rounded-4 center middle border ', {
+    borderWidth: 1.5,
+    borderColor: checked ? COLORS.primary : COLORS.gray,
+    backgroundColor: checked ? COLORS.primary : '',
+  });
+
+  return (
+    <Checkbox {...props} pressable onPress={onPress}>
+      <React.Fragment>{checked && <AppIcon name={ICONS.checkCircle} size={14} color={COLORS.white} />}</React.Fragment>
+    </Checkbox>
+  );
 };
 
 export default AppCheckbox;

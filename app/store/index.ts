@@ -12,34 +12,34 @@ import {baseApi, rtkQueryErrorHandler, rtkQueryLoaderHandler} from '@/api';
 export {authRedux, settingsRedux};
 
 const rootPersistConfig = {
-    key: 'root',
-    version: 1,
-    blacklist: [baseApi.reducerPath],
-    storage: EncryptedStorage,
+  key: 'root',
+  version: 1,
+  blacklist: [baseApi.reducerPath],
+  storage: EncryptedStorage,
 };
 
 const settingsPersistConfig = {
-    key: 'settings',
-    version: 1,
-    blacklist: ['appLoader'],
-    storage: EncryptedStorage,
+  key: 'settings',
+  version: 1,
+  blacklist: ['appLoader'],
+  storage: EncryptedStorage,
 };
 
 export const rootReducer = combineReducers({
-    auth: authRedux.default,
-    settings: persistReducer(settingsPersistConfig, settingsRedux.default),
-    [baseApi.reducerPath]: baseApi.reducer,
+  auth: authRedux.default,
+  settings: persistReducer(settingsPersistConfig, settingsRedux.default),
+  [baseApi.reducerPath]: baseApi.reducer,
 });
 
 const persistedReducer = persistReducer(rootPersistConfig, rootReducer);
 
 export const store = configureStore({
-    reducer: persistedReducer,
-    middleware: getDefaultMiddleware =>
-        getDefaultMiddleware({
-            immutableCheck: false,
-            serializableCheck: false,
-        }).concat(baseApi.middleware, rtkQueryErrorHandler, rtkQueryLoaderHandler),
+  reducer: persistedReducer,
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware({
+      immutableCheck: false,
+      serializableCheck: false,
+    }).concat(baseApi.middleware, rtkQueryErrorHandler, rtkQueryLoaderHandler),
 });
 
 export const persistor = persistStore(store);

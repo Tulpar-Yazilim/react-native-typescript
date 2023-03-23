@@ -1,5 +1,7 @@
 import React, {FC, memo} from 'react';
+
 import DropShadow from 'react-native-drop-shadow';
+
 import {defaultShadows} from './style';
 
 type Props = {
@@ -17,18 +19,7 @@ type Props = {
 };
 
 const Shadow: FC<Props> = ({children, ...props}) => {
-  const {
-    xs,
-    sm,
-    md,
-    lg,
-    xl,
-    shadowColor,
-    shadowOpacity,
-    shadowRadius,
-    shadowOffset,
-    style,
-  } = props;
+  const {xs, sm, md, lg, xl, shadowColor, shadowOpacity, shadowRadius, shadowOffset, style} = props;
 
   return (
     <DropShadow
@@ -43,8 +34,7 @@ const Shadow: FC<Props> = ({children, ...props}) => {
         shadowRadius && {shadowRadius},
         shadowOffset && {shadowOffset},
         style,
-      ]}
-    >
+      ]}>
       {children}
     </DropShadow>
   );

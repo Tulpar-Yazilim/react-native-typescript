@@ -1,11 +1,11 @@
 const config = {
-    screens: {
-        AppStack: '',
-    },
+  screens: {
+    AppStack: '',
+  },
 };
 const linking = {
-    prefixes: ['reactNativeTypescript://app', 'https://reactnativetypescript.com'],
-    config,
+  prefixes: ['reactNativeTypescript://app', 'https://reactnativetypescript.com'],
+  config,
 };
 
 export default linking;

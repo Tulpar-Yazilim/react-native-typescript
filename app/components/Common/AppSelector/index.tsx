@@ -1,22 +1,25 @@
 import React, {memo} from 'react';
 import {Pressable, StyleProp, ViewStyle} from 'react-native';
+
 import {useTranslation} from 'react-i18next';
-import {AppButton, AppIcon, Block, Text} from '@/components';
-import {useTheme} from '@/hooks';
+
 import AppBottomSheet from '../AppBottomSheet';
 import AppFlatList from '../AppFlatList';
+
+import {AppButton, AppIcon, Block, Text} from '@/components';
+import {useTheme} from '@/hooks';
 import {ICONS} from '@/utils';
 
-type ItemProp = {
+interface ItemProp {
   title: string;
   value: string | number;
   icon?: React.ReactNode | React.ReactElement | null;
   isIcon?: boolean;
   iconColor?: string;
   iconName?: string;
-};
+}
 
-type Props = {
+interface Props {
   headerTitle?: string;
   isVisible: boolean;
   onClose?: () => void;
@@ -24,21 +27,46 @@ type Props = {
   itemsList: ItemProp[];
   selectedItem?: ItemProp;
   containerStyle?: StyleProp<ViewStyle>;
-};
+}
 
-const AppSelector = ({
-  headerTitle = '',
-  isVisible = false,
-  onClose,
-  onSelect,
-  itemsList = new Array<ItemProp>(),
-  selectedItem,
-  containerStyle,
-}: Props) => {
+const AppSelector = ({headerTitle = '', isVisible = false, onClose, onSelect, itemsList, selectedItem, containerStyle}: Props) => {
   const {t} = useTranslation();
   const {colors} = useTheme();
+
+  const RenderItem = ({item}: {item: ItemProp}) => (
+    <Pressable
+      onPress={() => {
+        onSelect && onSelect(item);
+        onClose && onClose();
+      }}>
+      <Block flex row middle pt-15 pb-15 px-30 borderBottom>
+        {item?.isIcon && (
+          <Block left pr-15>
+            <AppIcon name={item.iconName || ''} size={22} color={item.iconColor ? item.iconColor : colors.primary} />
+            {item.icon}
+          </Block>
+        )}
+        <Block flex>
+          <Text
+            styles={{
+              color: item?.value === selectedItem?.value ? colors.primary : colors.defaultTextColor,
+              fontSize: item?.value === selectedItem?.value ? 16 : 15,
+              fontWeight: item?.value === selectedItem?.value ? 'bold' : 'normal',
+            }}>
+            {item?.title}
+          </Text>
+        </Block>
+        {selectedItem && selectedItem?.value === item?.value && (
+          <Block right pl-20>
+            <AppIcon name={ICONS.checkCircle} size={20} />
+          </Block>
+        )}
+      </Block>
+    </Pressable>
+  );
+
   return (
-    <AppBottomSheet isFlatList isVisible={isVisible} onClose={onClose}>
+    <AppBottomSheet snapPoints={[200]} isFlatList isVisible={isVisible} onClose={onClose}>
       <Block style={containerStyle}>
         {headerTitle?.length > 0 && (
           <Block py-10 middle center>
@@ -48,51 +76,14 @@ const AppSelector = ({
           </Block>
         )}
         <Block>
-          <AppFlatList
-            data={itemsList}
-            renderItem={({item}: {item: ItemProp}) => (
-              <Pressable
-                onPress={() => {
-                  onSelect && onSelect(item);
-                  onClose && onClose();
-                }}>
-                <Block flex row middle pt-15 pb-15 px-30 borderBottom>
-                  {item?.isIcon && (
-                    <Block left pr-15>
-                      <AppIcon
-                        name={item.iconName || ''}
-                        size={22}
-                        color={item.iconColor ? item.iconColor : colors.primary}
-                      />
-                      {item.icon}
-                    </Block>
-                  )}
-                  <Block flex>
-                    <Text
-                      styles={{
-                        color: item?.value === selectedItem?.value ? colors.primary : colors.defaultTextColor,
-                        fontSize: item?.value === selectedItem?.value ? 16 : 15,
-                        fontWeight: item?.value === selectedItem?.value ? 'bold' : 'normal',
-                      }}>
-                      {item?.title}
-                    </Text>
-                  </Block>
-                  {selectedItem && selectedItem?.value === item?.value && (
-                    <Block right pl-20>
-                      <AppIcon name={ICONS.checkCircle} size={20} />
-                    </Block>
-                  )}
-                </Block>
-              </Pressable>
-            )}
-          />
+          <AppFlatList<ItemProp> data={itemsList} renderItem={RenderItem} />
         </Block>
 
         {!!selectedItem?.value && (
           <Block px-20 pt-20>
             <AppButton
               type="primary"
-              title={t('clear')}
+              title={t('clear').toString()}
               onPress={() => {
                 onSelect && onSelect({title: '', value: ''});
                 onClose && onClose();

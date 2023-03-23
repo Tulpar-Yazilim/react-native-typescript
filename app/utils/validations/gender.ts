@@ -5,7 +5,7 @@ import {TFunction} from 'i18next';
 
 // Validation
 const genderValidation = (t: TFunction<'translation', undefined, 'translation'>, key = 'gender') => ({
-    [key]: yup.string().required().label(t('labels.gender')),
+  [key]: yup.string().required().label(t('labels.gender')),
 });
 
 export {genderValidation};

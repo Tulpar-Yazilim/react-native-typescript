@@ -1,31 +1,36 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable prettier/prettier */
-import {AppCheckbox, Block, Text} from '@/components';
-import {get} from 'lodash';
 import React, {useEffect, useState} from 'react';
 import {Pressable, StyleSheet} from 'react-native';
 
-const RenderItem = ({
-  item,
-  displayProp,
-  form,
-  name,
-  valueProp,
-  theme,
-  onChange,
-  selections,
-}: any) => {
+import {useTheme} from '@react-navigation/native';
+import {get} from 'lodash';
+
+import {AppCheckbox, Block, Text} from '@/components';
+
+interface RenderItemProps {
+  item?: object | string | never | undefined;
+  name?: string;
+  options?: Array<object>;
+  valueProp?: string;
+  displayProp?: string;
+  onChange?: (_item: object, checked: boolean) => void;
+  selections?: Array<string> | Array<object> | Array<never>;
+}
+
+const RenderItem = ({item, displayProp, valueProp, onChange, selections}: RenderItemProps) => {
+  const theme = useTheme();
+
   const [checked, setChecked] = useState(false);
 
   useEffect(() => {
-    setChecked(selections.includes(get(item, valueProp)));
+    if (selections && selections?.length > 0) setChecked(selections?.includes?.(get(item, valueProp as never)));
   }, [selections]);
 
   return (
     <Pressable
       onPress={() => {
         setChecked(!checked);
-        onChange(get(item, valueProp), !checked);
+        onChange?.(get(item, valueProp as never), !checked);
       }}>
       <Block
         pt-16
@@ -35,16 +40,16 @@ const RenderItem = ({
         style={[
           styles.listItem,
           {
-            borderBottomColor: theme.colors.defaultTextColor,
+            borderBottomColor: theme.colors.text,
           },
         ]}>
         <Block row center>
-          <AppCheckbox checked={checked} mr-13 />
+          <AppCheckbox onPress={() => {}} checked={checked} mr-13 />
           <Text
             styles={{
-              color: theme.colors.defaultTextColor,
+              color: theme.colors.text,
             }}>
-            {get(item, displayProp)}
+            {get(item, displayProp as never)}
           </Text>
         </Block>
       </Block>

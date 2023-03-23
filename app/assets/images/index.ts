@@ -1,6 +1,6 @@
 const TulparLogo = {
-    light: require('./logo.png'),
-    dark: require('./logo.png'),
+  light: require('./logo.png'),
+  dark: require('./logo.png'),
 };
 
 export default {TulparLogo};

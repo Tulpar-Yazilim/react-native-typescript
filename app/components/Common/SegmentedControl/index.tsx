@@ -1,5 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, {memo, useEffect} from 'react';
-import {StyleSheet, useWindowDimensions} from 'react-native';
+import {useWindowDimensions} from 'react-native';
 
 import {random} from 'lodash';
 import Animated, {useAnimatedStyle, useSharedValue, withSpring} from 'react-native-reanimated';
@@ -15,7 +16,7 @@ function SegmentedControl({segments, currentIndex, onChange, containerMargin = 1
   const theme = useTheme();
   const {width: windowWidth} = useWindowDimensions();
 
-  const marginExtraction = (width || windowWidth) - containerMargin * 2;
+  const marginExtraction = (width || windowWidth) - containerMargin * 4;
   const translateValue = marginExtraction / segments.length;
   const tabTranslateValue = useSharedValue(0);
 
@@ -28,7 +29,7 @@ function SegmentedControl({segments, currentIndex, onChange, containerMargin = 1
 
   //#region Animation
   const DEFAULT_SPRING_CONFIG = {
-    stiffness: 150,
+    stiffness: 250,
     damping: 20,
     mass: 1,
     overshootClamping: false,
@@ -44,29 +45,17 @@ function SegmentedControl({segments, currentIndex, onChange, containerMargin = 1
 
   useEffect(() => {
     tabTranslateValue.value = withSpring(widthPixel(currentIndex * (translateValue * 1)), DEFAULT_SPRING_CONFIG);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentIndex]);
+  }, [currentIndex, tabTranslateValue, translateValue]);
   //#endregion
 
   return (
-    <Block {...props} row wrap rounded-10 relative style={{backgroundColor: tabColor ?? theme.colors.segmentBar}}>
-      <Animated.View
-        style={[
-          animatedStyles,
-          StyleSheet.absoluteFill,
-          styles.activeTab,
-          {
-            width: translateValue,
-            backgroundColor: activeColor ?? theme.colors.activeSegment,
-          },
-        ]}
-      />
+    <Block {...props} row wrap style={{backgroundColor: tabColor ?? theme.colors.segmentBar}}>
       {segments?.map((segment, index) => (
         <Block key={`${random(1000)}_segment_item`} flex pressable onPress={() => memoizedTabPressCallback(index)}>
-          <Block center middle h-35 rounded-10>
+          <Block center middle h-50 rounded-10>
             <Text
               semiBold
-              styles={{
+              style={{
                 color: currentIndex === index ? activeTitleColor : titleColor,
               }}>
               {segment.label}
@@ -74,18 +63,21 @@ function SegmentedControl({segments, currentIndex, onChange, containerMargin = 1
           </Block>
         </Block>
       ))}
+      <Animated.View
+        style={[
+          animatedStyles,
+          // StyleSheet.absoluteFill,
+          {
+            width: translateValue,
+            backgroundColor: activeColor ?? theme.colors.lightGray,
+            height: 4,
+            position: 'absolute',
+            bottom: 0,
+          },
+        ]}
+      />
     </Block>
   );
 }
-
-const styles = StyleSheet.create({
-  activeTab: {
-    left: 0,
-    right: 10,
-    bottom: 0,
-    top: 0,
-    borderRadius: 10,
-  },
-});
 
 export default memo(SegmentedControl);

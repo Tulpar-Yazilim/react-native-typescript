@@ -1,7 +1,8 @@
-import {AppInput, AppScreen, Block} from '@/components';
 import React, {FC, useState} from 'react';
 
-export const AboutScreen: FC<any> = ({}) => {
+import {AppInput, AppScreen, Block} from '@/components';
+
+export const AboutScreen: FC = () => {
   const [inputValue, setInputValue] = useState('');
 
   return (
@@ -9,16 +10,16 @@ export const AboutScreen: FC<any> = ({}) => {
       <Block mb={300}>
         <AppInput
           value={inputValue}
-          onChange={(text: string) => {
-            setInputValue(text);
+          onChangeText={_text => {
+            setInputValue(_text);
           }}
           placeholder="test"
         />
       </Block>
       <AppInput
         value={inputValue}
-        onChange={(text: string) => {
-          setInputValue(text);
+        onChangeText={_text => {
+          setInputValue(_text);
         }}
         animatedPlaceholder="Name Name Name Name"
       />

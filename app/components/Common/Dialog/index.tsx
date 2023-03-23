@@ -1,19 +1,20 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, {useEffect, useState} from 'react';
 import {BackHandler, Keyboard, Pressable, StyleSheet} from 'react-native';
 
-import Block from '../Block';
-import Text from '../Text';
-import AppInput from '../AppInput';
-
-import {useTheme} from '@/hooks';
-
-import Animated, {useAnimatedStyle, useSharedValue, withSpring} from 'react-native-reanimated';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {random} from 'lodash';
+import Animated, {useAnimatedStyle, useSharedValue, withSpring} from 'react-native-reanimated';
+
+import AppInput from '../AppInput';
+import Block from '../Block';
+import Text from '../Text';
+
+import {useTheme} from '@/hooks';
 
 export default function Alert({route}: any) {
-  const navigation: StackNavigationProp<any> = useNavigation();
+  const navigation: StackNavigationProp<never> = useNavigation();
 
   const theme = useTheme();
   const {title, message, action, option, position, alertType, placeholder} = route?.params;
@@ -61,7 +62,7 @@ export default function Alert({route}: any) {
     const backHandler = BackHandler.addEventListener('hardwareBackPress', backAction);
 
     return () => backHandler.remove();
-  }, []);
+  }, [navigation]);
 
   //#endregion
 
@@ -110,7 +111,7 @@ export default function Alert({route}: any) {
     return () => {
       offset.value = 0;
     };
-  }, []);
+  }, [offset]);
 
   return (
     <React.Fragment>
@@ -131,12 +132,7 @@ export default function Alert({route}: any) {
           </Block>
           {alertType === 'prompt' && (
             <Block bg-lightGrey py-10 px-15>
-              <AppInput
-                placeholder={placeholder}
-                value={promptText}
-                onChange={(_text: string) => setPromptText(_text)}
-                onClear={() => setPromptText('')}
-              />
+              <AppInput placeholder={placeholder} value={promptText} onChangeText={(text: string) => setPromptText(text)} />
             </Block>
           )}
           <Block style={[styles.contentButton, {justifyContent: action?.length === 1 ? 'center' : 'flex-end'}]}>

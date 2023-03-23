@@ -1,163 +1,161 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React, {useEffect, useState} from 'react';
+import {Modal, Pressable, SafeAreaView, StyleSheet} from 'react-native';
+
+import {debounce, get} from 'lodash';
+import {Controller, UseFormReturn} from 'react-hook-form';
+
+import AppInput from '../../../AppInput';
+
 import {AppButton, AppFlatList, AppIcon, Block, Text} from '@/components';
 import {useTheme} from '@/hooks';
 import {ICONS} from '@/utils';
-import {debounce, get} from 'lodash';
-import React, {FC, useEffect, useState} from 'react';
-import {Controller} from 'react-hook-form';
-import {Modal, Pressable, SafeAreaView, StyleSheet} from 'react-native';
-import AppInput from '../../../AppInput';
 
-interface AppAutoCompleteProps {
-    placeholder?: string;
-    options: Array<any>;
-    valueProp: string;
-    displayProp: string;
-    form: any;
-    name?: string;
-    label: string;
+interface AppAutoCompleteProps<T> {
+  placeholder?: string;
+  options: Array<T>;
+  valueProp: string;
+  displayProp: string;
+  form: UseFormReturn;
+  name: string;
+  label: string;
 }
 
-const AppAutoComplete: FC<AppAutoCompleteProps | any> = props => {
-    const {options, valueProp, displayProp, label, name, form} = props;
-    const [open, setOpen] = useState(false);
-    const [current, setCurrent] = useState(null) as any;
-    const [filteredOptions, setFilteredOptions] = useState(options);
+function AppAutoComplete<T>(props: AppAutoCompleteProps<T>) {
+  const {options, valueProp, displayProp, label, name, form} = props;
+  const [open, setOpen] = useState(false);
+  const [current, setCurrent] = useState<any>(null);
+  const [filteredOptions, setFilteredOptions] = useState(options);
 
-    const theme = useTheme();
+  const theme = useTheme();
 
-    const onFilter = debounce(text => {
-        setFilteredOptions(options.filter((item: any) => get(item, displayProp).toLowerCase().includes(text.toLowerCase())));
-    }, 300);
+  const onFilter = debounce(text => {
+    setFilteredOptions(options.filter(item => get(item, displayProp).toLowerCase().includes(text.toLowerCase())));
+  }, 300);
 
-    useEffect(() => {
-        setFilteredOptions(options);
-    }, [options]);
+  useEffect(() => {
+    setFilteredOptions(options);
+  }, [options]);
 
-    useEffect(() => {
-        if (open && get(current, valueProp)) {
-            setFilteredOptions([current, ...filteredOptions.filter((r: any) => get(r, valueProp) !== get(current, valueProp))]);
-        }
-    }, [open]);
+  useEffect(() => {
+    if (open && get(current, valueProp)) {
+      setFilteredOptions([current, ...filteredOptions.filter(r => get(r, valueProp) !== get(current, valueProp))]);
+    }
+  }, [open, current, valueProp, filteredOptions]);
 
-    return (
-        <Controller
-            name={name}
-            control={form.control}
-            render={({field: {onChange}, fieldState: {error}}) => (
-                <>
-                    <AppInput
+  return (
+    <Controller
+      name={name}
+      control={form.control}
+      render={({field: {onChange}, fieldState: {error}}) => (
+        <>
+          <AppInput
+            onPress={() => {
+              setOpen(true);
+            }}
+            onChangeText={() => {}}
+            editable={false}
+            animatedPlaceholder={label}
+            disabled
+            value={current && get(current, displayProp)}
+            onClear={() => {
+              setCurrent(null);
+              onChange('');
+            }}
+          />
+          <Block px={10}>
+            <Text error italic size={12}>
+              {error?.message}
+            </Text>
+          </Block>
+          <Modal
+            animationType="slide"
+            transparent={false}
+            visible={open}
+            onRequestClose={() => {
+              setOpen(!open);
+            }}>
+            <Block style={{flex: 1}}>
+              <SafeAreaView style={{flex: 1, backgroundColor: theme.colors.screenBgColor}}>
+                <Block py-20 style={{flex: 1}}>
+                  <Block row center px-12 w-full>
+                    <Block w-40>
+                      <AppButton
+                        type="icon"
                         onPress={() => {
-                            setOpen(true);
+                          setOpen(false);
                         }}
-                        editable={false}
-                        animatedPlaceholder={label}
-                        disabled
-                        value={current && get(current, displayProp)}
-                        onClear={() => {
-                            setCurrent(null);
-                            onChange('');
-                        }}
-                    />
-                    <Block px={10}>
-                        <Text error italic size={12}>
-                            {error?.message}
-                        </Text>
+                        icon={<AppIcon name={ICONS.chevronRight} color={theme.colors.defaultTextColor} />}
+                      />
                     </Block>
-                    <Modal
-                        animationType="slide"
-                        transparent={false}
-                        visible={open}
-                        onRequestClose={() => {
-                            setOpen(!open);
+                    <Block flex>
+                      <AppInput
+                        placeholder="Search"
+                        onChangeText={(text: string) => {
+                          onFilter(text);
                         }}
-                    >
-                        <Block style={{flex: 1}}>
-                            <SafeAreaView style={{flex: 1, backgroundColor: theme.colors.screenBgColor}}>
-                                <Block py-20 style={{flex: 1}}>
-                                    <Block row center px-12 w-full>
-                                        <Block w-40>
-                                            <AppButton
-                                                type="icon"
-                                                onPress={() => {
-                                                    setOpen(false);
-                                                }}
-                                                icon={<AppIcon name={ICONS.arrowLeft} color={theme.colors.defaultTextColor} />}
-                                            />
-                                        </Block>
-                                        <Block flex>
-                                            <AppInput
-                                                placeholder="Search"
-                                                onChange={(text: string) => {
-                                                    onFilter(text);
-                                                }}
-                                            />
-                                        </Block>
-                                    </Block>
-                                    <AppFlatList
-                                        preloader={false}
-                                        data={filteredOptions}
-                                        renderItem={({item, index}: any) => (
-                                            <Pressable
-                                                onPress={() => {
-                                                    setCurrent(item);
-                                                    setOpen(false);
-                                                    setFilteredOptions(options);
-                                                    onChange(get(item, valueProp));
-                                                }}
-                                            >
-                                                <Block
-                                                    pt-16
-                                                    pb-16
-                                                    mr-20
-                                                    ml-20
-                                                    style={[
-                                                        styles.listItem,
-                                                        {
-                                                            borderBottomColor: theme.colors.defaultTextColor,
-                                                        },
-                                                    ]}
-                                                >
-                                                    <Block row center>
-                                                        {get(item, valueProp) == get(current, valueProp) && (
-                                                            <Text
-                                                                mr-10
-                                                                styles={{
-                                                                    fontSize: 9,
-                                                                    color: theme.colors.defaultTextColor,
-                                                                }}
-                                                            >
-                                                                {'\u2B24'}
-                                                            </Text>
-                                                        )}
-                                                        <Text
-                                                            styles={{
-                                                                color: get(item, valueProp) == get(current, valueProp) ? theme.colors.defaultTextColor : theme.colors.defaultTextColor,
-                                                                fontSize: get(item, valueProp) == get(current, valueProp) ? 18 : 15,
-                                                                fontWeight: get(item, valueProp) == get(current, valueProp) ? 'bold' : 'normal',
-                                                            }}
-                                                        >
-                                                            {get(item, displayProp)}
-                                                        </Text>
-                                                    </Block>
-                                                </Block>
-                                            </Pressable>
-                                        )}
-                                    />
-                                </Block>
-                            </SafeAreaView>
+                      />
+                    </Block>
+                  </Block>
+                  <AppFlatList
+                    preloader={false}
+                    data={filteredOptions}
+                    renderItem={item => (
+                      <Pressable
+                        onPress={() => {
+                          setCurrent(item);
+                          setOpen(false);
+                          setFilteredOptions(options);
+                          onChange(get(item, valueProp));
+                        }}>
+                        <Block
+                          pt-16
+                          pb-16
+                          mr-20
+                          ml-20
+                          style={[
+                            styles.listItem,
+                            {
+                              borderBottomColor: theme.colors.defaultTextColor,
+                            },
+                          ]}>
+                          <Block row center>
+                            {get(item, valueProp) === get(current, valueProp) && (
+                              <Text
+                                mr-10
+                                styles={{
+                                  fontSize: 9,
+                                  color: theme.colors.defaultTextColor,
+                                }}>
+                                {'\u2B24'}
+                              </Text>
+                            )}
+                            <Text
+                              styles={{
+                                color: get(item, valueProp) === get(current, valueProp) ? theme.colors.defaultTextColor : theme.colors.defaultTextColor,
+                                fontSize: get(item, valueProp) === get(current, valueProp) ? 18 : 15,
+                                fontWeight: get(item, valueProp) === get(current, valueProp) ? 'bold' : 'normal',
+                              }}>
+                              {get(item, displayProp)}
+                            </Text>
+                          </Block>
                         </Block>
-                    </Modal>
-                </>
-            )}
-        />
-    );
-};
+                      </Pressable>
+                    )}
+                  />
+                </Block>
+              </SafeAreaView>
+            </Block>
+          </Modal>
+        </>
+      )}
+    />
+  );
+}
 const styles = StyleSheet.create({
-    listItem: {
-        borderBottomWidth: 1,
-    },
+  listItem: {
+    borderBottomWidth: 1,
+  },
 });
 
 export default AppAutoComplete;

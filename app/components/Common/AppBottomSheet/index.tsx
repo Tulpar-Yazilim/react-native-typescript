@@ -1,40 +1,46 @@
-import React, {memo, useEffect, useMemo, useRef} from 'react';
-import {Pressable, StatusBar, StyleSheet} from 'react-native';
-import {Portal} from 'react-native-portalize';
+import React, {forwardRef, ReactNode, Ref, useEffect, useImperativeHandle, useMemo, useRef} from 'react';
+import {Pressable, StatusBar, StyleSheet, ViewStyle} from 'react-native';
 
-import BottomSheet, {
-  BottomSheetBackdropProps,
-  BottomSheetScrollView,
-  BottomSheetView,
-  useBottomSheetDynamicSnapPoints,
-  useBottomSheetTimingConfigs,
-} from '@gorhom/bottom-sheet';
+import BottomSheet, {BottomSheetBackdropProps, BottomSheetProps, BottomSheetScrollView, BottomSheetView, useBottomSheetDynamicSnapPoints, useBottomSheetTimingConfigs} from '@gorhom/bottom-sheet';
+import {BottomSheetMethods} from '@gorhom/bottom-sheet/lib/typescript/types';
+import {Portal} from 'react-native-portalize';
 import Animated, {Easing, Extrapolate, interpolate, useAnimatedStyle} from 'react-native-reanimated';
 
-import {COLORS, SIZES, window} from '@/theme';
-import {rgba} from '@/utils';
-import {useTheme} from '@/hooks';
 import Block from '../Block';
 
-const AppBottomSheet = ({
-  children = <></>,
-  onClose = () => {},
-  isFlatList = false,
-  isVisible = false,
-  customStyles = {},
-  ...props
-}) => {
-  const bottomSheetRef = useRef<BottomSheet>(null);
-  const theme = useTheme();
+import {COLORS, window} from '@/theme';
+import {heightPixel, rgba} from '@/utils';
 
-  const initialSnapPoints = useMemo(() => ['CONTENT_HEIGHT'], []);
-  const {animatedHandleHeight, animatedSnapPoints, animatedContentHeight, handleContentLayout} =
-    useBottomSheetDynamicSnapPoints(initialSnapPoints);
+interface AppBottomSheetProps extends BottomSheetProps {
+  children: ReactNode;
+  backdrop?: boolean;
+  portal?: boolean;
+  customStyles?: ViewStyle;
+  isFlatList?: boolean;
+  isVisible?: boolean;
+}
+
+const AppBottomSheet = (props: AppBottomSheetProps, ref: Ref<BottomSheetMethods>) => {
+  const {children = <></>, enablePanDownToClose = true, backdrop = true, onClose = () => {}, portal = true, isFlatList = false, isVisible = false, customStyles = {}} = props;
+  const bottomSheetRef = useRef<BottomSheet>(null);
+
+  const {animatedHandleHeight, animatedContentHeight, handleContentLayout} = useBottomSheetDynamicSnapPoints([200]);
 
   const animationConfigs = useBottomSheetTimingConfigs({
     duration: 200,
     easing: Easing.inOut(Easing.linear),
   });
+
+  useImperativeHandle(ref, () => ({
+    snapToIndex: (value: number) => {
+      bottomSheetRef.current && bottomSheetRef.current.snapToIndex(value);
+    },
+    snapToPosition: () => {},
+    expand: () => {},
+    collapse: () => {},
+    close: () => {},
+    forceClose: () => {},
+  }));
 
   const CustomBackdrop = ({style}: BottomSheetBackdropProps) => {
     // animated variables
@@ -65,57 +71,52 @@ const AppBottomSheet = ({
       </Animated.View>
     );
   };
-  const BackdropComponent = isVisible ? CustomBackdrop : null;
+  const BackdropComponent = isVisible && backdrop ? CustomBackdrop : null;
 
   useEffect(() => {
     if (isVisible) {
-      bottomSheetRef.current?.expand();
+      bottomSheetRef.current?.snapToIndex(0);
     } else {
       bottomSheetRef.current?.close();
     }
   }, [isVisible]);
 
+  const Provider = portal ? Portal : React.Fragment;
+
   return (
-    <Portal>
+    <Provider>
       <BottomSheet
         ref={bottomSheetRef}
         index={-1}
-        enablePanDownToClose
-        snapPoints={animatedSnapPoints}
+        enablePanDownToClose={enablePanDownToClose}
         handleHeight={animatedHandleHeight}
         contentHeight={animatedContentHeight}
         topInset={StatusBar.currentHeight || 0}
         onClose={onClose}
         backdropComponent={BackdropComponent}
-        style={SIZES.shadow}
-        animationConfigs={animationConfigs}
-        backgroundStyle={{
-          backgroundColor: theme.colors.cardBg,
+        style={{
+          //...SIZES.shadow,
+          borderRadius: 20,
+          overflow: 'hidden',
+          backgroundColor: 'red',
         }}
+        animationConfigs={animationConfigs}
         {...props}>
-        <Block>
+        <Block style={{flex: 1}}>
           {isFlatList ? (
-            <BottomSheetView
-              onLayout={handleContentLayout}
-              style={[
-                styles.bottomSheetView,
-                customStyles,
-                {
-                  backgroundColor: theme.colors.cardBg,
-                  maxHeight: window.height - 100,
-                },
-              ]}>
+            <BottomSheetView onLayout={handleContentLayout} style={[styles.bottomSheetView, customStyles]}>
               {children}
             </BottomSheetView>
           ) : (
             <BottomSheetScrollView
+              showsVerticalScrollIndicator={false}
+              showsHorizontalScrollIndicator={false}
               onLayout={handleContentLayout}
               style={[
                 styles.bottomSheetView,
                 customStyles,
                 {
-                  backgroundColor: theme.colors.cardBg,
-                  maxHeight: window.height - 100,
+                  maxHeight: window.height - heightPixel(180),
                 },
               ]}>
               {children}
@@ -123,7 +124,7 @@ const AppBottomSheet = ({
           )}
         </Block>
       </BottomSheet>
-    </Portal>
+    </Provider>
   );
 };
 
@@ -133,4 +134,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default memo(AppBottomSheet);
+export default forwardRef(AppBottomSheet);

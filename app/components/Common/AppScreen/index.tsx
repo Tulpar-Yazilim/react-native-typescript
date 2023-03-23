@@ -1,8 +1,8 @@
-/* eslint-disable react-native/no-inline-styles */
-import React, {FC, memo} from 'react';
-import {Keyboard, Pressable, ScrollView, View} from 'react-native';
+import React, {memo, ReactNode} from 'react';
+import {Keyboard, Pressable, ScrollView, View, ViewStyle} from 'react-native';
 
 import {useNavigation} from '@react-navigation/native';
+import {StackNavigationOptions} from '@react-navigation/stack';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {SafeAreaView} from 'react-native-safe-area-context';
 
@@ -10,24 +10,28 @@ import layout from '../../../config/layout.json';
 import {Header} from '../../../navigation/components/DefaultHeader';
 import {getStyleShortcuts} from '../../../utils/style-shortcuts';
 
-import {Text} from '@/components';
+import {Block, Text} from '@/components';
 import {useTheme} from '@/hooks';
 import {bottomTabHeight, window} from '@/theme';
-import { heightPixel } from '@/utils';
+import {heightPixel, UseThemeType} from '@/utils';
 
-type Props = {
+type Props<T> = {
   scroll?: boolean;
   safe?: boolean;
   keyboardScroll?: boolean;
-  customStyle?: any;
-  navigationOptions?: any;
+  customStyle?: ViewStyle;
+  navigationOptions?: StackNavigationOptions;
   flatList?: boolean;
+  children: ReactNode;
+  loading?: boolean;
+  navigation?: T;
 };
 
-const AppScreen: FC<Props | any> = ({children, ...props}) => {
-  const {scroll, safe, keyboardScroll, customStyle, navigationOptions, flatList, loading} = props;
+function AppScreen<T>(props: Props<T>) {
+  const {children, scroll, safe, keyboardScroll, customStyle, navigationOptions, flatList, loading} = props;
   const navigation = useNavigation();
   const {colors} = useTheme();
+  const screenProps = props as UseThemeType;
 
   const screenCommonStyles = {
     padding: heightPixel(window.offset),
@@ -41,11 +45,11 @@ const AppScreen: FC<Props | any> = ({children, ...props}) => {
     <>
       <Header navigationOptions={navigationOptions} navigation={navigation} />
       {loading ? (
-        <Text>Loading ... </Text>
+        <Text>loading</Text>
       ) : (
         <>
           {scroll && safe && !keyboardScroll && (
-            <ScrollView style={{...screenCommonStyles, ...getStyleShortcuts(props)}} showsVerticalScrollIndicator={false} showsHorizontalScrollIndicator={false}>
+            <ScrollView style={{...screenCommonStyles, ...getStyleShortcuts(screenProps)}} showsVerticalScrollIndicator={false} showsHorizontalScrollIndicator={false}>
               <Pressable
                 onPress={() => Keyboard.dismiss()}
                 style={[
@@ -58,7 +62,7 @@ const AppScreen: FC<Props | any> = ({children, ...props}) => {
             </ScrollView>
           )}
           {scroll && !safe && (
-            <ScrollView style={{...screenCommonStyles, ...getStyleShortcuts(props)}} showsVerticalScrollIndicator={false} showsHorizontalScrollIndicator={false}>
+            <ScrollView style={{...screenCommonStyles, ...getStyleShortcuts(screenProps)}} showsVerticalScrollIndicator={false} showsHorizontalScrollIndicator={false}>
               <Pressable
                 style={{
                   minHeight: '100%',
@@ -81,7 +85,7 @@ const AppScreen: FC<Props | any> = ({children, ...props}) => {
                 {
                   ...screenCommonStyles,
                 },
-                {...getStyleShortcuts(props)},
+                {...getStyleShortcuts(screenProps)},
               ]}>
               <Pressable style={{flex: 1}} onPress={() => Keyboard.dismiss()}>
                 {children}
@@ -90,11 +94,11 @@ const AppScreen: FC<Props | any> = ({children, ...props}) => {
           )}
           {keyboardScroll && !safe && (
             <KeyboardAwareScrollView
-              style={{...screenCommonStyles, ...getStyleShortcuts(props)}}
+              style={{...screenCommonStyles, ...getStyleShortcuts(screenProps)}}
               showsVerticalScrollIndicator={false}
               showsHorizontalScrollIndicator={false}
               scrollEnabled={scroll}
-              contentContainerStyle={{...getStyleShortcuts(props)}}>
+              contentContainerStyle={{...getStyleShortcuts(screenProps)}}>
               <Pressable
                 style={{
                   minHeight: '100%',
@@ -105,7 +109,7 @@ const AppScreen: FC<Props | any> = ({children, ...props}) => {
                     {
                       paddingBottom: layout.menu === 'bottom' ? bottomTabHeight + 20 : 50,
                     },
-                    getStyleShortcuts(props),
+                    getStyleShortcuts(screenProps),
                   ]}>
                   {children}
                 </View>
@@ -118,7 +122,7 @@ const AppScreen: FC<Props | any> = ({children, ...props}) => {
                 {
                   ...screenCommonStyles,
                 },
-                {...getStyleShortcuts(props)},
+                {...getStyleShortcuts(screenProps)},
               ]}
               showsVerticalScrollIndicator={false}
               showsHorizontalScrollIndicator={false}
@@ -130,18 +134,18 @@ const AppScreen: FC<Props | any> = ({children, ...props}) => {
             </KeyboardAwareScrollView>
           )}
           {!scroll && !safe && !keyboardScroll && !flatList && (
-            <Pressable style={{flex: 1}} onPress={() => Keyboard.dismiss()}>
+            <Block pressable style={{flex: 1}} onPress={() => Keyboard.dismiss()}>
               <View
                 style={[
                   {
                     ...screenCommonStyles,
                     flex: 1,
                   },
-                  {...getStyleShortcuts(props)},
+                  {...getStyleShortcuts(screenProps)},
                 ]}>
                 {children}
               </View>
-            </Pressable>
+            </Block>
           )}
           {flatList && (
             <View
@@ -150,7 +154,7 @@ const AppScreen: FC<Props | any> = ({children, ...props}) => {
                   ...screenCommonStyles,
                   flex: 1,
                 },
-                {...getStyleShortcuts(props)},
+                {...getStyleShortcuts(screenProps)},
               ]}>
               {children}
             </View>
@@ -159,6 +163,6 @@ const AppScreen: FC<Props | any> = ({children, ...props}) => {
       )}
     </>
   );
-};
+}
 
 export default memo(AppScreen);

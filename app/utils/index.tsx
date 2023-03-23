@@ -8,6 +8,7 @@ export * from './style-shortcuts';
 export * from './validations';
 export * from './device-helper';
 export * from './size-helper';
+export * from './currency';
 
 import rgba from './rgba';
 export {rgba};

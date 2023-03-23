@@ -5,7 +5,7 @@ const min = 20;
 
 // Validation
 const messageValidation = (t: TFunction<'translation', undefined, 'translation'>, key = 'message') => ({
-    [key]: yup.string().required().label(t('common.message')).min(min),
+  [key]: yup.string().required().label(t('common.message')).min(min),
 });
 
 export {messageValidation};

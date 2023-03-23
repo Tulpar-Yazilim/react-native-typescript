@@ -1,8 +1,8 @@
 declare namespace NodeJS {
-    interface Process {
-        env: {
-            NODE_ENV: string;
-            STORYBOOK: string;
-        };
-    }
+  interface Process {
+    env: {
+      NODE_ENV: string;
+      STORYBOOK: string;
+    };
+  }
 }

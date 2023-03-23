@@ -67,8 +67,6 @@ const HomePage = () => {
     });
   }, [navigation, language]);
 
-  const value = true;
-
   const Test = useStyledTag(Block, 'w-full bg-primary p-20 rounded-7 mt-20', {});
 
   return (
@@ -255,7 +253,7 @@ const HomePage = () => {
         <LanguageArea mt-5>
           <Row row>
             <Col col-6 pr-2>
-              <AppButton mb={10} type="primary" title={'Türkçe'} onPress={() => onChangeLang('tr')} />
+              <AppButton type="primary" title={'Türkçe'} onPress={() => onChangeLang('tr')} mb-10 />
             </Col>
             <Col col-6 pl-2>
               <AppButton type="primary" title={'İngilizce'} onPress={() => onChangeLang('en')} />
@@ -279,7 +277,7 @@ const HomePage = () => {
             </Pressable>
           )}
         </Block>
-        <AppBottomSheet isVisible={bottomSheetVisibility} onClose={() => setBottomSheetVisibility(false)}>
+        <AppBottomSheet snapPoints={[0, 200]} isVisible={bottomSheetVisibility} onClose={() => setBottomSheetVisibility(false)}>
           <Block h={200} mt-5 mb-25 px-10>
             <Block row center pt-3>
               <Text black>Dark Theme</Text>
