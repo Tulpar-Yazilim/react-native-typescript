@@ -2,35 +2,14 @@ import {useNavigation} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
 
 import Routes from '@/navigation/Routes';
+import {DialogProps} from '@/utils';
 import {NavigationType} from '@/utils/infrastructure/types';
-
-interface Action {
-  text: string;
-  onPress?: (_promptText?: string | null) => void;
-  style: 'cancel' | 'default' | 'confirm';
-}
-
-interface Option {
-  cancelable: boolean;
-  backgroundClose: boolean;
-}
-
-interface DialogComponent {
-  type: 'success' | 'warning' | 'error';
-  position: 'top' | 'bottom' | 'left' | 'right';
-  placeholder?: string;
-  title: string;
-  message: string;
-  option?: Option;
-  alertType?: 'confirm' | 'alert' | 'prompt';
-  action?: Array<Action>;
-}
 
 export default function Dialog() {
   const {t} = useTranslation();
   const navigation = useNavigation<NavigationType>();
 
-  const show = ({type, title, message, position, action, option, alertType, placeholder}: DialogComponent) => {
+  const show = ({type, title, message, position, action, option, alertType, placeholder}: DialogProps) => {
     setTimeout(() => {
       navigation.navigate(Routes.ALERT, {
         type: type ?? 'warning',

@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable eqeqeq */
 import React, {FC, memo, useEffect, useState} from 'react';
 import {Pressable, StyleProp, ViewStyle} from 'react-native';
 
@@ -32,23 +30,26 @@ interface AppSelectorProps {
   containerStyle?: StyleProp<ViewStyle>;
 }
 
+const initialValue = {value: '', title: ''};
+
 const AppSelector: FC<AppSelectorProps> = props => {
   const {t} = useTranslation();
 
   const {options, valueProp, displayProp, label, name, form, headerTitle, containerStyle} = props;
-  const [open, setOpen] = useState(false);
-  const [current, setCurrent] = useState<any>({current: '', title: ''});
+  const [open, setOpen] = useState<boolean>(false);
+  const [current, setCurrent] = useState(initialValue);
   const {colors} = useTheme();
 
   useEffect(() => {
     if (options.length > 0 && form) {
       const formValue = form.getValues()?.[name || ''];
       if (formValue) {
-        const _value = options.find((item: ItemProp) => formValue == get(item, valueProp)) as any;
-        setCurrent({
-          [displayProp]: _value?.[displayProp],
-          [valueProp]: _value?.[valueProp],
-        });
+        const _value = options.find((item: ItemProp) => formValue === get(item, valueProp));
+        const _current = {
+          [displayProp as never]: _value?.[displayProp as never],
+          [valueProp as never]: _value?.[valueProp as never],
+        } as never;
+        setCurrent(_current);
       }
     }
   }, [displayProp, form, name, options, valueProp]);
@@ -93,7 +94,7 @@ const AppSelector: FC<AppSelectorProps> = props => {
                       renderItem={({item}) => (
                         <Pressable
                           onPress={() => {
-                            setCurrent && setCurrent(item);
+                            setCurrent && setCurrent(item as never);
                             setOpen && setOpen(false);
                             onChange && onChange(get(item, valueProp));
                           }}>
@@ -107,14 +108,14 @@ const AppSelector: FC<AppSelectorProps> = props => {
                             <Block flex>
                               <Text
                                 styles={{
-                                  color: get(item, valueProp) == get(current, valueProp) ? colors.primary : colors.defaultTextColor,
-                                  fontSize: get(item, valueProp) == get(current, valueProp) ? 16 : 15,
-                                  fontWeight: get(item, valueProp) == get(current, valueProp) ? 'bold' : 'normal',
+                                  color: get(item, valueProp) === get(current, valueProp) ? colors.primary : colors.defaultTextColor,
+                                  fontSize: get(item, valueProp) === get(current, valueProp) ? 16 : 15,
+                                  fontWeight: get(item, valueProp) === get(current, valueProp) ? 'bold' : 'normal',
                                 }}>
                                 {get(item, displayProp)}
                               </Text>
                             </Block>
-                            {get(item, valueProp) == get(current, valueProp) && (
+                            {get(item, valueProp) === get(current, valueProp) && (
                               <Block right pl-20>
                                 <AppIcon name={ICONS.checkCircle} size={20} />
                               </Block>

@@ -58,13 +58,13 @@ function FlatList<T>(props: IFListProps<T>) {
       return <></>;
     }
     return (
-      <Block center midle>
+      <Block center middle>
         <ActivityIndicator animating color={COLORS.black} size="large" style={{marginTop: 15, marginBottom: 15}} />
       </Block>
     );
   };
 
-  const PreloaderRenderItem = () => <Block preloader height={preloaderHeight} width={preloaderWidth} preloaderStyle={preloaderStyle} style={[{marginBottom: 10}, preloaderContainerStyle]} />;
+  const PreloaderRenderItem = () => <Block preloader h={preloaderHeight} w={preloaderWidth} preloaderStyle={preloaderStyle} style={[{marginBottom: 10}, preloaderContainerStyle]} />;
 
   return preloader ? (
     <>

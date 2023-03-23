@@ -16,7 +16,7 @@ const toastConfig = {
       text2Style={styles.message}
       text2NumberOfLines={2}
       renderLeadingIcon={() => (
-        <Block paddingLeft={10} middle center>
+        <Block pl-10 middle center>
           <AppIcon name={ICONS.checkCircle} color={COLORS.successText} size={26} />
         </Block>
       )}
@@ -30,7 +30,7 @@ const toastConfig = {
       text2Style={styles.message}
       text2NumberOfLines={2}
       renderLeadingIcon={() => (
-        <Block paddingLeft={10} middle center>
+        <Block pl-10 middle center>
           <AppIcon name={ICONS.close} color={COLORS.error} size={26} />
         </Block>
       )}
@@ -44,7 +44,7 @@ const toastConfig = {
       text2Style={styles.message}
       text2NumberOfLines={2}
       renderLeadingIcon={() => (
-        <Block paddingLeft={10} middle center>
+        <Block pl-10 middle center>
           <AppIcon name={ICONS.alertTriangle} color={COLORS.warning} size={26} />
         </Block>
       )}
@@ -58,7 +58,7 @@ const toastConfig = {
       text2Style={styles.message}
       text2NumberOfLines={2}
       renderLeadingIcon={() => (
-        <Block paddingLeft={10} middle center>
+        <Block pl-10 middle center>
           <AppIcon name={ICONS.info} color={COLORS.primary} size={26} />
         </Block>
       )}

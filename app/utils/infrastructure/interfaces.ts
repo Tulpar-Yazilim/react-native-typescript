@@ -5,8 +5,8 @@ export interface IThemeImageObject {
 }
 
 export interface IStyleShortcuts {
-  w?: number;
-  h?: number;
+  w?: number | string;
+  h?: number | string;
   mx?: number;
   my?: number;
   mr?: number;
@@ -20,18 +20,28 @@ export interface IStyleShortcuts {
   pb?: number;
   pt?: number;
   pr?: number;
-  bg?: number;
+  bg?: string;
   fs?: number;
   bw?: number;
   align?: string;
   justify?: string;
   direction?: string;
-  backgoundColor?: string;
-  flex?: number;
+  backgroundColor?: string;
+  borderBottom?: boolean | number;
+  flex?: number | boolean;
+  border?: number | boolean;
   radius?: number;
   borderRadius?: number;
   color?: string;
   s?: string;
+  row?: boolean;
+  column?: boolean;
+  center?: boolean;
+  middle?: boolean;
+  right?: boolean;
+  left?: boolean;
+  wrap?: boolean;
+  sm?: boolean;
 }
 
 export interface ITextStyles {
@@ -86,4 +96,26 @@ export interface IPredefinedStyles {
 export interface IStyles {
   shortcutStyles: IStyleShortcuts;
   predefinedStyles: IPredefinedStyles;
+}
+
+export interface DialogAction {
+  text: string;
+  onPress?: (_promptText?: string | null) => void;
+  style: 'cancel' | 'default' | 'confirm';
+}
+
+export interface DialogOption {
+  cancelable: boolean;
+  backgroundClose: boolean;
+}
+
+export interface DialogProps {
+  type: 'success' | 'warning' | 'error';
+  position: 'top' | 'bottom' | 'left' | 'right';
+  placeholder?: string;
+  title: string;
+  message: string;
+  option?: DialogOption;
+  alertType?: 'confirm' | 'alert' | 'prompt';
+  action?: Array<DialogAction>;
 }

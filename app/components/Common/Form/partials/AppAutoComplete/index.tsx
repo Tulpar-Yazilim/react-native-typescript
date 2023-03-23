@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, {useEffect, useState} from 'react';
 import {Modal, Pressable, SafeAreaView, StyleSheet} from 'react-native';
 
@@ -24,7 +23,7 @@ interface AppAutoCompleteProps<T> {
 function AppAutoComplete<T>(props: AppAutoCompleteProps<T>) {
   const {options, valueProp, displayProp, label, name, form} = props;
   const [open, setOpen] = useState(false);
-  const [current, setCurrent] = useState<any>(null);
+  const [current, setCurrent] = useState<object | never>();
   const [filteredOptions, setFilteredOptions] = useState(options);
 
   const theme = useTheme();
@@ -39,7 +38,7 @@ function AppAutoComplete<T>(props: AppAutoCompleteProps<T>) {
 
   useEffect(() => {
     if (open && get(current, valueProp)) {
-      setFilteredOptions([current, ...filteredOptions.filter(r => get(r, valueProp) !== get(current, valueProp))]);
+      setFilteredOptions([current as never, ...filteredOptions.filter(r => get(r, valueProp) !== get(current, valueProp))]);
     }
   }, [open, current, valueProp, filteredOptions]);
 
@@ -59,7 +58,7 @@ function AppAutoComplete<T>(props: AppAutoCompleteProps<T>) {
             disabled
             value={current && get(current, displayProp)}
             onClear={() => {
-              setCurrent(null);
+              setCurrent(undefined);
               onChange('');
             }}
           />

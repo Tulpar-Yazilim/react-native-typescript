@@ -59,15 +59,15 @@ const AppCalendar = ({onSelectDay = (_date: string) => {}, ...props}) => {
               setSelectedDate(date?.dateString);
               onSelectDay(date?.dateString);
             }}>
-            <Block backgroundColor={date?.dateString === selectedDate ? COLORS.secondary : COLORS.primary} borderRadius={SIZES.radius} width={46} height={46} paddingTop={7} paddingRight={12}>
+            <Block backgroundColor={date?.dateString === selectedDate ? COLORS.secondary : COLORS.primary} borderRadius={SIZES.radius} w={46} h={46} pt={7} pr={12}>
               <Block>
                 <Text right semibold size={14} color={COLORS.white}>
                   {date.day}
                 </Text>
               </Block>
               {marking?.marked && (
-                <Block paddingTop={7} paddingLeft={9}>
-                  <Block width={12} height={4} borderRadius={SIZES.radius} backgroundColor={date?.dateString === selectedDate ? COLORS.white : COLORS.secondary} />
+                <Block pt-7 pl-9>
+                  <Block w={12} h={4} borderRadius={SIZES.radius} backgroundColor={date?.dateString === selectedDate ? COLORS.white : COLORS.secondary} />
                 </Block>
               )}
             </Block>

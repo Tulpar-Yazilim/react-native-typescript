@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, {useState} from 'react';
 
 import moment from 'moment';
@@ -16,9 +15,9 @@ interface AppDateTimePickerProps {
 
 export const AppDateTimePicker = (props: AppDateTimePickerProps) => {
   const {label, form, name, skipNext = false} = props;
-  const [open, setOpen] = useState(false);
-  const [inputDate, setInputDate] = useState('');
-  const [_value, setValue] = useState(new Date()) as any;
+  const [open, setOpen] = useState<boolean>(false);
+  const [inputDate, setInputDate] = useState<string>('');
+  const [_value, setValue] = useState<Date>(new Date());
   const theme = useAppSelector(state => state.settings.theme);
 
   const goToNextInput = () => {

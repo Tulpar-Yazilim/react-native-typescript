@@ -123,7 +123,7 @@ const AppMultipleSelect: FC<AppMultipleSelectProps | never> = props => {
                       />
                     )}
                   />
-                  <Block pxw>
+                  <Block>
                     <AppButton
                       type="secondary"
                       title="Ok"

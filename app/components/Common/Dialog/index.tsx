@@ -1,8 +1,7 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, {useEffect, useState} from 'react';
 import {BackHandler, Keyboard, Pressable, StyleSheet} from 'react-native';
 
-import {useNavigation} from '@react-navigation/native';
+import {useNavigation, useRoute} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {random} from 'lodash';
 import Animated, {useAnimatedStyle, useSharedValue, withSpring} from 'react-native-reanimated';
@@ -12,10 +11,12 @@ import Block from '../Block';
 import Text from '../Text';
 
 import {useTheme} from '@/hooks';
+import {MainStackNavigationRouteType} from '@/navigation/stacks/MainStack/types';
+import {DialogAction} from '@/utils';
 
-export default function Alert({route}: any) {
+export default function Alert() {
   const navigation: StackNavigationProp<never> = useNavigation();
-
+  const route = useRoute<MainStackNavigationRouteType<'ALERT'>>();
   const theme = useTheme();
   const {title, message, action, option, position, alertType, placeholder} = route?.params;
 
@@ -67,14 +68,14 @@ export default function Alert({route}: any) {
   //#endregion
 
   //#region Action Button
-  const AcionButton = ({item}: any) => {
+  const AcionButton = ({item}: {item: DialogAction}) => {
     return (
       <Pressable
         style={[
           styles.button,
           {
             backgroundColor: item.style === 'confirm' ? theme.colors.primary : theme.colors.error,
-            marginLeft: action?.length > 1 ? 5 : 0,
+            marginLeft: action && action?.length > 1 ? 5 : 0,
           },
         ]}
         onPress={() => {
@@ -136,7 +137,7 @@ export default function Alert({route}: any) {
             </Block>
           )}
           <Block style={[styles.contentButton, {justifyContent: action?.length === 1 ? 'center' : 'flex-end'}]}>
-            {action?.map((item: any) => (
+            {action?.map(item => (
               <AcionButton key={`${random(1000)}_action_button`} item={item} />
             ))}
           </Block>
