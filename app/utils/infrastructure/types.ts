@@ -1,8 +1,16 @@
 /* eslint-disable @typescript-eslint/ban-types */
+import React, {FunctionComponent, ReactElement} from 'react';
+
 import {LocalNotificationType} from './enums';
 
-export type NavigationType = {
-  navigate: (route: string, params?: object) => void;
+export type ScreenType = {
+  title?: string;
+  name?: never;
+  icon?: string;
+  label?: string;
+  component?: ReactElement | FunctionComponent | React.FC;
+  headerShown?: boolean;
+  props?: never;
 };
 
 export type ImageType = {

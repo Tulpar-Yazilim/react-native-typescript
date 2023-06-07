@@ -1,7 +1,7 @@
-import {RootNavigationProps} from 'navigations/rootNavigation/navigationProps';
+import {MainStackNavigationProps} from '@/navigation';
 
 declare global {
   namespace ReactNavigation {
-    interface RootParamList extends RootNavigationProps {}
+    interface RootParamList extends MainStackNavigationProps {}
   }
 }

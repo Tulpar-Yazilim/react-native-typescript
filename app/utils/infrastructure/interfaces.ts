@@ -1,4 +1,17 @@
+import {FunctionComponent} from 'react';
 import {StyleProp, TextStyle, ViewStyle} from 'react-native';
+
+import {ICONS} from '../icon-enums';
+
+export interface IScreen<T> {
+  title?: string;
+  name: keyof T;
+  icon?: keyof typeof ICONS;
+  label?: string;
+  component: FunctionComponent;
+  headerShown?: boolean;
+  props?: never;
+}
 
 export interface IThemeImageObject {
   [image: string]: string | number;
@@ -28,7 +41,8 @@ export interface IStyleShortcuts {
   direction?: string;
   backgroundColor?: string;
   borderBottom?: boolean | number;
-  flex?: number | boolean;
+  flex?: boolean | number;
+  block?: boolean | number;
   border?: number | boolean;
   radius?: number;
   borderRadius?: number;
@@ -73,6 +87,7 @@ export interface ITextStyles {
 
 export interface IPredefinedStyles {
   'bg-primary': StyleProp<ViewStyle>;
+  'bg-secondary': StyleProp<ViewStyle>;
   'bg-card': StyleProp<ViewStyle>;
   'bg-white': StyleProp<ViewStyle>;
   px: StyleProp<ViewStyle>;
@@ -82,8 +97,7 @@ export interface IPredefinedStyles {
   column: StyleProp<ViewStyle>;
   center: StyleProp<ViewStyle>;
   middle: StyleProp<ViewStyle>;
-  'justify-between': StyleProp<ViewStyle>;
-  'align-between': StyleProp<ViewStyle>;
+  overflow: StyleProp<ViewStyle>;
   left: StyleProp<ViewStyle>;
   right: StyleProp<ViewStyle>;
   top: StyleProp<ViewStyle>;
@@ -91,6 +105,15 @@ export interface IPredefinedStyles {
   wrap: StyleProp<ViewStyle>;
   border: StyleProp<ViewStyle>;
   borderBottom: StyleProp<ViewStyle>;
+  'justify-between': StyleProp<ViewStyle>;
+  'justify-end': StyleProp<ViewStyle>;
+  'align-between': StyleProp<ViewStyle>;
+  'align-end': StyleProp<ViewStyle>;
+  'mt-auto': StyleProp<ViewStyle>;
+  'mb-auto': StyleProp<ViewStyle>;
+  'mr-auto': StyleProp<ViewStyle>;
+  'ml-auto': StyleProp<ViewStyle>;
+  'm-auto': StyleProp<ViewStyle>;
 }
 
 export interface IStyles {

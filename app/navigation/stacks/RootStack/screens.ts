@@ -1,10 +1,10 @@
-import {MainStackNavigationProps} from './types';
+import {RootStackNavigationProps} from './types';
 import {BottomTabNavigation} from '../../bottom-tab/BottomTabNavigation';
 import {DrawerMenuNavigaiton} from '../../drawer/DrawerMenuNavigation';
 import Routes from '../../Routes';
-import {IScreen} from '../Models/IScreen';
 
 import {LoginPage, SplashScreen} from '@/screens';
+import {IScreen} from '@/utils';
 
 const Screens = [
   {
@@ -31,6 +31,6 @@ const Screens = [
     component: BottomTabNavigation,
     headerShown: false,
   },
-] as Array<IScreen<MainStackNavigationProps>>;
+] as Array<IScreen<RootStackNavigationProps>>;
 
 export default Screens;

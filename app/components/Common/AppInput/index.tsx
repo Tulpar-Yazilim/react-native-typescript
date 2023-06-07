@@ -11,6 +11,7 @@ import Text from '../Text';
 
 import {useTheme} from '@/hooks';
 import {COLORS, FONTS} from '@/theme';
+import {ICONS} from '@/utils';
 
 const inputHeight = 50;
 const offsetHeight = inputHeight / 3.9;
@@ -22,7 +23,7 @@ interface AppInputProps extends TextInputProps {
   onFocus?: (e: Event) => void;
   errorMessage?: string;
   animatedPlaceholder?: string;
-  icon?: string;
+  icon?: keyof typeof ICONS;
   label?: string;
   form?: UseFormReturn;
   name?: string;
@@ -94,9 +95,9 @@ const AppInput: FC<AppInputProps> = props => {
   });
 
   const onBlur = (e: Event) => {
-    handleBlur && handleBlur(e);
+    handleBlur?.(e);
     if (!text) {
-      onAnimation({_offset: offsetHeight, _scale: 1});
+      onAnimation?.({_offset: offsetHeight, _scale: 1});
     }
   };
 
@@ -111,17 +112,16 @@ const AppInput: FC<AppInputProps> = props => {
     const nextInput = values?.[currentIndex + 1];
 
     if (text) {
-      onAnimation({_offset: 5, _scale: 0.75});
+      onAnimation?.({_offset: 5, _scale: 0.75});
     }
     nextInput && form && form.setFocus(nextInput);
   };
 
   return (
-    <>
+    <React.Fragment>
       <Text tinyGray>{label}</Text>
       <Block {...props}>
         <Block
-          sm
           style={[
             styles.container,
             {
@@ -142,9 +142,7 @@ const AppInput: FC<AppInputProps> = props => {
               {onPress && (
                 <Block
                   pressable
-                  onPress={() => {
-                    onPress && onPress();
-                  }}
+                  onPress={onPress}
                   style={{
                     position: 'absolute',
                     zIndex: 99,
@@ -240,7 +238,7 @@ const AppInput: FC<AppInputProps> = props => {
           </Block>
         )}
       </Block>
-    </>
+    </React.Fragment>
   );
 };
 

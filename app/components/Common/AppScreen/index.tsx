@@ -7,11 +7,11 @@ import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {SafeAreaView} from 'react-native-safe-area-context';
 
 import layout from '../../../config/layout.json';
-import {Header} from '../../../navigation/components/DefaultHeader';
 import {getStyleShortcuts} from '../../../utils/style-shortcuts';
 
 import {Block, Text} from '@/components';
 import {useTheme} from '@/hooks';
+import {Header} from '@/navigation';
 import {bottomTabHeight, window} from '@/theme';
 import {heightPixel, UseThemeType} from '@/utils';
 
@@ -24,11 +24,12 @@ type Props<T> = {
   flatList?: boolean;
   children: ReactNode;
   loading?: boolean;
+  title?: string;
   navigation?: T;
 };
 
 function AppScreen<T>(props: Props<T>) {
-  const {children, scroll, safe, keyboardScroll, customStyle, navigationOptions, flatList, loading} = props;
+  const {children, title, scroll, safe, keyboardScroll, customStyle, navigationOptions, flatList, loading} = props;
   const navigation = useNavigation();
   const {colors} = useTheme();
   const screenProps = props as UseThemeType;
@@ -43,7 +44,7 @@ function AppScreen<T>(props: Props<T>) {
 
   return (
     <>
-      <Header navigationOptions={navigationOptions} navigation={navigation} />
+      <Header title={title} navigationOptions={navigationOptions} navigation={navigation} />
       {loading ? (
         <Text>loading</Text>
       ) : (

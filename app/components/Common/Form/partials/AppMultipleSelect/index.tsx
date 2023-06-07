@@ -1,5 +1,5 @@
 import React, {FC, useEffect, useState} from 'react';
-import {Keyboard, Modal, SafeAreaView} from 'react-native';
+import {Keyboard, Modal} from 'react-native';
 
 import {debounce, get} from 'lodash';
 import {Controller, UseFormReturn} from 'react-hook-form';
@@ -7,9 +7,8 @@ import {Controller, UseFormReturn} from 'react-hook-form';
 import RenderItem from './RenderItem';
 import AppInput from '../../../AppInput';
 
-import {AppButton, AppFlatList, AppIcon, Block, Text} from '@/components';
+import {AppButton, AppFlatList, Block, Text} from '@/components';
 import {useTheme} from '@/hooks';
-import {ICONS} from '@/utils';
 
 interface AppMultipleSelectProps {
   placeholder?: string;
@@ -78,63 +77,63 @@ const AppMultipleSelect: FC<AppMultipleSelectProps | never> = props => {
               setOpen(!open);
             }}>
             <Block
-              style={{flex: 1}}
+              flex
               onPress={() => {
                 Keyboard.dismiss();
               }}>
-              <SafeAreaView style={{flex: 1, backgroundColor: theme.colors.screenBgColor}}>
-                <Block style={{flex: 1}} py-20>
-                  <Block row px-12 pb-20>
-                    <Block w-40 mr-10>
-                      <AppButton
-                        type="icon"
-                        onPress={() => {
-                          setOpen(false);
-                        }}
-                        icon={<AppIcon name={ICONS.chevronLeft} color={theme.colors.defaultTextColor} />}
-                      />
+              <Block flex pt-30 backgroundColor={theme.colors.screenBgColor}>
+                <AppFlatList<object>
+                  data={filteredOptions}
+                  sticky
+                  ListHeaderComponent={
+                    <Block row px-12 backgroundColor={theme.colors.screenBgColor}>
+                      <Block flex-1 middle center>
+                        <AppButton
+                          type="icon"
+                          onPress={() => {
+                            setOpen(false);
+                          }}
+                          icon="chevronLeft"
+                        />
+                      </Block>
+                      <Block flex-9>
+                        <AppInput
+                          placeholder="Search"
+                          onChangeText={(text: string) => {
+                            onFilter(text);
+                          }}
+                        />
+                      </Block>
                     </Block>
-                    <Block flex>
-                      <AppInput
-                        placeholder="Search"
-                        onChangeText={(text: string) => {
-                          onFilter(text);
-                        }}
-                      />
-                    </Block>
-                  </Block>
-                  <AppFlatList<object>
-                    preloader={false}
-                    data={filteredOptions}
-                    renderItem={({item}) => (
-                      <RenderItem
-                        name={name}
-                        item={item}
-                        displayProp={displayProp}
-                        valueProp={valueProp}
-                        selections={selections}
-                        onChange={(renderItem, checked) => {
-                          if (checked) {
-                            selections = [...selections, renderItem];
-                          } else {
-                            selections = selections.filter(curr => curr !== renderItem);
-                          }
-                        }}
-                      />
-                    )}
-                  />
-                  <Block>
-                    <AppButton
-                      type="secondary"
-                      title="Ok"
-                      onPress={() => {
-                        onChange(selections);
-                        setOpen(false);
+                  }
+                  renderItem={({item}) => (
+                    <RenderItem
+                      name={name}
+                      item={item}
+                      displayProp={displayProp}
+                      valueProp={valueProp}
+                      selections={selections}
+                      onChange={(renderItem, checked) => {
+                        if (checked) {
+                          selections = [...selections, renderItem];
+                        } else {
+                          selections = selections.filter(curr => curr !== renderItem);
+                        }
                       }}
                     />
-                  </Block>
-                </Block>
-              </SafeAreaView>
+                  )}
+                />
+              </Block>
+            </Block>
+            <Block>
+              <AppButton
+                type="secondary"
+                title="Ok"
+                onPress={() => {
+                  onChange(selections);
+                  setOpen(false);
+                }}
+              />
             </Block>
           </Modal>
         </>

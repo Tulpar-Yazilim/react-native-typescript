@@ -1,15 +1,17 @@
 import {AboutScreen} from '../../screens/About/AboutScreen';
 import HomeStack from '../stacks/HomeStack/index';
 
-export const DrawerMenuItemList = [
+import {ScreenType} from '@/utils';
+
+export const DrawerMenuItemList: ScreenType[] = [
   {
-    label: 'Home',
+    label: 'home',
     icon: 'Car',
     component: HomeStack,
     headerShown: false,
   },
   {
-    label: 'About',
+    label: 'about',
     icon: 'Car',
     component: AboutScreen,
     headerShown: true,

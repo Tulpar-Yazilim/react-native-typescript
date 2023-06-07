@@ -16,6 +16,9 @@ const getStyles = (t: 'light' | 'dark') => {
       'bg-primary': {
         backgroundColor: colors.backgroundPrimary,
       },
+      'bg-secondary': {
+        backgroundColor: colors.secondary,
+      },
       'bg-card': {
         backgroundColor: colors.cardBg,
       },
@@ -43,12 +46,6 @@ const getStyles = (t: 'light' | 'dark') => {
       middle: {
         justifyContent: 'center',
       },
-      'justify-between': {
-        justifyContent: 'space-between',
-      },
-      'align-between': {
-        alignItems: 'stretch',
-      },
       left: {
         flexDirection: 'row',
         justifyContent: 'flex-start',
@@ -71,6 +68,36 @@ const getStyles = (t: 'light' | 'dark') => {
       borderBottom: {
         borderBottomWidth: 0.3,
         borderBottomColor: rgba(colors.defaultTextColor, 0.35),
+      },
+      overflow: {
+        overflow: 'hidden',
+      },
+      'justify-between': {
+        justifyContent: 'space-between',
+      },
+      'justify-end': {
+        justifyContent: 'flex-end',
+      },
+      'align-between': {
+        alignItems: 'stretch',
+      },
+      'align-end': {
+        alignItems: 'flex-end',
+      },
+      'mt-auto': {
+        marginTop: 'auto',
+      },
+      'mb-auto': {
+        marginBottom: 'auto',
+      },
+      'mr-auto': {
+        marginRight: 'auto',
+      },
+      'ml-auto': {
+        marginLeft: 'auto',
+      },
+      'm-auto': {
+        margin: 'auto',
       },
     },
   };
@@ -189,7 +216,11 @@ export const getStyleShortcuts = (props: UseThemeType, t?: 'light' | 'dark') => 
         if (styles) styles[customShortcut] = props[customProp];
       } else {
         const customPredefinedStyles = predefinedStyles?.[customProp] as object;
-        styles = {...(styles as object), ...(sizes?.[customProp] as object), ...customPredefinedStyles};
+        if (customPredefinedStyles) {
+          styles = {...(styles as object), ...(sizes?.[customProp] as object), ...customPredefinedStyles};
+        } else {
+          styles = {...(styles as object), ...(sizes?.[customProp] as object)};
+        }
       }
     });
   }
@@ -201,7 +232,11 @@ export const getStyleShortcuts = (props: UseThemeType, t?: 'light' | 'dark') => 
       if (styles) styles[customShortcut] = props[customProp];
     } else {
       const customPredefinedStyles = predefinedStyles?.[customProp] as object;
-      styles = {...(styles as object), ...customPredefinedStyles, ...(sizes?.[customProp] as object)};
+      if (customPredefinedStyles) {
+        styles = {...(styles as object), ...customPredefinedStyles, ...(sizes?.[customProp] as object)};
+      } else {
+        styles = {...(styles as object), ...(sizes?.[customProp] as object)};
+      }
     }
   });
 
@@ -216,7 +251,11 @@ export const getTextStyleShortcuts = (props: UseThemeType, t?: 'light' | 'dark')
   Object.keys(props).forEach(prop => {
     const customProp = prop as never;
     const customPredefinedTextStyles = predefinedTextStyles?.[customProp] as object;
-    styles = {...defaultTextStyles, ...styles, ...customPredefinedTextStyles, ...(sizes?.[customProp] as object)};
+    if (customPredefinedTextStyles) {
+      styles = {...defaultTextStyles, ...styles, ...customPredefinedTextStyles, ...(sizes?.[customProp] as object)};
+    } else {
+      styles = {...defaultTextStyles, ...styles, ...(sizes?.[customProp] as object)};
+    }
   });
 
   return styles;

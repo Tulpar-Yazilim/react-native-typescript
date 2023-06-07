@@ -55,7 +55,7 @@ export const AppDateTimePicker = (props: AppDateTimePickerProps) => {
               error={error?.message}
             />
             <DateTimePicker
-              onDateChange={(date: string) => {
+              onDateChange={date => {
                 setInputDate(moment(date).format('DD MMMM YYYY'));
                 setValue(new Date(date));
                 onChange(date);
@@ -64,7 +64,7 @@ export const AppDateTimePicker = (props: AppDateTimePickerProps) => {
               isDarkModeEnabled={theme === 'dark'}
               date={_value}
               visible={open}
-              setVisible={setOpen}
+              onClose={() => setOpen(false)}
             />
           </>
         )}

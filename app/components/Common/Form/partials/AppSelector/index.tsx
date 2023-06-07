@@ -77,7 +77,7 @@ const AppSelector: FC<AppSelectorProps> = props => {
               error={error?.message}
             />
 
-            <AppBottomSheet snapPoints={[200]} isFlatList isVisible={open} onClose={() => setOpen(false)}>
+            <AppBottomSheet isFlatList isVisible={open} onClose={() => setOpen(false)}>
               <Block style={containerStyle}>
                 {headerTitle && headerTitle?.length > 0 && (
                   <Block py-10 middle center>
@@ -101,7 +101,7 @@ const AppSelector: FC<AppSelectorProps> = props => {
                           <Block flex row middle pt-15 pb-15 px-30 borderBottom>
                             {item?.isIcon && (
                               <Block left pr-15>
-                                <AppIcon name={item.iconName || ''} size={22} color={item.iconColor ? item.iconColor : colors.primary} />
+                                <AppIcon name={item.iconName as keyof typeof ICONS} size={22} color={item.iconColor ? item.iconColor : colors.primary} />
                                 {item.icon}
                               </Block>
                             )}
@@ -117,7 +117,7 @@ const AppSelector: FC<AppSelectorProps> = props => {
                             </Block>
                             {get(item, valueProp) === get(current, valueProp) && (
                               <Block right pl-20>
-                                <AppIcon name={ICONS.checkCircle} size={20} />
+                                <AppIcon name="checkCircle" size={20} />
                               </Block>
                             )}
                           </Block>

@@ -2,23 +2,23 @@ import {BottomTabStackNavigationProps} from './types';
 import {ICONS} from '../../utils/icon-enums';
 import Routes from '../Routes';
 import HomeStack from '../stacks/HomeStack';
-import {IScreen} from '../stacks/Models/IScreen';
 
 import {FetchDataPage} from '@/screens';
+import {IScreen} from '@/utils';
 
 export const Screens = [
   {
-    title: 'Home',
-    name: Routes.HOME_SCREEN,
+    title: 'home',
+    name: Routes.HOME_ROOT,
     component: HomeStack,
     icon: ICONS.home,
-    headerShown: true,
+    headerShown: false,
   },
   {
-    title: 'Fetch Data Example',
+    title: 'fetch_data',
     name: Routes.FETCH_DATA_SCREEN,
     component: FetchDataPage,
     icon: ICONS.info,
     headerShown: true,
   },
-] as Array<IScreen<BottomTabStackNavigationProps>>;
+] as IScreen<BottomTabStackNavigationProps>[];

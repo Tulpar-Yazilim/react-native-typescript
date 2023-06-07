@@ -1,12 +1,13 @@
 import React from 'react';
 
+import {createNavigationContainerRef} from '@react-navigation/native';
 import {createStackNavigator, StackCardInterpolationProps} from '@react-navigation/stack';
 import {random} from 'lodash';
 
 import screens from './screens';
 
 import Dialog from '@/components/Common/Dialog';
-import Routes from '@/navigation/Routes';
+import {RootStackNavigationProps, Routes} from '@/navigation';
 
 /**
  * fade animate trasition navigation
@@ -18,13 +19,14 @@ export const forFade = ({current}: StackCardInterpolationProps) => ({
   },
 });
 
-const Stack = createStackNavigator();
+const RootStackNavigator = createStackNavigator<RootStackNavigationProps>();
+export const rootNavigationRef = createNavigationContainerRef<RootStackNavigationProps>();
 
-const MainStack = () => {
+const RootStack = () => {
   return (
-    <Stack.Navigator>
+    <RootStackNavigator.Navigator>
       {screens.map(screen => (
-        <Stack.Screen
+        <RootStackNavigator.Screen
           key={`${random(1000)}_main_stack_screen`}
           name={screen.name}
           component={screen.component}
@@ -33,8 +35,8 @@ const MainStack = () => {
           }}
         />
       ))}
-      <Stack.Group screenOptions={{presentation: 'transparentModal', headerShown: false}}>
-        <Stack.Screen
+      <RootStackNavigator.Group screenOptions={{presentation: 'transparentModal', headerShown: false}}>
+        <RootStackNavigator.Screen
           name={Routes.ALERT}
           component={Dialog}
           options={{
@@ -43,9 +45,9 @@ const MainStack = () => {
             gestureEnabled: false,
           }}
         />
-      </Stack.Group>
-    </Stack.Navigator>
+      </RootStackNavigator.Group>
+    </RootStackNavigator.Navigator>
   );
 };
 
-export default MainStack;
+export default RootStack;

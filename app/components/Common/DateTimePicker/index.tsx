@@ -1,48 +1,49 @@
-import React, {FC, SetStateAction, memo} from 'react';
+import React, {FC, memo} from 'react';
+
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
+
 import useTheme from '../../../hooks/useTheme';
+
+import {useAppSelector} from '@/hooks';
+import {i18next} from '@/lang';
 
 type Props = {
   visible: boolean;
   mode?: 'date' | 'time' | 'datetime';
-  setVisible: SetStateAction<any>;
+  date?: Date;
   isDarkModeEnabled?: boolean;
   minimumDate?: Date;
   maximumDate?: Date;
-  onDateChange?: any;
-  date?: any;
+  onDateChange?: (_date: Date) => void;
+  onClose?: (_date: Date) => void;
 };
 
-const DateTimePicker: FC<Props> = ({
-  visible,
-  setVisible,
-  mode = 'date',
-  isDarkModeEnabled,
-  onDateChange,
-  minimumDate,
-  maximumDate,
-  date,
-}) => {
+const DateTimePicker: FC<Props> = ({visible, mode = 'date', isDarkModeEnabled, minimumDate, maximumDate, date, onDateChange, onClose}) => {
+  const language = useAppSelector(state => state.settings.language);
   const theme = useTheme();
-  const handleConfirm = (date: any) => {
-    setVisible(false);
-    onDateChange(date);
+  const handleConfirm = (_date: Date) => {
+    onClose?.(_date);
+    onDateChange?.(_date);
   };
 
   return (
     <DateTimePickerModal
+      confirmTextIOS={i18next.t('save').toString()}
+      cancelTextIOS={i18next.t('close').toString()}
+      date={date}
+      locale={language}
       isVisible={visible}
       mode={mode}
-      date={date}
-      textColor={isDarkModeEnabled ? 'white' : 'auto'}
       onConfirm={handleConfirm}
-      onCancel={() => setVisible(false)}
-      isDarkModeEnabled={isDarkModeEnabled}
+      onCancel={_date => onClose?.(_date)}
+      onHide={_date => onClose?.(_date)}
       minimumDate={minimumDate}
       maximumDate={maximumDate}
-      confirmTextIOS="Onayla"
-      cancelTextIOS="Vazgeç"
       buttonTextColorIOS={theme.colors.defaultTextColor}
+      isDarkModeEnabled={isDarkModeEnabled}
+      textColor={isDarkModeEnabled ? 'white' : 'auto'}
+      themeVariant={isDarkModeEnabled ? 'dark' : 'light'}
+      display={mode === 'time' ? 'spinner' : 'inline'}
     />
   );
 };

@@ -16,7 +16,7 @@ interface ItemProp {
   icon?: React.ReactNode | React.ReactElement | null;
   isIcon?: boolean;
   iconColor?: string;
-  iconName?: string;
+  iconName?: keyof typeof ICONS;
 }
 
 interface Props {
@@ -42,7 +42,7 @@ const AppSelector = ({headerTitle = '', isVisible = false, onClose, onSelect, it
       <Block flex row middle pt-15 pb-15 px-30 borderBottom>
         {item?.isIcon && (
           <Block left pr-15>
-            <AppIcon name={item.iconName || ''} size={22} color={item.iconColor ? item.iconColor : colors.primary} />
+            <AppIcon name={item.iconName as keyof typeof ICONS} size={22} color={item.iconColor ? item.iconColor : colors.primary} />
             {item.icon}
           </Block>
         )}
@@ -58,7 +58,7 @@ const AppSelector = ({headerTitle = '', isVisible = false, onClose, onSelect, it
         </Block>
         {selectedItem && selectedItem?.value === item?.value && (
           <Block right pl-20>
-            <AppIcon name={ICONS.checkCircle} size={20} />
+            <AppIcon name={'checkCircle'} size={20} />
           </Block>
         )}
       </Block>
@@ -66,7 +66,7 @@ const AppSelector = ({headerTitle = '', isVisible = false, onClose, onSelect, it
   );
 
   return (
-    <AppBottomSheet snapPoints={[200]} isFlatList isVisible={isVisible} onClose={onClose}>
+    <AppBottomSheet isFlatList isVisible={isVisible} onClose={onClose}>
       <Block style={containerStyle}>
         {headerTitle?.length > 0 && (
           <Block py-10 middle center>

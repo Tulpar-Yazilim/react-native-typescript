@@ -5,22 +5,24 @@ import Icomoon from 'react-native-icomoon';
 
 import selectionJson from '../../../assets/selection.json';
 
-import {Block} from '@/components';
 import {useTheme} from '@/hooks';
-import {heightPixel} from '@/utils';
+import {heightPixel, ICONS} from '@/utils';
 
 type IconProps = Omit<IconMoonProps, 'iconSet'>;
+type AppIconProps = {
+  name: keyof typeof ICONS;
+} & IconProps;
 
-function AppIcon({name, color, ...restProps}: IconProps) {
+function AppIcon({name, color, ...restProps}: AppIconProps) {
   const theme = useTheme();
-  const colors: any = {
+  const colors = {
     primary: theme.colors.primary,
     danger: theme.colors.secondary,
-  };
+  } as never;
 
   const themeColor = colors?.[color ?? 'primary'];
 
-  return <Icomoon iconSet={selectionJson} name={name || ''} {...restProps} size={heightPixel(restProps.size || 20)} color={themeColor ?? color} />;
+  return <Icomoon {...restProps} iconSet={selectionJson} name={ICONS[name as keyof typeof ICONS]} size={heightPixel(restProps.size || 20)} color={themeColor ?? color} />;
 }
 
 export default memo(AppIcon);

@@ -37,12 +37,23 @@ target 'boilerplate' do
   end
 
   post_install do |installer|
-    react_native_post_install(
+    # Build Active Architecture Only "NO" (react-native-maps)
+    installer.pods_project.targets.each do |target|
+      if target.name == "React-Codegen"
+      target.build_configurations.each do |config|
+        config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '12.4'
+      end
+    end
+      target.build_configurations.each do |config|
+          config.build_settings['ONLY_ACTIVE_ARCH'] = 'NO'
+      end
+    end 
+      react_native_post_install(
       installer,
       # Set `mac_catalyst_enabled` to `true` in order to apply patches
       # necessary for Mac Catalyst builds
       :mac_catalyst_enabled => false
-    )
+     )
     __apply_Xcode_12_5_M1_post_install_workaround(installer)
   end
 end

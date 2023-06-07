@@ -14,6 +14,9 @@ const en = {
   details: 'Details',
   skip: 'Skip',
   continue_to_app: 'Start Using the App',
+  home: 'Homepage',
+  fetch_data: 'Fetch Data Page',
+  form: 'Form Page',
 
   no_feature_support: 'No feature support available!',
   no_phone: 'There is no phone number!',

@@ -1,15 +1,17 @@
+import {ICONS} from '@/utils';
+
 interface Icon {
-  name: string;
+  name: keyof typeof ICONS;
   size?: number;
-  color?: string | any;
+  color?: string;
 }
 
 export interface SwipItem {
   text: string;
   textColor?: string;
   icon: Icon;
-  background: string | any;
-  titleStyle?: any;
+  background: string;
+  titleStyle?: never;
   onPress?: () => void;
 }
 

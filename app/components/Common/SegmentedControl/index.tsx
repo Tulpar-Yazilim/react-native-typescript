@@ -66,10 +66,9 @@ function SegmentedControl({segments, currentIndex, onChange, containerMargin = 1
       <Animated.View
         style={[
           animatedStyles,
-          // StyleSheet.absoluteFill,
           {
             width: translateValue,
-            backgroundColor: activeColor ?? theme.colors.lightGray,
+            backgroundColor: activeColor ?? theme.colors.primary,
             height: 4,
             position: 'absolute',
             bottom: 0,

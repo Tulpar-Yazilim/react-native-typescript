@@ -8,10 +8,10 @@ import {BottomTabItem} from './BottomTabItem';
 
 import {useAppSelector, useTheme} from '@/hooks';
 import {bottomTabHeight, COLORS} from '@/theme';
-import {fontPixel} from '@/utils';
+import {fontPixel, heightPixel} from '@/utils';
 
 export const bottomTabConfig = {
-  height: bottomTabHeight,
+  height: heightPixel(bottomTabHeight),
   fontSize: fontPixel(11),
   iconSize: fontPixel(26),
 };

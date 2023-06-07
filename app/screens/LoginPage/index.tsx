@@ -1,23 +1,10 @@
 import React from 'react';
-import {AppButton, AppScreen, Form, fields} from '@/components';
+
 import {yupResolver} from '@hookform/resolvers/yup';
 import {useForm} from 'react-hook-form';
 import * as Yup from 'yup';
 
-const SelectOptions = [
-  {
-    id: 1,
-    name: 'Armut',
-  },
-  {
-    id: 2,
-    name: 'Elma',
-  },
-  {
-    id: 3,
-    name: 'Karpuz',
-  },
-];
+import {AppButton, AppScreen, fields, Form} from '@/components';
 
 const initial = {
   username: '',
@@ -35,7 +22,7 @@ const LoginPage = () => {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = (values: any) => {
+  const onSubmit = (values: typeof initial) => {
     console.log(values);
   };
 

@@ -6,9 +6,8 @@ import {Controller, UseFormReturn} from 'react-hook-form';
 
 import AppInput from '../../../AppInput';
 
-import {AppButton, AppFlatList, AppIcon, Block, Text} from '@/components';
+import {AppButton, AppFlatList, Block, Text} from '@/components';
 import {useTheme} from '@/hooks';
-import {ICONS} from '@/utils';
 
 interface AppAutoCompleteProps<T> {
   placeholder?: string;
@@ -84,7 +83,7 @@ function AppAutoComplete<T>(props: AppAutoCompleteProps<T>) {
                         onPress={() => {
                           setOpen(false);
                         }}
-                        icon={<AppIcon name={ICONS.chevronRight} color={theme.colors.defaultTextColor} />}
+                        icon="chevronRight"
                       />
                     </Block>
                     <Block flex>

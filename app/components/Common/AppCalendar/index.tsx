@@ -9,7 +9,6 @@ import Block from '../Block';
 import Text from '../Text';
 
 import {COLORS, FONTS, SIZES} from '@/theme';
-import {ICONS} from '@/utils';
 
 const AppCalendar = ({onSelectDay = (_date: string) => {}, ...props}) => {
   const [selectedDate, setSelectedDate] = useState(moment().format('YYYY-MM-DD'));
@@ -42,7 +41,7 @@ const AppCalendar = ({onSelectDay = (_date: string) => {}, ...props}) => {
         textMonthFontSize: 20,
         textDayHeaderFontSize: 13,
       }}
-      renderArrow={direction => <AppIcon name={direction === 'left' ? ICONS.chevronLeft : ICONS.chevronRight} size={22} color={COLORS.gray} />}
+      renderArrow={direction => <AppIcon name={direction === 'left' ? 'chevronLeft' : 'chevronRight'} size={22} color={COLORS.gray} />}
       dayComponent={({
         date = {
           dateString: '',

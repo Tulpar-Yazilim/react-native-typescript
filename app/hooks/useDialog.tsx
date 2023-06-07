@@ -1,17 +1,14 @@
-import {useNavigation} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
 
-import Routes from '@/navigation/Routes';
+import {rootNavigationRef, Routes} from '@/navigation';
 import {DialogProps} from '@/utils';
-import {NavigationType} from '@/utils/infrastructure/types';
 
 export default function Dialog() {
   const {t} = useTranslation();
-  const navigation = useNavigation<NavigationType>();
 
   const show = ({type, title, message, position, action, option, alertType, placeholder}: DialogProps) => {
     setTimeout(() => {
-      navigation.navigate(Routes.ALERT, {
+      rootNavigationRef.navigate(Routes.ALERT, {
         type: type ?? 'warning',
         position: position ?? 'bottom',
         title: title ?? '',

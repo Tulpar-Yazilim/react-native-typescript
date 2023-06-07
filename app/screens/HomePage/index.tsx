@@ -5,22 +5,19 @@ import {useFocusEffect, useNavigation} from '@react-navigation/native';
 
 import {Images} from '@/assets';
 import {AppBottomSheet, AppButton, AppIcon, AppImage, AppScreen, AppSwitch, Block, Col, DateTimePicker, FloatingButton, Row, SegmentedControl, Text} from '@/components';
-import {useAppDispatch, useAppSelector, useDialog, useStyledTag, useTag} from '@/hooks';
-import Routes from '@/navigation/Routes';
-import {HomeStackNavigationPropsType} from '@/navigation/stacks/HomeStack/types';
+import {useAppDispatch, useAppSelector, useDialog, useStyledTag} from '@/hooks';
+import {HomeStackNavigationPropsType, Routes} from '@/navigation';
 import {settingsRedux} from '@/store';
 import {COLORS} from '@/theme';
-import {createLocalNotification, ICONS, Permission, PERMISSION_TYPE} from '@/utils';
+import {createLocalNotification, Permission, PERMISSION_TYPE} from '@/utils';
 
 const HomePage = () => {
   const dispatch = useAppDispatch();
   const dialog = useDialog();
   const navigation = useNavigation<HomeStackNavigationPropsType>();
 
-  const DatePickerArea = useTag(Block);
-  const LanguageArea = useTag(Block);
-
-  const DatePickerButton = useStyledTag(AppButton, 'mb-5 p-7', {backgroundColor: 'red'});
+  const DatePickerArea = useStyledTag(Block, 'py-5');
+  const LanguageArea = useStyledTag(Block, 'py-5');
 
   const theme = useAppSelector(state => state.settings.theme);
 
@@ -67,23 +64,19 @@ const HomePage = () => {
     });
   }, [navigation, language]);
 
-  const Test = useStyledTag(Block, 'w-full bg-primary p-20 rounded-7 mt-20', {});
-
   return (
     <React.Fragment>
       <AppScreen scroll>
         <AppButton
           type="primary"
-          title="asdfas"
+          title="form"
           onPress={() => {
             navigation.navigate(Routes.FORM_SCREEN, {
-              detailId: 'asşldfkasjf',
+              detailId: '1230',
             });
           }}
         />
-        <Test>
-          <Text>aşlskdfjaslşdfjk</Text>
-        </Test>
+
         <Block center middle mb={20}>
           <AppImage resizeMode="contain" url={Images.TulparLogo.light} width={200} height={60} />
         </Block>
@@ -103,8 +96,8 @@ const HomePage = () => {
           mb-5
           type="primary"
           title="Local Notifications"
-          onPress={async () => {
-            await createLocalNotification({
+          onPress={() => {
+            createLocalNotification({
               title: 'Time to Live',
               message: `Hi 👋, time: ${new Date()}`,
             });
@@ -123,20 +116,18 @@ const HomePage = () => {
         <DatePickerArea>
           <Row row>
             <Col col-6 pr-2>
-              <DatePickerButton
-                mr-5
-                title="Date Picker"
+              <AppButton
                 type="primary"
+                title="Date Picker"
                 onPress={() => {
                   setDateVisible(true);
                 }}
               />
             </Col>
-            <Col col-6 pl-2>
+            <Col col-6 pr-2>
               <AppButton
-                mr-5
-                title="DateTime Picker"
                 type="primary"
+                title="DateTime Picker"
                 onPress={() => {
                   setDateTimeVisible(true);
                 }}
@@ -145,17 +136,10 @@ const HomePage = () => {
           </Row>
         </DatePickerArea>
 
-        <DateTimePicker visible={dateVisible} setVisible={setDateVisible} />
-        <DateTimePicker mode="datetime" visible={dateTimeVisible} setVisible={setDateTimeVisible} />
+        <DateTimePicker visible={dateVisible} onClose={() => setDateVisible(false)} />
+        <DateTimePicker mode="datetime" visible={dateTimeVisible} onClose={() => setDateTimeVisible(false)} />
 
-        <AppButton
-          mb-5
-          type="secondary"
-          title={'Form Example'}
-          onPress={() => {
-            navigation.navigate(Routes.FORM_SCREEN, {detailId: '1'});
-          }}
-        />
+        <AppButton mb-5 type="secondary" title={'Form Example'} onPress={() => navigation.navigate(Routes.FORM_SCREEN, {detailId: '1'})} />
 
         <Row row>
           <Col col-6 pr-2>
@@ -262,7 +246,7 @@ const HomePage = () => {
         </LanguageArea>
 
         <Block mt-10 center middle>
-          <AppIcon name={ICONS.camera} size={30} color={COLORS.primary} />
+          <AppIcon name={'camera'} size={30} color={COLORS.primary} />
         </Block>
         <Block center>
           {isPermission ? (
@@ -277,13 +261,11 @@ const HomePage = () => {
             </Pressable>
           )}
         </Block>
-        <AppBottomSheet snapPoints={[0, 200]} isVisible={bottomSheetVisibility} onClose={() => setBottomSheetVisibility(false)}>
-          <Block h={200} mt-5 mb-25 px-10>
-            <Block row center pt-3>
-              <Text black>Dark Theme</Text>
-              <Block right flex>
-                <AppSwitch value={theme === 'dark'} onChange={() => dispatch(settingsRedux.setTheme(theme === 'light' ? 'dark' : 'light'))} />
-              </Block>
+        <AppBottomSheet isVisible={bottomSheetVisibility} onClose={() => setBottomSheetVisibility(false)}>
+          <Block row center p-20>
+            <Text black>Dark Theme</Text>
+            <Block pl-20>
+              <AppSwitch value={theme === 'dark'} onChange={() => dispatch(settingsRedux.setTheme(theme === 'light' ? 'dark' : 'light'))} />
             </Block>
           </Block>
         </AppBottomSheet>

@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const tr = {
   warning: 'Uyarı',
   login: 'Giriş Yap',
@@ -12,6 +13,9 @@ const tr = {
   details: 'Detaylar',
   skip: 'Atla',
   continue_to_app: 'Uygulamayı Kullanmaya Başla',
+  home: 'Anasayfa',
+  fetch_data: 'Veri Çeken Sayfa',
+  form: 'Form Sayfası',
 
   no_feature_support: 'Bu özellik telefonunuzda desteklenmemektedir!',
   no_phone: 'Telefon numarası bulunmamaktadır!',

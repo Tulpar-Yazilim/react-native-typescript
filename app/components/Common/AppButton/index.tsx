@@ -4,12 +4,13 @@ import {ActivityIndicator, GestureResponderEvent} from 'react-native';
 import {EnumButtonType} from './app-button';
 import styles from './style';
 import useTheme from '../../../hooks/useTheme';
+import AppIcon from '../AppIcon';
 import Block from '../Block';
 import Text from '../Text';
 
 import {useStyledTag} from '@/hooks';
 import {COLORS} from '@/theme';
-import {UseThemeType} from '@/utils';
+import {ICONS, UseThemeType} from '@/utils';
 
 interface AppButtonProps {
   onPress?: (event: GestureResponderEvent) => void;
@@ -17,7 +18,8 @@ interface AppButtonProps {
   disabled?: boolean;
   loading?: boolean;
   title?: string;
-  icon?: ReactNode;
+  icon?: keyof typeof ICONS;
+  iconColor?: string;
   children?: ReactNode;
   titleColor?: ReactNode;
   width?: number | string;
@@ -27,12 +29,12 @@ interface AppButtonProps {
 }
 
 const AppButton = (props: AppButtonProps | never) => {
-  const {disabled, type, title, titleColor = COLORS.white, icon, width = '100%', height = 56, loading, loadingTitle = 'please_wait', style} = props;
+  const {disabled, type, title, titleColor = COLORS.white, icon, iconColor, width = '100%', height = 56, loading, loadingTitle = 'please_wait', style} = props;
 
   const theme = useTheme(props as UseThemeType);
 
   const PrimaryButton = useStyledTag(Block, 'bg-primary center middle rounded-4');
-  const SecondaryButton = useStyledTag(Block, 'border center middle rounded-4');
+  const SecondaryButton = useStyledTag(Block, 'bg-secondary border center middle rounded-4');
   const IconButton = useStyledTag(Block, 'center middle');
 
   const buttonElements = {
@@ -67,7 +69,7 @@ const AppButton = (props: AppButtonProps | never) => {
                 {title}
               </Text>
             )}
-            {type === 'icon' && icon}
+            {type === 'icon' && <AppIcon name={icon as keyof typeof ICONS} color={iconColor ?? theme.colors.defaultTextColor} />}
           </>
         )}
       </React.Fragment>

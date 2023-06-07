@@ -1,7 +1,7 @@
+import {CommonActions} from '@react-navigation/native';
 import {isRejectedWithValue, Middleware} from '@reduxjs/toolkit';
 
-import * as RootNavigation from '@/navigation/RootNavigation';
-import Routes from '@/navigation/Routes';
+import {rootNavigationRef, Routes} from '@/navigation';
 import {authRedux} from '@/store';
 
 export const rtkQueryErrorHandler: Middleware =
@@ -11,8 +11,17 @@ export const rtkQueryErrorHandler: Middleware =
     if (isRejectedWithValue(action)) {
       if (action.payload.status === 401) {
         dispatch(authRedux.logout());
-        if (RootNavigation.navigationRef?.getCurrentRoute()?.name !== Routes.LOGIN_SCREEN) {
-          RootNavigation.replace(Routes.LOGIN_SCREEN as never);
+        if (rootNavigationRef?.getCurrentRoute()?.name !== Routes.LOGIN_SCREEN) {
+          rootNavigationRef.dispatch(
+            CommonActions.reset({
+              index: 0,
+              routes: [
+                {
+                  name: Routes.LOGIN_SCREEN,
+                },
+              ],
+            }),
+          );
         }
       }
     }

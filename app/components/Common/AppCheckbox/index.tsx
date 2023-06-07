@@ -5,7 +5,6 @@ import Block from '../Block';
 
 import {useStyledTag} from '@/hooks';
 import {COLORS} from '@/theme';
-import {ICONS} from '@/utils';
 
 interface ICheckBox {
   checked: boolean;
@@ -22,7 +21,7 @@ const AppCheckbox = (props: ICheckBox) => {
 
   return (
     <Checkbox {...props} pressable onPress={onPress}>
-      <React.Fragment>{checked && <AppIcon name={ICONS.checkCircle} size={14} color={COLORS.white} />}</React.Fragment>
+      <React.Fragment>{checked && <AppIcon name={'checkCircle'} size={14} color={COLORS.white} />}</React.Fragment>
     </Checkbox>
   );
 };

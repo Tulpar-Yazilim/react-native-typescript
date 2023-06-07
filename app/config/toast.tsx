@@ -5,7 +5,6 @@ import {BaseToast, ErrorToast, InfoToast, SuccessToast, ToastProps} from 'react-
 
 import {AppIcon, Block} from '@/components';
 import {COLORS, FONTS} from '@/theme';
-import {ICONS} from '@/utils';
 
 const toastConfig = {
   success: (props: ToastProps) => (
@@ -17,7 +16,7 @@ const toastConfig = {
       text2NumberOfLines={2}
       renderLeadingIcon={() => (
         <Block pl-10 middle center>
-          <AppIcon name={ICONS.checkCircle} color={COLORS.successText} size={26} />
+          <AppIcon name={'checkCircle'} color={COLORS.successText} size={26} />
         </Block>
       )}
     />
@@ -31,7 +30,7 @@ const toastConfig = {
       text2NumberOfLines={2}
       renderLeadingIcon={() => (
         <Block pl-10 middle center>
-          <AppIcon name={ICONS.close} color={COLORS.error} size={26} />
+          <AppIcon name={'close'} color={COLORS.error} size={26} />
         </Block>
       )}
     />
@@ -45,7 +44,7 @@ const toastConfig = {
       text2NumberOfLines={2}
       renderLeadingIcon={() => (
         <Block pl-10 middle center>
-          <AppIcon name={ICONS.alertTriangle} color={COLORS.warning} size={26} />
+          <AppIcon name={'alertTriangle'} color={COLORS.warning} size={26} />
         </Block>
       )}
     />
@@ -59,7 +58,7 @@ const toastConfig = {
       text2NumberOfLines={2}
       renderLeadingIcon={() => (
         <Block pl-10 middle center>
-          <AppIcon name={ICONS.info} color={COLORS.primary} size={26} />
+          <AppIcon name={'info'} color={COLORS.primary} size={26} />
         </Block>
       )}
     />

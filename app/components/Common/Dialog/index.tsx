@@ -11,7 +11,7 @@ import Block from '../Block';
 import Text from '../Text';
 
 import {useTheme} from '@/hooks';
-import {MainStackNavigationRouteType} from '@/navigation/stacks/MainStack/types';
+import {MainStackNavigationRouteType} from '@/navigation/stacks/RootStack/types';
 import {DialogAction} from '@/utils';
 
 export default function Alert() {

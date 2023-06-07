@@ -1,14 +1,19 @@
-import {Block, Text} from '@/components';
 import React, {memo} from 'react';
 import {Animated, StyleSheet} from 'react-native';
+
 import {RectButton} from 'react-native-gesture-handler';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
-import AppIcon from '../AppIcon';
+
 import {Props, SwipItem} from './swipeable';
+import AppIcon from '../AppIcon';
+
+import {Block, Text} from '@/components';
+
+type AnimatedInterpolation = ReturnType<Animated.Value['interpolate']>;
 
 function ISwipeable({leftItems, rightItems, children}: Props) {
-  const renderLeftActions = (progress: any, dragX: any) => {
-    const trans = dragX.interpolate({
+  const renderLeftActions = (_progressAnimatedValue: AnimatedInterpolation, dragAnimatedValue: AnimatedInterpolation, _swipeable: Swipeable) => {
+    const trans = dragAnimatedValue.interpolate({
       inputRange: [0, 100],
       outputRange: [0, 1],
       extrapolate: 'clamp',
@@ -19,13 +24,7 @@ function ISwipeable({leftItems, rightItems, children}: Props) {
         {leftItems?.length > 0 && (
           <React.Fragment>
             {leftItems.map((item: SwipItem, index: number) => (
-              <RectButton
-                key={index}
-                onPress={item.onPress}
-                style={[
-                  {backgroundColor: item?.background ?? '#388e3c'},
-                  styles.leftAction,
-                ]}>
+              <RectButton key={index} onPress={item.onPress} style={[{backgroundColor: item?.background ?? '#388e3c'}, styles.leftAction]}>
                 <Animated.View
                   style={[
                     styles.actionText,
@@ -34,22 +33,9 @@ function ISwipeable({leftItems, rightItems, children}: Props) {
                     },
                   ]}>
                   <Block middle center>
-                    {item?.icon && (
-                      <AppIcon
-                        name={item.icon.name}
-                        size={item.icon.size ?? 20}
-                        color={item.icon.color}
-                      />
-                    )}
+                    {item?.icon && <AppIcon name={item.icon.name} size={item.icon.size ?? 20} color={item.icon.color} />}
 
-                    <Text
-                      styles={
-                        item.textColor
-                          ? {color: item.textColor, ...item?.titleStyle}
-                          : {...item?.titleStyle}
-                      }>
-                      {item.text}
-                    </Text>
+                    <Text styles={item.textColor ? {color: item.textColor, ...(item?.titleStyle as unknown as object)} : {...(item?.titleStyle as unknown as object)}}>{item.text}</Text>
                   </Block>
                 </Animated.View>
               </RectButton>
@@ -60,8 +46,8 @@ function ISwipeable({leftItems, rightItems, children}: Props) {
     );
   };
 
-  const renderRightActions = (progress: any, dragX: any) => {
-    const trans = dragX.interpolate({
+  const renderRightActions = (_progressAnimatedValue: AnimatedInterpolation, dragAnimatedValue: AnimatedInterpolation, _swipeable: Swipeable) => {
+    const trans = dragAnimatedValue.interpolate({
       inputRange: [-100, 0],
       outputRange: [1, 0],
       extrapolate: 'clamp',
@@ -72,13 +58,7 @@ function ISwipeable({leftItems, rightItems, children}: Props) {
         {rightItems?.length > 0 && (
           <React.Fragment>
             {rightItems.map((item: SwipItem, index: number) => (
-              <RectButton
-                key={index}
-                onPress={item.onPress}
-                style={[
-                  {backgroundColor: item?.background ?? 'red'},
-                  styles.rightAction,
-                ]}>
+              <RectButton key={index} onPress={item.onPress} style={[{backgroundColor: item?.background ?? 'red'}, styles.rightAction]}>
                 <Animated.View
                   style={[
                     styles.actionText,
@@ -87,22 +67,9 @@ function ISwipeable({leftItems, rightItems, children}: Props) {
                     },
                   ]}>
                   <Block middle center>
-                    {item?.icon && (
-                      <AppIcon
-                        name={item.icon.name}
-                        size={item.icon.size ?? 20}
-                        color={item.icon.color}
-                      />
-                    )}
+                    {item?.icon && <AppIcon name={item.icon.name} size={item.icon.size ?? 20} color={item.icon.color} />}
 
-                    <Text
-                      styles={
-                        item.textColor
-                          ? {color: item.textColor, ...item?.titleStyle}
-                          : {...item?.titleStyle}
-                      }>
-                      {item.text}
-                    </Text>
+                    <Text styles={item.textColor ? {color: item.textColor, ...(item?.titleStyle as unknown as object)} : {...(item?.titleStyle as unknown as object)}}>{item.text}</Text>
                   </Block>
                 </Animated.View>
               </RectButton>
@@ -114,9 +81,7 @@ function ISwipeable({leftItems, rightItems, children}: Props) {
   };
 
   return (
-    <Swipeable
-      renderLeftActions={renderLeftActions}
-      renderRightActions={renderRightActions}>
+    <Swipeable renderLeftActions={renderLeftActions} renderRightActions={renderRightActions}>
       {children}
     </Swipeable>
   );

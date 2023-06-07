@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {Keyboard, StatusBar} from 'react-native';
+import {Keyboard} from 'react-native';
 import 'react-native-gesture-handler';
 
 import {DarkTheme, DefaultTheme, NavigationContainer} from '@react-navigation/native';
@@ -8,12 +8,10 @@ import Toast from 'react-native-toast-message';
 import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
 
-import {navigationRef} from './navigation/RootNavigation';
-import MainStack from './navigation/stacks/MainStack';
-
 import {AppLoader} from '@/components';
 import {linking, locale, toastConfig} from '@/config';
 import {useAppDispatch, useAppSelector} from '@/hooks';
+import {rootNavigationRef, RootStack} from '@/navigation';
 import {persistor, settingsRedux, store} from '@/store';
 
 const MainContainer = () => {
@@ -29,6 +27,7 @@ const MainContainer = () => {
       Keyboard.removeAllListeners('keyboardDidShow');
       Keyboard.removeAllListeners('keyboardDidHide');
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -37,9 +36,8 @@ const MainContainer = () => {
 
   return (
     <Host>
-      <NavigationContainer ref={navigationRef} linking={linking} theme={theme === 'dark' ? DarkTheme : DefaultTheme}>
-        <StatusBar barStyle="dark-content" />
-        <MainStack />
+      <NavigationContainer ref={rootNavigationRef} linking={linking} theme={theme === 'dark' ? DarkTheme : DefaultTheme}>
+        <RootStack />
       </NavigationContainer>
       <AppLoader />
     </Host>
