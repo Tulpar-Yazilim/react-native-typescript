@@ -6,8 +6,5 @@
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:reactnativetypescript.xcodeproj">
-   </FileRef>
+   </FileRef> 
 </Workspace>

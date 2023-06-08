@@ -7,10 +7,10 @@ import LottieView from 'lottie-react-native';
 
 import layout from '../../config/layout.json';
 
-import {MainStackNavigationProps, Routes} from '@/navigation';
+import {RootStackNavigationProps, Routes} from '@/navigation';
 
 const SplashScreen = () => {
-  const navigation: StackNavigationProp<MainStackNavigationProps> = useNavigation();
+  const navigation: StackNavigationProp<RootStackNavigationProps> = useNavigation();
   const progress = useRef(new Animated.Value(0));
 
   useEffect(() => {

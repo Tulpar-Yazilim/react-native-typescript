@@ -1,75 +1,53 @@
-import {ObjectSchema} from 'yup';
-import {SchemaMeta, SchemaInputType} from './types/dataForm';
+import {AnyObject, Maybe, ObjectSchema, SchemaObjectDescription} from 'yup';
 
-export const formitDefaults = (schema: ObjectSchema<any>, defaultValues?: object | any): Record<string, any> => {
-  const defaultFromShape = schema.getDefaultFromShape();
+import {SchemaInputType, SchemaMeta} from './types/dataForm';
 
-  if (!defaultValues) {
-    return defaultFromShape;
-  }
+import {FormitMeta} from '@/utils';
 
-  const defaults = {} as any;
-  const keys = defaultValues ? Object.keys(defaultValues) : (Object.keys(defaultFromShape) as any);
-
-  keys.map((key: any) => {
-    switch (defaultValues[key]) {
-      case null:
-        defaults[key] = defaultFromShape[key];
-        break;
-      default:
-        defaults[key] = defaultValues[key];
-        break;
-    }
-  });
-
-  return defaults;
+const _formitMeta = (description: Record<string, FormitMeta>, name: string): SchemaMeta => {
+  const meta = description?.meta;
+  const col = meta?.col || 12;
+  const label = (description?.label as string) || '';
+  const fieldType = (description?.type as unknown as SchemaInputType) || SchemaInputType.text;
+  return {name, col, fieldType, label, ...meta} as SchemaMeta;
 };
 
-const _formitMeta = (description: Record<string, any>, name: string): SchemaMeta => {
-  const meta = description?.meta;
-  const col = description?.meta?.col || 12;
+export const formitMeta = (schema: ObjectSchema<Maybe<AnyObject>>, name: string): SchemaMeta => {
+  const description = schema.describe().fields[name] as SchemaObjectDescription;
+  const meta = description?.meta as FormitMeta;
+  const col = meta?.col || 12;
   const label = description?.label || '';
   const fieldType = description?.type || SchemaInputType.text;
-  return {name, col, fieldType, label, ...meta};
-};
-
-export const formitMeta = (schema: ObjectSchema<any>, name: string): SchemaMeta => {
-  const description = schema.describe().fields[name] as Record<string, any>;
-  const meta = description?.meta;
-  const col = description?.meta?.col || 12;
-  const label = description?.label || '';
-  const fieldType = description?.type || SchemaInputType.text;
-  const fields = description?.fields || description?.innerType?.fields || null;
+  const fields = description?.fields || null;
 
   if (fields) {
     const fieldsKeys = Object.keys(fields);
     return {
       col,
       name,
-      field: '',
       fieldType,
       label,
       ...meta,
-      fields: fieldsKeys.map(key => _formitMeta(fields[key], key)),
-    };
+      fields: fieldsKeys.map(key => _formitMeta(fields[key] as unknown as Record<string, FormitMeta>, key)),
+    } as SchemaMeta;
   }
 
-  return _formitMeta(description, name);
+  return _formitMeta(description as unknown as Record<string, FormitMeta>, name);
 };
 
 interface FormitFormData {
-  data?: Record<string, any>;
-  additions?: Record<string, any>;
+  data?: Record<string, never>;
+  additions?: Record<string, never>;
 }
 
 export const formitFormData = async ({data = {}, additions = {}}: FormitFormData) => {
-  const formData: any = {};
+  const formData = {};
 
   const incomingData = {...data, ...additions};
   const incomingKeys = Object.keys(incomingData);
 
   for (const key of incomingKeys) {
-    formData[key] = incomingData[key];
+    formData[key as never] = incomingData[key];
   }
 
   return formData;

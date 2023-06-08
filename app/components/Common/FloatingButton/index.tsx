@@ -1,9 +1,9 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {memo, useEffect} from 'react';
-import {StyleSheet} from 'react-native';
+import {StyleSheet, ViewStyle} from 'react-native';
 
 import LinearGradient from 'react-native-linear-gradient';
-import Animated, {useAnimatedStyle, useSharedValue, withSpring} from 'react-native-reanimated';
+import Animated, {AnimatedStyleProp, useAnimatedStyle, useSharedValue, withSpring} from 'react-native-reanimated';
 
 import {Props} from './floating-button';
 
@@ -17,7 +17,7 @@ function FloatingButton({isVisible = false, buttonText = 'approve', onPress = ()
   const animatedStyles = useAnimatedStyle(() => {
     return {
       transform: [{translateY: bottomTranslateValue.value}],
-    };
+    } as AnimatedStyleProp<ViewStyle>;
   });
 
   useEffect(() => {

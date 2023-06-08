@@ -1,8 +1,8 @@
 import React, {FC, LegacyRef, memo, useCallback, useEffect, useState} from 'react';
-import {StyleSheet, TextInput, TextInputProps} from 'react-native';
+import {StyleSheet, TextInput, TextInputProps, TextStyle, ViewStyle} from 'react-native';
 
 import {UseFormReturn} from 'react-hook-form';
-import Animated, {Easing, useAnimatedStyle, useSharedValue, withTiming} from 'react-native-reanimated';
+import Animated, {AnimatedStyleProp, Easing, useAnimatedStyle, useSharedValue, withTiming} from 'react-native-reanimated';
 
 import styles from './style';
 import AppIcon from '../AppIcon';
@@ -85,13 +85,13 @@ const AppInput: FC<AppInputProps> = props => {
   const animatedStyles = useAnimatedStyle(() => {
     return {
       transform: [{translateY: offset.value}],
-    };
+    } as AnimatedStyleProp<ViewStyle>;
   });
 
   const animatedStylesText = useAnimatedStyle(() => {
     return {
       transform: [{scale: scale.value}],
-    };
+    } as AnimatedStyleProp<TextStyle>;
   });
 
   const onBlur = (e: Event) => {

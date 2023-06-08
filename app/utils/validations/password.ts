@@ -1,5 +1,5 @@
-import * as yup from 'yup';
 import {TFunction} from 'i18next';
+import * as yup from 'yup';
 
 // Constants
 const min = 6;
@@ -32,7 +32,7 @@ const passwordConfirmationValidation = (t: TFunction<'translation', undefined, '
   [key]: yup
     .string()
     .required()
-    .oneOf([yup.ref(ref), null], t('validations.password.not_match').toString())
+    .oneOf([yup.ref(ref), ''], t('validations.password.not_match').toString())
     .label(t('labels.password')),
 });
 

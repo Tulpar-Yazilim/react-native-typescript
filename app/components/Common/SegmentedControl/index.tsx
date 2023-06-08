@@ -1,9 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, {memo, useEffect} from 'react';
-import {useWindowDimensions} from 'react-native';
+import {useWindowDimensions, ViewStyle} from 'react-native';
 
 import {random} from 'lodash';
-import Animated, {useAnimatedStyle, useSharedValue, withSpring} from 'react-native-reanimated';
+import Animated, {AnimatedStyleProp, useAnimatedStyle, useSharedValue, withSpring} from 'react-native-reanimated';
 
 import {Props} from './segmented-control';
 
@@ -40,7 +40,7 @@ function SegmentedControl({segments, currentIndex, onChange, containerMargin = 1
   const animatedStyles = useAnimatedStyle(() => {
     return {
       transform: [{translateX: tabTranslateValue.value}],
-    };
+    } as AnimatedStyleProp<ViewStyle>;
   });
 
   useEffect(() => {

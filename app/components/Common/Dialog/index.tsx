@@ -11,12 +11,12 @@ import Block from '../Block';
 import Text from '../Text';
 
 import {useTheme} from '@/hooks';
-import {MainStackNavigationRouteType} from '@/navigation/stacks/RootStack/types';
+import {RootStackNavigationRouteType} from '@/navigation';
 import {DialogAction} from '@/utils';
 
 export default function Alert() {
   const navigation: StackNavigationProp<never> = useNavigation();
-  const route = useRoute<MainStackNavigationRouteType<'ALERT'>>();
+  const route = useRoute<RootStackNavigationRouteType<'ALERT'>>();
   const theme = useTheme();
   const {title, message, action, option, position, alertType, placeholder} = route?.params;
 

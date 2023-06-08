@@ -1,51 +1,50 @@
-/* eslint-disable prettier/prettier */
-import {ArraySchema, NumberSchema, StringSchema} from 'yup';
-import {MixedSchema} from 'yup/lib/mixed';
+import {AnyObject, ArraySchema, MixedSchema, NumberSchema, StringSchema} from 'yup';
+
 import yup from './_yup';
 import {SelectOptions} from '../types';
 import {SchemaField, SchemaInputType} from '../types/dataForm/enums';
 
-type YStringSchema = StringSchema<string, any, string>;
-type YNumberSchema = NumberSchema<number, any, number>;
-type YArraySchema = ArraySchema<MixedSchema<any, any, any>, any, any[], any[]>;
-type YMixedSchema = MixedSchema<any, any, any>;
+type YStringSchema = StringSchema<string | null | undefined, yup.AnyObject, '', 'd'>;
+type YNumberSchema = NumberSchema<number | null | undefined, AnyObject, undefined, ''>;
+type YMixedSchema = MixedSchema<yup.AnyObject | undefined, AnyObject, undefined, ''>;
+type YArraySchema = ArraySchema<yup.AnyObject[] | null | undefined, AnyObject, undefined, ''>;
 
-export const string: any = yup.string().nullable().default('').trim();
+export const string = yup.string().nullable().default('').trim();
 
-export const number: any = yup.number().nullable().meta({
+export const number = yup.number().nullable().meta({
   field: SchemaField.InputText,
   type: SchemaInputType.number,
 });
 
-export const currency: any = string.nullable().meta({
+export const currency = string.nullable().meta({
   field: SchemaField.InputCurrency,
   type: SchemaInputType.text,
 });
 
-export const text: any = string.nullable().meta({
+export const text = string.nullable().meta({
   field: SchemaField.InputText,
   type: SchemaInputType.text,
 });
 
-export const textarea: any = string.nullable().meta({
+export const textarea = string.nullable().meta({
   field: SchemaField.InputText,
   type: SchemaInputType.textarea,
 });
 
-export const date: any = string.nullable().meta({field: SchemaField.InputDate});
+export const date = string.nullable().meta({field: SchemaField.InputDate});
 
-export const email: any = string.meta({field: SchemaField.InputText, type: SchemaInputType.email}).email();
+export const email = string.meta({field: SchemaField.InputText, type: SchemaInputType.email}).email();
 
-export const phone: any = string.meta({field: SchemaField.InputPhoneNumber});
+export const phone = string.meta({field: SchemaField.InputPhoneNumber});
 
-export const password: any = string.label('Parola').meta({field: SchemaField.InputPassword, type: SchemaInputType.password});
+export const password = string.label('Parola').meta({field: SchemaField.InputPassword, type: SchemaInputType.password});
 
-export const url: any = string.meta({
+export const url = string.meta({
   field: SchemaField.InputText,
   type: SchemaInputType.url,
 });
 
-export const radio: any = (options: SelectOptions, type: string | number, displayProp?: string, valueProp?: string) => {
+export const radio = (options: SelectOptions, displayProp?: string, valueProp?: string) => {
   return yup?.array().nullable().meta({
     field: SchemaField.RadioButton,
     options,
@@ -54,14 +53,12 @@ export const radio: any = (options: SelectOptions, type: string | number, displa
   });
 };
 
-export const select: any = (options: SelectOptions, type: string | number, displayProp?: string, valueProp?: string): any => {
-  const _yup = yup as any;
-  return _yup?.[type]().nullable().meta({field: SchemaField.InputSelect, options, displayProp, valueProp});
+export const select = (options: SelectOptions, type: string | number, displayProp?: string, valueProp?: string) => {
+  return (yup[type as keyof typeof type]() as YArraySchema).nullable().meta({field: SchemaField.InputSelect, options, displayProp, valueProp});
 };
 
-export const autoComplete: any = (options: SelectOptions, type: string | number, displayProp?: string, valueProp?: string) => {
-  const _yup = yup as any;
-  return _yup?.[type]().nullable().meta({
+export const autoComplete = (options: SelectOptions, type: string | number, displayProp?: string, valueProp?: string) => {
+  return (yup[type as keyof typeof type]() as YStringSchema).nullable().meta({
     field: SchemaField.InputAutoComplete,
     options,
     displayProp,
@@ -69,11 +66,11 @@ export const autoComplete: any = (options: SelectOptions, type: string | number,
   });
 };
 
-export const multipleAutoComplete: any = (options: SelectOptions, entries?: [key: string, value: any]) => {
+export const multipleAutoComplete = (options: SelectOptions, entries?: [key: string, value: string]) => {
   return yup?.array().nullable().meta({field: SchemaField.InputAutoComplete, options, entries});
 };
 
-export const multipleSelect: any = (options: SelectOptions, type: string | number, displayProp?: string, valueProp?: string) => {
+export const multipleSelect = (options: SelectOptions, type: string | number, displayProp?: string, valueProp?: string) => {
   return yup?.array().nullable().meta({
     field: SchemaField.InputMultipleSelect,
     options,
@@ -97,14 +94,14 @@ interface Fields {
   textarea: YStringSchema;
   name: YStringSchema;
   password: YStringSchema;
-  select: (options: SelectOptions, type: number | string, displayProp?: string, valueProp?: string) => YStringSchema;
+  select: (options: SelectOptions, type: number | string, displayProp?: string, valueProp?: string) => YArraySchema;
   fileBase: YMixedSchema;
   autoComplete: (options: SelectOptions, type: number | string, displayProp?: string, valueProp?: string) => YStringSchema;
-  multipleAutoComplete: (options: SelectOptions, entries?: [key: string, value: string]) => any;
-  multipleSelect: (options: SelectOptions, type: number | string, displayProp?: string, valueProp?: string) => any;
+  multipleAutoComplete: (options: SelectOptions, entries?: [key: string, value: string]) => YArraySchema;
+  multipleSelect: (options: SelectOptions, type: number | string, displayProp?: string, valueProp?: string) => YArraySchema;
   phone: YStringSchema;
   number: YNumberSchema;
-  radio: (options: SelectOptions, entries?: [key: string, value: string]) => any;
+  radio: (options: SelectOptions, displayProp?: string, valueProp?: string) => YArraySchema;
 }
 
 export const fields: Fields = {

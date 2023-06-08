@@ -17,7 +17,6 @@ interface IFListProps<T> extends FlatListProps<T> {
   preloaderLength?: number;
   preloaderWidth?: number;
   preloaderHeight?: number;
-  preloaderStyle?: ViewStyle | TextStyle | ImageStyle;
   preloaderContainerStyle?: ViewStyle | TextStyle | ImageStyle;
   contentContainerStyle?: ViewStyle | TextStyle | ImageStyle;
   horizontal?: boolean;
@@ -42,7 +41,6 @@ function FlatList<T>(props: IFListProps<T>) {
     preloaderLength,
     preloaderWidth,
     preloaderHeight,
-    preloaderStyle,
     preloaderContainerStyle,
     horizontal = false,
     sticky = false,
@@ -64,15 +62,13 @@ function FlatList<T>(props: IFListProps<T>) {
     );
   };
 
-  const PreloaderRenderItem = () => <Block preloader h={preloaderHeight} w={preloaderWidth} preloaderStyle={preloaderStyle} style={[{marginBottom: 10}, preloaderContainerStyle]} />;
+  const PreloaderRenderItem = <Block h={preloaderHeight} w={preloaderWidth} style={[{marginBottom: 10}, preloaderContainerStyle]} />;
 
   return preloader ? (
     <>
       {horizontal ? (
         <ScrollView showsVerticalScrollIndicator={false} showsHorizontalScrollIndicator={false} horizontal style={[preloaderContainerStyle]}>
-          {[...Array(preloaderLength)]?.map((item, index) => (
-            <PreloaderRenderItem key={'preloader_item_' + index} />
-          ))}
+          {[...Array(preloaderLength)]?.map(() => PreloaderRenderItem)}
         </ScrollView>
       ) : (
         <View
@@ -84,9 +80,7 @@ function FlatList<T>(props: IFListProps<T>) {
             },
             preloaderContainerStyle,
           ]}>
-          {[...Array(preloaderLength)]?.map((item, index) => (
-            <PreloaderRenderItem key={'preloader_item_' + index} />
-          ))}
+          {[...Array(preloaderLength)]?.map(() => PreloaderRenderItem)}
         </View>
       )}
     </>

@@ -41,7 +41,6 @@ yarn-error.log
 # BUCK
 buck-out/
 \.buckd/
-*.keystore
 !debug.keystore
 
 # fastlane
@@ -64,3 +63,5 @@ buck-out/
 /vendor/bundle/ 
 ios/Podfile.lock
 package-lock.json
+
+.metro-health-check*
