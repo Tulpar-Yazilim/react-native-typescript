@@ -14,7 +14,7 @@
     "start-reset-cache": "npm run start -- --reset-cache",
     "test": "jest",
     "lint": "tsc --noEmit && eslint --fix --ext .ts,.tsx ./app/**/*.{ts,tsx}",
-    "pre-commit": "yarn lint && yarn format",
+    "pre-commit": "arn format && yarn lint && yarn tsc",
     "format": "prettier --write **/*.{js,ts,tsx,json} && prettier --check **/*.{js,ts,tsx,json}",
     "reset-cache": "npm start -- --reset-cache",
     "logcat": "adb logcat *:S ReactNative:V ReactNativeJS:V",

@@ -8,7 +8,7 @@ import {get} from 'lodash';
 import {AppCheckbox, Block, Text} from '@/components';
 
 interface RenderItemProps {
-  item?: object | string | never | undefined;
+  item?: object | string | undefined;
   name?: string;
   options?: Array<object>;
   valueProp?: string;
@@ -22,16 +22,17 @@ const RenderItem = ({item, displayProp, valueProp, onChange, selections}: Render
 
   const [checked, setChecked] = useState(false);
 
+  const onPress = () => {
+    setChecked(!checked);
+    onChange?.(get(item, valueProp as never), !checked);
+  };
+
   useEffect(() => {
     if (selections && selections?.length > 0) setChecked(selections?.includes?.(get(item, valueProp as never)));
   }, [selections]);
 
   return (
-    <Pressable
-      onPress={() => {
-        setChecked(!checked);
-        onChange?.(get(item, valueProp as never), !checked);
-      }}>
+    <Pressable onPress={onPress}>
       <Block
         pt-16
         pb-16
@@ -44,7 +45,7 @@ const RenderItem = ({item, displayProp, valueProp, onChange, selections}: Render
           },
         ]}>
         <Block row center>
-          <AppCheckbox onPress={() => {}} checked={checked} mr-13 />
+          <AppCheckbox onPress={onPress} checked={checked} mr-13 />
           <Text
             styles={{
               color: theme.colors.text,
