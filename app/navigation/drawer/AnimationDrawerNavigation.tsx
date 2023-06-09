@@ -4,12 +4,12 @@ import {Alert, Pressable, Animated as RNAnimated, StyleSheet, Text, ViewStyle} f
 import {createDrawerNavigator, DrawerContentComponentProps, DrawerContentScrollView, DrawerItem, DrawerNavigationProp} from '@react-navigation/drawer';
 import {ParamListBase} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import Animated, {AnimatedStyleProp, interpolateNode} from 'react-native-reanimated';
+import Animated, {AnimatedStyleProp, interpolate} from 'react-native-reanimated';
 
 import {DrawerMenuItemList} from './DrawerMenuItems';
 
 import {AppImage, Block} from '@/components';
-import {navigate, Routes} from '@/navigation';
+import {rootNavigationRef, Routes} from '@/navigation';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -59,9 +59,9 @@ const DrawerContent = ({drawerProps, progress, setProgress}: DrawerContentType) 
           <AppImage url="https://image.com/image.png" size={60} resizeMode="center" style={styles.avatar} />
         </Block>
         <Block flex>
-          <DrawerItem label="Dashboard" style={styles.drawerItem} onPress={() => navigate(Routes.HOME_SCREEN)} />
-          <DrawerItem label="Dashboard" style={styles.drawerItem} onPress={() => navigate(Routes.HOME_SCREEN)} />
-          <DrawerItem label="Dashboard" style={styles.drawerItem} onPress={() => navigate(Routes.HOME_SCREEN)} />
+          <DrawerItem label="Dashboard" style={styles.drawerItem} onPress={() => rootNavigationRef?.navigate(Routes.MAIN_DRAWER_ROOT)} />
+          <DrawerItem label="Dashboard" style={styles.drawerItem} onPress={() => rootNavigationRef?.navigate(Routes.MAIN_DRAWER_ROOT)} />
+          <DrawerItem label="Dashboard" style={styles.drawerItem} onPress={() => rootNavigationRef?.navigate(Routes.MAIN_DRAWER_ROOT)} />
         </Block>
       </Block>
 
@@ -75,16 +75,10 @@ const DrawerContent = ({drawerProps, progress, setProgress}: DrawerContentType) 
 export default () => {
   const [progress, setProgress] = React.useState(new RNAnimated.Value(0));
 
-  const scale = interpolateNode(progress as unknown as number, {
-    inputRange: [0, 1],
-    outputRange: [1, 0.8],
-  });
-  const borderRadius = interpolateNode(progress as unknown as number, {
-    inputRange: [0, 1],
-    outputRange: [0, 16],
-  });
+  const scale = interpolate(progress as unknown as number, [0, 1], [1, 0.8]);
+  const borderRadius = interpolate(progress as unknown as number, [0, 1], [0, 16]);
 
-  const animatedStyle = {borderRadius, transform: [{scale}]};
+  const animatedStyle = {borderRadius, transform: [{scale}]} as AnimatedStyleProp<ViewStyle>;
 
   return (
     <Block flex>

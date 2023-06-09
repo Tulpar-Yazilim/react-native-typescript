@@ -81,12 +81,12 @@ const AppMultipleSelect: FC<AppMultipleSelectProps | never> = props => {
               onPress={() => {
                 Keyboard.dismiss();
               }}>
-              <Block flex pt-30 backgroundColor={theme.colors.screenBgColor}>
+              <Block flex pt-30 backgroundColor={theme.colors.black}>
                 <AppFlatList<object>
                   data={filteredOptions}
                   sticky
                   ListHeaderComponent={
-                    <Block row px-12 backgroundColor={theme.colors.screenBgColor}>
+                    <Block flex row px-12 backgroundColor={theme.colors.black}>
                       <Block flex-1 middle center>
                         <AppButton
                           type="icon"

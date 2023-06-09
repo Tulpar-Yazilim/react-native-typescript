@@ -3,6 +3,8 @@ import React, {FunctionComponent, ReactElement} from 'react';
 
 import {LocalNotificationType} from './enums';
 
+import {SchemaInputType} from '@/components/Common/Form/types';
+
 export type ScreenType = {
   title?: string;
   name?: never;
@@ -11,6 +13,16 @@ export type ScreenType = {
   component?: ReactElement | FunctionComponent | React.FC;
   headerShown?: boolean;
   props?: never;
+};
+
+export type FormitDescription = {
+  meta?: FormitMeta;
+};
+
+export type FormitMeta = {
+  col?: number;
+  label?: string;
+  type?: keyof typeof SchemaInputType;
 };
 
 export type ImageType = {

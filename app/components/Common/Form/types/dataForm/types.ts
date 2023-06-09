@@ -1,7 +1,14 @@
-import {SchemaField, SchemaInputType} from './enums';
 import {UseFormReturn} from 'react-hook-form';
 
-export type SelectOptions = {label: string; value: string}[] | [] | any;
+import {SchemaField, SchemaInputType} from './enums';
+
+export type SelectOptions =
+  | Record<string, never>
+  | {
+      label: string;
+      value: string | number;
+    }[]
+  | [];
 
 export interface SchemaMeta {
   name: string;
@@ -24,30 +31,4 @@ export interface SchemaMeta {
   valueProp?: string;
   displayProp?: string;
   form?: UseFormReturn;
-}
-
-export interface IControl {
-  value?: any;
-  onChange?: (...event: any[]) => void;
-}
-
-export interface IInput {
-  name: string;
-  form: any;
-  label?: string;
-  mb?: number;
-}
-
-export interface IInputSelect extends IInput {
-  options: {label: string; value: any}[] | [];
-}
-
-export interface IInputText extends IInput {
-  accept?: string;
-  setValue?: any;
-  type?: React.InputHTMLAttributes<unknown>['type'];
-  minRows?: number;
-  maxRows?: number;
-  readonly?: boolean;
-  size?: 'medium' | 'small';
 }

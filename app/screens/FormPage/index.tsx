@@ -10,16 +10,16 @@ import {HomeStackNavigationRouteType} from '@/navigation';
 
 const SelectOptions = [
   {
-    id: 1,
-    name: 'Armut',
+    value: 1,
+    label: 'Armut',
   },
   {
-    id: 2,
-    name: 'Elma',
+    value: 2,
+    label: 'Elma',
   },
   {
-    id: 3,
-    name: 'Karpuz',
+    value: 3,
+    label: 'Karpuz',
   },
 ];
 
