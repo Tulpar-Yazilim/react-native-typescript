@@ -204,6 +204,13 @@ const defaultTextStyles = {
   fontFamily: 'Poppins-Regular',
 };
 
+const StyleCorrespondings = {
+  bg: 'backgroundColor',
+  flex: 'flex',
+  backgroundColor: 'backgroundColor',
+  rounded: 'borderRadius',
+};
+
 export const getStyleShortcuts = (props: UseThemeType, t?: 'light' | 'dark') => {
   let styles = {} as IStyles | StyleProp<ViewProps>;
   const {shortcutStyles, predefinedStyles} = getStyles(t || 'light');
@@ -228,8 +235,15 @@ export const getStyleShortcuts = (props: UseThemeType, t?: 'light' | 'dark') => 
   Object.keys(props).forEach(prop => {
     const customProp = prop as never;
     const customShortcut = shortcutStyles?.[customProp];
+
+    if (styles && Object.keys(StyleCorrespondings).includes(customProp)) {
+      styles[StyleCorrespondings[customProp]] = COLORS[props[customProp]] || props[customProp];
+    }
+
     if (customShortcut) {
-      if (styles) styles[customShortcut] = props[customProp];
+      if (styles) {
+        styles[customShortcut] = props[customProp];
+      }
     } else {
       const customPredefinedStyles = predefinedStyles?.[customProp] as object;
       if (customPredefinedStyles) {

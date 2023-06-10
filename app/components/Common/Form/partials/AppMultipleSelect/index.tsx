@@ -8,7 +8,6 @@ import RenderItem from './RenderItem';
 import AppInput from '../../../AppInput';
 
 import {AppButton, AppFlatList, Block, Text} from '@/components';
-import {useTheme} from '@/hooks';
 
 interface AppMultipleSelectProps {
   placeholder?: string;
@@ -25,10 +24,8 @@ let selections: Array<object> = [];
 const AppMultipleSelect: FC<AppMultipleSelectProps | never> = props => {
   const {options, valueProp, displayProp, label, name = '', form} = props;
   const [open, setOpen] = useState<boolean>(false);
-  const [current, setCurrent] = useState<object>();
   const [filteredOptions, setFilteredOptions] = useState<Array<object>>(options ?? []);
-
-  const theme = useTheme();
+  const [inputSelections, setInputSelections] = useState<Array<string>>([]);
 
   const onFilter = debounce(text => {
     setFilteredOptions((options ?? [])?.filter(item => (get(item, displayProp as never) as string)?.toLowerCase()?.includes(text?.toLowerCase())));
@@ -58,9 +55,10 @@ const AppMultipleSelect: FC<AppMultipleSelectProps | never> = props => {
             editable={false}
             animatedPlaceholder={label}
             disabled
-            value={current && get(current, displayProp as never)}
+            value={inputSelections?.join(', ')}
             onClear={() => {
-              setCurrent(undefined);
+              setInputSelections([]);
+              selections = [];
               onChange('');
             }}
           />
@@ -81,12 +79,12 @@ const AppMultipleSelect: FC<AppMultipleSelectProps | never> = props => {
               onPress={() => {
                 Keyboard.dismiss();
               }}>
-              <Block flex pt-30 backgroundColor={theme.colors.black}>
+              <Block flex pt-30>
                 <AppFlatList<object>
                   data={filteredOptions}
                   sticky
                   ListHeaderComponent={
-                    <Block flex row px-12 backgroundColor={theme.colors.black}>
+                    <Block flex row px-12 bg-white>
                       <Block flex-1 middle center>
                         <AppButton
                           type="icon"
@@ -131,6 +129,7 @@ const AppMultipleSelect: FC<AppMultipleSelectProps | never> = props => {
                 title="Ok"
                 onPress={() => {
                   onChange(selections);
+                  setInputSelections(selections as unknown as string[]);
                   setOpen(false);
                 }}
               />

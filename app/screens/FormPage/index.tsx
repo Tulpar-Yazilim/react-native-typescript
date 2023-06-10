@@ -71,7 +71,7 @@ const FormPage = () => {
 
   return (
     <AppScreen keyboardScroll>
-      <Text>{detailId}</Text>
+      <Text>Detail Id: {detailId}</Text>
       <Form schema={schema} form={form} />
       <AppButton mt-10 type="secondary" onPress={form.handleSubmit(onSubmit)} title="Submit" />
     </AppScreen>

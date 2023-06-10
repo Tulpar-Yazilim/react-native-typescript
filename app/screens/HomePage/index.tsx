@@ -11,6 +11,16 @@ import {settingsRedux} from '@/store';
 import {COLORS} from '@/theme';
 import {createLocalNotification, Permission, PERMISSION_TYPE} from '@/utils';
 
+const HeaderRight = ({language}: {language: string}) => (
+  <Block row s="pr-20">
+    <Text white>language</Text>
+    <Text white>:</Text>
+    <Text white s="pl-5">
+      {language}
+    </Text>
+  </Block>
+);
+
 const HomePage = () => {
   const dispatch = useAppDispatch();
   const dialog = useDialog();
@@ -52,15 +62,7 @@ const HomePage = () => {
 
   useLayoutEffect(() => {
     navigation.setOptions({
-      headerRight: () => (
-        <Block row s="pr-20">
-          <Text white>language</Text>
-          <Text white>:</Text>
-          <Text white s="pl-5">
-            {language}
-          </Text>
-        </Block>
-      ),
+      headerRight: () => <HeaderRight language={language} />,
     });
   }, [navigation, language]);
 
@@ -138,8 +140,6 @@ const HomePage = () => {
 
         <DateTimePicker visible={dateVisible} onClose={() => setDateVisible(false)} />
         <DateTimePicker mode="datetime" visible={dateTimeVisible} onClose={() => setDateTimeVisible(false)} />
-
-        <AppButton mb-5 type="secondary" title={'Form Example'} onPress={() => navigation.navigate(Routes.FORM_SCREEN, {detailId: '1'})} />
 
         <Row row>
           <Col col-6 pr-2>

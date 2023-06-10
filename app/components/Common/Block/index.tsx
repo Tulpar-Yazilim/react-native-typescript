@@ -2,9 +2,11 @@ import React, {FC, memo, ReactElement, ReactNode} from 'react';
 import {Pressable, StyleProp, View, ViewStyle} from 'react-native';
 
 import {useTheme} from '@/hooks';
-import {IStyleShortcuts, UseThemeType} from '@/utils';
+import {IStyleShortcuts, setupSizeTypes, UseThemeType} from '@/utils';
 
-interface Props extends IStyleShortcuts {
+type SetupSizeTypes = Omit<setupSizeTypes, 'setupSizeTypes'>;
+
+interface Props extends SetupSizeTypes, IStyleShortcuts {
   If?: boolean;
   children?: ReactElement | ReactNode;
   pressable?: boolean;

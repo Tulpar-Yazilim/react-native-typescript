@@ -9,6 +9,7 @@ export * from './validations';
 export * from './device-helper';
 export * from './size-helper';
 export * from './currency';
+export * from './style/size';
 
 import rgba from './rgba';
 export {rgba};

@@ -45,12 +45,12 @@ export const url = string.meta({
 });
 
 export const radio = (options: SelectOptions, displayProp?: string, valueProp?: string) => {
-  return yup?.array().nullable().meta({
+  return yup?.mixed().nullable().meta({
     field: SchemaField.RadioButton,
     options,
     displayProp,
     valueProp,
-  });
+  }) as YMixedSchema;
 };
 
 export const select = (options: SelectOptions, type: string | number, displayProp?: string, valueProp?: string) => {
@@ -101,7 +101,7 @@ interface Fields {
   multipleSelect: (options: SelectOptions, type: number | string, displayProp?: string, valueProp?: string) => YArraySchema;
   phone: YStringSchema;
   number: YNumberSchema;
-  radio: (options: SelectOptions, displayProp?: string, valueProp?: string) => YArraySchema;
+  radio: (options: SelectOptions, displayProp?: string, valueProp?: string) => YMixedSchema;
 }
 
 export const fields: Fields = {
