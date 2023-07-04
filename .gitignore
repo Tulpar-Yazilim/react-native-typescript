@@ -65,3 +65,6 @@ ios/Podfile.lock
 package-lock.json
 
 .metro-health-check*
+
+# testing
+/coverage

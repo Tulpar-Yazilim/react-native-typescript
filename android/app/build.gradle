@@ -89,11 +89,8 @@ def reactNativeArchitectures() {
 }
 
 android {
-   ndkVersion rootProject.ext.ndkVersion
-
-    compileSdkVersion rootProject.ext.compileSdkVersion
-    
-
+    ndkVersion rootProject.ext.ndkVersion 
+    compileSdkVersion rootProject.ext.compileSdkVersion 
     namespace "com.boilerplate"
     defaultConfig {
         applicationId "com.boilerplate" 
