@@ -5,8 +5,9 @@ import {useRoute} from '@react-navigation/native';
 import {useForm} from 'react-hook-form';
 import * as Yup from 'yup';
 
-import {AppButton, AppScreen, fields, Form, Text} from '@/components';
+import {AppButton, AppInput, AppScreen, fields, Form, Text} from '@/components';
 import {HomeStackNavigationRouteType} from '@/navigation';
+import {ICONS} from '@/utils';
 
 const SelectOptions = [
   {
@@ -74,6 +75,7 @@ const FormPage = () => {
       <Text>Detail Id: {detailId}</Text>
       <Form schema={schema} form={form} />
       <AppButton mt-10 type="secondary" onPress={form.handleSubmit(onSubmit)} title="Submit" />
+      <AppInput type="password" />
     </AppScreen>
   );
 };

@@ -1,5 +1,5 @@
 import React, {memo} from 'react';
-import {Animated, Dimensions, StyleProp, StyleSheet, Text, TextStyle} from 'react-native';
+import {Animated, Dimensions, Pressable, StyleProp, StyleSheet, Text, TextStyle} from 'react-native';
 
 import {RFValue} from 'react-native-responsive-fontsize';
 
@@ -12,10 +12,12 @@ interface Props extends ITextStyles {
   children?: string | string[];
   animated?: boolean;
   style?: StyleProp<TextStyle>;
+  pressable?: boolean;
+  onPress?: () => void;
 }
 
 const Typography = (props: Props) => {
-  const {children, params, animated, ...rest} = props;
+  const {children, params, pressable, onPress, animated, ...rest} = props;
   const {textStyles, styles} = useTheme(props as UseThemeType);
 
   // Translations
@@ -36,6 +38,16 @@ const Typography = (props: Props) => {
       <Animated.Text {...rest} style={[insideStyles, textStyles, styles, props.style]}>
         {content}
       </Animated.Text>
+    );
+  }
+
+  if (pressable) {
+    return (
+      <Pressable onPress={onPress}>
+        <Text {...rest} style={[textStyles, styles, props.style]}>
+          {content}
+        </Text>
+      </Pressable>
     );
   }
 
