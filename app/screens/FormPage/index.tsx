@@ -43,7 +43,7 @@ const FormPage = () => {
     date: fields.date.label('Date Picker').required('Tarih alanı zorunludur'),
     password: fields.password.label('Password').min(6, 'En az 6 karakter olmalı').required('Lütfen parola giriniz'),
     select: fields.select(SelectOptions, 'string', 'label', 'value').label('Select').required('select required message'),
-    autoComplete: fields.autoComplete(users, 'string', 'name.first', 'name.first').label('Auto Complete'),
+    autoComplete: fields.autoComplete(users, 'string', 'name.first', 'name.first').required('test message').label('Auto Complete'),
     multipleSelect: fields.multipleSelect(users ?? [], 'string', 'name.first', 'name.first').label('Multiple Select'),
     radio: fields.radio([
       {label: 'radio-1', value: 1},
@@ -75,7 +75,6 @@ const FormPage = () => {
       <Text>Detail Id: {detailId}</Text>
       <Form schema={schema} form={form} />
       <AppButton mt-10 type="secondary" onPress={form.handleSubmit(onSubmit)} title="Submit" />
-      <AppInput type="password" />
     </AppScreen>
   );
 };

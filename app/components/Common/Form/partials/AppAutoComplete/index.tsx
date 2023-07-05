@@ -36,12 +36,6 @@ function AppAutoComplete(props: AppAutoCompleteProps) {
     setFilteredOptions(options);
   }, [options]);
 
-  useEffect(() => {
-    if (open && get(current, valueProp)) {
-      setFilteredOptions([current as never, ...filteredOptions.filter(r => get(r, valueProp) !== get(current, valueProp))]);
-    }
-  }, [open, current, valueProp, filteredOptions]);
-
   return (
     <Controller
       name={name}
