@@ -1,8 +1,9 @@
-import React, {memo, ReactNode} from 'react';
+import React, {memo, ReactNode, useState} from 'react';
 import {Keyboard, Pressable, ScrollView, View, ViewStyle} from 'react-native';
 
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationOptions} from '@react-navigation/stack';
+import {RefreshControl} from 'react-native-gesture-handler';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {SafeAreaView} from 'react-native-safe-area-context';
 
@@ -26,13 +27,21 @@ type Props<T> = {
   loading?: boolean;
   title?: string;
   navigation?: T;
+  onRefreshData?: () => void;
 };
 
 function AppScreen<T>(props: Props<T>) {
-  const {children, title, scroll, safe, keyboardScroll, customStyle, navigationOptions, flatList, loading} = props;
+  const {children, title, scroll, safe, keyboardScroll, customStyle, navigationOptions, flatList, loading, onRefreshData} = props;
   const navigation = useNavigation();
   const {colors} = useTheme();
   const screenProps = props as UseThemeType;
+  const [refreshing, setRefreshing] = useState(false);
+
+  const onRefresh = async () => {
+    setRefreshing(true);
+    await onRefreshData?.();
+    setRefreshing(false);
+  };
 
   const screenCommonStyles = {
     padding: heightPixel(window.offset),
@@ -50,7 +59,20 @@ function AppScreen<T>(props: Props<T>) {
       ) : (
         <>
           {scroll && safe && !keyboardScroll && (
-            <ScrollView style={{...screenCommonStyles, ...getStyleShortcuts(screenProps)}} showsVerticalScrollIndicator={false} showsHorizontalScrollIndicator={false}>
+            <ScrollView
+              style={{...screenCommonStyles, ...getStyleShortcuts(screenProps)}}
+              refreshControl={
+                onRefreshData ? (
+                  <RefreshControl
+                    refreshing={refreshing}
+                    onRefresh={() => {
+                      onRefresh?.();
+                    }}
+                  />
+                ) : undefined
+              }
+              showsVerticalScrollIndicator={false}
+              showsHorizontalScrollIndicator={false}>
               <Pressable
                 onPress={() => Keyboard.dismiss()}
                 style={[

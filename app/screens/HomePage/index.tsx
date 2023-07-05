@@ -4,7 +4,7 @@ import {Pressable} from 'react-native';
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
 
 import {Images} from '@/assets';
-import {AppBottomSheet, AppButton, AppIcon, AppImage, AppScreen, AppSwitch, Block, Col, DateTimePicker, FloatingButton, Row, SegmentedControl, Text} from '@/components';
+import {AppBottomSheet, AppButton, AppIcon, AppImage, AppScreen, AppSwitch, Block, BottomModal, Col, DateTimePicker, FloatingButton, Row, SegmentedControl, Text} from '@/components';
 import {useAppDispatch, useAppSelector, useDialog, useStyledTag} from '@/hooks';
 import {HomeStackNavigationPropsType, Routes} from '@/navigation';
 import {settingsRedux} from '@/store';
@@ -261,6 +261,7 @@ const HomePage = () => {
             </Pressable>
           )}
         </Block>
+
         <AppBottomSheet isVisible={bottomSheetVisibility} onClose={() => setBottomSheetVisibility(false)}>
           <Block row center p-20>
             <Text black>Dark Theme</Text>

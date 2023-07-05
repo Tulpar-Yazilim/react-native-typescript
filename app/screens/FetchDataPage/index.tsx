@@ -4,6 +4,7 @@ import {useTheme} from '@react-navigation/native';
 
 import {useGetCharactersQuery} from '@/api';
 import {AppFlatList, AppImage, AppScreen, Block, Swipeable, Text} from '@/components';
+import EmptyList from '@/components/Common/EmptyList';
 import {COLORS, SIZES} from '@/theme';
 
 type ItemType = {
@@ -62,13 +63,10 @@ const FetchDataPage = () => {
   return (
     <AppScreen title="fetch_data" flatList customStyle={{padding: 0}}>
       <AppFlatList
+        onRefreshData={() => console.log('Refreshed')}
         usePagination
         data={characters?.results}
-        ListEmptyComponent={
-          <Block pt={20} center middle>
-            <Text>No records found.</Text>
-          </Block>
-        }
+        ListEmptyComponent={<EmptyList text="No records found." />}
         renderItem={renderItem}
         onEndReached={retrieveMore}
         refreshing={isLoading}

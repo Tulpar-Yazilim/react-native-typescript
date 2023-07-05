@@ -34,7 +34,45 @@ interface AppInputProps extends TextInputProps {
   inputProps?: object;
   skipNext?: boolean;
   disabled?: boolean;
+  type?: 'password' | 'text' | 'currency' | 'card';
 }
+
+const {format: formatCurrency} = Intl.NumberFormat('tr-TR', {
+  currency: 'TRY',
+  style: 'currency',
+});
+
+const useCurrencyInput = (initialValue: string | undefined) => {
+  const [value, setValue] = useState(initialValue || '');
+
+  useEffect(() => {
+    handleChange(initialValue + '00');
+  }, []);
+
+  const handleChange = (v: string) => {
+    const decimal = Number(v.replace(/\D/g, '')) / 100;
+    setValue(
+      formatCurrency(decimal || 0)
+        .split('₺')[1]
+        .replace('R$\xa0', ''),
+    );
+  };
+  return [value, handleChange] as [string, (v: string) => void];
+};
+
+const useCreditCardInput = (initialValue = '', onChangeText) => {
+  const [value, setValue] = useState(initialValue);
+
+  const handleChange = (v: string) => {
+    const cardValue = v.replace(/\D/g, '').match(/(\d{0,4})(\d{0,4})(\d{0,4})(\d{0,4})/);
+    if (cardValue) {
+      const test = !cardValue[2] ? cardValue[1] : `${cardValue[1]} ${cardValue[2]}${`${cardValue[3] ? ` ${cardValue[3]}` : ''}`}${`${cardValue[4] ? ` ${cardValue[4]}` : ''}`}`;
+      setValue(test.toString());
+      onChangeText?.(test.toString());
+    }
+  };
+  return [value, handleChange] as [string, (v: string) => void];
+};
 
 const AppInput: FC<AppInputProps> = props => {
   const {
@@ -51,6 +89,7 @@ const AppInput: FC<AppInputProps> = props => {
     onFocus,
     editable = true,
     reference,
+    type,
     form,
     name,
     label,
@@ -63,6 +102,14 @@ const AppInput: FC<AppInputProps> = props => {
   const [text, setText] = useState('');
   const {colors} = useTheme();
   const theme = useTheme();
+
+  const [isVisiblePassword, setIsVisiblePassword] = useState(false);
+  const [currencyValue, setCurrencyValue] = useCurrencyInput(value);
+  const [cardValue, setCardValue] = useCreditCardInput(value, onChangeText);
+
+  const onIconPress = () => {
+    setIsVisiblePassword(!isVisiblePassword);
+  };
 
   const onAnimation = useCallback(
     ({_offset, _scale}: {_offset: number; _scale: number}) => {
@@ -101,9 +148,20 @@ const AppInput: FC<AppInputProps> = props => {
     }
   };
 
-  const onChange = (t: string) => {
-    setText(t);
-    onChangeText?.(t);
+  const onChange = (textValue: string) => {
+    let txt = textValue;
+
+    if (type === 'currency') {
+      setCurrencyValue?.(textValue);
+      txt = textValue.split(',').join('');
+      txt = txt.substring(0, txt.length - 2);
+    } else if (type === 'card') {
+      setCardValue?.(textValue);
+      txt = textValue.split('').join('');
+    } else {
+      setText(txt);
+      onChangeText?.(txt);
+    }
   };
 
   const goToNextInput = () => {
@@ -115,6 +173,17 @@ const AppInput: FC<AppInputProps> = props => {
       onAnimation?.({_offset: 5, _scale: 0.75});
     }
     nextInput && form && form.setFocus(nextInput);
+  };
+
+  const getValue = () => {
+    switch (type) {
+      case 'currency':
+        return currencyValue;
+      case 'card':
+        return cardValue;
+      default:
+        return value;
+    }
   };
 
   return (
@@ -194,7 +263,7 @@ const AppInput: FC<AppInputProps> = props => {
                     },
                   ]}
                   allowFontScaling={false}
-                  value={value}
+                  value={getValue()}
                   secureTextEntry={props.secureTextEntry}
                   returnKeyType={returnKeyType}
                   onSubmitEditing={() => {
@@ -226,6 +295,11 @@ const AppInput: FC<AppInputProps> = props => {
             {icon && (
               <Block center middle>
                 <AppIcon name={icon} size={24} color={COLORS.gray} />
+              </Block>
+            )}
+            {type === 'password' && (
+              <Block center middle pressable onPress={onIconPress}>
+                <AppIcon name={!isVisiblePassword ? ICONS.chevronLeft : ICONS.chevronRight} size={24} color={COLORS.gray} />
               </Block>
             )}
           </Block>

@@ -17,6 +17,7 @@ import AppSwitch from './AppSwitch';
 import Block from './Block';
 import DateTimePicker from './DateTimePicker';
 import Alert from './Dialog';
+import EmptyList from './EmptyList';
 import FloatingButton from './FloatingButton';
 import Form from './Form/Form';
 import Col from './Grid/Col';
@@ -65,4 +66,5 @@ export {
   AppSwitch,
   AppLoader,
   SegmentView,
+  EmptyList,
 };

@@ -176,6 +176,39 @@ export const SIZES = {
     shadowOffset: {width: 0, height: 2},
     shadowRadius: 4,
   },
+
+  //#region Spacing
+  spacing: {
+    none: 0,
+    xs: 4,
+    sm: 6,
+    md: 8,
+    lg: 12,
+    xl: 24,
+    '2xl': 32,
+    '3xl': 64,
+    '-xs': -4,
+    '-sm': -6,
+    '-md': -8,
+    '-lg': -12,
+    '-xl': -24,
+    '-2xl': -32,
+    '-3xl': -64,
+  },
+  //#endregion
+
+  //#region Border Radius
+  borderRadius: {
+    none: 0,
+    xs: 2,
+    sm: 4,
+    md: 6,
+    lg: 8,
+    xl: 12,
+    '2xl': 16,
+    circle: 99999,
+  },
+  //#endregion
 };
 
 export const FONTS = {

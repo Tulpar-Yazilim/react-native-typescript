@@ -1,5 +1,5 @@
-import React, {ReactNode, RefObject} from 'react';
-import {ActivityIndicator, FlatListProps, FlatList as FList, ImageStyle, ScrollView, TextStyle, View, ViewStyle} from 'react-native';
+import React, {ReactNode, RefObject, useState} from 'react';
+import {ActivityIndicator, FlatListProps, FlatList as FList, ImageStyle, RefreshControl, ScrollView, TextStyle, View, ViewStyle} from 'react-native';
 
 import Block from '../Block';
 
@@ -25,6 +25,7 @@ interface IFListProps<T> extends FlatListProps<T> {
   removeClippedSubviews?: boolean;
   flex?: boolean;
   reference?: RefObject<FList>;
+  onRefreshData?: () => void;
 }
 
 function FlatList<T>(props: IFListProps<T>) {
@@ -35,8 +36,6 @@ function FlatList<T>(props: IFListProps<T>) {
     loading,
     onEndReached,
     onEndReachedThreshold = 0.8,
-    refreshing,
-    onRefresh,
     preloader,
     preloaderLength,
     preloaderWidth,
@@ -48,8 +47,16 @@ function FlatList<T>(props: IFListProps<T>) {
     removeClippedSubviews = true,
     flex,
     reference,
+    onRefreshData,
     ...rest
   } = props;
+  const [refreshing, setRefreshing] = useState(false);
+
+  const onRefresh = async () => {
+    setRefreshing(true);
+    await onRefreshData?.();
+    setRefreshing(false);
+  };
 
   const renderFooter = () => {
     if (!loading) {
@@ -92,8 +99,7 @@ function FlatList<T>(props: IFListProps<T>) {
       ListFooterComponent={usePagination ? renderFooter : null}
       onEndReached={usePagination ? onEndReached : null}
       onEndReachedThreshold={onEndReachedThreshold}
-      onRefresh={onRefresh}
-      refreshing={refreshing}
+      refreshControl={onRefreshData ? <RefreshControl refreshing={refreshing} onRefresh={onRefresh} /> : undefined}
       keyExtractor={(_item, index) => 'flat_list_item_' + index}
       contentContainerStyle={contentContainerStyle}
       removeClippedSubviews={removeClippedSubviews}
