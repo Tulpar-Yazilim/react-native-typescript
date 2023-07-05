@@ -1,6 +1,6 @@
 module.exports = {
     root: true,
-    extends: ['eslint:recommended', 'plugin:react/recommended', 'plugin:@typescript-eslint/recommended', '@react-native-community', 'prettier'],
+    extends: ['eslint:recommended', 'plugin:react/recommended', 'plugin:@typescript-eslint/recommended', '@react-native', 'prettier'],
     ignorePatterns: ['**/*/*.js', '*.js', '*.svg', '*.json', '*.png', 'package.json', 'package-lock.json', 'yarn.lock'],
     parser: '@typescript-eslint/parser',
     plugins: ['import', 'react', 'react-native', 'prettier', 'react-hooks', '@typescript-eslint', 'promise', 'unused-imports'],

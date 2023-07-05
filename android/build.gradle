@@ -9,13 +9,7 @@ buildscript {
  
         kotlinVersion = "1.7.20" 
         kotlin_version = "1.7.20" 
-        androidXCore = "1.7.0"
-        androidXVersion = "1+"
-        androidXAnnotation = "1.1.0"
-        androidXBrowser = "1.0.0"
-        playServicesVersion = "17.0.0" 
-        androidMapsUtilsVersion = "2.0.3"
-
+  
         // We use NDK 23 which has both M1 support and is the side-by-side NDK version from AGP.
         ndkVersion = "23.1.7779620"
     }
@@ -24,7 +18,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("com.android.tools.build:gradle:7.3.1")
+        classpath("com.android.tools.build:gradle")
         classpath("com.facebook.react:react-native-gradle-plugin") 
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion" 
         // NOTE: Do not place your application dependencies here; they belong
