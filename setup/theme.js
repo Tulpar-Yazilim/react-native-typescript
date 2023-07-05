@@ -11,9 +11,21 @@ const createSizeTypes = {};
 Array.from({length: 200}).forEach((_, i) => {
   let value = i;
 
-  createSizes['flex-' + i] = {flex: value};
-  createSizeTypes['flex-' + i] = `_boolean_`;
+  if (value <= 9) {
+     createSizes['flex-' + i] = {flex: value};
+     createSizeTypes['flex-' + i] = `_boolean_`; 
+  }
+ 
+  if (value <= 12) {
+     createSizes['col-' + i] = {width: (100 / 12) * value + '%'};
+     createSizeTypes['col-' + i] = `_boolean_`;
+  }
 
+  if (value <= 50) {
+     createSizes['fs-' + i] = {fontSize: `_fontPixel(${value})_`};
+     createSizeTypes['fs-' + i] = `_boolean_`;
+  }
+  
   createSizes['rounded-' + i] = {borderRadius: value};
   createSizeTypes['rounded-' + i] = `_boolean_`;
 
@@ -61,13 +73,7 @@ Array.from({length: 200}).forEach((_, i) => {
 
   createSizes['w-' + i] = {width: `_widthPixel(${value})_`};
   createSizeTypes['w-' + i] = `_boolean_`;
-
-  createSizes['col-' + i] = {width: (100 / 12) * i + '%'};
-  createSizeTypes['col-' + i] = `_boolean_`;
-
-  createSizes['fs-' + i] = {fontSize: `_fontPixel(${value})_`};
-  createSizeTypes['fs-' + i] = `_boolean_`;
-
+ 
   createSizes['right-' + i] = {right: `_widthPixel(${value})_`};
   createSizeTypes['right-' + i] = `_boolean_`;
 
@@ -79,10 +85,7 @@ Array.from({length: 200}).forEach((_, i) => {
 
   createSizes['bottom-' + i] = {bottom: `_heightPixel(${value})_`};
   createSizeTypes['bottom-' + i] = `_boolean_`;
-
-  createSizes['col-' + i] = {width: (100 / 12) * i + '%'};
-  createSizeTypes['col-' + i] = `_boolean_`;
-
+ 
 });
 
 if (createSizes) {

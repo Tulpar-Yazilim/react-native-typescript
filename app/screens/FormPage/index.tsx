@@ -7,7 +7,6 @@ import * as Yup from 'yup';
 
 import {AppButton, AppInput, AppScreen, fields, Form, Text} from '@/components';
 import {HomeStackNavigationRouteType} from '@/navigation';
-import {ICONS} from '@/utils';
 
 const SelectOptions = [
   {
@@ -26,11 +25,12 @@ const SelectOptions = [
 
 const initial = {
   name: '',
-  date: null,
+  date: '',
   password: '',
   select: '1',
   autoComplete: '',
   multipleSelect: [],
+  radio: undefined,
 };
 
 const FormPage = () => {
@@ -42,9 +42,9 @@ const FormPage = () => {
     name: fields.text.label('Text Example').required('Bu alan zorunludur'),
     date: fields.date.label('Date Picker').required('Tarih alanı zorunludur'),
     password: fields.password.label('Password').min(6, 'En az 6 karakter olmalı').required('Lütfen parola giriniz'),
-    select: fields.select(SelectOptions, 'string', 'name', 'id').label('Select').required('select required message'),
+    select: fields.select(SelectOptions, 'string', 'label', 'value').label('Select').required('select required message'),
     autoComplete: fields.autoComplete(users, 'string', 'name.first', 'name.first').label('Auto Complete'),
-    multipleSelect: fields.multipleSelect(users, 'string', 'name.first', 'name.first').label('Multiple Select'),
+    multipleSelect: fields.multipleSelect(users ?? [], 'string', 'name.first', 'name.first').label('Multiple Select'),
     radio: fields.radio([
       {label: 'radio-1', value: 1},
       {label: 'radio 2', value: 2},

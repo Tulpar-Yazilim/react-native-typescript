@@ -5,22 +5,23 @@ import {debounce, get} from 'lodash';
 import {Controller, UseFormReturn} from 'react-hook-form';
 
 import AppInput from '../../../AppInput';
+import {SelectOptions} from '../../types';
 
 import {AppButton, AppFlatList, Block, Text} from '@/components';
 import {useTheme} from '@/hooks';
 
-interface AppAutoCompleteProps<T> {
+interface AppAutoCompleteProps {
   placeholder?: string;
-  options: Array<T>;
-  valueProp: string;
-  displayProp: string;
+  options?: SelectOptions;
+  valueProp?: string;
+  displayProp?: string;
   form: UseFormReturn;
   name: string;
   label: string;
 }
 
-function AppAutoComplete<T>(props: AppAutoCompleteProps<T>) {
-  const {options, valueProp, displayProp, label, name, form} = props;
+function AppAutoComplete(props: AppAutoCompleteProps) {
+  const {options = [], valueProp = 'value', displayProp = 'label', label, name, form} = props;
   const [open, setOpen] = useState(false);
   const [current, setCurrent] = useState<object | never>();
   const [filteredOptions, setFilteredOptions] = useState(options);
@@ -97,8 +98,8 @@ function AppAutoComplete<T>(props: AppAutoCompleteProps<T>) {
                   </Block>
                   <AppFlatList
                     preloader={false}
-                    data={filteredOptions}
-                    renderItem={item => (
+                    data={filteredOptions as never[]}
+                    renderItem={({item}) => (
                       <Pressable
                         onPress={() => {
                           setCurrent(item);
@@ -121,7 +122,7 @@ function AppAutoComplete<T>(props: AppAutoCompleteProps<T>) {
                             {get(item, valueProp) === get(current, valueProp) && (
                               <Text
                                 mr-10
-                                styles={{
+                                style={{
                                   fontSize: 9,
                                   color: theme.colors.defaultTextColor,
                                 }}>
@@ -129,7 +130,7 @@ function AppAutoComplete<T>(props: AppAutoCompleteProps<T>) {
                               </Text>
                             )}
                             <Text
-                              styles={{
+                              style={{
                                 color: get(item, valueProp) === get(current, valueProp) ? theme.colors.defaultTextColor : theme.colors.defaultTextColor,
                                 fontSize: get(item, valueProp) === get(current, valueProp) ? 18 : 15,
                                 fontWeight: get(item, valueProp) === get(current, valueProp) ? 'bold' : 'normal',

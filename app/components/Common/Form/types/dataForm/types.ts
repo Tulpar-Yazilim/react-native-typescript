@@ -2,13 +2,16 @@ import {UseFormReturn} from 'react-hook-form';
 
 import {SchemaField, SchemaInputType} from './enums';
 
-export type SelectOptions =
-  | Record<string, never>
-  | {
-      label: string;
-      value: string | number;
-    }[]
-  | [];
+export type SelectOptionItemType = {
+  label: string;
+  value: string | number;
+  icon?: React.ReactNode | React.ReactElement | null;
+  isIcon?: boolean;
+  iconColor?: string;
+  iconName?: string;
+};
+
+export type SelectOptions = Record<string, never> | SelectOptionItemType[] | [];
 
 export interface SchemaMeta {
   name: string;
@@ -31,4 +34,5 @@ export interface SchemaMeta {
   valueProp?: string;
   displayProp?: string;
   form?: UseFormReturn;
+  isVisible?: boolean;
 }

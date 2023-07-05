@@ -54,7 +54,7 @@ export const radio = (options: SelectOptions, displayProp?: string, valueProp?: 
 };
 
 export const select = (options: SelectOptions, type: string | number, displayProp?: string, valueProp?: string) => {
-  return (yup[type as keyof typeof type]() as YArraySchema).nullable().meta({field: SchemaField.InputSelect, options, displayProp, valueProp});
+  return (yup[type as keyof typeof type]() as YStringSchema).nullable().meta({field: SchemaField.InputSelect, options, displayProp, valueProp});
 };
 
 export const autoComplete = (options: SelectOptions, type: string | number, displayProp?: string, valueProp?: string) => {
@@ -94,7 +94,7 @@ interface Fields {
   textarea: YStringSchema;
   name: YStringSchema;
   password: YStringSchema;
-  select: (options: SelectOptions, type: number | string, displayProp?: string, valueProp?: string) => YArraySchema;
+  select: (options: SelectOptions, type: number | string, displayProp?: string, valueProp?: string) => YStringSchema;
   fileBase: YMixedSchema;
   autoComplete: (options: SelectOptions, type: number | string, displayProp?: string, valueProp?: string) => YStringSchema;
   multipleAutoComplete: (options: SelectOptions, entries?: [key: string, value: string]) => YArraySchema;

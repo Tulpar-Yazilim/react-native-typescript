@@ -5,9 +5,11 @@ import {RFValue} from 'react-native-responsive-fontsize';
 
 import {useTheme, useTranslate} from '@/hooks';
 import {SIZES} from '@/theme';
-import {ITextStyles, UseThemeType} from '@/utils';
+import {ITextStyles, setupSizeTypes, UseThemeType} from '@/utils';
 
-interface Props extends ITextStyles {
+type SetupSizeTypes = Omit<setupSizeTypes, 'setupSizeTypes'>;
+
+interface Props extends SetupSizeTypes, ITextStyles {
   params?: object;
   children?: string | string[];
   animated?: boolean;

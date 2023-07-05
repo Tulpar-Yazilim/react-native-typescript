@@ -16,9 +16,9 @@ export default function DataForm({form, schema}: DataFormProps) {
   return (
     <Block>
       {schemaMetas.map((meta: SchemaMeta, index: number) => {
-        const fields = meta?.fields || null;
+        const fields = meta?.fields ?? [];
 
-        if (!fields) {
+        if (fields.length === 0) {
           return <DataFormInput key={index} meta={meta} form={form} name={`${meta.name}`} mb={meta.mb ?? 0} />;
         }
 

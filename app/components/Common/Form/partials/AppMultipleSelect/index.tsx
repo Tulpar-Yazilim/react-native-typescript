@@ -6,12 +6,13 @@ import {Controller, UseFormReturn} from 'react-hook-form';
 
 import RenderItem from './RenderItem';
 import AppInput from '../../../AppInput';
+import {SelectOptionItemType, SelectOptions} from '../../types';
 
 import {AppButton, AppFlatList, Block, Text} from '@/components';
 
 interface AppMultipleSelectProps {
   placeholder?: string;
-  options?: Array<object>;
+  options?: SelectOptions;
   valueProp?: string;
   displayProp?: string;
   form?: UseFormReturn;
@@ -22,9 +23,9 @@ interface AppMultipleSelectProps {
 let selections: Array<object> = [];
 
 const AppMultipleSelect: FC<AppMultipleSelectProps | never> = props => {
-  const {options, valueProp, displayProp, label, name = '', form} = props;
+  const {options = [], valueProp, displayProp, label, name = '', form} = props;
   const [open, setOpen] = useState<boolean>(false);
-  const [filteredOptions, setFilteredOptions] = useState<Array<object>>(options ?? []);
+  const [filteredOptions, setFilteredOptions] = useState(options);
   const [inputSelections, setInputSelections] = useState<Array<string>>([]);
 
   const onFilter = debounce(text => {
@@ -80,8 +81,8 @@ const AppMultipleSelect: FC<AppMultipleSelectProps | never> = props => {
                 Keyboard.dismiss();
               }}>
               <Block flex pt-30>
-                <AppFlatList<object>
-                  data={filteredOptions}
+                <AppFlatList
+                  data={filteredOptions as never[]}
                   sticky
                   ListHeaderComponent={
                     <Block flex row px-12 bg-white>
@@ -104,7 +105,7 @@ const AppMultipleSelect: FC<AppMultipleSelectProps | never> = props => {
                       </Block>
                     </Block>
                   }
-                  renderItem={({item}) => (
+                  renderItem={({item}: {item: SelectOptionItemType}) => (
                     <RenderItem
                       name={name}
                       item={item}
@@ -126,7 +127,7 @@ const AppMultipleSelect: FC<AppMultipleSelectProps | never> = props => {
             <Block>
               <AppButton
                 type="secondary"
-                title="Ok"
+                title="ok"
                 onPress={() => {
                   onChange(selections);
                   setInputSelections(selections as unknown as string[]);

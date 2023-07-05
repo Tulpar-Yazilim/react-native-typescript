@@ -105,6 +105,7 @@ export interface ITextStyles {
   center?: StyleProp<TextStyle> | boolean;
   s?: string;
   size?: number;
+  color?: StyleProp<TextStyle> | string;
 }
 
 export interface IStyles {

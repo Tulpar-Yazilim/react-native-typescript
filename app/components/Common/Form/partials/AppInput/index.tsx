@@ -8,9 +8,6 @@ import {ICONS} from '@/utils';
 
 interface AppInputProps extends TextInputProps {
   placeholder?: string;
-  onChangeText?: (text: string) => void;
-  handleBlur?: () => void;
-  onFocus?: () => void;
   errorMessage?: string;
   animatedPlaceholder?: string;
   icon?: keyof typeof ICONS;

@@ -6,45 +6,39 @@ import {Controller, UseFormReturn} from 'react-hook-form';
 import {useTranslation} from 'react-i18next';
 
 import AppInput from '../../../AppInput';
+import {SelectOptionItemType, SelectOptions} from '../../types';
 
 import {AppBottomSheet, AppButton, AppFlatList, AppIcon, Block, Text} from '@/components';
 import {useTheme} from '@/hooks';
 import {ICONS} from '@/utils';
 
-type ItemProp = {
-  icon?: React.ReactNode | React.ReactElement | null;
-  isIcon?: boolean;
-  iconColor?: string;
-  iconName?: string;
-};
-
 interface AppSelectorProps {
   headerTitle?: string;
   placeholder?: string;
-  options: Array<ItemProp>;
-  valueProp: string;
-  displayProp: string;
+  options?: SelectOptions;
+  valueProp?: string;
+  displayProp?: string;
   form: UseFormReturn;
   name?: string;
   label: string;
   containerStyle?: StyleProp<ViewStyle>;
 }
 
-const initialValue = {value: '', title: ''};
+const initialValue = {value: '', label: ''} as SelectOptionItemType;
 
 const AppSelector: FC<AppSelectorProps> = props => {
   const {t} = useTranslation();
 
-  const {options, valueProp, displayProp, label, name, form, headerTitle, containerStyle} = props;
+  const {options = [], valueProp = 'value', displayProp = 'label', label, name, form, headerTitle, containerStyle} = props;
   const [open, setOpen] = useState<boolean>(false);
   const [current, setCurrent] = useState(initialValue);
   const {colors} = useTheme();
 
   useEffect(() => {
     if (options.length > 0 && form) {
-      const formValue = form.getValues()?.[name || ''];
+      const formValue = form.getValues()?.[name ?? ''];
       if (formValue) {
-        const _value = options.find((item: ItemProp) => formValue === get(item, valueProp));
+        const _value = options.find(item => formValue === get(item, valueProp));
         const _current = {
           [displayProp as never]: _value?.[displayProp as never],
           [valueProp as never]: _value?.[valueProp as never],
@@ -57,7 +51,7 @@ const AppSelector: FC<AppSelectorProps> = props => {
   return (
     <Block>
       <Controller
-        name={name || ''}
+        name={name ?? ''}
         control={form.control}
         render={({field: {onChange}, fieldState: {error}}) => (
           <>
@@ -72,7 +66,7 @@ const AppSelector: FC<AppSelectorProps> = props => {
               value={get(current, displayProp)}
               onClear={() => {
                 onChange('');
-                setCurrent({title: '', value: ''});
+                setCurrent(initialValue);
               }}
               error={error?.message}
             />
@@ -90,13 +84,13 @@ const AppSelector: FC<AppSelectorProps> = props => {
                   {current && (
                     <AppFlatList
                       preloader={false}
-                      data={options}
-                      renderItem={({item}) => (
+                      data={options as never[]}
+                      renderItem={({item}: {item: SelectOptionItemType}) => (
                         <Pressable
                           onPress={() => {
-                            setCurrent && setCurrent(item as never);
-                            setOpen && setOpen(false);
-                            onChange && onChange(get(item, valueProp));
+                            setCurrent(item);
+                            setOpen?.(false);
+                            onChange?.(get(item, valueProp));
                           }}>
                           <Block flex row middle pt-15 pb-15 px-30 borderBottom>
                             {item?.isIcon && (
@@ -107,7 +101,7 @@ const AppSelector: FC<AppSelectorProps> = props => {
                             )}
                             <Block flex>
                               <Text
-                                styles={{
+                                style={{
                                   color: get(item, valueProp) === get(current, valueProp) ? colors.primary : colors.defaultTextColor,
                                   fontSize: get(item, valueProp) === get(current, valueProp) ? 16 : 15,
                                   fontWeight: get(item, valueProp) === get(current, valueProp) ? 'bold' : 'normal',
@@ -134,9 +128,9 @@ const AppSelector: FC<AppSelectorProps> = props => {
                       type="primary"
                       title={t('clear').toString()}
                       onPress={() => {
-                        setCurrent({title: '', value: ''});
+                        onChange('');
+                        setCurrent(initialValue);
                         setOpen(false);
-                        onChange(get({title: '', value: ''}, valueProp));
                       }}
                     />
                   </Block>

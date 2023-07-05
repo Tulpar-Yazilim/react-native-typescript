@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, {useEffect, useState} from 'react';
 import {Pressable, StyleSheet} from 'react-native';
 
@@ -47,7 +46,7 @@ const RenderItem = ({item, displayProp, valueProp, onChange, selections}: Render
         <Block row center>
           <AppCheckbox onPress={onPress} checked={checked} mr-13 />
           <Text
-            styles={{
+            style={{
               color: theme.colors.text,
             }}>
             {get(item, displayProp as never)}

@@ -1,5 +1,5 @@
 import React, {FC, LegacyRef, memo, useCallback, useEffect, useState} from 'react';
-import {StyleSheet, TextInput, TextInputProps, TextStyle, ViewStyle} from 'react-native';
+import {NativeSyntheticEvent, StyleSheet, TextInput, TextInputFocusEventData, TextInputProps, TextStyle, ViewStyle} from 'react-native';
 
 import {UseFormReturn} from 'react-hook-form';
 import Animated, {AnimatedStyleProp, Easing, useAnimatedStyle, useSharedValue, withTiming} from 'react-native-reanimated';
@@ -19,15 +19,15 @@ const offsetHeight = inputHeight / 3.9;
 interface AppInputProps extends TextInputProps {
   placeholder?: string;
   onChangeText?: (_text: string) => void;
-  handleBlur?: (e: Event) => void;
-  onFocus?: (e: Event) => void;
+  onBlur?: (e: NativeSyntheticEvent<TextInputFocusEventData>) => void;
+  onFocus?: (e: NativeSyntheticEvent<TextInputFocusEventData>) => void;
   errorMessage?: string;
   animatedPlaceholder?: string;
   icon?: keyof typeof ICONS;
   label?: string;
   form?: UseFormReturn;
   name?: string;
-  error?: boolean | string;
+  error?: string;
   onPress?: () => void;
   onClear?: () => void;
   reference?: LegacyRef<TextInput>;
@@ -60,7 +60,7 @@ const useCurrencyInput = (initialValue: string | undefined) => {
   return [value, handleChange] as [string, (v: string) => void];
 };
 
-const useCreditCardInput = (initialValue = '', onChangeText) => {
+const useCreditCardInput = (initialValue = '', onChangeText?: (_cardValue: string) => void) => {
   const [value, setValue] = useState(initialValue);
 
   const handleChange = (v: string) => {
@@ -83,7 +83,7 @@ const AppInput: FC<AppInputProps> = props => {
     error,
     onPress,
     onClear,
-    handleBlur,
+    onBlur,
     animatedPlaceholder,
     icon,
     onFocus,
@@ -125,7 +125,9 @@ const AppInput: FC<AppInputProps> = props => {
 
   useEffect(() => {
     if (value) {
-      onAnimation({_offset: 5, _scale: 0.75});
+      onAnimation?.({_offset: 5, _scale: 0.75});
+    } else {
+      onAnimation?.({_offset: offsetHeight, _scale: 1});
     }
   }, [editable, onAnimation, value]);
 
@@ -141,8 +143,8 @@ const AppInput: FC<AppInputProps> = props => {
     } as AnimatedStyleProp<TextStyle>;
   });
 
-  const onBlur = (e: Event) => {
-    handleBlur?.(e);
+  const handleOnBlur = (e: NativeSyntheticEvent<TextInputFocusEventData>) => {
+    onBlur?.(e);
     if (!text) {
       onAnimation?.({_offset: offsetHeight, _scale: 1});
     }
@@ -188,7 +190,7 @@ const AppInput: FC<AppInputProps> = props => {
 
   return (
     <React.Fragment>
-      <Text tinyGray>{label}</Text>
+      <Text>{label}</Text>
       <Block {...props}>
         <Block
           style={[
@@ -246,10 +248,10 @@ const AppInput: FC<AppInputProps> = props => {
                 <TextInput
                   {...props}
                   ref={reference}
-                  onFocus={(e: Event) => {
+                  onFocus={e => {
                     onFocus ? onFocus(e) : onAnimation({_offset: 5, _scale: 0.75});
                   }}
-                  onBlur={onBlur}
+                  onBlur={handleOnBlur}
                   onChangeText={onChange}
                   placeholder={placeholder}
                   editable={editable}
@@ -299,7 +301,7 @@ const AppInput: FC<AppInputProps> = props => {
             )}
             {type === 'password' && (
               <Block center middle pressable onPress={onIconPress}>
-                <AppIcon name={!isVisiblePassword ? ICONS.chevronLeft : ICONS.chevronRight} size={24} color={COLORS.gray} />
+                <AppIcon name={!isVisiblePassword ? 'chevronLeft' : 'chevronRight'} size={24} color={COLORS.gray} />
               </Block>
             )}
           </Block>

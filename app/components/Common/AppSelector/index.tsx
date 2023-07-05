@@ -36,19 +36,19 @@ const AppSelector = ({headerTitle = '', isVisible = false, onClose, onSelect, it
   const RenderItem = ({item}: {item: ItemProp}) => (
     <Pressable
       onPress={() => {
-        onSelect && onSelect(item);
-        onClose && onClose();
+        onSelect?.(item);
+        onClose?.();
       }}>
       <Block flex row middle pt-15 pb-15 px-30 borderBottom>
         {item?.isIcon && (
           <Block left pr-15>
-            <AppIcon name={item.iconName as keyof typeof ICONS} size={22} color={item.iconColor ? item.iconColor : colors.primary} />
+            <AppIcon name={item.iconName!} size={22} color={item.iconColor ? item.iconColor : colors.primary} />
             {item.icon}
           </Block>
         )}
         <Block flex>
           <Text
-            styles={{
+            style={{
               color: item?.value === selectedItem?.value ? colors.primary : colors.defaultTextColor,
               fontSize: item?.value === selectedItem?.value ? 16 : 15,
               fontWeight: item?.value === selectedItem?.value ? 'bold' : 'normal',
