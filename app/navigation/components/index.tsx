@@ -7,21 +7,22 @@ import {StackNavigationOptions} from '@react-navigation/stack';
 import {AppButton} from '@/components';
 import {useTheme} from '@/hooks';
 import {i18n} from '@/lang/i18';
-import {rootNavigationRef} from '@/navigation';
 import {COLORS, FONTS} from '@/theme';
 import {ScreenType} from '@/utils';
 
 type Props = {
   title?: string;
   navigation: NavigationProp<ReactNavigation.RootParamList>;
-  navigationOptions: StackNavigationOptions | undefined;
+  navigationOptions?: StackNavigationOptions | undefined;
+  canGoBack?: boolean;
 };
 
-const BackButton = () => {
-  return rootNavigationRef.canGoBack() ? <AppButton w-40 h-40 type="icon" icon={'chevronLeft'} iconColor={COLORS.white} onPress={() => rootNavigationRef.goBack()} /> : null;
+const BackButton = ({navigation, canGoBack}: Props) => {
+  return navigation.canGoBack() && canGoBack !== false ? <AppButton w-40 h-40 type="icon" icon={'chevronLeft'} iconSize={26} iconColor={COLORS.white} onPress={() => navigation.goBack()} /> : null;
 };
-export const Header = ({title, navigationOptions, navigation}: Props) => {
+export const Header = (props: Props) => {
   const {colors} = useTheme();
+  const {title, navigationOptions, navigation} = props;
   useLayoutEffect(() => {
     navigation.setOptions({
       headerStyle: {
@@ -33,7 +34,7 @@ export const Header = ({title, navigationOptions, navigation}: Props) => {
         color: colors.headerColor,
       },
       headerTitleAlign: 'center',
-      headerLeft: () => <BackButton />,
+      headerLeft: () => <BackButton {...props} />,
       ...navigationOptions,
     });
   }, [title, navigation, colors, navigationOptions]);
@@ -41,7 +42,8 @@ export const Header = ({title, navigationOptions, navigation}: Props) => {
   return <StatusBar backgroundColor={COLORS.primary} barStyle="light-content" />;
 };
 
-export const createNavigationOptions = (props: ScreenType) => {
+export const createNavigationOptions = (props: ScreenType, extraOptions?: StackNavigationOptions) => {
+  const exParam = extraOptions ?? {};
   const {title, headerShown} = props;
   const options = {
     headerStyle: {},
@@ -56,6 +58,7 @@ export const createNavigationOptions = (props: ScreenType) => {
     headerTitleStyle: {
       fontSize: 15,
     },
+    ...exParam,
   };
 
   return headerShown ? options : {headerShown: false};

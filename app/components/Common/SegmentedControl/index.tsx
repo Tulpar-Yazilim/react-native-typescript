@@ -1,16 +1,15 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, {memo, useEffect} from 'react';
 import {useWindowDimensions, ViewStyle} from 'react-native';
 
 import {random} from 'lodash';
 import Animated, {AnimatedStyleProp, useAnimatedStyle, useSharedValue, withSpring} from 'react-native-reanimated';
 
-import {Props} from './segmented-control';
-
 import {Block, Text} from '@/components';
 import {useTheme} from '@/hooks';
 import {COLORS} from '@/theme';
 import {widthPixel} from '@/utils';
+
+import {Props} from './segmented-control';
 
 function SegmentedControl({segments, currentIndex, onChange, containerMargin = 10, tabColor, activeColor, titleColor = COLORS.black, activeTitleColor = COLORS.black, width, ...props}: Props) {
   const theme = useTheme();
@@ -22,7 +21,7 @@ function SegmentedControl({segments, currentIndex, onChange, containerMargin = 1
 
   const memoizedTabPressCallback = React.useCallback(
     (index: number) => {
-      onChange && onChange(index);
+      onChange?.(index);
     },
     [onChange],
   );
@@ -54,7 +53,7 @@ function SegmentedControl({segments, currentIndex, onChange, containerMargin = 1
         <Block key={`${random(1000)}_segment_item`} flex pressable onPress={() => memoizedTabPressCallback(index)}>
           <Block center middle h-50 rounded-10>
             <Text
-              semiBold
+              medium
               style={{
                 color: currentIndex === index ? activeTitleColor : titleColor,
               }}>

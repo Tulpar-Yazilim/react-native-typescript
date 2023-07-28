@@ -4,10 +4,10 @@ import EncryptedStorage from 'react-native-encrypted-storage';
 import {combineReducers} from 'redux';
 import {persistReducer, persistStore} from 'redux-persist';
 
+import {baseApi, rtkQueryErrorHandler, rtkQueryLoaderHandler} from '@/api';
+
 import * as authRedux from './auth';
 import * as settingsRedux from './settings';
-
-import {baseApi, rtkQueryErrorHandler, rtkQueryLoaderHandler} from '@/api';
 
 export {authRedux, settingsRedux};
 

@@ -1,10 +1,10 @@
 import React, {useRef, useState} from 'react';
 import {FlatListProps, ViewToken} from 'react-native';
 
-import {AppFlatList, Block} from '..';
-
 import {useStyledTag} from '@/hooks';
 import {COLORS} from '@/theme';
+
+import {AppFlatList, Block} from '..';
 
 type DataItem = string | object | number;
 
@@ -23,7 +23,7 @@ export const AppSwipeCarousel = (props: AppSwipeCarouselProps<DataItem>) => {
 
   // Swipe sonrasında current page ' i belirlemek için kullandığımız method.
   const onViewableItemsChanged = ({viewableItems}: {viewableItems: Array<ViewToken>}) => {
-    const _currentIndex = viewableItems?.[0]?.index || 0;
+    const _currentIndex = viewableItems?.[0]?.index ?? 0;
     setCurrentIndex(_currentIndex);
   };
 

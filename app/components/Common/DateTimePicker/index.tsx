@@ -2,10 +2,10 @@ import React, {FC, memo} from 'react';
 
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 
-import useTheme from '../../../hooks/useTheme';
-
 import {useAppSelector} from '@/hooks';
 import {i18next} from '@/lang';
+
+import useTheme from '../../../hooks/useTheme';
 
 type Props = {
   visible: boolean;
@@ -15,7 +15,7 @@ type Props = {
   minimumDate?: Date;
   maximumDate?: Date;
   onDateChange?: (_date: Date) => void;
-  onClose?: (_date: Date) => void;
+  onClose?: (_date?: Date) => void;
 };
 
 const DateTimePicker: FC<Props> = ({visible, mode = 'date', isDarkModeEnabled, minimumDate, maximumDate, date, onDateChange, onClose}) => {
@@ -28,14 +28,14 @@ const DateTimePicker: FC<Props> = ({visible, mode = 'date', isDarkModeEnabled, m
 
   return (
     <DateTimePickerModal
-      confirmTextIOS={i18next.t('save').toString()}
+      confirmTextIOS={i18next.t('confirm').toString()}
       cancelTextIOS={i18next.t('close').toString()}
       date={date}
       locale={language}
       isVisible={visible}
       mode={mode}
       onConfirm={handleConfirm}
-      onCancel={_date => onClose?.(_date)}
+      onCancel={() => onClose?.()}
       onHide={_date => onClose?.(_date)}
       minimumDate={minimumDate}
       maximumDate={maximumDate}

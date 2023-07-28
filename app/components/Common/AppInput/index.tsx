@@ -1,17 +1,21 @@
+import 'intl';
+import 'intl/locale-data/jsonp/tr';
+
 import React, {FC, LegacyRef, memo, useCallback, useEffect, useState} from 'react';
 import {NativeSyntheticEvent, StyleSheet, TextInput, TextInputFocusEventData, TextInputProps, TextStyle, ViewStyle} from 'react-native';
 
 import {UseFormReturn} from 'react-hook-form';
+import {useTranslation} from 'react-i18next';
 import Animated, {AnimatedStyleProp, Easing, useAnimatedStyle, useSharedValue, withTiming} from 'react-native-reanimated';
+
+import {useTheme} from '@/hooks';
+import {COLORS, FONTS} from '@/theme';
+import {ICONS} from '@/utils';
 
 import styles from './style';
 import AppIcon from '../AppIcon';
 import Block from '../Block';
 import Text from '../Text';
-
-import {useTheme} from '@/hooks';
-import {COLORS, FONTS} from '@/theme';
-import {ICONS} from '@/utils';
 
 const inputHeight = 50;
 const offsetHeight = inputHeight / 3.9;
@@ -106,6 +110,8 @@ const AppInput: FC<AppInputProps> = props => {
   const [isVisiblePassword, setIsVisiblePassword] = useState(false);
   const [currencyValue, setCurrencyValue] = useCurrencyInput(value);
   const [cardValue, setCardValue] = useCreditCardInput(value, onChangeText);
+
+  const {t} = useTranslation();
 
   const onIconPress = () => {
     setIsVisiblePassword(!isVisiblePassword);
@@ -225,25 +231,27 @@ const AppInput: FC<AppInputProps> = props => {
                 />
               )}
               <Block>
-                <Animated.View style={[{position: 'absolute'}, animatedStyles]}>
-                  <Animated.View
-                    style={[
-                      animatedStylesText,
-                      {
-                        flex: 1,
-                      },
-                    ]}>
-                    <Animated.Text
+                {animatedPlaceholder && (
+                  <Animated.View style={[{position: 'absolute'}, animatedStyles]}>
+                    <Animated.View
                       style={[
-                        style.animatedPlaceholderStyle,
+                        animatedStylesText,
                         {
-                          backgroundColor: colors.inputBg,
+                          flex: 1,
                         },
                       ]}>
-                      {animatedPlaceholder}
-                    </Animated.Text>
+                      <Animated.Text
+                        style={[
+                          style.animatedPlaceholderStyle,
+                          {
+                            backgroundColor: colors.inputBg,
+                          },
+                        ]}>
+                        {t(animatedPlaceholder)}
+                      </Animated.Text>
+                    </Animated.View>
                   </Animated.View>
-                </Animated.View>
+                )}
 
                 <TextInput
                   {...props}
@@ -253,7 +261,7 @@ const AppInput: FC<AppInputProps> = props => {
                   }}
                   onBlur={handleOnBlur}
                   onChangeText={onChange}
-                  placeholder={placeholder}
+                  placeholder={placeholder ? t(placeholder) : undefined}
                   editable={editable}
                   placeholderTextColor={colors.gray}
                   style={[
@@ -266,33 +274,13 @@ const AppInput: FC<AppInputProps> = props => {
                   ]}
                   allowFontScaling={false}
                   value={getValue()}
-                  secureTextEntry={props.secureTextEntry}
+                  secureTextEntry={props.secureTextEntry && !isVisiblePassword}
                   returnKeyType={returnKeyType}
                   onSubmitEditing={() => {
                     skipNext && goToNextInput();
                   }}
                 />
               </Block>
-            </Block>
-            <Block
-              style={{
-                height: 50,
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}>
-              {onClear && value && (
-                <Block
-                  pressable
-                  onPress={() => {
-                    onClear();
-                    onAnimation({_offset: offsetHeight, _scale: 1});
-                  }}
-                  center
-                  middle
-                  p-7>
-                  <Text bold>X</Text>
-                </Block>
-              )}
             </Block>
             {icon && (
               <Block center middle>
@@ -301,16 +289,28 @@ const AppInput: FC<AppInputProps> = props => {
             )}
             {type === 'password' && (
               <Block center middle pressable onPress={onIconPress}>
-                <AppIcon name={!isVisiblePassword ? 'chevronLeft' : 'chevronRight'} size={24} color={COLORS.gray} />
+                <AppIcon name={isVisiblePassword ? 'eye' : 'eyeOff'} size={24} color={COLORS.gray} />
+              </Block>
+            )}
+            {value && (
+              <Block
+                pressable
+                onPress={() => {
+                  onClear?.();
+                  onChange('');
+                  onAnimation({_offset: offsetHeight, _scale: 1});
+                }}
+                center
+                middle
+                p-10>
+                <AppIcon name={'close'} size={16} color={COLORS.gray} />
               </Block>
             )}
           </Block>
         </Block>
         {error && (
-          <Block px={10}>
-            <Text error md>
-              * {error}
-            </Text>
+          <Block pt-5 px-5>
+            <Text error>* {error}</Text>
           </Block>
         )}
       </Block>
@@ -325,7 +325,7 @@ const style = StyleSheet.create({
     flex: 1,
     left: 0,
     position: 'absolute',
-    fontSize: 16,
+    fontSize: 14,
     backgroundColor: '#fff',
     paddingHorizontal: 10,
     borderRadius: 100,

@@ -1,10 +1,10 @@
 import React from 'react';
 
-import AppImage from '../AppImage';
-import Block from '../Block';
-
 import images from '@/assets/images';
 import {Text} from '@/components';
+
+import AppImage from '../AppImage';
+import Block from '../Block';
 
 interface IEmptyList {
   text: string;
@@ -17,7 +17,7 @@ const EmptyList = (props: IEmptyList) => {
   return (
     <Block pressable flex center middle mb-72>
       {image && <AppImage resizeMode={'contain'} url={images.TulparLogo} height={75} width={66} />}
-      <Text caption mt-32 textCenter>
+      <Text caption mt-32 center>
         {text}
       </Text>
     </Block>

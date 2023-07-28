@@ -33,5 +33,8 @@ const tr = {
 
   approve: 'Onayla',
   not_now: 'Şimdi değil',
+
+  save: 'Kaydet',
+  close: 'Kapat',
 };
 export default tr;

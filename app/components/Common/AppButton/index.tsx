@@ -1,40 +1,24 @@
-import React, {memo, ReactNode} from 'react';
-import {ActivityIndicator, GestureResponderEvent} from 'react-native';
+import React, {memo} from 'react';
+import {ActivityIndicator} from 'react-native';
 
-import {EnumButtonType} from './app-button';
+import {useStyledTag} from '@/hooks';
+import {COLORS} from '@/theme';
+import {ICONS, UseThemeType} from '@/utils';
+
+import {EnumButtonType, Props} from './app-button';
 import styles from './style';
 import useTheme from '../../../hooks/useTheme';
 import AppIcon from '../AppIcon';
 import Block from '../Block';
 import Text from '../Text';
 
-import {useStyledTag} from '@/hooks';
-import {COLORS} from '@/theme';
-import {ICONS, UseThemeType} from '@/utils';
-
-interface AppButtonProps {
-  onPress?: (event: GestureResponderEvent) => void;
-  type?: EnumButtonType;
-  disabled?: boolean;
-  loading?: boolean;
-  title?: string;
-  icon?: keyof typeof ICONS;
-  iconColor?: string;
-  children?: ReactNode;
-  titleColor?: ReactNode;
-  width?: number | string;
-  height?: number | string;
-  loadingTitle?: string;
-  style?: ReactNode;
-}
-
-const AppButton = (props: AppButtonProps | never) => {
-  const {disabled, type, title, titleColor = COLORS.white, icon, iconColor, width = '100%', height = 56, loading, loadingTitle = 'please_wait', style} = props;
+const AppButton = (props: Props | never) => {
+  const {disabled, type, title, titleColor = COLORS.white, icon, iconColor, iconSize = 22, width = '100%', height = 56, loading, loadingTitle = 'please_wait', style} = props;
 
   const theme = useTheme(props as UseThemeType);
 
   const PrimaryButton = useStyledTag(Block, 'bg-primary center middle rounded-4');
-  const SecondaryButton = useStyledTag(Block, 'bg-secondary border center middle rounded-4');
+  const SecondaryButton = useStyledTag(Block, 'bg-secondary center middle rounded-4');
   const IconButton = useStyledTag(Block, 'center middle');
 
   const buttonElements = {
@@ -64,12 +48,8 @@ const AppButton = (props: AppButtonProps | never) => {
 
         {!loading && (
           <>
-            {title && (
-              <Text buttonTitleLight style={[styles.text, {color: titleColor}]}>
-                {title}
-              </Text>
-            )}
-            {type === 'icon' && <AppIcon name={icon as keyof typeof ICONS} color={iconColor ?? theme.colors.defaultTextColor} />}
+            {title && <Text style={[styles.text, {color: titleColor}]}>{title}</Text>}
+            {type === 'icon' && <AppIcon name={icon as keyof typeof ICONS} color={iconColor ?? theme.colors.defaultTextColor} size={iconSize} />}
           </>
         )}
       </React.Fragment>

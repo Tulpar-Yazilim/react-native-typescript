@@ -1,5 +1,7 @@
 import React, {FC, memo, ReactElement, ReactNode} from 'react';
-import {Pressable, StyleProp, View, ViewStyle} from 'react-native';
+import {LayoutChangeEvent, Pressable, StyleProp, View, ViewStyle} from 'react-native';
+
+import Animated from 'react-native-reanimated';
 
 import {useTheme} from '@/hooks';
 import {IStyleShortcuts, setupSizeTypes, UseThemeType} from '@/utils';
@@ -12,9 +14,11 @@ interface Props extends SetupSizeTypes, IStyleShortcuts {
   pressable?: boolean;
   style?: StyleProp<ViewStyle> | ViewStyle;
   onPress?: () => void;
+  animated?: boolean;
+  onLayout?: (event: LayoutChangeEvent) => void;
 }
 
-const Block: FC<Props> = ({children, If, ...props}) => {
+const Block: FC<Props> = ({children, animated, onLayout, If, ...props}) => {
   const {styles} = useTheme(props as UseThemeType);
 
   if (If === false) {
@@ -28,7 +32,20 @@ const Block: FC<Props> = ({children, If, ...props}) => {
       </Pressable>
     );
   }
-  return <View style={[styles, props.style]}>{children}</View>;
+
+  if (animated) {
+    return (
+      <Animated.View onLayout={onLayout} style={[styles, props.style]}>
+        {children}
+      </Animated.View>
+    );
+  }
+
+  return (
+    <View onLayout={onLayout} style={[styles, props.style]}>
+      {children}
+    </View>
+  );
 };
 
 export default memo(Block);

@@ -6,10 +6,10 @@ import {ParamListBase} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import Animated, {AnimatedStyleProp, interpolate} from 'react-native-reanimated';
 
-import {DrawerMenuItemList} from './DrawerMenuItems';
-
 import {AppImage, Block} from '@/components';
 import {rootNavigationRef, Routes} from '@/navigation';
+
+import {DrawerMenuItemList} from './DrawerMenuItems';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -49,7 +49,6 @@ const Screens = ({navigation, animatedStyle}: DrawerScreenType) => {
 const DrawerContent = ({drawerProps, progress, setProgress}: DrawerContentType) => {
   useEffect(() => {
     setProgress(progress);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [progress]);
 
   return (

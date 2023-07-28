@@ -4,11 +4,11 @@ import {Pressable, StyleSheet} from 'react-native';
 import moment from 'moment';
 import {Calendar} from 'react-native-calendars';
 
+import {COLORS, FONTS, SIZES} from '@/theme';
+
 import AppIcon from '../AppIcon';
 import Block from '../Block';
 import Text from '../Text';
-
-import {COLORS, FONTS, SIZES} from '@/theme';
 
 const AppCalendar = ({onSelectDay = (_date: string) => {}, ...props}) => {
   const [selectedDate, setSelectedDate] = useState(moment().format('YYYY-MM-DD'));
@@ -58,15 +58,15 @@ const AppCalendar = ({onSelectDay = (_date: string) => {}, ...props}) => {
               setSelectedDate(date?.dateString);
               onSelectDay(date?.dateString);
             }}>
-            <Block backgroundColor={date?.dateString === selectedDate ? COLORS.secondary : COLORS.primary} borderRadius={SIZES.radius} w={46} h={46} pt={7} pr={12}>
+            <Block backgroundColor={date?.dateString === selectedDate ? 'secondary' : 'primary'} borderRadius={SIZES.radius} w={46} h={46} pt={7} pr={12}>
               <Block>
-                <Text right semibold size={14} color={COLORS.white}>
-                  {date.day}
+                <Text medium size={14} color={COLORS.white}>
+                  {date.day.toString()}
                 </Text>
               </Block>
               {marking?.marked && (
                 <Block pt-7 pl-9>
-                  <Block w={12} h={4} borderRadius={SIZES.radius} backgroundColor={date?.dateString === selectedDate ? COLORS.white : COLORS.secondary} />
+                  <Block w={12} h={4} borderRadius={SIZES.radius} backgroundColor={date?.dateString === selectedDate ? 'white' : 'secondary'} />
                 </Block>
               )}
             </Block>

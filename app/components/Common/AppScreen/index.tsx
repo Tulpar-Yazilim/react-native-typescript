@@ -7,14 +7,14 @@ import {RefreshControl} from 'react-native-gesture-handler';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {SafeAreaView} from 'react-native-safe-area-context';
 
-import layout from '../../../config/layout.json';
-import {getStyleShortcuts} from '../../../utils/style-shortcuts';
-
 import {Block, Text} from '@/components';
 import {useTheme} from '@/hooks';
 import {Header} from '@/navigation';
 import {bottomTabHeight, window} from '@/theme';
 import {heightPixel, UseThemeType} from '@/utils';
+
+import layout from '../../../config/layout.json';
+import {getStyleShortcuts} from '../../../utils/style-shortcuts';
 
 type Props<T> = {
   scroll?: boolean;
@@ -26,12 +26,13 @@ type Props<T> = {
   children: ReactNode;
   loading?: boolean;
   title?: string;
+  canGoBack?: boolean;
   navigation?: T;
   onRefreshData?: () => void;
 };
 
 function AppScreen<T>(props: Props<T>) {
-  const {children, title, scroll, safe, keyboardScroll, customStyle, navigationOptions, flatList, loading, onRefreshData} = props;
+  const {children, title, scroll, safe, canGoBack, keyboardScroll, customStyle, navigationOptions, flatList, loading, onRefreshData} = props;
   const navigation = useNavigation();
   const {colors} = useTheme();
   const screenProps = props as UseThemeType;
@@ -53,7 +54,7 @@ function AppScreen<T>(props: Props<T>) {
 
   return (
     <>
-      <Header title={title} navigationOptions={navigationOptions} navigation={navigation} />
+      <Header title={title} canGoBack={canGoBack} navigationOptions={navigationOptions} navigation={navigation} />
       {loading ? (
         <Text>loading</Text>
       ) : (

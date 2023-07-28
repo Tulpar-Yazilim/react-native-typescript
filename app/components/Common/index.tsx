@@ -3,6 +3,7 @@ import AppBottomSheet from './AppBottomSheet';
 import AppButton from './AppButton';
 import AppCalendar from './AppCalendar';
 import AppCheckbox from './AppCheckbox';
+import AppCollapsible from './AppCollapsible';
 import AppFlatList from './AppFlatList';
 import AppIcon from './AppIcon';
 import AppImage from './AppImage';
@@ -38,6 +39,7 @@ export {
   Block,
   Text,
   AppCheckbox,
+  AppCollapsible,
   Form,
   Col,
   Row,

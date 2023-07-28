@@ -6,11 +6,11 @@ import {BottomSheetMethods} from '@gorhom/bottom-sheet/lib/typescript/types';
 import {Portal} from 'react-native-portalize';
 import Animated, {Easing, Extrapolate, interpolate, useAnimatedStyle} from 'react-native-reanimated';
 
-import Block from '../Block';
-
 import {useTheme, useThemeMode} from '@/hooks';
 import {COLORS, window} from '@/theme';
 import {heightPixel, rgba} from '@/utils';
+
+import Block from '../Block';
 
 interface AppBottomSheetProps {
   children: ReactNode;
@@ -40,9 +40,7 @@ const AppBottomSheet = (props: AppBottomSheetProps, ref: Ref<BottomSheetMethods>
   });
 
   useImperativeHandle(ref, () => ({
-    snapToIndex: (value: number) => {
-      bottomSheetRef.current && bottomSheetRef.current.snapToIndex(value);
-    },
+    snapToIndex: (value: number) => bottomSheetRef?.current?.snapToIndex?.(value),
     snapToPosition: () => {},
     expand: () => {},
     collapse: () => {},

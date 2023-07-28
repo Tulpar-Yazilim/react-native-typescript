@@ -34,5 +34,8 @@ const en = {
 
   approve: 'Approve',
   not_now: 'Not now',
+
+  save: 'Save',
+  close: 'Close',
 };
 export default en;

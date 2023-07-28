@@ -1,7 +1,7 @@
+import {ScreenType} from '@/utils';
+
 import {AboutScreen} from '../../screens/About/AboutScreen';
 import HomeStack from '../stacks/HomeStack/index';
-
-import {ScreenType} from '@/utils';
 
 export const DrawerMenuItemList: ScreenType[] = [
   {

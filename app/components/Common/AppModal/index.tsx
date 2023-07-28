@@ -18,10 +18,10 @@ const AppModal = ({isVisible = false, onClose = () => {}, animationTime = 400, b
     animationOutTiming={animationTime}
     backdropTransitionInTiming={animationTime}
     backdropTransitionOutTiming={animationTime}
-    onDismiss={() => onClose && onClose()}
-    onBackButtonPress={() => onClose && onClose()}
-    onBackdropPress={() => onClose && onClose()}
-    onSwipeComplete={() => onClose && onClose()}
+    onDismiss={onClose}
+    onBackButtonPress={onClose}
+    onBackdropPress={onClose}
+    onSwipeComplete={onClose}
     {...props}>
     {children}
   </Modal>

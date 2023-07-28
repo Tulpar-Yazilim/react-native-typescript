@@ -1,15 +1,14 @@
-/* eslint-disable react-native/no-inline-styles */
 import React, {memo, useEffect} from 'react';
 import {StyleSheet, ViewStyle} from 'react-native';
 
 import LinearGradient from 'react-native-linear-gradient';
 import Animated, {AnimatedStyleProp, useAnimatedStyle, useSharedValue, withSpring} from 'react-native-reanimated';
 
-import {Props} from './floating-button';
-
 import {Block, Text} from '@/components';
 import {useAppSelector} from '@/hooks';
 import {COLORS} from '@/theme';
+
+import {Props} from './floating-button';
 
 function FloatingButton({isVisible = false, buttonText = 'approve', onPress = () => {}, closeButtonText = 'not_now', onClose = () => {}}: Props) {
   //#region Animation
@@ -22,8 +21,6 @@ function FloatingButton({isVisible = false, buttonText = 'approve', onPress = ()
 
   useEffect(() => {
     bottomTranslateValue.value = withSpring(isVisible ? 5 : 175);
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isVisible]);
   //#endregion
 

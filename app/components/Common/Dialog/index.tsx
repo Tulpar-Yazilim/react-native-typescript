@@ -6,19 +6,19 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import {random} from 'lodash';
 import Animated, {useAnimatedStyle, useSharedValue, withSpring} from 'react-native-reanimated';
 
-import AppInput from '../AppInput';
-import Block from '../Block';
-import Text from '../Text';
-
 import {useTheme} from '@/hooks';
 import {RootStackNavigationRouteType} from '@/navigation';
 import {DialogAction} from '@/utils';
+
+import AppInput from '../AppInput';
+import Block from '../Block';
+import Text from '../Text';
 
 export default function Alert() {
   const navigation: StackNavigationProp<never> = useNavigation();
   const route = useRoute<RootStackNavigationRouteType<'ALERT'>>();
   const theme = useTheme();
-  const {title, message, action, option, position, alertType, placeholder} = route?.params;
+  const {title, message, action, option, position, alertType, placeholder} = route.params;
 
   const [promptText, setPromptText] = useState<string>('');
 

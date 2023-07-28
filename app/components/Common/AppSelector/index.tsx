@@ -3,12 +3,12 @@ import {Pressable, StyleProp, ViewStyle} from 'react-native';
 
 import {useTranslation} from 'react-i18next';
 
-import AppBottomSheet from '../AppBottomSheet';
-import AppFlatList from '../AppFlatList';
-
 import {AppButton, AppIcon, Block, Text} from '@/components';
 import {useTheme} from '@/hooks';
 import {ICONS} from '@/utils';
+
+import AppBottomSheet from '../AppBottomSheet';
+import AppFlatList from '../AppFlatList';
 
 interface ItemProp {
   title: string;
@@ -85,8 +85,8 @@ const AppSelector = ({headerTitle = '', isVisible = false, onClose, onSelect, it
               type="primary"
               title={t('clear').toString()}
               onPress={() => {
-                onSelect && onSelect({title: '', value: ''});
-                onClose && onClose();
+                onSelect?.({title: '', value: ''});
+                onClose?.();
               }}
             />
           </Block>
