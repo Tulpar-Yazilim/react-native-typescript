@@ -1,6 +1,6 @@
 export * from './HomeStack';
-export {default as RootStack} from './RootStack';
 
+export {default as RootStack} from './RootStack';
 export {rootNavigationRef} from './RootStack';
 
 //types

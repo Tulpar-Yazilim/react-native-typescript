@@ -1,13 +1,14 @@
 import React from 'react';
+import {View} from 'react-native';
 
 import {createNavigationContainerRef} from '@react-navigation/native';
 import {createStackNavigator, StackCardInterpolationProps} from '@react-navigation/stack';
 import {random} from 'lodash';
 
-import screens from './screens';
-
 import Dialog from '@/components/Common/Dialog';
 import {RootStackNavigationProps, Routes} from '@/navigation';
+
+import screens from './screens';
 
 /**
  * fade animate trasition navigation
@@ -19,6 +20,8 @@ export const forFade = ({current}: StackCardInterpolationProps) => ({
   },
 });
 
+export const PlaceholderComponent = () => <View />;
+
 const RootStackNavigator = createStackNavigator<RootStackNavigationProps>();
 export const rootNavigationRef = createNavigationContainerRef<RootStackNavigationProps>();
 
@@ -29,7 +32,7 @@ const RootStack = () => {
         <RootStackNavigator.Screen
           key={`${random(1000)}_main_stack_screen`}
           name={screen.name}
-          component={screen.component}
+          component={screen.component ?? PlaceholderComponent}
           options={{
             headerShown: screen.headerShown,
           }}

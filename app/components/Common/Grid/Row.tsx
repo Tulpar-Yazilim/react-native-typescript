@@ -1,15 +1,16 @@
+import React, {FC, memo, ReactNode} from 'react';
+
 import {Block} from '@/components';
-import React, {FC, ReactNode, memo} from 'react';
 
 type Props = {
   children: ReactNode;
 };
 
-const Row: FC<Props | any> = props => {
+const Row: FC<Props> = props => {
   const {children} = props;
 
   return (
-    <Block w="100%" fd="row" {...props}>
+    <Block w="100%" row {...props}>
       {children}
     </Block>
   );

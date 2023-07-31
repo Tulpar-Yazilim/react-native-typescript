@@ -1,18 +1,22 @@
 import {FunctionComponent} from 'react';
 import {StyleProp, TextStyle, ViewStyle} from 'react-native';
 
-import {ICONS} from '../icon-enums';
+import {BottomTabNavigationEventMap} from '@react-navigation/bottom-tabs';
+import {EventListenerCallback} from '@react-navigation/native';
 
 import {COLORS} from '@/theme';
+
+import {ICONS} from '../icon-enums';
 
 export interface IScreen<T> {
   title?: string;
   name: keyof T;
   icon?: keyof typeof ICONS;
   label?: string;
-  component: FunctionComponent;
+  component?: FunctionComponent;
   headerShown?: boolean;
   props?: never;
+  tabPress?: EventListenerCallback<BottomTabNavigationEventMap, 'tabPress'> | undefined;
 }
 
 export interface IThemeImageObject {
@@ -24,6 +28,9 @@ export interface IStyleShortcuts {
   'bg-secondary'?: StyleProp<ViewStyle> | boolean;
   'bg-card'?: StyleProp<ViewStyle> | boolean;
   'bg-white'?: StyleProp<ViewStyle> | boolean;
+  'bg-error'?: StyleProp<ViewStyle> | boolean;
+  'bg-success'?: StyleProp<ViewStyle> | boolean;
+  'bg-warning'?: StyleProp<ViewStyle> | boolean;
   px?: StyleProp<ViewStyle> | number;
   block?: StyleProp<ViewStyle> | boolean;
   flex?: StyleProp<ViewStyle> | boolean | number;
@@ -31,7 +38,7 @@ export interface IStyleShortcuts {
   column?: StyleProp<ViewStyle> | boolean | number;
   center?: StyleProp<ViewStyle> | boolean | number;
   middle?: StyleProp<ViewStyle> | boolean | number;
-  overflow?: StyleProp<ViewStyle>;
+  overflow?: StyleProp<ViewStyle> | string;
   left?: StyleProp<ViewStyle> | boolean | number;
   right?: StyleProp<ViewStyle> | boolean | number;
   top?: StyleProp<ViewStyle> | boolean | number;
@@ -39,6 +46,9 @@ export interface IStyleShortcuts {
   wrap?: StyleProp<ViewStyle> | boolean;
   border?: StyleProp<ViewStyle> | boolean | number;
   borderBottom?: StyleProp<ViewStyle> | boolean | number;
+  borderTop?: StyleProp<ViewStyle> | boolean | number;
+  borderLeft?: StyleProp<ViewStyle> | boolean | number;
+  borderRight?: StyleProp<ViewStyle> | boolean | number;
   'justify-between'?: StyleProp<ViewStyle>;
   'justify-end'?: StyleProp<ViewStyle>;
   'align-between'?: StyleProp<ViewStyle>;

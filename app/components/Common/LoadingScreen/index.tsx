@@ -1,10 +1,7 @@
 import React, {memo} from 'react';
 import {ActivityIndicator, StyleSheet, View} from 'react-native';
 
-const LoadingScreen = ({
-  backgroundColor = 'rgba(0,0,0,0.7)',
-  color = '#FFF',
-}) => {
+const LoadingScreen = ({backgroundColor = 'rgba(0,0,0,0.7)', color = '#FFF'}) => {
   return (
     <View style={[styles.container, {backgroundColor}]}>
       <ActivityIndicator color={color} size="large" />

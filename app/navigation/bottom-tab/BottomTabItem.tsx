@@ -1,11 +1,11 @@
 import React from 'react';
 
-import {bottomTabConfig} from './BottomTabContainer';
-import {Screens} from './BottomTabItems';
-
 import {AppIcon, Block} from '@/components';
 import {useStyledTag, useTheme} from '@/hooks';
 import {ICONS} from '@/utils';
+
+import {bottomTabConfig} from './BottomTabContainer';
+import {Screens} from './BottomTabItems';
 
 type Props = {
   onPress: () => void;

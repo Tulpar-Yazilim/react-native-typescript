@@ -1,10 +1,11 @@
-/* eslint-disable react-native/no-inline-styles */
-import {RootState} from '@/store';
-import {rgba} from '@/utils';
-import LottieView from 'lottie-react-native';
 import React, {memo, useCallback, useRef} from 'react';
 import {Animated, Easing, Modal} from 'react-native';
+
+import LottieView from 'lottie-react-native';
 import {useSelector} from 'react-redux';
+
+import {RootState} from '@/store';
+
 import Block from '../Block';
 
 const AppLoader = () => {
@@ -25,14 +26,8 @@ const AppLoader = () => {
 
   return (
     <Modal visible={loading} transparent animationType="fade">
-      <Block center middle bg={rgba('#fff', 0.8)} h="100%">
-        <LottieView
-          source={require('./loading-circles.json')}
-          progress={progress.current}
-          loop
-          autoPlay={true}
-          style={{width: 100, height: 200}}
-        />
+      <Block flex center middle bg-white h="100%">
+        <LottieView source={require('./loading-circles.json')} progress={progress.current} loop autoPlay={true} style={{width: 100, height: 200}} />
       </Block>
     </Modal>
   );

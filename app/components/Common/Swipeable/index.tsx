@@ -4,10 +4,10 @@ import {Animated, StyleSheet} from 'react-native';
 import {RectButton} from 'react-native-gesture-handler';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 
+import {Block, Text} from '@/components';
+
 import {Props, SwipItem} from './swipeable';
 import AppIcon from '../AppIcon';
-
-import {Block, Text} from '@/components';
 
 type AnimatedInterpolation = ReturnType<Animated.Value['interpolate']>;
 
@@ -35,7 +35,7 @@ function ISwipeable({leftItems, rightItems, children}: Props) {
                   <Block middle center>
                     {item?.icon && <AppIcon name={item.icon.name} size={item.icon.size ?? 20} color={item.icon.color} />}
 
-                    <Text styles={item.textColor ? {color: item.textColor, ...(item?.titleStyle as unknown as object)} : {...(item?.titleStyle as unknown as object)}}>{item.text}</Text>
+                    <Text style={item.textColor ? {color: item.textColor, ...(item?.titleStyle as unknown as object)} : {...(item?.titleStyle as unknown as object)}}>{item.text}</Text>
                   </Block>
                 </Animated.View>
               </RectButton>
@@ -69,7 +69,7 @@ function ISwipeable({leftItems, rightItems, children}: Props) {
                   <Block middle center>
                     {item?.icon && <AppIcon name={item.icon.name} size={item.icon.size ?? 20} color={item.icon.color} />}
 
-                    <Text styles={item.textColor ? {color: item.textColor, ...(item?.titleStyle as unknown as object)} : {...(item?.titleStyle as unknown as object)}}>{item.text}</Text>
+                    <Text style={item.textColor ? {color: item.textColor, ...(item?.titleStyle as unknown as object)} : {...(item?.titleStyle as unknown as object)}}>{item.text}</Text>
                   </Block>
                 </Animated.View>
               </RectButton>

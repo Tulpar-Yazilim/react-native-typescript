@@ -1,8 +1,8 @@
 import {StyleSheet} from 'react-native';
 
-import {IButtonTypes} from './app-button';
-
 import {COLORS, fingerSize, FONTS} from '@/theme';
+
+import {IButtonTypes} from './app-button';
 
 const styles = StyleSheet.create({
   disabled: {

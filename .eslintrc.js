@@ -51,7 +51,7 @@ module.exports = {
         'react-native/no-inline-styles': 0,
         'react-native/no-color-literals': 0,
         'react-native/no-raw-text': 0,
-        'import/no-extraneous-dependencies': 2,
+        'import/no-extraneous-dependencies': 'off',
         'import/no-named-as-default-member': 2,
         'import/order': [
             'error',
@@ -64,7 +64,7 @@ module.exports = {
                         position: 'before',
                     },
                     {
-                        pattern: '@src/**',
+                        pattern: '@/**',
                         group: 'internal',
                     },
                 ],
@@ -89,8 +89,7 @@ module.exports = {
         'import/no-unused-modules': 0,
         'import/no-deprecated': 0,
         '@typescript-eslint/indent': 0,
-        'react-hooks/rules-of-hooks': 2,
-
+        'react-hooks/rules-of-hooks': 2, 
         'jest/no-identical-title': 2,
         'jest/valid-expect': 2,
         camelcase: 2,

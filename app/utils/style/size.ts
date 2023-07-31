@@ -3,7 +3,10 @@ export const setupSizes = {
   'flex-0': {flex: 0},
   'col-0': {width: '0%'},
   'fs-0': {fontSize: fontPixel(0)},
+  'gap-0': {gap: 0},
   'rounded-0': {borderRadius: 0},
+  'rounded-left-0': {borderTopLeftRadius: 0, borderBottomLeftRadius: 0},
+  'rounded-right-0': {borderTopRightRadius: 0, borderBottomRightRadius: 0},
   'mx-0': {marginHorizontal: widthPixel(0)},
   'px-0': {paddingHorizontal: widthPixel(0)},
   'py-0': {paddingVertical: heightPixel(0)},
@@ -26,7 +29,10 @@ export const setupSizes = {
   'flex-1': {flex: 1},
   'col-1': {width: '8.333333333333334%'},
   'fs-1': {fontSize: fontPixel(1)},
+  'gap-1': {gap: 1},
   'rounded-1': {borderRadius: 1},
+  'rounded-left-1': {borderTopLeftRadius: 1, borderBottomLeftRadius: 1},
+  'rounded-right-1': {borderTopRightRadius: 1, borderBottomRightRadius: 1},
   'mx-1': {marginHorizontal: widthPixel(1)},
   'px-1': {paddingHorizontal: widthPixel(1)},
   'py-1': {paddingVertical: heightPixel(1)},
@@ -49,7 +55,10 @@ export const setupSizes = {
   'flex-2': {flex: 2},
   'col-2': {width: '16.666666666666668%'},
   'fs-2': {fontSize: fontPixel(2)},
+  'gap-2': {gap: 2},
   'rounded-2': {borderRadius: 2},
+  'rounded-left-2': {borderTopLeftRadius: 2, borderBottomLeftRadius: 2},
+  'rounded-right-2': {borderTopRightRadius: 2, borderBottomRightRadius: 2},
   'mx-2': {marginHorizontal: widthPixel(2)},
   'px-2': {paddingHorizontal: widthPixel(2)},
   'py-2': {paddingVertical: heightPixel(2)},
@@ -72,7 +81,10 @@ export const setupSizes = {
   'flex-3': {flex: 3},
   'col-3': {width: '25%'},
   'fs-3': {fontSize: fontPixel(3)},
+  'gap-3': {gap: 3},
   'rounded-3': {borderRadius: 3},
+  'rounded-left-3': {borderTopLeftRadius: 3, borderBottomLeftRadius: 3},
+  'rounded-right-3': {borderTopRightRadius: 3, borderBottomRightRadius: 3},
   'mx-3': {marginHorizontal: widthPixel(3)},
   'px-3': {paddingHorizontal: widthPixel(3)},
   'py-3': {paddingVertical: heightPixel(3)},
@@ -95,7 +107,10 @@ export const setupSizes = {
   'flex-4': {flex: 4},
   'col-4': {width: '33.333333333333336%'},
   'fs-4': {fontSize: fontPixel(4)},
+  'gap-4': {gap: 4},
   'rounded-4': {borderRadius: 4},
+  'rounded-left-4': {borderTopLeftRadius: 4, borderBottomLeftRadius: 4},
+  'rounded-right-4': {borderTopRightRadius: 4, borderBottomRightRadius: 4},
   'mx-4': {marginHorizontal: widthPixel(4)},
   'px-4': {paddingHorizontal: widthPixel(4)},
   'py-4': {paddingVertical: heightPixel(4)},
@@ -118,7 +133,10 @@ export const setupSizes = {
   'flex-5': {flex: 5},
   'col-5': {width: '41.66666666666667%'},
   'fs-5': {fontSize: fontPixel(5)},
+  'gap-5': {gap: 5},
   'rounded-5': {borderRadius: 5},
+  'rounded-left-5': {borderTopLeftRadius: 5, borderBottomLeftRadius: 5},
+  'rounded-right-5': {borderTopRightRadius: 5, borderBottomRightRadius: 5},
   'mx-5': {marginHorizontal: widthPixel(5)},
   'px-5': {paddingHorizontal: widthPixel(5)},
   'py-5': {paddingVertical: heightPixel(5)},
@@ -141,7 +159,10 @@ export const setupSizes = {
   'flex-6': {flex: 6},
   'col-6': {width: '50%'},
   'fs-6': {fontSize: fontPixel(6)},
+  'gap-6': {gap: 6},
   'rounded-6': {borderRadius: 6},
+  'rounded-left-6': {borderTopLeftRadius: 6, borderBottomLeftRadius: 6},
+  'rounded-right-6': {borderTopRightRadius: 6, borderBottomRightRadius: 6},
   'mx-6': {marginHorizontal: widthPixel(6)},
   'px-6': {paddingHorizontal: widthPixel(6)},
   'py-6': {paddingVertical: heightPixel(6)},
@@ -164,7 +185,10 @@ export const setupSizes = {
   'flex-7': {flex: 7},
   'col-7': {width: '58.333333333333336%'},
   'fs-7': {fontSize: fontPixel(7)},
+  'gap-7': {gap: 7},
   'rounded-7': {borderRadius: 7},
+  'rounded-left-7': {borderTopLeftRadius: 7, borderBottomLeftRadius: 7},
+  'rounded-right-7': {borderTopRightRadius: 7, borderBottomRightRadius: 7},
   'mx-7': {marginHorizontal: widthPixel(7)},
   'px-7': {paddingHorizontal: widthPixel(7)},
   'py-7': {paddingVertical: heightPixel(7)},
@@ -187,7 +211,10 @@ export const setupSizes = {
   'flex-8': {flex: 8},
   'col-8': {width: '66.66666666666667%'},
   'fs-8': {fontSize: fontPixel(8)},
+  'gap-8': {gap: 8},
   'rounded-8': {borderRadius: 8},
+  'rounded-left-8': {borderTopLeftRadius: 8, borderBottomLeftRadius: 8},
+  'rounded-right-8': {borderTopRightRadius: 8, borderBottomRightRadius: 8},
   'mx-8': {marginHorizontal: widthPixel(8)},
   'px-8': {paddingHorizontal: widthPixel(8)},
   'py-8': {paddingVertical: heightPixel(8)},
@@ -210,7 +237,10 @@ export const setupSizes = {
   'flex-9': {flex: 9},
   'col-9': {width: '75%'},
   'fs-9': {fontSize: fontPixel(9)},
+  'gap-9': {gap: 9},
   'rounded-9': {borderRadius: 9},
+  'rounded-left-9': {borderTopLeftRadius: 9, borderBottomLeftRadius: 9},
+  'rounded-right-9': {borderTopRightRadius: 9, borderBottomRightRadius: 9},
   'mx-9': {marginHorizontal: widthPixel(9)},
   'px-9': {paddingHorizontal: widthPixel(9)},
   'py-9': {paddingVertical: heightPixel(9)},
@@ -232,7 +262,10 @@ export const setupSizes = {
   'bottom-9': {bottom: heightPixel(9)},
   'col-10': {width: '83.33333333333334%'},
   'fs-10': {fontSize: fontPixel(10)},
+  'gap-10': {gap: 10},
   'rounded-10': {borderRadius: 10},
+  'rounded-left-10': {borderTopLeftRadius: 10, borderBottomLeftRadius: 10},
+  'rounded-right-10': {borderTopRightRadius: 10, borderBottomRightRadius: 10},
   'mx-10': {marginHorizontal: widthPixel(10)},
   'px-10': {paddingHorizontal: widthPixel(10)},
   'py-10': {paddingVertical: heightPixel(10)},
@@ -254,7 +287,10 @@ export const setupSizes = {
   'bottom-10': {bottom: heightPixel(10)},
   'col-11': {width: '91.66666666666667%'},
   'fs-11': {fontSize: fontPixel(11)},
+  'gap-11': {gap: 11},
   'rounded-11': {borderRadius: 11},
+  'rounded-left-11': {borderTopLeftRadius: 11, borderBottomLeftRadius: 11},
+  'rounded-right-11': {borderTopRightRadius: 11, borderBottomRightRadius: 11},
   'mx-11': {marginHorizontal: widthPixel(11)},
   'px-11': {paddingHorizontal: widthPixel(11)},
   'py-11': {paddingVertical: heightPixel(11)},
@@ -276,7 +312,10 @@ export const setupSizes = {
   'bottom-11': {bottom: heightPixel(11)},
   'col-12': {width: '100%'},
   'fs-12': {fontSize: fontPixel(12)},
+  'gap-12': {gap: 12},
   'rounded-12': {borderRadius: 12},
+  'rounded-left-12': {borderTopLeftRadius: 12, borderBottomLeftRadius: 12},
+  'rounded-right-12': {borderTopRightRadius: 12, borderBottomRightRadius: 12},
   'mx-12': {marginHorizontal: widthPixel(12)},
   'px-12': {paddingHorizontal: widthPixel(12)},
   'py-12': {paddingVertical: heightPixel(12)},
@@ -297,7 +336,10 @@ export const setupSizes = {
   'top-12': {top: heightPixel(12)},
   'bottom-12': {bottom: heightPixel(12)},
   'fs-13': {fontSize: fontPixel(13)},
+  'gap-13': {gap: 13},
   'rounded-13': {borderRadius: 13},
+  'rounded-left-13': {borderTopLeftRadius: 13, borderBottomLeftRadius: 13},
+  'rounded-right-13': {borderTopRightRadius: 13, borderBottomRightRadius: 13},
   'mx-13': {marginHorizontal: widthPixel(13)},
   'px-13': {paddingHorizontal: widthPixel(13)},
   'py-13': {paddingVertical: heightPixel(13)},
@@ -318,7 +360,10 @@ export const setupSizes = {
   'top-13': {top: heightPixel(13)},
   'bottom-13': {bottom: heightPixel(13)},
   'fs-14': {fontSize: fontPixel(14)},
+  'gap-14': {gap: 14},
   'rounded-14': {borderRadius: 14},
+  'rounded-left-14': {borderTopLeftRadius: 14, borderBottomLeftRadius: 14},
+  'rounded-right-14': {borderTopRightRadius: 14, borderBottomRightRadius: 14},
   'mx-14': {marginHorizontal: widthPixel(14)},
   'px-14': {paddingHorizontal: widthPixel(14)},
   'py-14': {paddingVertical: heightPixel(14)},
@@ -339,7 +384,10 @@ export const setupSizes = {
   'top-14': {top: heightPixel(14)},
   'bottom-14': {bottom: heightPixel(14)},
   'fs-15': {fontSize: fontPixel(15)},
+  'gap-15': {gap: 15},
   'rounded-15': {borderRadius: 15},
+  'rounded-left-15': {borderTopLeftRadius: 15, borderBottomLeftRadius: 15},
+  'rounded-right-15': {borderTopRightRadius: 15, borderBottomRightRadius: 15},
   'mx-15': {marginHorizontal: widthPixel(15)},
   'px-15': {paddingHorizontal: widthPixel(15)},
   'py-15': {paddingVertical: heightPixel(15)},
@@ -360,7 +408,10 @@ export const setupSizes = {
   'top-15': {top: heightPixel(15)},
   'bottom-15': {bottom: heightPixel(15)},
   'fs-16': {fontSize: fontPixel(16)},
+  'gap-16': {gap: 16},
   'rounded-16': {borderRadius: 16},
+  'rounded-left-16': {borderTopLeftRadius: 16, borderBottomLeftRadius: 16},
+  'rounded-right-16': {borderTopRightRadius: 16, borderBottomRightRadius: 16},
   'mx-16': {marginHorizontal: widthPixel(16)},
   'px-16': {paddingHorizontal: widthPixel(16)},
   'py-16': {paddingVertical: heightPixel(16)},
@@ -381,7 +432,10 @@ export const setupSizes = {
   'top-16': {top: heightPixel(16)},
   'bottom-16': {bottom: heightPixel(16)},
   'fs-17': {fontSize: fontPixel(17)},
+  'gap-17': {gap: 17},
   'rounded-17': {borderRadius: 17},
+  'rounded-left-17': {borderTopLeftRadius: 17, borderBottomLeftRadius: 17},
+  'rounded-right-17': {borderTopRightRadius: 17, borderBottomRightRadius: 17},
   'mx-17': {marginHorizontal: widthPixel(17)},
   'px-17': {paddingHorizontal: widthPixel(17)},
   'py-17': {paddingVertical: heightPixel(17)},
@@ -402,7 +456,10 @@ export const setupSizes = {
   'top-17': {top: heightPixel(17)},
   'bottom-17': {bottom: heightPixel(17)},
   'fs-18': {fontSize: fontPixel(18)},
+  'gap-18': {gap: 18},
   'rounded-18': {borderRadius: 18},
+  'rounded-left-18': {borderTopLeftRadius: 18, borderBottomLeftRadius: 18},
+  'rounded-right-18': {borderTopRightRadius: 18, borderBottomRightRadius: 18},
   'mx-18': {marginHorizontal: widthPixel(18)},
   'px-18': {paddingHorizontal: widthPixel(18)},
   'py-18': {paddingVertical: heightPixel(18)},
@@ -423,7 +480,10 @@ export const setupSizes = {
   'top-18': {top: heightPixel(18)},
   'bottom-18': {bottom: heightPixel(18)},
   'fs-19': {fontSize: fontPixel(19)},
+  'gap-19': {gap: 19},
   'rounded-19': {borderRadius: 19},
+  'rounded-left-19': {borderTopLeftRadius: 19, borderBottomLeftRadius: 19},
+  'rounded-right-19': {borderTopRightRadius: 19, borderBottomRightRadius: 19},
   'mx-19': {marginHorizontal: widthPixel(19)},
   'px-19': {paddingHorizontal: widthPixel(19)},
   'py-19': {paddingVertical: heightPixel(19)},
@@ -444,7 +504,10 @@ export const setupSizes = {
   'top-19': {top: heightPixel(19)},
   'bottom-19': {bottom: heightPixel(19)},
   'fs-20': {fontSize: fontPixel(20)},
+  'gap-20': {gap: 20},
   'rounded-20': {borderRadius: 20},
+  'rounded-left-20': {borderTopLeftRadius: 20, borderBottomLeftRadius: 20},
+  'rounded-right-20': {borderTopRightRadius: 20, borderBottomRightRadius: 20},
   'mx-20': {marginHorizontal: widthPixel(20)},
   'px-20': {paddingHorizontal: widthPixel(20)},
   'py-20': {paddingVertical: heightPixel(20)},
@@ -465,7 +528,10 @@ export const setupSizes = {
   'top-20': {top: heightPixel(20)},
   'bottom-20': {bottom: heightPixel(20)},
   'fs-21': {fontSize: fontPixel(21)},
+  'gap-21': {gap: 21},
   'rounded-21': {borderRadius: 21},
+  'rounded-left-21': {borderTopLeftRadius: 21, borderBottomLeftRadius: 21},
+  'rounded-right-21': {borderTopRightRadius: 21, borderBottomRightRadius: 21},
   'mx-21': {marginHorizontal: widthPixel(21)},
   'px-21': {paddingHorizontal: widthPixel(21)},
   'py-21': {paddingVertical: heightPixel(21)},
@@ -486,7 +552,10 @@ export const setupSizes = {
   'top-21': {top: heightPixel(21)},
   'bottom-21': {bottom: heightPixel(21)},
   'fs-22': {fontSize: fontPixel(22)},
+  'gap-22': {gap: 22},
   'rounded-22': {borderRadius: 22},
+  'rounded-left-22': {borderTopLeftRadius: 22, borderBottomLeftRadius: 22},
+  'rounded-right-22': {borderTopRightRadius: 22, borderBottomRightRadius: 22},
   'mx-22': {marginHorizontal: widthPixel(22)},
   'px-22': {paddingHorizontal: widthPixel(22)},
   'py-22': {paddingVertical: heightPixel(22)},
@@ -507,7 +576,10 @@ export const setupSizes = {
   'top-22': {top: heightPixel(22)},
   'bottom-22': {bottom: heightPixel(22)},
   'fs-23': {fontSize: fontPixel(23)},
+  'gap-23': {gap: 23},
   'rounded-23': {borderRadius: 23},
+  'rounded-left-23': {borderTopLeftRadius: 23, borderBottomLeftRadius: 23},
+  'rounded-right-23': {borderTopRightRadius: 23, borderBottomRightRadius: 23},
   'mx-23': {marginHorizontal: widthPixel(23)},
   'px-23': {paddingHorizontal: widthPixel(23)},
   'py-23': {paddingVertical: heightPixel(23)},
@@ -528,7 +600,10 @@ export const setupSizes = {
   'top-23': {top: heightPixel(23)},
   'bottom-23': {bottom: heightPixel(23)},
   'fs-24': {fontSize: fontPixel(24)},
+  'gap-24': {gap: 24},
   'rounded-24': {borderRadius: 24},
+  'rounded-left-24': {borderTopLeftRadius: 24, borderBottomLeftRadius: 24},
+  'rounded-right-24': {borderTopRightRadius: 24, borderBottomRightRadius: 24},
   'mx-24': {marginHorizontal: widthPixel(24)},
   'px-24': {paddingHorizontal: widthPixel(24)},
   'py-24': {paddingVertical: heightPixel(24)},
@@ -549,7 +624,10 @@ export const setupSizes = {
   'top-24': {top: heightPixel(24)},
   'bottom-24': {bottom: heightPixel(24)},
   'fs-25': {fontSize: fontPixel(25)},
+  'gap-25': {gap: 25},
   'rounded-25': {borderRadius: 25},
+  'rounded-left-25': {borderTopLeftRadius: 25, borderBottomLeftRadius: 25},
+  'rounded-right-25': {borderTopRightRadius: 25, borderBottomRightRadius: 25},
   'mx-25': {marginHorizontal: widthPixel(25)},
   'px-25': {paddingHorizontal: widthPixel(25)},
   'py-25': {paddingVertical: heightPixel(25)},
@@ -570,7 +648,10 @@ export const setupSizes = {
   'top-25': {top: heightPixel(25)},
   'bottom-25': {bottom: heightPixel(25)},
   'fs-26': {fontSize: fontPixel(26)},
+  'gap-26': {gap: 26},
   'rounded-26': {borderRadius: 26},
+  'rounded-left-26': {borderTopLeftRadius: 26, borderBottomLeftRadius: 26},
+  'rounded-right-26': {borderTopRightRadius: 26, borderBottomRightRadius: 26},
   'mx-26': {marginHorizontal: widthPixel(26)},
   'px-26': {paddingHorizontal: widthPixel(26)},
   'py-26': {paddingVertical: heightPixel(26)},
@@ -591,7 +672,10 @@ export const setupSizes = {
   'top-26': {top: heightPixel(26)},
   'bottom-26': {bottom: heightPixel(26)},
   'fs-27': {fontSize: fontPixel(27)},
+  'gap-27': {gap: 27},
   'rounded-27': {borderRadius: 27},
+  'rounded-left-27': {borderTopLeftRadius: 27, borderBottomLeftRadius: 27},
+  'rounded-right-27': {borderTopRightRadius: 27, borderBottomRightRadius: 27},
   'mx-27': {marginHorizontal: widthPixel(27)},
   'px-27': {paddingHorizontal: widthPixel(27)},
   'py-27': {paddingVertical: heightPixel(27)},
@@ -612,7 +696,10 @@ export const setupSizes = {
   'top-27': {top: heightPixel(27)},
   'bottom-27': {bottom: heightPixel(27)},
   'fs-28': {fontSize: fontPixel(28)},
+  'gap-28': {gap: 28},
   'rounded-28': {borderRadius: 28},
+  'rounded-left-28': {borderTopLeftRadius: 28, borderBottomLeftRadius: 28},
+  'rounded-right-28': {borderTopRightRadius: 28, borderBottomRightRadius: 28},
   'mx-28': {marginHorizontal: widthPixel(28)},
   'px-28': {paddingHorizontal: widthPixel(28)},
   'py-28': {paddingVertical: heightPixel(28)},
@@ -633,7 +720,10 @@ export const setupSizes = {
   'top-28': {top: heightPixel(28)},
   'bottom-28': {bottom: heightPixel(28)},
   'fs-29': {fontSize: fontPixel(29)},
+  'gap-29': {gap: 29},
   'rounded-29': {borderRadius: 29},
+  'rounded-left-29': {borderTopLeftRadius: 29, borderBottomLeftRadius: 29},
+  'rounded-right-29': {borderTopRightRadius: 29, borderBottomRightRadius: 29},
   'mx-29': {marginHorizontal: widthPixel(29)},
   'px-29': {paddingHorizontal: widthPixel(29)},
   'py-29': {paddingVertical: heightPixel(29)},
@@ -654,7 +744,10 @@ export const setupSizes = {
   'top-29': {top: heightPixel(29)},
   'bottom-29': {bottom: heightPixel(29)},
   'fs-30': {fontSize: fontPixel(30)},
+  'gap-30': {gap: 30},
   'rounded-30': {borderRadius: 30},
+  'rounded-left-30': {borderTopLeftRadius: 30, borderBottomLeftRadius: 30},
+  'rounded-right-30': {borderTopRightRadius: 30, borderBottomRightRadius: 30},
   'mx-30': {marginHorizontal: widthPixel(30)},
   'px-30': {paddingHorizontal: widthPixel(30)},
   'py-30': {paddingVertical: heightPixel(30)},
@@ -675,7 +768,10 @@ export const setupSizes = {
   'top-30': {top: heightPixel(30)},
   'bottom-30': {bottom: heightPixel(30)},
   'fs-31': {fontSize: fontPixel(31)},
+  'gap-31': {gap: 31},
   'rounded-31': {borderRadius: 31},
+  'rounded-left-31': {borderTopLeftRadius: 31, borderBottomLeftRadius: 31},
+  'rounded-right-31': {borderTopRightRadius: 31, borderBottomRightRadius: 31},
   'mx-31': {marginHorizontal: widthPixel(31)},
   'px-31': {paddingHorizontal: widthPixel(31)},
   'py-31': {paddingVertical: heightPixel(31)},
@@ -696,7 +792,10 @@ export const setupSizes = {
   'top-31': {top: heightPixel(31)},
   'bottom-31': {bottom: heightPixel(31)},
   'fs-32': {fontSize: fontPixel(32)},
+  'gap-32': {gap: 32},
   'rounded-32': {borderRadius: 32},
+  'rounded-left-32': {borderTopLeftRadius: 32, borderBottomLeftRadius: 32},
+  'rounded-right-32': {borderTopRightRadius: 32, borderBottomRightRadius: 32},
   'mx-32': {marginHorizontal: widthPixel(32)},
   'px-32': {paddingHorizontal: widthPixel(32)},
   'py-32': {paddingVertical: heightPixel(32)},
@@ -717,7 +816,10 @@ export const setupSizes = {
   'top-32': {top: heightPixel(32)},
   'bottom-32': {bottom: heightPixel(32)},
   'fs-33': {fontSize: fontPixel(33)},
+  'gap-33': {gap: 33},
   'rounded-33': {borderRadius: 33},
+  'rounded-left-33': {borderTopLeftRadius: 33, borderBottomLeftRadius: 33},
+  'rounded-right-33': {borderTopRightRadius: 33, borderBottomRightRadius: 33},
   'mx-33': {marginHorizontal: widthPixel(33)},
   'px-33': {paddingHorizontal: widthPixel(33)},
   'py-33': {paddingVertical: heightPixel(33)},
@@ -738,7 +840,10 @@ export const setupSizes = {
   'top-33': {top: heightPixel(33)},
   'bottom-33': {bottom: heightPixel(33)},
   'fs-34': {fontSize: fontPixel(34)},
+  'gap-34': {gap: 34},
   'rounded-34': {borderRadius: 34},
+  'rounded-left-34': {borderTopLeftRadius: 34, borderBottomLeftRadius: 34},
+  'rounded-right-34': {borderTopRightRadius: 34, borderBottomRightRadius: 34},
   'mx-34': {marginHorizontal: widthPixel(34)},
   'px-34': {paddingHorizontal: widthPixel(34)},
   'py-34': {paddingVertical: heightPixel(34)},
@@ -759,7 +864,10 @@ export const setupSizes = {
   'top-34': {top: heightPixel(34)},
   'bottom-34': {bottom: heightPixel(34)},
   'fs-35': {fontSize: fontPixel(35)},
+  'gap-35': {gap: 35},
   'rounded-35': {borderRadius: 35},
+  'rounded-left-35': {borderTopLeftRadius: 35, borderBottomLeftRadius: 35},
+  'rounded-right-35': {borderTopRightRadius: 35, borderBottomRightRadius: 35},
   'mx-35': {marginHorizontal: widthPixel(35)},
   'px-35': {paddingHorizontal: widthPixel(35)},
   'py-35': {paddingVertical: heightPixel(35)},
@@ -780,7 +888,10 @@ export const setupSizes = {
   'top-35': {top: heightPixel(35)},
   'bottom-35': {bottom: heightPixel(35)},
   'fs-36': {fontSize: fontPixel(36)},
+  'gap-36': {gap: 36},
   'rounded-36': {borderRadius: 36},
+  'rounded-left-36': {borderTopLeftRadius: 36, borderBottomLeftRadius: 36},
+  'rounded-right-36': {borderTopRightRadius: 36, borderBottomRightRadius: 36},
   'mx-36': {marginHorizontal: widthPixel(36)},
   'px-36': {paddingHorizontal: widthPixel(36)},
   'py-36': {paddingVertical: heightPixel(36)},
@@ -801,7 +912,10 @@ export const setupSizes = {
   'top-36': {top: heightPixel(36)},
   'bottom-36': {bottom: heightPixel(36)},
   'fs-37': {fontSize: fontPixel(37)},
+  'gap-37': {gap: 37},
   'rounded-37': {borderRadius: 37},
+  'rounded-left-37': {borderTopLeftRadius: 37, borderBottomLeftRadius: 37},
+  'rounded-right-37': {borderTopRightRadius: 37, borderBottomRightRadius: 37},
   'mx-37': {marginHorizontal: widthPixel(37)},
   'px-37': {paddingHorizontal: widthPixel(37)},
   'py-37': {paddingVertical: heightPixel(37)},
@@ -822,7 +936,10 @@ export const setupSizes = {
   'top-37': {top: heightPixel(37)},
   'bottom-37': {bottom: heightPixel(37)},
   'fs-38': {fontSize: fontPixel(38)},
+  'gap-38': {gap: 38},
   'rounded-38': {borderRadius: 38},
+  'rounded-left-38': {borderTopLeftRadius: 38, borderBottomLeftRadius: 38},
+  'rounded-right-38': {borderTopRightRadius: 38, borderBottomRightRadius: 38},
   'mx-38': {marginHorizontal: widthPixel(38)},
   'px-38': {paddingHorizontal: widthPixel(38)},
   'py-38': {paddingVertical: heightPixel(38)},
@@ -843,7 +960,10 @@ export const setupSizes = {
   'top-38': {top: heightPixel(38)},
   'bottom-38': {bottom: heightPixel(38)},
   'fs-39': {fontSize: fontPixel(39)},
+  'gap-39': {gap: 39},
   'rounded-39': {borderRadius: 39},
+  'rounded-left-39': {borderTopLeftRadius: 39, borderBottomLeftRadius: 39},
+  'rounded-right-39': {borderTopRightRadius: 39, borderBottomRightRadius: 39},
   'mx-39': {marginHorizontal: widthPixel(39)},
   'px-39': {paddingHorizontal: widthPixel(39)},
   'py-39': {paddingVertical: heightPixel(39)},
@@ -864,7 +984,10 @@ export const setupSizes = {
   'top-39': {top: heightPixel(39)},
   'bottom-39': {bottom: heightPixel(39)},
   'fs-40': {fontSize: fontPixel(40)},
+  'gap-40': {gap: 40},
   'rounded-40': {borderRadius: 40},
+  'rounded-left-40': {borderTopLeftRadius: 40, borderBottomLeftRadius: 40},
+  'rounded-right-40': {borderTopRightRadius: 40, borderBottomRightRadius: 40},
   'mx-40': {marginHorizontal: widthPixel(40)},
   'px-40': {paddingHorizontal: widthPixel(40)},
   'py-40': {paddingVertical: heightPixel(40)},
@@ -885,7 +1008,10 @@ export const setupSizes = {
   'top-40': {top: heightPixel(40)},
   'bottom-40': {bottom: heightPixel(40)},
   'fs-41': {fontSize: fontPixel(41)},
+  'gap-41': {gap: 41},
   'rounded-41': {borderRadius: 41},
+  'rounded-left-41': {borderTopLeftRadius: 41, borderBottomLeftRadius: 41},
+  'rounded-right-41': {borderTopRightRadius: 41, borderBottomRightRadius: 41},
   'mx-41': {marginHorizontal: widthPixel(41)},
   'px-41': {paddingHorizontal: widthPixel(41)},
   'py-41': {paddingVertical: heightPixel(41)},
@@ -906,7 +1032,10 @@ export const setupSizes = {
   'top-41': {top: heightPixel(41)},
   'bottom-41': {bottom: heightPixel(41)},
   'fs-42': {fontSize: fontPixel(42)},
+  'gap-42': {gap: 42},
   'rounded-42': {borderRadius: 42},
+  'rounded-left-42': {borderTopLeftRadius: 42, borderBottomLeftRadius: 42},
+  'rounded-right-42': {borderTopRightRadius: 42, borderBottomRightRadius: 42},
   'mx-42': {marginHorizontal: widthPixel(42)},
   'px-42': {paddingHorizontal: widthPixel(42)},
   'py-42': {paddingVertical: heightPixel(42)},
@@ -927,7 +1056,10 @@ export const setupSizes = {
   'top-42': {top: heightPixel(42)},
   'bottom-42': {bottom: heightPixel(42)},
   'fs-43': {fontSize: fontPixel(43)},
+  'gap-43': {gap: 43},
   'rounded-43': {borderRadius: 43},
+  'rounded-left-43': {borderTopLeftRadius: 43, borderBottomLeftRadius: 43},
+  'rounded-right-43': {borderTopRightRadius: 43, borderBottomRightRadius: 43},
   'mx-43': {marginHorizontal: widthPixel(43)},
   'px-43': {paddingHorizontal: widthPixel(43)},
   'py-43': {paddingVertical: heightPixel(43)},
@@ -948,7 +1080,10 @@ export const setupSizes = {
   'top-43': {top: heightPixel(43)},
   'bottom-43': {bottom: heightPixel(43)},
   'fs-44': {fontSize: fontPixel(44)},
+  'gap-44': {gap: 44},
   'rounded-44': {borderRadius: 44},
+  'rounded-left-44': {borderTopLeftRadius: 44, borderBottomLeftRadius: 44},
+  'rounded-right-44': {borderTopRightRadius: 44, borderBottomRightRadius: 44},
   'mx-44': {marginHorizontal: widthPixel(44)},
   'px-44': {paddingHorizontal: widthPixel(44)},
   'py-44': {paddingVertical: heightPixel(44)},
@@ -969,7 +1104,10 @@ export const setupSizes = {
   'top-44': {top: heightPixel(44)},
   'bottom-44': {bottom: heightPixel(44)},
   'fs-45': {fontSize: fontPixel(45)},
+  'gap-45': {gap: 45},
   'rounded-45': {borderRadius: 45},
+  'rounded-left-45': {borderTopLeftRadius: 45, borderBottomLeftRadius: 45},
+  'rounded-right-45': {borderTopRightRadius: 45, borderBottomRightRadius: 45},
   'mx-45': {marginHorizontal: widthPixel(45)},
   'px-45': {paddingHorizontal: widthPixel(45)},
   'py-45': {paddingVertical: heightPixel(45)},
@@ -990,7 +1128,10 @@ export const setupSizes = {
   'top-45': {top: heightPixel(45)},
   'bottom-45': {bottom: heightPixel(45)},
   'fs-46': {fontSize: fontPixel(46)},
+  'gap-46': {gap: 46},
   'rounded-46': {borderRadius: 46},
+  'rounded-left-46': {borderTopLeftRadius: 46, borderBottomLeftRadius: 46},
+  'rounded-right-46': {borderTopRightRadius: 46, borderBottomRightRadius: 46},
   'mx-46': {marginHorizontal: widthPixel(46)},
   'px-46': {paddingHorizontal: widthPixel(46)},
   'py-46': {paddingVertical: heightPixel(46)},
@@ -1011,7 +1152,10 @@ export const setupSizes = {
   'top-46': {top: heightPixel(46)},
   'bottom-46': {bottom: heightPixel(46)},
   'fs-47': {fontSize: fontPixel(47)},
+  'gap-47': {gap: 47},
   'rounded-47': {borderRadius: 47},
+  'rounded-left-47': {borderTopLeftRadius: 47, borderBottomLeftRadius: 47},
+  'rounded-right-47': {borderTopRightRadius: 47, borderBottomRightRadius: 47},
   'mx-47': {marginHorizontal: widthPixel(47)},
   'px-47': {paddingHorizontal: widthPixel(47)},
   'py-47': {paddingVertical: heightPixel(47)},
@@ -1032,7 +1176,10 @@ export const setupSizes = {
   'top-47': {top: heightPixel(47)},
   'bottom-47': {bottom: heightPixel(47)},
   'fs-48': {fontSize: fontPixel(48)},
+  'gap-48': {gap: 48},
   'rounded-48': {borderRadius: 48},
+  'rounded-left-48': {borderTopLeftRadius: 48, borderBottomLeftRadius: 48},
+  'rounded-right-48': {borderTopRightRadius: 48, borderBottomRightRadius: 48},
   'mx-48': {marginHorizontal: widthPixel(48)},
   'px-48': {paddingHorizontal: widthPixel(48)},
   'py-48': {paddingVertical: heightPixel(48)},
@@ -1053,7 +1200,10 @@ export const setupSizes = {
   'top-48': {top: heightPixel(48)},
   'bottom-48': {bottom: heightPixel(48)},
   'fs-49': {fontSize: fontPixel(49)},
+  'gap-49': {gap: 49},
   'rounded-49': {borderRadius: 49},
+  'rounded-left-49': {borderTopLeftRadius: 49, borderBottomLeftRadius: 49},
+  'rounded-right-49': {borderTopRightRadius: 49, borderBottomRightRadius: 49},
   'mx-49': {marginHorizontal: widthPixel(49)},
   'px-49': {paddingHorizontal: widthPixel(49)},
   'py-49': {paddingVertical: heightPixel(49)},
@@ -1074,7 +1224,10 @@ export const setupSizes = {
   'top-49': {top: heightPixel(49)},
   'bottom-49': {bottom: heightPixel(49)},
   'fs-50': {fontSize: fontPixel(50)},
+  'gap-50': {gap: 50},
   'rounded-50': {borderRadius: 50},
+  'rounded-left-50': {borderTopLeftRadius: 50, borderBottomLeftRadius: 50},
+  'rounded-right-50': {borderTopRightRadius: 50, borderBottomRightRadius: 50},
   'mx-50': {marginHorizontal: widthPixel(50)},
   'px-50': {paddingHorizontal: widthPixel(50)},
   'py-50': {paddingVertical: heightPixel(50)},
@@ -1095,6 +1248,8 @@ export const setupSizes = {
   'top-50': {top: heightPixel(50)},
   'bottom-50': {bottom: heightPixel(50)},
   'rounded-51': {borderRadius: 51},
+  'rounded-left-51': {borderTopLeftRadius: 51, borderBottomLeftRadius: 51},
+  'rounded-right-51': {borderTopRightRadius: 51, borderBottomRightRadius: 51},
   'mx-51': {marginHorizontal: widthPixel(51)},
   'px-51': {paddingHorizontal: widthPixel(51)},
   'py-51': {paddingVertical: heightPixel(51)},
@@ -1115,6 +1270,8 @@ export const setupSizes = {
   'top-51': {top: heightPixel(51)},
   'bottom-51': {bottom: heightPixel(51)},
   'rounded-52': {borderRadius: 52},
+  'rounded-left-52': {borderTopLeftRadius: 52, borderBottomLeftRadius: 52},
+  'rounded-right-52': {borderTopRightRadius: 52, borderBottomRightRadius: 52},
   'mx-52': {marginHorizontal: widthPixel(52)},
   'px-52': {paddingHorizontal: widthPixel(52)},
   'py-52': {paddingVertical: heightPixel(52)},
@@ -1135,6 +1292,8 @@ export const setupSizes = {
   'top-52': {top: heightPixel(52)},
   'bottom-52': {bottom: heightPixel(52)},
   'rounded-53': {borderRadius: 53},
+  'rounded-left-53': {borderTopLeftRadius: 53, borderBottomLeftRadius: 53},
+  'rounded-right-53': {borderTopRightRadius: 53, borderBottomRightRadius: 53},
   'mx-53': {marginHorizontal: widthPixel(53)},
   'px-53': {paddingHorizontal: widthPixel(53)},
   'py-53': {paddingVertical: heightPixel(53)},
@@ -1155,6 +1314,8 @@ export const setupSizes = {
   'top-53': {top: heightPixel(53)},
   'bottom-53': {bottom: heightPixel(53)},
   'rounded-54': {borderRadius: 54},
+  'rounded-left-54': {borderTopLeftRadius: 54, borderBottomLeftRadius: 54},
+  'rounded-right-54': {borderTopRightRadius: 54, borderBottomRightRadius: 54},
   'mx-54': {marginHorizontal: widthPixel(54)},
   'px-54': {paddingHorizontal: widthPixel(54)},
   'py-54': {paddingVertical: heightPixel(54)},
@@ -1175,6 +1336,8 @@ export const setupSizes = {
   'top-54': {top: heightPixel(54)},
   'bottom-54': {bottom: heightPixel(54)},
   'rounded-55': {borderRadius: 55},
+  'rounded-left-55': {borderTopLeftRadius: 55, borderBottomLeftRadius: 55},
+  'rounded-right-55': {borderTopRightRadius: 55, borderBottomRightRadius: 55},
   'mx-55': {marginHorizontal: widthPixel(55)},
   'px-55': {paddingHorizontal: widthPixel(55)},
   'py-55': {paddingVertical: heightPixel(55)},
@@ -1195,6 +1358,8 @@ export const setupSizes = {
   'top-55': {top: heightPixel(55)},
   'bottom-55': {bottom: heightPixel(55)},
   'rounded-56': {borderRadius: 56},
+  'rounded-left-56': {borderTopLeftRadius: 56, borderBottomLeftRadius: 56},
+  'rounded-right-56': {borderTopRightRadius: 56, borderBottomRightRadius: 56},
   'mx-56': {marginHorizontal: widthPixel(56)},
   'px-56': {paddingHorizontal: widthPixel(56)},
   'py-56': {paddingVertical: heightPixel(56)},
@@ -1215,6 +1380,8 @@ export const setupSizes = {
   'top-56': {top: heightPixel(56)},
   'bottom-56': {bottom: heightPixel(56)},
   'rounded-57': {borderRadius: 57},
+  'rounded-left-57': {borderTopLeftRadius: 57, borderBottomLeftRadius: 57},
+  'rounded-right-57': {borderTopRightRadius: 57, borderBottomRightRadius: 57},
   'mx-57': {marginHorizontal: widthPixel(57)},
   'px-57': {paddingHorizontal: widthPixel(57)},
   'py-57': {paddingVertical: heightPixel(57)},
@@ -1235,6 +1402,8 @@ export const setupSizes = {
   'top-57': {top: heightPixel(57)},
   'bottom-57': {bottom: heightPixel(57)},
   'rounded-58': {borderRadius: 58},
+  'rounded-left-58': {borderTopLeftRadius: 58, borderBottomLeftRadius: 58},
+  'rounded-right-58': {borderTopRightRadius: 58, borderBottomRightRadius: 58},
   'mx-58': {marginHorizontal: widthPixel(58)},
   'px-58': {paddingHorizontal: widthPixel(58)},
   'py-58': {paddingVertical: heightPixel(58)},
@@ -1255,6 +1424,8 @@ export const setupSizes = {
   'top-58': {top: heightPixel(58)},
   'bottom-58': {bottom: heightPixel(58)},
   'rounded-59': {borderRadius: 59},
+  'rounded-left-59': {borderTopLeftRadius: 59, borderBottomLeftRadius: 59},
+  'rounded-right-59': {borderTopRightRadius: 59, borderBottomRightRadius: 59},
   'mx-59': {marginHorizontal: widthPixel(59)},
   'px-59': {paddingHorizontal: widthPixel(59)},
   'py-59': {paddingVertical: heightPixel(59)},
@@ -1275,6 +1446,8 @@ export const setupSizes = {
   'top-59': {top: heightPixel(59)},
   'bottom-59': {bottom: heightPixel(59)},
   'rounded-60': {borderRadius: 60},
+  'rounded-left-60': {borderTopLeftRadius: 60, borderBottomLeftRadius: 60},
+  'rounded-right-60': {borderTopRightRadius: 60, borderBottomRightRadius: 60},
   'mx-60': {marginHorizontal: widthPixel(60)},
   'px-60': {paddingHorizontal: widthPixel(60)},
   'py-60': {paddingVertical: heightPixel(60)},
@@ -1295,6 +1468,8 @@ export const setupSizes = {
   'top-60': {top: heightPixel(60)},
   'bottom-60': {bottom: heightPixel(60)},
   'rounded-61': {borderRadius: 61},
+  'rounded-left-61': {borderTopLeftRadius: 61, borderBottomLeftRadius: 61},
+  'rounded-right-61': {borderTopRightRadius: 61, borderBottomRightRadius: 61},
   'mx-61': {marginHorizontal: widthPixel(61)},
   'px-61': {paddingHorizontal: widthPixel(61)},
   'py-61': {paddingVertical: heightPixel(61)},
@@ -1315,6 +1490,8 @@ export const setupSizes = {
   'top-61': {top: heightPixel(61)},
   'bottom-61': {bottom: heightPixel(61)},
   'rounded-62': {borderRadius: 62},
+  'rounded-left-62': {borderTopLeftRadius: 62, borderBottomLeftRadius: 62},
+  'rounded-right-62': {borderTopRightRadius: 62, borderBottomRightRadius: 62},
   'mx-62': {marginHorizontal: widthPixel(62)},
   'px-62': {paddingHorizontal: widthPixel(62)},
   'py-62': {paddingVertical: heightPixel(62)},
@@ -1335,6 +1512,8 @@ export const setupSizes = {
   'top-62': {top: heightPixel(62)},
   'bottom-62': {bottom: heightPixel(62)},
   'rounded-63': {borderRadius: 63},
+  'rounded-left-63': {borderTopLeftRadius: 63, borderBottomLeftRadius: 63},
+  'rounded-right-63': {borderTopRightRadius: 63, borderBottomRightRadius: 63},
   'mx-63': {marginHorizontal: widthPixel(63)},
   'px-63': {paddingHorizontal: widthPixel(63)},
   'py-63': {paddingVertical: heightPixel(63)},
@@ -1355,6 +1534,8 @@ export const setupSizes = {
   'top-63': {top: heightPixel(63)},
   'bottom-63': {bottom: heightPixel(63)},
   'rounded-64': {borderRadius: 64},
+  'rounded-left-64': {borderTopLeftRadius: 64, borderBottomLeftRadius: 64},
+  'rounded-right-64': {borderTopRightRadius: 64, borderBottomRightRadius: 64},
   'mx-64': {marginHorizontal: widthPixel(64)},
   'px-64': {paddingHorizontal: widthPixel(64)},
   'py-64': {paddingVertical: heightPixel(64)},
@@ -1375,6 +1556,8 @@ export const setupSizes = {
   'top-64': {top: heightPixel(64)},
   'bottom-64': {bottom: heightPixel(64)},
   'rounded-65': {borderRadius: 65},
+  'rounded-left-65': {borderTopLeftRadius: 65, borderBottomLeftRadius: 65},
+  'rounded-right-65': {borderTopRightRadius: 65, borderBottomRightRadius: 65},
   'mx-65': {marginHorizontal: widthPixel(65)},
   'px-65': {paddingHorizontal: widthPixel(65)},
   'py-65': {paddingVertical: heightPixel(65)},
@@ -1395,6 +1578,8 @@ export const setupSizes = {
   'top-65': {top: heightPixel(65)},
   'bottom-65': {bottom: heightPixel(65)},
   'rounded-66': {borderRadius: 66},
+  'rounded-left-66': {borderTopLeftRadius: 66, borderBottomLeftRadius: 66},
+  'rounded-right-66': {borderTopRightRadius: 66, borderBottomRightRadius: 66},
   'mx-66': {marginHorizontal: widthPixel(66)},
   'px-66': {paddingHorizontal: widthPixel(66)},
   'py-66': {paddingVertical: heightPixel(66)},
@@ -1415,6 +1600,8 @@ export const setupSizes = {
   'top-66': {top: heightPixel(66)},
   'bottom-66': {bottom: heightPixel(66)},
   'rounded-67': {borderRadius: 67},
+  'rounded-left-67': {borderTopLeftRadius: 67, borderBottomLeftRadius: 67},
+  'rounded-right-67': {borderTopRightRadius: 67, borderBottomRightRadius: 67},
   'mx-67': {marginHorizontal: widthPixel(67)},
   'px-67': {paddingHorizontal: widthPixel(67)},
   'py-67': {paddingVertical: heightPixel(67)},
@@ -1435,6 +1622,8 @@ export const setupSizes = {
   'top-67': {top: heightPixel(67)},
   'bottom-67': {bottom: heightPixel(67)},
   'rounded-68': {borderRadius: 68},
+  'rounded-left-68': {borderTopLeftRadius: 68, borderBottomLeftRadius: 68},
+  'rounded-right-68': {borderTopRightRadius: 68, borderBottomRightRadius: 68},
   'mx-68': {marginHorizontal: widthPixel(68)},
   'px-68': {paddingHorizontal: widthPixel(68)},
   'py-68': {paddingVertical: heightPixel(68)},
@@ -1455,6 +1644,8 @@ export const setupSizes = {
   'top-68': {top: heightPixel(68)},
   'bottom-68': {bottom: heightPixel(68)},
   'rounded-69': {borderRadius: 69},
+  'rounded-left-69': {borderTopLeftRadius: 69, borderBottomLeftRadius: 69},
+  'rounded-right-69': {borderTopRightRadius: 69, borderBottomRightRadius: 69},
   'mx-69': {marginHorizontal: widthPixel(69)},
   'px-69': {paddingHorizontal: widthPixel(69)},
   'py-69': {paddingVertical: heightPixel(69)},
@@ -1475,6 +1666,8 @@ export const setupSizes = {
   'top-69': {top: heightPixel(69)},
   'bottom-69': {bottom: heightPixel(69)},
   'rounded-70': {borderRadius: 70},
+  'rounded-left-70': {borderTopLeftRadius: 70, borderBottomLeftRadius: 70},
+  'rounded-right-70': {borderTopRightRadius: 70, borderBottomRightRadius: 70},
   'mx-70': {marginHorizontal: widthPixel(70)},
   'px-70': {paddingHorizontal: widthPixel(70)},
   'py-70': {paddingVertical: heightPixel(70)},
@@ -1495,6 +1688,8 @@ export const setupSizes = {
   'top-70': {top: heightPixel(70)},
   'bottom-70': {bottom: heightPixel(70)},
   'rounded-71': {borderRadius: 71},
+  'rounded-left-71': {borderTopLeftRadius: 71, borderBottomLeftRadius: 71},
+  'rounded-right-71': {borderTopRightRadius: 71, borderBottomRightRadius: 71},
   'mx-71': {marginHorizontal: widthPixel(71)},
   'px-71': {paddingHorizontal: widthPixel(71)},
   'py-71': {paddingVertical: heightPixel(71)},
@@ -1515,6 +1710,8 @@ export const setupSizes = {
   'top-71': {top: heightPixel(71)},
   'bottom-71': {bottom: heightPixel(71)},
   'rounded-72': {borderRadius: 72},
+  'rounded-left-72': {borderTopLeftRadius: 72, borderBottomLeftRadius: 72},
+  'rounded-right-72': {borderTopRightRadius: 72, borderBottomRightRadius: 72},
   'mx-72': {marginHorizontal: widthPixel(72)},
   'px-72': {paddingHorizontal: widthPixel(72)},
   'py-72': {paddingVertical: heightPixel(72)},
@@ -1535,6 +1732,8 @@ export const setupSizes = {
   'top-72': {top: heightPixel(72)},
   'bottom-72': {bottom: heightPixel(72)},
   'rounded-73': {borderRadius: 73},
+  'rounded-left-73': {borderTopLeftRadius: 73, borderBottomLeftRadius: 73},
+  'rounded-right-73': {borderTopRightRadius: 73, borderBottomRightRadius: 73},
   'mx-73': {marginHorizontal: widthPixel(73)},
   'px-73': {paddingHorizontal: widthPixel(73)},
   'py-73': {paddingVertical: heightPixel(73)},
@@ -1555,6 +1754,8 @@ export const setupSizes = {
   'top-73': {top: heightPixel(73)},
   'bottom-73': {bottom: heightPixel(73)},
   'rounded-74': {borderRadius: 74},
+  'rounded-left-74': {borderTopLeftRadius: 74, borderBottomLeftRadius: 74},
+  'rounded-right-74': {borderTopRightRadius: 74, borderBottomRightRadius: 74},
   'mx-74': {marginHorizontal: widthPixel(74)},
   'px-74': {paddingHorizontal: widthPixel(74)},
   'py-74': {paddingVertical: heightPixel(74)},
@@ -1575,6 +1776,8 @@ export const setupSizes = {
   'top-74': {top: heightPixel(74)},
   'bottom-74': {bottom: heightPixel(74)},
   'rounded-75': {borderRadius: 75},
+  'rounded-left-75': {borderTopLeftRadius: 75, borderBottomLeftRadius: 75},
+  'rounded-right-75': {borderTopRightRadius: 75, borderBottomRightRadius: 75},
   'mx-75': {marginHorizontal: widthPixel(75)},
   'px-75': {paddingHorizontal: widthPixel(75)},
   'py-75': {paddingVertical: heightPixel(75)},
@@ -1595,6 +1798,8 @@ export const setupSizes = {
   'top-75': {top: heightPixel(75)},
   'bottom-75': {bottom: heightPixel(75)},
   'rounded-76': {borderRadius: 76},
+  'rounded-left-76': {borderTopLeftRadius: 76, borderBottomLeftRadius: 76},
+  'rounded-right-76': {borderTopRightRadius: 76, borderBottomRightRadius: 76},
   'mx-76': {marginHorizontal: widthPixel(76)},
   'px-76': {paddingHorizontal: widthPixel(76)},
   'py-76': {paddingVertical: heightPixel(76)},
@@ -1615,6 +1820,8 @@ export const setupSizes = {
   'top-76': {top: heightPixel(76)},
   'bottom-76': {bottom: heightPixel(76)},
   'rounded-77': {borderRadius: 77},
+  'rounded-left-77': {borderTopLeftRadius: 77, borderBottomLeftRadius: 77},
+  'rounded-right-77': {borderTopRightRadius: 77, borderBottomRightRadius: 77},
   'mx-77': {marginHorizontal: widthPixel(77)},
   'px-77': {paddingHorizontal: widthPixel(77)},
   'py-77': {paddingVertical: heightPixel(77)},
@@ -1635,6 +1842,8 @@ export const setupSizes = {
   'top-77': {top: heightPixel(77)},
   'bottom-77': {bottom: heightPixel(77)},
   'rounded-78': {borderRadius: 78},
+  'rounded-left-78': {borderTopLeftRadius: 78, borderBottomLeftRadius: 78},
+  'rounded-right-78': {borderTopRightRadius: 78, borderBottomRightRadius: 78},
   'mx-78': {marginHorizontal: widthPixel(78)},
   'px-78': {paddingHorizontal: widthPixel(78)},
   'py-78': {paddingVertical: heightPixel(78)},
@@ -1655,6 +1864,8 @@ export const setupSizes = {
   'top-78': {top: heightPixel(78)},
   'bottom-78': {bottom: heightPixel(78)},
   'rounded-79': {borderRadius: 79},
+  'rounded-left-79': {borderTopLeftRadius: 79, borderBottomLeftRadius: 79},
+  'rounded-right-79': {borderTopRightRadius: 79, borderBottomRightRadius: 79},
   'mx-79': {marginHorizontal: widthPixel(79)},
   'px-79': {paddingHorizontal: widthPixel(79)},
   'py-79': {paddingVertical: heightPixel(79)},
@@ -1675,6 +1886,8 @@ export const setupSizes = {
   'top-79': {top: heightPixel(79)},
   'bottom-79': {bottom: heightPixel(79)},
   'rounded-80': {borderRadius: 80},
+  'rounded-left-80': {borderTopLeftRadius: 80, borderBottomLeftRadius: 80},
+  'rounded-right-80': {borderTopRightRadius: 80, borderBottomRightRadius: 80},
   'mx-80': {marginHorizontal: widthPixel(80)},
   'px-80': {paddingHorizontal: widthPixel(80)},
   'py-80': {paddingVertical: heightPixel(80)},
@@ -1695,6 +1908,8 @@ export const setupSizes = {
   'top-80': {top: heightPixel(80)},
   'bottom-80': {bottom: heightPixel(80)},
   'rounded-81': {borderRadius: 81},
+  'rounded-left-81': {borderTopLeftRadius: 81, borderBottomLeftRadius: 81},
+  'rounded-right-81': {borderTopRightRadius: 81, borderBottomRightRadius: 81},
   'mx-81': {marginHorizontal: widthPixel(81)},
   'px-81': {paddingHorizontal: widthPixel(81)},
   'py-81': {paddingVertical: heightPixel(81)},
@@ -1715,6 +1930,8 @@ export const setupSizes = {
   'top-81': {top: heightPixel(81)},
   'bottom-81': {bottom: heightPixel(81)},
   'rounded-82': {borderRadius: 82},
+  'rounded-left-82': {borderTopLeftRadius: 82, borderBottomLeftRadius: 82},
+  'rounded-right-82': {borderTopRightRadius: 82, borderBottomRightRadius: 82},
   'mx-82': {marginHorizontal: widthPixel(82)},
   'px-82': {paddingHorizontal: widthPixel(82)},
   'py-82': {paddingVertical: heightPixel(82)},
@@ -1735,6 +1952,8 @@ export const setupSizes = {
   'top-82': {top: heightPixel(82)},
   'bottom-82': {bottom: heightPixel(82)},
   'rounded-83': {borderRadius: 83},
+  'rounded-left-83': {borderTopLeftRadius: 83, borderBottomLeftRadius: 83},
+  'rounded-right-83': {borderTopRightRadius: 83, borderBottomRightRadius: 83},
   'mx-83': {marginHorizontal: widthPixel(83)},
   'px-83': {paddingHorizontal: widthPixel(83)},
   'py-83': {paddingVertical: heightPixel(83)},
@@ -1755,6 +1974,8 @@ export const setupSizes = {
   'top-83': {top: heightPixel(83)},
   'bottom-83': {bottom: heightPixel(83)},
   'rounded-84': {borderRadius: 84},
+  'rounded-left-84': {borderTopLeftRadius: 84, borderBottomLeftRadius: 84},
+  'rounded-right-84': {borderTopRightRadius: 84, borderBottomRightRadius: 84},
   'mx-84': {marginHorizontal: widthPixel(84)},
   'px-84': {paddingHorizontal: widthPixel(84)},
   'py-84': {paddingVertical: heightPixel(84)},
@@ -1775,6 +1996,8 @@ export const setupSizes = {
   'top-84': {top: heightPixel(84)},
   'bottom-84': {bottom: heightPixel(84)},
   'rounded-85': {borderRadius: 85},
+  'rounded-left-85': {borderTopLeftRadius: 85, borderBottomLeftRadius: 85},
+  'rounded-right-85': {borderTopRightRadius: 85, borderBottomRightRadius: 85},
   'mx-85': {marginHorizontal: widthPixel(85)},
   'px-85': {paddingHorizontal: widthPixel(85)},
   'py-85': {paddingVertical: heightPixel(85)},
@@ -1795,6 +2018,8 @@ export const setupSizes = {
   'top-85': {top: heightPixel(85)},
   'bottom-85': {bottom: heightPixel(85)},
   'rounded-86': {borderRadius: 86},
+  'rounded-left-86': {borderTopLeftRadius: 86, borderBottomLeftRadius: 86},
+  'rounded-right-86': {borderTopRightRadius: 86, borderBottomRightRadius: 86},
   'mx-86': {marginHorizontal: widthPixel(86)},
   'px-86': {paddingHorizontal: widthPixel(86)},
   'py-86': {paddingVertical: heightPixel(86)},
@@ -1815,6 +2040,8 @@ export const setupSizes = {
   'top-86': {top: heightPixel(86)},
   'bottom-86': {bottom: heightPixel(86)},
   'rounded-87': {borderRadius: 87},
+  'rounded-left-87': {borderTopLeftRadius: 87, borderBottomLeftRadius: 87},
+  'rounded-right-87': {borderTopRightRadius: 87, borderBottomRightRadius: 87},
   'mx-87': {marginHorizontal: widthPixel(87)},
   'px-87': {paddingHorizontal: widthPixel(87)},
   'py-87': {paddingVertical: heightPixel(87)},
@@ -1835,6 +2062,8 @@ export const setupSizes = {
   'top-87': {top: heightPixel(87)},
   'bottom-87': {bottom: heightPixel(87)},
   'rounded-88': {borderRadius: 88},
+  'rounded-left-88': {borderTopLeftRadius: 88, borderBottomLeftRadius: 88},
+  'rounded-right-88': {borderTopRightRadius: 88, borderBottomRightRadius: 88},
   'mx-88': {marginHorizontal: widthPixel(88)},
   'px-88': {paddingHorizontal: widthPixel(88)},
   'py-88': {paddingVertical: heightPixel(88)},
@@ -1855,6 +2084,8 @@ export const setupSizes = {
   'top-88': {top: heightPixel(88)},
   'bottom-88': {bottom: heightPixel(88)},
   'rounded-89': {borderRadius: 89},
+  'rounded-left-89': {borderTopLeftRadius: 89, borderBottomLeftRadius: 89},
+  'rounded-right-89': {borderTopRightRadius: 89, borderBottomRightRadius: 89},
   'mx-89': {marginHorizontal: widthPixel(89)},
   'px-89': {paddingHorizontal: widthPixel(89)},
   'py-89': {paddingVertical: heightPixel(89)},
@@ -1875,6 +2106,8 @@ export const setupSizes = {
   'top-89': {top: heightPixel(89)},
   'bottom-89': {bottom: heightPixel(89)},
   'rounded-90': {borderRadius: 90},
+  'rounded-left-90': {borderTopLeftRadius: 90, borderBottomLeftRadius: 90},
+  'rounded-right-90': {borderTopRightRadius: 90, borderBottomRightRadius: 90},
   'mx-90': {marginHorizontal: widthPixel(90)},
   'px-90': {paddingHorizontal: widthPixel(90)},
   'py-90': {paddingVertical: heightPixel(90)},
@@ -1895,6 +2128,8 @@ export const setupSizes = {
   'top-90': {top: heightPixel(90)},
   'bottom-90': {bottom: heightPixel(90)},
   'rounded-91': {borderRadius: 91},
+  'rounded-left-91': {borderTopLeftRadius: 91, borderBottomLeftRadius: 91},
+  'rounded-right-91': {borderTopRightRadius: 91, borderBottomRightRadius: 91},
   'mx-91': {marginHorizontal: widthPixel(91)},
   'px-91': {paddingHorizontal: widthPixel(91)},
   'py-91': {paddingVertical: heightPixel(91)},
@@ -1915,6 +2150,8 @@ export const setupSizes = {
   'top-91': {top: heightPixel(91)},
   'bottom-91': {bottom: heightPixel(91)},
   'rounded-92': {borderRadius: 92},
+  'rounded-left-92': {borderTopLeftRadius: 92, borderBottomLeftRadius: 92},
+  'rounded-right-92': {borderTopRightRadius: 92, borderBottomRightRadius: 92},
   'mx-92': {marginHorizontal: widthPixel(92)},
   'px-92': {paddingHorizontal: widthPixel(92)},
   'py-92': {paddingVertical: heightPixel(92)},
@@ -1935,6 +2172,8 @@ export const setupSizes = {
   'top-92': {top: heightPixel(92)},
   'bottom-92': {bottom: heightPixel(92)},
   'rounded-93': {borderRadius: 93},
+  'rounded-left-93': {borderTopLeftRadius: 93, borderBottomLeftRadius: 93},
+  'rounded-right-93': {borderTopRightRadius: 93, borderBottomRightRadius: 93},
   'mx-93': {marginHorizontal: widthPixel(93)},
   'px-93': {paddingHorizontal: widthPixel(93)},
   'py-93': {paddingVertical: heightPixel(93)},
@@ -1955,6 +2194,8 @@ export const setupSizes = {
   'top-93': {top: heightPixel(93)},
   'bottom-93': {bottom: heightPixel(93)},
   'rounded-94': {borderRadius: 94},
+  'rounded-left-94': {borderTopLeftRadius: 94, borderBottomLeftRadius: 94},
+  'rounded-right-94': {borderTopRightRadius: 94, borderBottomRightRadius: 94},
   'mx-94': {marginHorizontal: widthPixel(94)},
   'px-94': {paddingHorizontal: widthPixel(94)},
   'py-94': {paddingVertical: heightPixel(94)},
@@ -1975,6 +2216,8 @@ export const setupSizes = {
   'top-94': {top: heightPixel(94)},
   'bottom-94': {bottom: heightPixel(94)},
   'rounded-95': {borderRadius: 95},
+  'rounded-left-95': {borderTopLeftRadius: 95, borderBottomLeftRadius: 95},
+  'rounded-right-95': {borderTopRightRadius: 95, borderBottomRightRadius: 95},
   'mx-95': {marginHorizontal: widthPixel(95)},
   'px-95': {paddingHorizontal: widthPixel(95)},
   'py-95': {paddingVertical: heightPixel(95)},
@@ -1995,6 +2238,8 @@ export const setupSizes = {
   'top-95': {top: heightPixel(95)},
   'bottom-95': {bottom: heightPixel(95)},
   'rounded-96': {borderRadius: 96},
+  'rounded-left-96': {borderTopLeftRadius: 96, borderBottomLeftRadius: 96},
+  'rounded-right-96': {borderTopRightRadius: 96, borderBottomRightRadius: 96},
   'mx-96': {marginHorizontal: widthPixel(96)},
   'px-96': {paddingHorizontal: widthPixel(96)},
   'py-96': {paddingVertical: heightPixel(96)},
@@ -2015,6 +2260,8 @@ export const setupSizes = {
   'top-96': {top: heightPixel(96)},
   'bottom-96': {bottom: heightPixel(96)},
   'rounded-97': {borderRadius: 97},
+  'rounded-left-97': {borderTopLeftRadius: 97, borderBottomLeftRadius: 97},
+  'rounded-right-97': {borderTopRightRadius: 97, borderBottomRightRadius: 97},
   'mx-97': {marginHorizontal: widthPixel(97)},
   'px-97': {paddingHorizontal: widthPixel(97)},
   'py-97': {paddingVertical: heightPixel(97)},
@@ -2035,6 +2282,8 @@ export const setupSizes = {
   'top-97': {top: heightPixel(97)},
   'bottom-97': {bottom: heightPixel(97)},
   'rounded-98': {borderRadius: 98},
+  'rounded-left-98': {borderTopLeftRadius: 98, borderBottomLeftRadius: 98},
+  'rounded-right-98': {borderTopRightRadius: 98, borderBottomRightRadius: 98},
   'mx-98': {marginHorizontal: widthPixel(98)},
   'px-98': {paddingHorizontal: widthPixel(98)},
   'py-98': {paddingVertical: heightPixel(98)},
@@ -2055,6 +2304,8 @@ export const setupSizes = {
   'top-98': {top: heightPixel(98)},
   'bottom-98': {bottom: heightPixel(98)},
   'rounded-99': {borderRadius: 99},
+  'rounded-left-99': {borderTopLeftRadius: 99, borderBottomLeftRadius: 99},
+  'rounded-right-99': {borderTopRightRadius: 99, borderBottomRightRadius: 99},
   'mx-99': {marginHorizontal: widthPixel(99)},
   'px-99': {paddingHorizontal: widthPixel(99)},
   'py-99': {paddingVertical: heightPixel(99)},
@@ -2075,6 +2326,8 @@ export const setupSizes = {
   'top-99': {top: heightPixel(99)},
   'bottom-99': {bottom: heightPixel(99)},
   'rounded-100': {borderRadius: 100},
+  'rounded-left-100': {borderTopLeftRadius: 100, borderBottomLeftRadius: 100},
+  'rounded-right-100': {borderTopRightRadius: 100, borderBottomRightRadius: 100},
   'mx-100': {marginHorizontal: widthPixel(100)},
   'px-100': {paddingHorizontal: widthPixel(100)},
   'py-100': {paddingVertical: heightPixel(100)},
@@ -2095,6 +2348,8 @@ export const setupSizes = {
   'top-100': {top: heightPixel(100)},
   'bottom-100': {bottom: heightPixel(100)},
   'rounded-101': {borderRadius: 101},
+  'rounded-left-101': {borderTopLeftRadius: 101, borderBottomLeftRadius: 101},
+  'rounded-right-101': {borderTopRightRadius: 101, borderBottomRightRadius: 101},
   'mx-101': {marginHorizontal: widthPixel(101)},
   'px-101': {paddingHorizontal: widthPixel(101)},
   'py-101': {paddingVertical: heightPixel(101)},
@@ -2115,6 +2370,8 @@ export const setupSizes = {
   'top-101': {top: heightPixel(101)},
   'bottom-101': {bottom: heightPixel(101)},
   'rounded-102': {borderRadius: 102},
+  'rounded-left-102': {borderTopLeftRadius: 102, borderBottomLeftRadius: 102},
+  'rounded-right-102': {borderTopRightRadius: 102, borderBottomRightRadius: 102},
   'mx-102': {marginHorizontal: widthPixel(102)},
   'px-102': {paddingHorizontal: widthPixel(102)},
   'py-102': {paddingVertical: heightPixel(102)},
@@ -2135,6 +2392,8 @@ export const setupSizes = {
   'top-102': {top: heightPixel(102)},
   'bottom-102': {bottom: heightPixel(102)},
   'rounded-103': {borderRadius: 103},
+  'rounded-left-103': {borderTopLeftRadius: 103, borderBottomLeftRadius: 103},
+  'rounded-right-103': {borderTopRightRadius: 103, borderBottomRightRadius: 103},
   'mx-103': {marginHorizontal: widthPixel(103)},
   'px-103': {paddingHorizontal: widthPixel(103)},
   'py-103': {paddingVertical: heightPixel(103)},
@@ -2155,6 +2414,8 @@ export const setupSizes = {
   'top-103': {top: heightPixel(103)},
   'bottom-103': {bottom: heightPixel(103)},
   'rounded-104': {borderRadius: 104},
+  'rounded-left-104': {borderTopLeftRadius: 104, borderBottomLeftRadius: 104},
+  'rounded-right-104': {borderTopRightRadius: 104, borderBottomRightRadius: 104},
   'mx-104': {marginHorizontal: widthPixel(104)},
   'px-104': {paddingHorizontal: widthPixel(104)},
   'py-104': {paddingVertical: heightPixel(104)},
@@ -2175,6 +2436,8 @@ export const setupSizes = {
   'top-104': {top: heightPixel(104)},
   'bottom-104': {bottom: heightPixel(104)},
   'rounded-105': {borderRadius: 105},
+  'rounded-left-105': {borderTopLeftRadius: 105, borderBottomLeftRadius: 105},
+  'rounded-right-105': {borderTopRightRadius: 105, borderBottomRightRadius: 105},
   'mx-105': {marginHorizontal: widthPixel(105)},
   'px-105': {paddingHorizontal: widthPixel(105)},
   'py-105': {paddingVertical: heightPixel(105)},
@@ -2195,6 +2458,8 @@ export const setupSizes = {
   'top-105': {top: heightPixel(105)},
   'bottom-105': {bottom: heightPixel(105)},
   'rounded-106': {borderRadius: 106},
+  'rounded-left-106': {borderTopLeftRadius: 106, borderBottomLeftRadius: 106},
+  'rounded-right-106': {borderTopRightRadius: 106, borderBottomRightRadius: 106},
   'mx-106': {marginHorizontal: widthPixel(106)},
   'px-106': {paddingHorizontal: widthPixel(106)},
   'py-106': {paddingVertical: heightPixel(106)},
@@ -2215,6 +2480,8 @@ export const setupSizes = {
   'top-106': {top: heightPixel(106)},
   'bottom-106': {bottom: heightPixel(106)},
   'rounded-107': {borderRadius: 107},
+  'rounded-left-107': {borderTopLeftRadius: 107, borderBottomLeftRadius: 107},
+  'rounded-right-107': {borderTopRightRadius: 107, borderBottomRightRadius: 107},
   'mx-107': {marginHorizontal: widthPixel(107)},
   'px-107': {paddingHorizontal: widthPixel(107)},
   'py-107': {paddingVertical: heightPixel(107)},
@@ -2235,6 +2502,8 @@ export const setupSizes = {
   'top-107': {top: heightPixel(107)},
   'bottom-107': {bottom: heightPixel(107)},
   'rounded-108': {borderRadius: 108},
+  'rounded-left-108': {borderTopLeftRadius: 108, borderBottomLeftRadius: 108},
+  'rounded-right-108': {borderTopRightRadius: 108, borderBottomRightRadius: 108},
   'mx-108': {marginHorizontal: widthPixel(108)},
   'px-108': {paddingHorizontal: widthPixel(108)},
   'py-108': {paddingVertical: heightPixel(108)},
@@ -2255,6 +2524,8 @@ export const setupSizes = {
   'top-108': {top: heightPixel(108)},
   'bottom-108': {bottom: heightPixel(108)},
   'rounded-109': {borderRadius: 109},
+  'rounded-left-109': {borderTopLeftRadius: 109, borderBottomLeftRadius: 109},
+  'rounded-right-109': {borderTopRightRadius: 109, borderBottomRightRadius: 109},
   'mx-109': {marginHorizontal: widthPixel(109)},
   'px-109': {paddingHorizontal: widthPixel(109)},
   'py-109': {paddingVertical: heightPixel(109)},
@@ -2275,6 +2546,8 @@ export const setupSizes = {
   'top-109': {top: heightPixel(109)},
   'bottom-109': {bottom: heightPixel(109)},
   'rounded-110': {borderRadius: 110},
+  'rounded-left-110': {borderTopLeftRadius: 110, borderBottomLeftRadius: 110},
+  'rounded-right-110': {borderTopRightRadius: 110, borderBottomRightRadius: 110},
   'mx-110': {marginHorizontal: widthPixel(110)},
   'px-110': {paddingHorizontal: widthPixel(110)},
   'py-110': {paddingVertical: heightPixel(110)},
@@ -2295,6 +2568,8 @@ export const setupSizes = {
   'top-110': {top: heightPixel(110)},
   'bottom-110': {bottom: heightPixel(110)},
   'rounded-111': {borderRadius: 111},
+  'rounded-left-111': {borderTopLeftRadius: 111, borderBottomLeftRadius: 111},
+  'rounded-right-111': {borderTopRightRadius: 111, borderBottomRightRadius: 111},
   'mx-111': {marginHorizontal: widthPixel(111)},
   'px-111': {paddingHorizontal: widthPixel(111)},
   'py-111': {paddingVertical: heightPixel(111)},
@@ -2315,6 +2590,8 @@ export const setupSizes = {
   'top-111': {top: heightPixel(111)},
   'bottom-111': {bottom: heightPixel(111)},
   'rounded-112': {borderRadius: 112},
+  'rounded-left-112': {borderTopLeftRadius: 112, borderBottomLeftRadius: 112},
+  'rounded-right-112': {borderTopRightRadius: 112, borderBottomRightRadius: 112},
   'mx-112': {marginHorizontal: widthPixel(112)},
   'px-112': {paddingHorizontal: widthPixel(112)},
   'py-112': {paddingVertical: heightPixel(112)},
@@ -2335,6 +2612,8 @@ export const setupSizes = {
   'top-112': {top: heightPixel(112)},
   'bottom-112': {bottom: heightPixel(112)},
   'rounded-113': {borderRadius: 113},
+  'rounded-left-113': {borderTopLeftRadius: 113, borderBottomLeftRadius: 113},
+  'rounded-right-113': {borderTopRightRadius: 113, borderBottomRightRadius: 113},
   'mx-113': {marginHorizontal: widthPixel(113)},
   'px-113': {paddingHorizontal: widthPixel(113)},
   'py-113': {paddingVertical: heightPixel(113)},
@@ -2355,6 +2634,8 @@ export const setupSizes = {
   'top-113': {top: heightPixel(113)},
   'bottom-113': {bottom: heightPixel(113)},
   'rounded-114': {borderRadius: 114},
+  'rounded-left-114': {borderTopLeftRadius: 114, borderBottomLeftRadius: 114},
+  'rounded-right-114': {borderTopRightRadius: 114, borderBottomRightRadius: 114},
   'mx-114': {marginHorizontal: widthPixel(114)},
   'px-114': {paddingHorizontal: widthPixel(114)},
   'py-114': {paddingVertical: heightPixel(114)},
@@ -2375,6 +2656,8 @@ export const setupSizes = {
   'top-114': {top: heightPixel(114)},
   'bottom-114': {bottom: heightPixel(114)},
   'rounded-115': {borderRadius: 115},
+  'rounded-left-115': {borderTopLeftRadius: 115, borderBottomLeftRadius: 115},
+  'rounded-right-115': {borderTopRightRadius: 115, borderBottomRightRadius: 115},
   'mx-115': {marginHorizontal: widthPixel(115)},
   'px-115': {paddingHorizontal: widthPixel(115)},
   'py-115': {paddingVertical: heightPixel(115)},
@@ -2395,6 +2678,8 @@ export const setupSizes = {
   'top-115': {top: heightPixel(115)},
   'bottom-115': {bottom: heightPixel(115)},
   'rounded-116': {borderRadius: 116},
+  'rounded-left-116': {borderTopLeftRadius: 116, borderBottomLeftRadius: 116},
+  'rounded-right-116': {borderTopRightRadius: 116, borderBottomRightRadius: 116},
   'mx-116': {marginHorizontal: widthPixel(116)},
   'px-116': {paddingHorizontal: widthPixel(116)},
   'py-116': {paddingVertical: heightPixel(116)},
@@ -2415,6 +2700,8 @@ export const setupSizes = {
   'top-116': {top: heightPixel(116)},
   'bottom-116': {bottom: heightPixel(116)},
   'rounded-117': {borderRadius: 117},
+  'rounded-left-117': {borderTopLeftRadius: 117, borderBottomLeftRadius: 117},
+  'rounded-right-117': {borderTopRightRadius: 117, borderBottomRightRadius: 117},
   'mx-117': {marginHorizontal: widthPixel(117)},
   'px-117': {paddingHorizontal: widthPixel(117)},
   'py-117': {paddingVertical: heightPixel(117)},
@@ -2435,6 +2722,8 @@ export const setupSizes = {
   'top-117': {top: heightPixel(117)},
   'bottom-117': {bottom: heightPixel(117)},
   'rounded-118': {borderRadius: 118},
+  'rounded-left-118': {borderTopLeftRadius: 118, borderBottomLeftRadius: 118},
+  'rounded-right-118': {borderTopRightRadius: 118, borderBottomRightRadius: 118},
   'mx-118': {marginHorizontal: widthPixel(118)},
   'px-118': {paddingHorizontal: widthPixel(118)},
   'py-118': {paddingVertical: heightPixel(118)},
@@ -2455,6 +2744,8 @@ export const setupSizes = {
   'top-118': {top: heightPixel(118)},
   'bottom-118': {bottom: heightPixel(118)},
   'rounded-119': {borderRadius: 119},
+  'rounded-left-119': {borderTopLeftRadius: 119, borderBottomLeftRadius: 119},
+  'rounded-right-119': {borderTopRightRadius: 119, borderBottomRightRadius: 119},
   'mx-119': {marginHorizontal: widthPixel(119)},
   'px-119': {paddingHorizontal: widthPixel(119)},
   'py-119': {paddingVertical: heightPixel(119)},
@@ -2475,6 +2766,8 @@ export const setupSizes = {
   'top-119': {top: heightPixel(119)},
   'bottom-119': {bottom: heightPixel(119)},
   'rounded-120': {borderRadius: 120},
+  'rounded-left-120': {borderTopLeftRadius: 120, borderBottomLeftRadius: 120},
+  'rounded-right-120': {borderTopRightRadius: 120, borderBottomRightRadius: 120},
   'mx-120': {marginHorizontal: widthPixel(120)},
   'px-120': {paddingHorizontal: widthPixel(120)},
   'py-120': {paddingVertical: heightPixel(120)},
@@ -2495,6 +2788,8 @@ export const setupSizes = {
   'top-120': {top: heightPixel(120)},
   'bottom-120': {bottom: heightPixel(120)},
   'rounded-121': {borderRadius: 121},
+  'rounded-left-121': {borderTopLeftRadius: 121, borderBottomLeftRadius: 121},
+  'rounded-right-121': {borderTopRightRadius: 121, borderBottomRightRadius: 121},
   'mx-121': {marginHorizontal: widthPixel(121)},
   'px-121': {paddingHorizontal: widthPixel(121)},
   'py-121': {paddingVertical: heightPixel(121)},
@@ -2515,6 +2810,8 @@ export const setupSizes = {
   'top-121': {top: heightPixel(121)},
   'bottom-121': {bottom: heightPixel(121)},
   'rounded-122': {borderRadius: 122},
+  'rounded-left-122': {borderTopLeftRadius: 122, borderBottomLeftRadius: 122},
+  'rounded-right-122': {borderTopRightRadius: 122, borderBottomRightRadius: 122},
   'mx-122': {marginHorizontal: widthPixel(122)},
   'px-122': {paddingHorizontal: widthPixel(122)},
   'py-122': {paddingVertical: heightPixel(122)},
@@ -2535,6 +2832,8 @@ export const setupSizes = {
   'top-122': {top: heightPixel(122)},
   'bottom-122': {bottom: heightPixel(122)},
   'rounded-123': {borderRadius: 123},
+  'rounded-left-123': {borderTopLeftRadius: 123, borderBottomLeftRadius: 123},
+  'rounded-right-123': {borderTopRightRadius: 123, borderBottomRightRadius: 123},
   'mx-123': {marginHorizontal: widthPixel(123)},
   'px-123': {paddingHorizontal: widthPixel(123)},
   'py-123': {paddingVertical: heightPixel(123)},
@@ -2555,6 +2854,8 @@ export const setupSizes = {
   'top-123': {top: heightPixel(123)},
   'bottom-123': {bottom: heightPixel(123)},
   'rounded-124': {borderRadius: 124},
+  'rounded-left-124': {borderTopLeftRadius: 124, borderBottomLeftRadius: 124},
+  'rounded-right-124': {borderTopRightRadius: 124, borderBottomRightRadius: 124},
   'mx-124': {marginHorizontal: widthPixel(124)},
   'px-124': {paddingHorizontal: widthPixel(124)},
   'py-124': {paddingVertical: heightPixel(124)},
@@ -2575,6 +2876,8 @@ export const setupSizes = {
   'top-124': {top: heightPixel(124)},
   'bottom-124': {bottom: heightPixel(124)},
   'rounded-125': {borderRadius: 125},
+  'rounded-left-125': {borderTopLeftRadius: 125, borderBottomLeftRadius: 125},
+  'rounded-right-125': {borderTopRightRadius: 125, borderBottomRightRadius: 125},
   'mx-125': {marginHorizontal: widthPixel(125)},
   'px-125': {paddingHorizontal: widthPixel(125)},
   'py-125': {paddingVertical: heightPixel(125)},
@@ -2595,6 +2898,8 @@ export const setupSizes = {
   'top-125': {top: heightPixel(125)},
   'bottom-125': {bottom: heightPixel(125)},
   'rounded-126': {borderRadius: 126},
+  'rounded-left-126': {borderTopLeftRadius: 126, borderBottomLeftRadius: 126},
+  'rounded-right-126': {borderTopRightRadius: 126, borderBottomRightRadius: 126},
   'mx-126': {marginHorizontal: widthPixel(126)},
   'px-126': {paddingHorizontal: widthPixel(126)},
   'py-126': {paddingVertical: heightPixel(126)},
@@ -2615,6 +2920,8 @@ export const setupSizes = {
   'top-126': {top: heightPixel(126)},
   'bottom-126': {bottom: heightPixel(126)},
   'rounded-127': {borderRadius: 127},
+  'rounded-left-127': {borderTopLeftRadius: 127, borderBottomLeftRadius: 127},
+  'rounded-right-127': {borderTopRightRadius: 127, borderBottomRightRadius: 127},
   'mx-127': {marginHorizontal: widthPixel(127)},
   'px-127': {paddingHorizontal: widthPixel(127)},
   'py-127': {paddingVertical: heightPixel(127)},
@@ -2635,6 +2942,8 @@ export const setupSizes = {
   'top-127': {top: heightPixel(127)},
   'bottom-127': {bottom: heightPixel(127)},
   'rounded-128': {borderRadius: 128},
+  'rounded-left-128': {borderTopLeftRadius: 128, borderBottomLeftRadius: 128},
+  'rounded-right-128': {borderTopRightRadius: 128, borderBottomRightRadius: 128},
   'mx-128': {marginHorizontal: widthPixel(128)},
   'px-128': {paddingHorizontal: widthPixel(128)},
   'py-128': {paddingVertical: heightPixel(128)},
@@ -2655,6 +2964,8 @@ export const setupSizes = {
   'top-128': {top: heightPixel(128)},
   'bottom-128': {bottom: heightPixel(128)},
   'rounded-129': {borderRadius: 129},
+  'rounded-left-129': {borderTopLeftRadius: 129, borderBottomLeftRadius: 129},
+  'rounded-right-129': {borderTopRightRadius: 129, borderBottomRightRadius: 129},
   'mx-129': {marginHorizontal: widthPixel(129)},
   'px-129': {paddingHorizontal: widthPixel(129)},
   'py-129': {paddingVertical: heightPixel(129)},
@@ -2675,6 +2986,8 @@ export const setupSizes = {
   'top-129': {top: heightPixel(129)},
   'bottom-129': {bottom: heightPixel(129)},
   'rounded-130': {borderRadius: 130},
+  'rounded-left-130': {borderTopLeftRadius: 130, borderBottomLeftRadius: 130},
+  'rounded-right-130': {borderTopRightRadius: 130, borderBottomRightRadius: 130},
   'mx-130': {marginHorizontal: widthPixel(130)},
   'px-130': {paddingHorizontal: widthPixel(130)},
   'py-130': {paddingVertical: heightPixel(130)},
@@ -2695,6 +3008,8 @@ export const setupSizes = {
   'top-130': {top: heightPixel(130)},
   'bottom-130': {bottom: heightPixel(130)},
   'rounded-131': {borderRadius: 131},
+  'rounded-left-131': {borderTopLeftRadius: 131, borderBottomLeftRadius: 131},
+  'rounded-right-131': {borderTopRightRadius: 131, borderBottomRightRadius: 131},
   'mx-131': {marginHorizontal: widthPixel(131)},
   'px-131': {paddingHorizontal: widthPixel(131)},
   'py-131': {paddingVertical: heightPixel(131)},
@@ -2715,6 +3030,8 @@ export const setupSizes = {
   'top-131': {top: heightPixel(131)},
   'bottom-131': {bottom: heightPixel(131)},
   'rounded-132': {borderRadius: 132},
+  'rounded-left-132': {borderTopLeftRadius: 132, borderBottomLeftRadius: 132},
+  'rounded-right-132': {borderTopRightRadius: 132, borderBottomRightRadius: 132},
   'mx-132': {marginHorizontal: widthPixel(132)},
   'px-132': {paddingHorizontal: widthPixel(132)},
   'py-132': {paddingVertical: heightPixel(132)},
@@ -2735,6 +3052,8 @@ export const setupSizes = {
   'top-132': {top: heightPixel(132)},
   'bottom-132': {bottom: heightPixel(132)},
   'rounded-133': {borderRadius: 133},
+  'rounded-left-133': {borderTopLeftRadius: 133, borderBottomLeftRadius: 133},
+  'rounded-right-133': {borderTopRightRadius: 133, borderBottomRightRadius: 133},
   'mx-133': {marginHorizontal: widthPixel(133)},
   'px-133': {paddingHorizontal: widthPixel(133)},
   'py-133': {paddingVertical: heightPixel(133)},
@@ -2755,6 +3074,8 @@ export const setupSizes = {
   'top-133': {top: heightPixel(133)},
   'bottom-133': {bottom: heightPixel(133)},
   'rounded-134': {borderRadius: 134},
+  'rounded-left-134': {borderTopLeftRadius: 134, borderBottomLeftRadius: 134},
+  'rounded-right-134': {borderTopRightRadius: 134, borderBottomRightRadius: 134},
   'mx-134': {marginHorizontal: widthPixel(134)},
   'px-134': {paddingHorizontal: widthPixel(134)},
   'py-134': {paddingVertical: heightPixel(134)},
@@ -2775,6 +3096,8 @@ export const setupSizes = {
   'top-134': {top: heightPixel(134)},
   'bottom-134': {bottom: heightPixel(134)},
   'rounded-135': {borderRadius: 135},
+  'rounded-left-135': {borderTopLeftRadius: 135, borderBottomLeftRadius: 135},
+  'rounded-right-135': {borderTopRightRadius: 135, borderBottomRightRadius: 135},
   'mx-135': {marginHorizontal: widthPixel(135)},
   'px-135': {paddingHorizontal: widthPixel(135)},
   'py-135': {paddingVertical: heightPixel(135)},
@@ -2795,6 +3118,8 @@ export const setupSizes = {
   'top-135': {top: heightPixel(135)},
   'bottom-135': {bottom: heightPixel(135)},
   'rounded-136': {borderRadius: 136},
+  'rounded-left-136': {borderTopLeftRadius: 136, borderBottomLeftRadius: 136},
+  'rounded-right-136': {borderTopRightRadius: 136, borderBottomRightRadius: 136},
   'mx-136': {marginHorizontal: widthPixel(136)},
   'px-136': {paddingHorizontal: widthPixel(136)},
   'py-136': {paddingVertical: heightPixel(136)},
@@ -2815,6 +3140,8 @@ export const setupSizes = {
   'top-136': {top: heightPixel(136)},
   'bottom-136': {bottom: heightPixel(136)},
   'rounded-137': {borderRadius: 137},
+  'rounded-left-137': {borderTopLeftRadius: 137, borderBottomLeftRadius: 137},
+  'rounded-right-137': {borderTopRightRadius: 137, borderBottomRightRadius: 137},
   'mx-137': {marginHorizontal: widthPixel(137)},
   'px-137': {paddingHorizontal: widthPixel(137)},
   'py-137': {paddingVertical: heightPixel(137)},
@@ -2835,6 +3162,8 @@ export const setupSizes = {
   'top-137': {top: heightPixel(137)},
   'bottom-137': {bottom: heightPixel(137)},
   'rounded-138': {borderRadius: 138},
+  'rounded-left-138': {borderTopLeftRadius: 138, borderBottomLeftRadius: 138},
+  'rounded-right-138': {borderTopRightRadius: 138, borderBottomRightRadius: 138},
   'mx-138': {marginHorizontal: widthPixel(138)},
   'px-138': {paddingHorizontal: widthPixel(138)},
   'py-138': {paddingVertical: heightPixel(138)},
@@ -2855,6 +3184,8 @@ export const setupSizes = {
   'top-138': {top: heightPixel(138)},
   'bottom-138': {bottom: heightPixel(138)},
   'rounded-139': {borderRadius: 139},
+  'rounded-left-139': {borderTopLeftRadius: 139, borderBottomLeftRadius: 139},
+  'rounded-right-139': {borderTopRightRadius: 139, borderBottomRightRadius: 139},
   'mx-139': {marginHorizontal: widthPixel(139)},
   'px-139': {paddingHorizontal: widthPixel(139)},
   'py-139': {paddingVertical: heightPixel(139)},
@@ -2875,6 +3206,8 @@ export const setupSizes = {
   'top-139': {top: heightPixel(139)},
   'bottom-139': {bottom: heightPixel(139)},
   'rounded-140': {borderRadius: 140},
+  'rounded-left-140': {borderTopLeftRadius: 140, borderBottomLeftRadius: 140},
+  'rounded-right-140': {borderTopRightRadius: 140, borderBottomRightRadius: 140},
   'mx-140': {marginHorizontal: widthPixel(140)},
   'px-140': {paddingHorizontal: widthPixel(140)},
   'py-140': {paddingVertical: heightPixel(140)},
@@ -2895,6 +3228,8 @@ export const setupSizes = {
   'top-140': {top: heightPixel(140)},
   'bottom-140': {bottom: heightPixel(140)},
   'rounded-141': {borderRadius: 141},
+  'rounded-left-141': {borderTopLeftRadius: 141, borderBottomLeftRadius: 141},
+  'rounded-right-141': {borderTopRightRadius: 141, borderBottomRightRadius: 141},
   'mx-141': {marginHorizontal: widthPixel(141)},
   'px-141': {paddingHorizontal: widthPixel(141)},
   'py-141': {paddingVertical: heightPixel(141)},
@@ -2915,6 +3250,8 @@ export const setupSizes = {
   'top-141': {top: heightPixel(141)},
   'bottom-141': {bottom: heightPixel(141)},
   'rounded-142': {borderRadius: 142},
+  'rounded-left-142': {borderTopLeftRadius: 142, borderBottomLeftRadius: 142},
+  'rounded-right-142': {borderTopRightRadius: 142, borderBottomRightRadius: 142},
   'mx-142': {marginHorizontal: widthPixel(142)},
   'px-142': {paddingHorizontal: widthPixel(142)},
   'py-142': {paddingVertical: heightPixel(142)},
@@ -2935,6 +3272,8 @@ export const setupSizes = {
   'top-142': {top: heightPixel(142)},
   'bottom-142': {bottom: heightPixel(142)},
   'rounded-143': {borderRadius: 143},
+  'rounded-left-143': {borderTopLeftRadius: 143, borderBottomLeftRadius: 143},
+  'rounded-right-143': {borderTopRightRadius: 143, borderBottomRightRadius: 143},
   'mx-143': {marginHorizontal: widthPixel(143)},
   'px-143': {paddingHorizontal: widthPixel(143)},
   'py-143': {paddingVertical: heightPixel(143)},
@@ -2955,6 +3294,8 @@ export const setupSizes = {
   'top-143': {top: heightPixel(143)},
   'bottom-143': {bottom: heightPixel(143)},
   'rounded-144': {borderRadius: 144},
+  'rounded-left-144': {borderTopLeftRadius: 144, borderBottomLeftRadius: 144},
+  'rounded-right-144': {borderTopRightRadius: 144, borderBottomRightRadius: 144},
   'mx-144': {marginHorizontal: widthPixel(144)},
   'px-144': {paddingHorizontal: widthPixel(144)},
   'py-144': {paddingVertical: heightPixel(144)},
@@ -2975,6 +3316,8 @@ export const setupSizes = {
   'top-144': {top: heightPixel(144)},
   'bottom-144': {bottom: heightPixel(144)},
   'rounded-145': {borderRadius: 145},
+  'rounded-left-145': {borderTopLeftRadius: 145, borderBottomLeftRadius: 145},
+  'rounded-right-145': {borderTopRightRadius: 145, borderBottomRightRadius: 145},
   'mx-145': {marginHorizontal: widthPixel(145)},
   'px-145': {paddingHorizontal: widthPixel(145)},
   'py-145': {paddingVertical: heightPixel(145)},
@@ -2995,6 +3338,8 @@ export const setupSizes = {
   'top-145': {top: heightPixel(145)},
   'bottom-145': {bottom: heightPixel(145)},
   'rounded-146': {borderRadius: 146},
+  'rounded-left-146': {borderTopLeftRadius: 146, borderBottomLeftRadius: 146},
+  'rounded-right-146': {borderTopRightRadius: 146, borderBottomRightRadius: 146},
   'mx-146': {marginHorizontal: widthPixel(146)},
   'px-146': {paddingHorizontal: widthPixel(146)},
   'py-146': {paddingVertical: heightPixel(146)},
@@ -3015,6 +3360,8 @@ export const setupSizes = {
   'top-146': {top: heightPixel(146)},
   'bottom-146': {bottom: heightPixel(146)},
   'rounded-147': {borderRadius: 147},
+  'rounded-left-147': {borderTopLeftRadius: 147, borderBottomLeftRadius: 147},
+  'rounded-right-147': {borderTopRightRadius: 147, borderBottomRightRadius: 147},
   'mx-147': {marginHorizontal: widthPixel(147)},
   'px-147': {paddingHorizontal: widthPixel(147)},
   'py-147': {paddingVertical: heightPixel(147)},
@@ -3035,6 +3382,8 @@ export const setupSizes = {
   'top-147': {top: heightPixel(147)},
   'bottom-147': {bottom: heightPixel(147)},
   'rounded-148': {borderRadius: 148},
+  'rounded-left-148': {borderTopLeftRadius: 148, borderBottomLeftRadius: 148},
+  'rounded-right-148': {borderTopRightRadius: 148, borderBottomRightRadius: 148},
   'mx-148': {marginHorizontal: widthPixel(148)},
   'px-148': {paddingHorizontal: widthPixel(148)},
   'py-148': {paddingVertical: heightPixel(148)},
@@ -3055,6 +3404,8 @@ export const setupSizes = {
   'top-148': {top: heightPixel(148)},
   'bottom-148': {bottom: heightPixel(148)},
   'rounded-149': {borderRadius: 149},
+  'rounded-left-149': {borderTopLeftRadius: 149, borderBottomLeftRadius: 149},
+  'rounded-right-149': {borderTopRightRadius: 149, borderBottomRightRadius: 149},
   'mx-149': {marginHorizontal: widthPixel(149)},
   'px-149': {paddingHorizontal: widthPixel(149)},
   'py-149': {paddingVertical: heightPixel(149)},
@@ -3075,6 +3426,8 @@ export const setupSizes = {
   'top-149': {top: heightPixel(149)},
   'bottom-149': {bottom: heightPixel(149)},
   'rounded-150': {borderRadius: 150},
+  'rounded-left-150': {borderTopLeftRadius: 150, borderBottomLeftRadius: 150},
+  'rounded-right-150': {borderTopRightRadius: 150, borderBottomRightRadius: 150},
   'mx-150': {marginHorizontal: widthPixel(150)},
   'px-150': {paddingHorizontal: widthPixel(150)},
   'py-150': {paddingVertical: heightPixel(150)},
@@ -3095,6 +3448,8 @@ export const setupSizes = {
   'top-150': {top: heightPixel(150)},
   'bottom-150': {bottom: heightPixel(150)},
   'rounded-151': {borderRadius: 151},
+  'rounded-left-151': {borderTopLeftRadius: 151, borderBottomLeftRadius: 151},
+  'rounded-right-151': {borderTopRightRadius: 151, borderBottomRightRadius: 151},
   'mx-151': {marginHorizontal: widthPixel(151)},
   'px-151': {paddingHorizontal: widthPixel(151)},
   'py-151': {paddingVertical: heightPixel(151)},
@@ -3115,6 +3470,8 @@ export const setupSizes = {
   'top-151': {top: heightPixel(151)},
   'bottom-151': {bottom: heightPixel(151)},
   'rounded-152': {borderRadius: 152},
+  'rounded-left-152': {borderTopLeftRadius: 152, borderBottomLeftRadius: 152},
+  'rounded-right-152': {borderTopRightRadius: 152, borderBottomRightRadius: 152},
   'mx-152': {marginHorizontal: widthPixel(152)},
   'px-152': {paddingHorizontal: widthPixel(152)},
   'py-152': {paddingVertical: heightPixel(152)},
@@ -3135,6 +3492,8 @@ export const setupSizes = {
   'top-152': {top: heightPixel(152)},
   'bottom-152': {bottom: heightPixel(152)},
   'rounded-153': {borderRadius: 153},
+  'rounded-left-153': {borderTopLeftRadius: 153, borderBottomLeftRadius: 153},
+  'rounded-right-153': {borderTopRightRadius: 153, borderBottomRightRadius: 153},
   'mx-153': {marginHorizontal: widthPixel(153)},
   'px-153': {paddingHorizontal: widthPixel(153)},
   'py-153': {paddingVertical: heightPixel(153)},
@@ -3155,6 +3514,8 @@ export const setupSizes = {
   'top-153': {top: heightPixel(153)},
   'bottom-153': {bottom: heightPixel(153)},
   'rounded-154': {borderRadius: 154},
+  'rounded-left-154': {borderTopLeftRadius: 154, borderBottomLeftRadius: 154},
+  'rounded-right-154': {borderTopRightRadius: 154, borderBottomRightRadius: 154},
   'mx-154': {marginHorizontal: widthPixel(154)},
   'px-154': {paddingHorizontal: widthPixel(154)},
   'py-154': {paddingVertical: heightPixel(154)},
@@ -3175,6 +3536,8 @@ export const setupSizes = {
   'top-154': {top: heightPixel(154)},
   'bottom-154': {bottom: heightPixel(154)},
   'rounded-155': {borderRadius: 155},
+  'rounded-left-155': {borderTopLeftRadius: 155, borderBottomLeftRadius: 155},
+  'rounded-right-155': {borderTopRightRadius: 155, borderBottomRightRadius: 155},
   'mx-155': {marginHorizontal: widthPixel(155)},
   'px-155': {paddingHorizontal: widthPixel(155)},
   'py-155': {paddingVertical: heightPixel(155)},
@@ -3195,6 +3558,8 @@ export const setupSizes = {
   'top-155': {top: heightPixel(155)},
   'bottom-155': {bottom: heightPixel(155)},
   'rounded-156': {borderRadius: 156},
+  'rounded-left-156': {borderTopLeftRadius: 156, borderBottomLeftRadius: 156},
+  'rounded-right-156': {borderTopRightRadius: 156, borderBottomRightRadius: 156},
   'mx-156': {marginHorizontal: widthPixel(156)},
   'px-156': {paddingHorizontal: widthPixel(156)},
   'py-156': {paddingVertical: heightPixel(156)},
@@ -3215,6 +3580,8 @@ export const setupSizes = {
   'top-156': {top: heightPixel(156)},
   'bottom-156': {bottom: heightPixel(156)},
   'rounded-157': {borderRadius: 157},
+  'rounded-left-157': {borderTopLeftRadius: 157, borderBottomLeftRadius: 157},
+  'rounded-right-157': {borderTopRightRadius: 157, borderBottomRightRadius: 157},
   'mx-157': {marginHorizontal: widthPixel(157)},
   'px-157': {paddingHorizontal: widthPixel(157)},
   'py-157': {paddingVertical: heightPixel(157)},
@@ -3235,6 +3602,8 @@ export const setupSizes = {
   'top-157': {top: heightPixel(157)},
   'bottom-157': {bottom: heightPixel(157)},
   'rounded-158': {borderRadius: 158},
+  'rounded-left-158': {borderTopLeftRadius: 158, borderBottomLeftRadius: 158},
+  'rounded-right-158': {borderTopRightRadius: 158, borderBottomRightRadius: 158},
   'mx-158': {marginHorizontal: widthPixel(158)},
   'px-158': {paddingHorizontal: widthPixel(158)},
   'py-158': {paddingVertical: heightPixel(158)},
@@ -3255,6 +3624,8 @@ export const setupSizes = {
   'top-158': {top: heightPixel(158)},
   'bottom-158': {bottom: heightPixel(158)},
   'rounded-159': {borderRadius: 159},
+  'rounded-left-159': {borderTopLeftRadius: 159, borderBottomLeftRadius: 159},
+  'rounded-right-159': {borderTopRightRadius: 159, borderBottomRightRadius: 159},
   'mx-159': {marginHorizontal: widthPixel(159)},
   'px-159': {paddingHorizontal: widthPixel(159)},
   'py-159': {paddingVertical: heightPixel(159)},
@@ -3275,6 +3646,8 @@ export const setupSizes = {
   'top-159': {top: heightPixel(159)},
   'bottom-159': {bottom: heightPixel(159)},
   'rounded-160': {borderRadius: 160},
+  'rounded-left-160': {borderTopLeftRadius: 160, borderBottomLeftRadius: 160},
+  'rounded-right-160': {borderTopRightRadius: 160, borderBottomRightRadius: 160},
   'mx-160': {marginHorizontal: widthPixel(160)},
   'px-160': {paddingHorizontal: widthPixel(160)},
   'py-160': {paddingVertical: heightPixel(160)},
@@ -3295,6 +3668,8 @@ export const setupSizes = {
   'top-160': {top: heightPixel(160)},
   'bottom-160': {bottom: heightPixel(160)},
   'rounded-161': {borderRadius: 161},
+  'rounded-left-161': {borderTopLeftRadius: 161, borderBottomLeftRadius: 161},
+  'rounded-right-161': {borderTopRightRadius: 161, borderBottomRightRadius: 161},
   'mx-161': {marginHorizontal: widthPixel(161)},
   'px-161': {paddingHorizontal: widthPixel(161)},
   'py-161': {paddingVertical: heightPixel(161)},
@@ -3315,6 +3690,8 @@ export const setupSizes = {
   'top-161': {top: heightPixel(161)},
   'bottom-161': {bottom: heightPixel(161)},
   'rounded-162': {borderRadius: 162},
+  'rounded-left-162': {borderTopLeftRadius: 162, borderBottomLeftRadius: 162},
+  'rounded-right-162': {borderTopRightRadius: 162, borderBottomRightRadius: 162},
   'mx-162': {marginHorizontal: widthPixel(162)},
   'px-162': {paddingHorizontal: widthPixel(162)},
   'py-162': {paddingVertical: heightPixel(162)},
@@ -3335,6 +3712,8 @@ export const setupSizes = {
   'top-162': {top: heightPixel(162)},
   'bottom-162': {bottom: heightPixel(162)},
   'rounded-163': {borderRadius: 163},
+  'rounded-left-163': {borderTopLeftRadius: 163, borderBottomLeftRadius: 163},
+  'rounded-right-163': {borderTopRightRadius: 163, borderBottomRightRadius: 163},
   'mx-163': {marginHorizontal: widthPixel(163)},
   'px-163': {paddingHorizontal: widthPixel(163)},
   'py-163': {paddingVertical: heightPixel(163)},
@@ -3355,6 +3734,8 @@ export const setupSizes = {
   'top-163': {top: heightPixel(163)},
   'bottom-163': {bottom: heightPixel(163)},
   'rounded-164': {borderRadius: 164},
+  'rounded-left-164': {borderTopLeftRadius: 164, borderBottomLeftRadius: 164},
+  'rounded-right-164': {borderTopRightRadius: 164, borderBottomRightRadius: 164},
   'mx-164': {marginHorizontal: widthPixel(164)},
   'px-164': {paddingHorizontal: widthPixel(164)},
   'py-164': {paddingVertical: heightPixel(164)},
@@ -3375,6 +3756,8 @@ export const setupSizes = {
   'top-164': {top: heightPixel(164)},
   'bottom-164': {bottom: heightPixel(164)},
   'rounded-165': {borderRadius: 165},
+  'rounded-left-165': {borderTopLeftRadius: 165, borderBottomLeftRadius: 165},
+  'rounded-right-165': {borderTopRightRadius: 165, borderBottomRightRadius: 165},
   'mx-165': {marginHorizontal: widthPixel(165)},
   'px-165': {paddingHorizontal: widthPixel(165)},
   'py-165': {paddingVertical: heightPixel(165)},
@@ -3395,6 +3778,8 @@ export const setupSizes = {
   'top-165': {top: heightPixel(165)},
   'bottom-165': {bottom: heightPixel(165)},
   'rounded-166': {borderRadius: 166},
+  'rounded-left-166': {borderTopLeftRadius: 166, borderBottomLeftRadius: 166},
+  'rounded-right-166': {borderTopRightRadius: 166, borderBottomRightRadius: 166},
   'mx-166': {marginHorizontal: widthPixel(166)},
   'px-166': {paddingHorizontal: widthPixel(166)},
   'py-166': {paddingVertical: heightPixel(166)},
@@ -3415,6 +3800,8 @@ export const setupSizes = {
   'top-166': {top: heightPixel(166)},
   'bottom-166': {bottom: heightPixel(166)},
   'rounded-167': {borderRadius: 167},
+  'rounded-left-167': {borderTopLeftRadius: 167, borderBottomLeftRadius: 167},
+  'rounded-right-167': {borderTopRightRadius: 167, borderBottomRightRadius: 167},
   'mx-167': {marginHorizontal: widthPixel(167)},
   'px-167': {paddingHorizontal: widthPixel(167)},
   'py-167': {paddingVertical: heightPixel(167)},
@@ -3435,6 +3822,8 @@ export const setupSizes = {
   'top-167': {top: heightPixel(167)},
   'bottom-167': {bottom: heightPixel(167)},
   'rounded-168': {borderRadius: 168},
+  'rounded-left-168': {borderTopLeftRadius: 168, borderBottomLeftRadius: 168},
+  'rounded-right-168': {borderTopRightRadius: 168, borderBottomRightRadius: 168},
   'mx-168': {marginHorizontal: widthPixel(168)},
   'px-168': {paddingHorizontal: widthPixel(168)},
   'py-168': {paddingVertical: heightPixel(168)},
@@ -3455,6 +3844,8 @@ export const setupSizes = {
   'top-168': {top: heightPixel(168)},
   'bottom-168': {bottom: heightPixel(168)},
   'rounded-169': {borderRadius: 169},
+  'rounded-left-169': {borderTopLeftRadius: 169, borderBottomLeftRadius: 169},
+  'rounded-right-169': {borderTopRightRadius: 169, borderBottomRightRadius: 169},
   'mx-169': {marginHorizontal: widthPixel(169)},
   'px-169': {paddingHorizontal: widthPixel(169)},
   'py-169': {paddingVertical: heightPixel(169)},
@@ -3475,6 +3866,8 @@ export const setupSizes = {
   'top-169': {top: heightPixel(169)},
   'bottom-169': {bottom: heightPixel(169)},
   'rounded-170': {borderRadius: 170},
+  'rounded-left-170': {borderTopLeftRadius: 170, borderBottomLeftRadius: 170},
+  'rounded-right-170': {borderTopRightRadius: 170, borderBottomRightRadius: 170},
   'mx-170': {marginHorizontal: widthPixel(170)},
   'px-170': {paddingHorizontal: widthPixel(170)},
   'py-170': {paddingVertical: heightPixel(170)},
@@ -3495,6 +3888,8 @@ export const setupSizes = {
   'top-170': {top: heightPixel(170)},
   'bottom-170': {bottom: heightPixel(170)},
   'rounded-171': {borderRadius: 171},
+  'rounded-left-171': {borderTopLeftRadius: 171, borderBottomLeftRadius: 171},
+  'rounded-right-171': {borderTopRightRadius: 171, borderBottomRightRadius: 171},
   'mx-171': {marginHorizontal: widthPixel(171)},
   'px-171': {paddingHorizontal: widthPixel(171)},
   'py-171': {paddingVertical: heightPixel(171)},
@@ -3515,6 +3910,8 @@ export const setupSizes = {
   'top-171': {top: heightPixel(171)},
   'bottom-171': {bottom: heightPixel(171)},
   'rounded-172': {borderRadius: 172},
+  'rounded-left-172': {borderTopLeftRadius: 172, borderBottomLeftRadius: 172},
+  'rounded-right-172': {borderTopRightRadius: 172, borderBottomRightRadius: 172},
   'mx-172': {marginHorizontal: widthPixel(172)},
   'px-172': {paddingHorizontal: widthPixel(172)},
   'py-172': {paddingVertical: heightPixel(172)},
@@ -3535,6 +3932,8 @@ export const setupSizes = {
   'top-172': {top: heightPixel(172)},
   'bottom-172': {bottom: heightPixel(172)},
   'rounded-173': {borderRadius: 173},
+  'rounded-left-173': {borderTopLeftRadius: 173, borderBottomLeftRadius: 173},
+  'rounded-right-173': {borderTopRightRadius: 173, borderBottomRightRadius: 173},
   'mx-173': {marginHorizontal: widthPixel(173)},
   'px-173': {paddingHorizontal: widthPixel(173)},
   'py-173': {paddingVertical: heightPixel(173)},
@@ -3555,6 +3954,8 @@ export const setupSizes = {
   'top-173': {top: heightPixel(173)},
   'bottom-173': {bottom: heightPixel(173)},
   'rounded-174': {borderRadius: 174},
+  'rounded-left-174': {borderTopLeftRadius: 174, borderBottomLeftRadius: 174},
+  'rounded-right-174': {borderTopRightRadius: 174, borderBottomRightRadius: 174},
   'mx-174': {marginHorizontal: widthPixel(174)},
   'px-174': {paddingHorizontal: widthPixel(174)},
   'py-174': {paddingVertical: heightPixel(174)},
@@ -3575,6 +3976,8 @@ export const setupSizes = {
   'top-174': {top: heightPixel(174)},
   'bottom-174': {bottom: heightPixel(174)},
   'rounded-175': {borderRadius: 175},
+  'rounded-left-175': {borderTopLeftRadius: 175, borderBottomLeftRadius: 175},
+  'rounded-right-175': {borderTopRightRadius: 175, borderBottomRightRadius: 175},
   'mx-175': {marginHorizontal: widthPixel(175)},
   'px-175': {paddingHorizontal: widthPixel(175)},
   'py-175': {paddingVertical: heightPixel(175)},
@@ -3595,6 +3998,8 @@ export const setupSizes = {
   'top-175': {top: heightPixel(175)},
   'bottom-175': {bottom: heightPixel(175)},
   'rounded-176': {borderRadius: 176},
+  'rounded-left-176': {borderTopLeftRadius: 176, borderBottomLeftRadius: 176},
+  'rounded-right-176': {borderTopRightRadius: 176, borderBottomRightRadius: 176},
   'mx-176': {marginHorizontal: widthPixel(176)},
   'px-176': {paddingHorizontal: widthPixel(176)},
   'py-176': {paddingVertical: heightPixel(176)},
@@ -3615,6 +4020,8 @@ export const setupSizes = {
   'top-176': {top: heightPixel(176)},
   'bottom-176': {bottom: heightPixel(176)},
   'rounded-177': {borderRadius: 177},
+  'rounded-left-177': {borderTopLeftRadius: 177, borderBottomLeftRadius: 177},
+  'rounded-right-177': {borderTopRightRadius: 177, borderBottomRightRadius: 177},
   'mx-177': {marginHorizontal: widthPixel(177)},
   'px-177': {paddingHorizontal: widthPixel(177)},
   'py-177': {paddingVertical: heightPixel(177)},
@@ -3635,6 +4042,8 @@ export const setupSizes = {
   'top-177': {top: heightPixel(177)},
   'bottom-177': {bottom: heightPixel(177)},
   'rounded-178': {borderRadius: 178},
+  'rounded-left-178': {borderTopLeftRadius: 178, borderBottomLeftRadius: 178},
+  'rounded-right-178': {borderTopRightRadius: 178, borderBottomRightRadius: 178},
   'mx-178': {marginHorizontal: widthPixel(178)},
   'px-178': {paddingHorizontal: widthPixel(178)},
   'py-178': {paddingVertical: heightPixel(178)},
@@ -3655,6 +4064,8 @@ export const setupSizes = {
   'top-178': {top: heightPixel(178)},
   'bottom-178': {bottom: heightPixel(178)},
   'rounded-179': {borderRadius: 179},
+  'rounded-left-179': {borderTopLeftRadius: 179, borderBottomLeftRadius: 179},
+  'rounded-right-179': {borderTopRightRadius: 179, borderBottomRightRadius: 179},
   'mx-179': {marginHorizontal: widthPixel(179)},
   'px-179': {paddingHorizontal: widthPixel(179)},
   'py-179': {paddingVertical: heightPixel(179)},
@@ -3675,6 +4086,8 @@ export const setupSizes = {
   'top-179': {top: heightPixel(179)},
   'bottom-179': {bottom: heightPixel(179)},
   'rounded-180': {borderRadius: 180},
+  'rounded-left-180': {borderTopLeftRadius: 180, borderBottomLeftRadius: 180},
+  'rounded-right-180': {borderTopRightRadius: 180, borderBottomRightRadius: 180},
   'mx-180': {marginHorizontal: widthPixel(180)},
   'px-180': {paddingHorizontal: widthPixel(180)},
   'py-180': {paddingVertical: heightPixel(180)},
@@ -3695,6 +4108,8 @@ export const setupSizes = {
   'top-180': {top: heightPixel(180)},
   'bottom-180': {bottom: heightPixel(180)},
   'rounded-181': {borderRadius: 181},
+  'rounded-left-181': {borderTopLeftRadius: 181, borderBottomLeftRadius: 181},
+  'rounded-right-181': {borderTopRightRadius: 181, borderBottomRightRadius: 181},
   'mx-181': {marginHorizontal: widthPixel(181)},
   'px-181': {paddingHorizontal: widthPixel(181)},
   'py-181': {paddingVertical: heightPixel(181)},
@@ -3715,6 +4130,8 @@ export const setupSizes = {
   'top-181': {top: heightPixel(181)},
   'bottom-181': {bottom: heightPixel(181)},
   'rounded-182': {borderRadius: 182},
+  'rounded-left-182': {borderTopLeftRadius: 182, borderBottomLeftRadius: 182},
+  'rounded-right-182': {borderTopRightRadius: 182, borderBottomRightRadius: 182},
   'mx-182': {marginHorizontal: widthPixel(182)},
   'px-182': {paddingHorizontal: widthPixel(182)},
   'py-182': {paddingVertical: heightPixel(182)},
@@ -3735,6 +4152,8 @@ export const setupSizes = {
   'top-182': {top: heightPixel(182)},
   'bottom-182': {bottom: heightPixel(182)},
   'rounded-183': {borderRadius: 183},
+  'rounded-left-183': {borderTopLeftRadius: 183, borderBottomLeftRadius: 183},
+  'rounded-right-183': {borderTopRightRadius: 183, borderBottomRightRadius: 183},
   'mx-183': {marginHorizontal: widthPixel(183)},
   'px-183': {paddingHorizontal: widthPixel(183)},
   'py-183': {paddingVertical: heightPixel(183)},
@@ -3755,6 +4174,8 @@ export const setupSizes = {
   'top-183': {top: heightPixel(183)},
   'bottom-183': {bottom: heightPixel(183)},
   'rounded-184': {borderRadius: 184},
+  'rounded-left-184': {borderTopLeftRadius: 184, borderBottomLeftRadius: 184},
+  'rounded-right-184': {borderTopRightRadius: 184, borderBottomRightRadius: 184},
   'mx-184': {marginHorizontal: widthPixel(184)},
   'px-184': {paddingHorizontal: widthPixel(184)},
   'py-184': {paddingVertical: heightPixel(184)},
@@ -3775,6 +4196,8 @@ export const setupSizes = {
   'top-184': {top: heightPixel(184)},
   'bottom-184': {bottom: heightPixel(184)},
   'rounded-185': {borderRadius: 185},
+  'rounded-left-185': {borderTopLeftRadius: 185, borderBottomLeftRadius: 185},
+  'rounded-right-185': {borderTopRightRadius: 185, borderBottomRightRadius: 185},
   'mx-185': {marginHorizontal: widthPixel(185)},
   'px-185': {paddingHorizontal: widthPixel(185)},
   'py-185': {paddingVertical: heightPixel(185)},
@@ -3795,6 +4218,8 @@ export const setupSizes = {
   'top-185': {top: heightPixel(185)},
   'bottom-185': {bottom: heightPixel(185)},
   'rounded-186': {borderRadius: 186},
+  'rounded-left-186': {borderTopLeftRadius: 186, borderBottomLeftRadius: 186},
+  'rounded-right-186': {borderTopRightRadius: 186, borderBottomRightRadius: 186},
   'mx-186': {marginHorizontal: widthPixel(186)},
   'px-186': {paddingHorizontal: widthPixel(186)},
   'py-186': {paddingVertical: heightPixel(186)},
@@ -3815,6 +4240,8 @@ export const setupSizes = {
   'top-186': {top: heightPixel(186)},
   'bottom-186': {bottom: heightPixel(186)},
   'rounded-187': {borderRadius: 187},
+  'rounded-left-187': {borderTopLeftRadius: 187, borderBottomLeftRadius: 187},
+  'rounded-right-187': {borderTopRightRadius: 187, borderBottomRightRadius: 187},
   'mx-187': {marginHorizontal: widthPixel(187)},
   'px-187': {paddingHorizontal: widthPixel(187)},
   'py-187': {paddingVertical: heightPixel(187)},
@@ -3835,6 +4262,8 @@ export const setupSizes = {
   'top-187': {top: heightPixel(187)},
   'bottom-187': {bottom: heightPixel(187)},
   'rounded-188': {borderRadius: 188},
+  'rounded-left-188': {borderTopLeftRadius: 188, borderBottomLeftRadius: 188},
+  'rounded-right-188': {borderTopRightRadius: 188, borderBottomRightRadius: 188},
   'mx-188': {marginHorizontal: widthPixel(188)},
   'px-188': {paddingHorizontal: widthPixel(188)},
   'py-188': {paddingVertical: heightPixel(188)},
@@ -3855,6 +4284,8 @@ export const setupSizes = {
   'top-188': {top: heightPixel(188)},
   'bottom-188': {bottom: heightPixel(188)},
   'rounded-189': {borderRadius: 189},
+  'rounded-left-189': {borderTopLeftRadius: 189, borderBottomLeftRadius: 189},
+  'rounded-right-189': {borderTopRightRadius: 189, borderBottomRightRadius: 189},
   'mx-189': {marginHorizontal: widthPixel(189)},
   'px-189': {paddingHorizontal: widthPixel(189)},
   'py-189': {paddingVertical: heightPixel(189)},
@@ -3875,6 +4306,8 @@ export const setupSizes = {
   'top-189': {top: heightPixel(189)},
   'bottom-189': {bottom: heightPixel(189)},
   'rounded-190': {borderRadius: 190},
+  'rounded-left-190': {borderTopLeftRadius: 190, borderBottomLeftRadius: 190},
+  'rounded-right-190': {borderTopRightRadius: 190, borderBottomRightRadius: 190},
   'mx-190': {marginHorizontal: widthPixel(190)},
   'px-190': {paddingHorizontal: widthPixel(190)},
   'py-190': {paddingVertical: heightPixel(190)},
@@ -3895,6 +4328,8 @@ export const setupSizes = {
   'top-190': {top: heightPixel(190)},
   'bottom-190': {bottom: heightPixel(190)},
   'rounded-191': {borderRadius: 191},
+  'rounded-left-191': {borderTopLeftRadius: 191, borderBottomLeftRadius: 191},
+  'rounded-right-191': {borderTopRightRadius: 191, borderBottomRightRadius: 191},
   'mx-191': {marginHorizontal: widthPixel(191)},
   'px-191': {paddingHorizontal: widthPixel(191)},
   'py-191': {paddingVertical: heightPixel(191)},
@@ -3915,6 +4350,8 @@ export const setupSizes = {
   'top-191': {top: heightPixel(191)},
   'bottom-191': {bottom: heightPixel(191)},
   'rounded-192': {borderRadius: 192},
+  'rounded-left-192': {borderTopLeftRadius: 192, borderBottomLeftRadius: 192},
+  'rounded-right-192': {borderTopRightRadius: 192, borderBottomRightRadius: 192},
   'mx-192': {marginHorizontal: widthPixel(192)},
   'px-192': {paddingHorizontal: widthPixel(192)},
   'py-192': {paddingVertical: heightPixel(192)},
@@ -3935,6 +4372,8 @@ export const setupSizes = {
   'top-192': {top: heightPixel(192)},
   'bottom-192': {bottom: heightPixel(192)},
   'rounded-193': {borderRadius: 193},
+  'rounded-left-193': {borderTopLeftRadius: 193, borderBottomLeftRadius: 193},
+  'rounded-right-193': {borderTopRightRadius: 193, borderBottomRightRadius: 193},
   'mx-193': {marginHorizontal: widthPixel(193)},
   'px-193': {paddingHorizontal: widthPixel(193)},
   'py-193': {paddingVertical: heightPixel(193)},
@@ -3955,6 +4394,8 @@ export const setupSizes = {
   'top-193': {top: heightPixel(193)},
   'bottom-193': {bottom: heightPixel(193)},
   'rounded-194': {borderRadius: 194},
+  'rounded-left-194': {borderTopLeftRadius: 194, borderBottomLeftRadius: 194},
+  'rounded-right-194': {borderTopRightRadius: 194, borderBottomRightRadius: 194},
   'mx-194': {marginHorizontal: widthPixel(194)},
   'px-194': {paddingHorizontal: widthPixel(194)},
   'py-194': {paddingVertical: heightPixel(194)},
@@ -3975,6 +4416,8 @@ export const setupSizes = {
   'top-194': {top: heightPixel(194)},
   'bottom-194': {bottom: heightPixel(194)},
   'rounded-195': {borderRadius: 195},
+  'rounded-left-195': {borderTopLeftRadius: 195, borderBottomLeftRadius: 195},
+  'rounded-right-195': {borderTopRightRadius: 195, borderBottomRightRadius: 195},
   'mx-195': {marginHorizontal: widthPixel(195)},
   'px-195': {paddingHorizontal: widthPixel(195)},
   'py-195': {paddingVertical: heightPixel(195)},
@@ -3995,6 +4438,8 @@ export const setupSizes = {
   'top-195': {top: heightPixel(195)},
   'bottom-195': {bottom: heightPixel(195)},
   'rounded-196': {borderRadius: 196},
+  'rounded-left-196': {borderTopLeftRadius: 196, borderBottomLeftRadius: 196},
+  'rounded-right-196': {borderTopRightRadius: 196, borderBottomRightRadius: 196},
   'mx-196': {marginHorizontal: widthPixel(196)},
   'px-196': {paddingHorizontal: widthPixel(196)},
   'py-196': {paddingVertical: heightPixel(196)},
@@ -4015,6 +4460,8 @@ export const setupSizes = {
   'top-196': {top: heightPixel(196)},
   'bottom-196': {bottom: heightPixel(196)},
   'rounded-197': {borderRadius: 197},
+  'rounded-left-197': {borderTopLeftRadius: 197, borderBottomLeftRadius: 197},
+  'rounded-right-197': {borderTopRightRadius: 197, borderBottomRightRadius: 197},
   'mx-197': {marginHorizontal: widthPixel(197)},
   'px-197': {paddingHorizontal: widthPixel(197)},
   'py-197': {paddingVertical: heightPixel(197)},
@@ -4035,6 +4482,8 @@ export const setupSizes = {
   'top-197': {top: heightPixel(197)},
   'bottom-197': {bottom: heightPixel(197)},
   'rounded-198': {borderRadius: 198},
+  'rounded-left-198': {borderTopLeftRadius: 198, borderBottomLeftRadius: 198},
+  'rounded-right-198': {borderTopRightRadius: 198, borderBottomRightRadius: 198},
   'mx-198': {marginHorizontal: widthPixel(198)},
   'px-198': {paddingHorizontal: widthPixel(198)},
   'py-198': {paddingVertical: heightPixel(198)},
@@ -4055,6 +4504,8 @@ export const setupSizes = {
   'top-198': {top: heightPixel(198)},
   'bottom-198': {bottom: heightPixel(198)},
   'rounded-199': {borderRadius: 199},
+  'rounded-left-199': {borderTopLeftRadius: 199, borderBottomLeftRadius: 199},
+  'rounded-right-199': {borderTopRightRadius: 199, borderBottomRightRadius: 199},
   'mx-199': {marginHorizontal: widthPixel(199)},
   'px-199': {paddingHorizontal: widthPixel(199)},
   'py-199': {paddingVertical: heightPixel(199)},
@@ -4079,7 +4530,10 @@ export type setupSizeTypes = {
   'flex-0'?: boolean;
   'col-0'?: boolean;
   'fs-0'?: boolean;
+  'gap-0'?: boolean;
   'rounded-0'?: boolean;
+  'rounded-left-0'?: boolean;
+  'rounded-right-0'?: boolean;
   'mx-0'?: boolean;
   'px-0'?: boolean;
   'py-0'?: boolean;
@@ -4102,7 +4556,10 @@ export type setupSizeTypes = {
   'flex-1'?: boolean;
   'col-1'?: boolean;
   'fs-1'?: boolean;
+  'gap-1'?: boolean;
   'rounded-1'?: boolean;
+  'rounded-left-1'?: boolean;
+  'rounded-right-1'?: boolean;
   'mx-1'?: boolean;
   'px-1'?: boolean;
   'py-1'?: boolean;
@@ -4125,7 +4582,10 @@ export type setupSizeTypes = {
   'flex-2'?: boolean;
   'col-2'?: boolean;
   'fs-2'?: boolean;
+  'gap-2'?: boolean;
   'rounded-2'?: boolean;
+  'rounded-left-2'?: boolean;
+  'rounded-right-2'?: boolean;
   'mx-2'?: boolean;
   'px-2'?: boolean;
   'py-2'?: boolean;
@@ -4148,7 +4608,10 @@ export type setupSizeTypes = {
   'flex-3'?: boolean;
   'col-3'?: boolean;
   'fs-3'?: boolean;
+  'gap-3'?: boolean;
   'rounded-3'?: boolean;
+  'rounded-left-3'?: boolean;
+  'rounded-right-3'?: boolean;
   'mx-3'?: boolean;
   'px-3'?: boolean;
   'py-3'?: boolean;
@@ -4171,7 +4634,10 @@ export type setupSizeTypes = {
   'flex-4'?: boolean;
   'col-4'?: boolean;
   'fs-4'?: boolean;
+  'gap-4'?: boolean;
   'rounded-4'?: boolean;
+  'rounded-left-4'?: boolean;
+  'rounded-right-4'?: boolean;
   'mx-4'?: boolean;
   'px-4'?: boolean;
   'py-4'?: boolean;
@@ -4194,7 +4660,10 @@ export type setupSizeTypes = {
   'flex-5'?: boolean;
   'col-5'?: boolean;
   'fs-5'?: boolean;
+  'gap-5'?: boolean;
   'rounded-5'?: boolean;
+  'rounded-left-5'?: boolean;
+  'rounded-right-5'?: boolean;
   'mx-5'?: boolean;
   'px-5'?: boolean;
   'py-5'?: boolean;
@@ -4217,7 +4686,10 @@ export type setupSizeTypes = {
   'flex-6'?: boolean;
   'col-6'?: boolean;
   'fs-6'?: boolean;
+  'gap-6'?: boolean;
   'rounded-6'?: boolean;
+  'rounded-left-6'?: boolean;
+  'rounded-right-6'?: boolean;
   'mx-6'?: boolean;
   'px-6'?: boolean;
   'py-6'?: boolean;
@@ -4240,7 +4712,10 @@ export type setupSizeTypes = {
   'flex-7'?: boolean;
   'col-7'?: boolean;
   'fs-7'?: boolean;
+  'gap-7'?: boolean;
   'rounded-7'?: boolean;
+  'rounded-left-7'?: boolean;
+  'rounded-right-7'?: boolean;
   'mx-7'?: boolean;
   'px-7'?: boolean;
   'py-7'?: boolean;
@@ -4263,7 +4738,10 @@ export type setupSizeTypes = {
   'flex-8'?: boolean;
   'col-8'?: boolean;
   'fs-8'?: boolean;
+  'gap-8'?: boolean;
   'rounded-8'?: boolean;
+  'rounded-left-8'?: boolean;
+  'rounded-right-8'?: boolean;
   'mx-8'?: boolean;
   'px-8'?: boolean;
   'py-8'?: boolean;
@@ -4286,7 +4764,10 @@ export type setupSizeTypes = {
   'flex-9'?: boolean;
   'col-9'?: boolean;
   'fs-9'?: boolean;
+  'gap-9'?: boolean;
   'rounded-9'?: boolean;
+  'rounded-left-9'?: boolean;
+  'rounded-right-9'?: boolean;
   'mx-9'?: boolean;
   'px-9'?: boolean;
   'py-9'?: boolean;
@@ -4308,7 +4789,10 @@ export type setupSizeTypes = {
   'bottom-9'?: boolean;
   'col-10'?: boolean;
   'fs-10'?: boolean;
+  'gap-10'?: boolean;
   'rounded-10'?: boolean;
+  'rounded-left-10'?: boolean;
+  'rounded-right-10'?: boolean;
   'mx-10'?: boolean;
   'px-10'?: boolean;
   'py-10'?: boolean;
@@ -4330,7 +4814,10 @@ export type setupSizeTypes = {
   'bottom-10'?: boolean;
   'col-11'?: boolean;
   'fs-11'?: boolean;
+  'gap-11'?: boolean;
   'rounded-11'?: boolean;
+  'rounded-left-11'?: boolean;
+  'rounded-right-11'?: boolean;
   'mx-11'?: boolean;
   'px-11'?: boolean;
   'py-11'?: boolean;
@@ -4352,7 +4839,10 @@ export type setupSizeTypes = {
   'bottom-11'?: boolean;
   'col-12'?: boolean;
   'fs-12'?: boolean;
+  'gap-12'?: boolean;
   'rounded-12'?: boolean;
+  'rounded-left-12'?: boolean;
+  'rounded-right-12'?: boolean;
   'mx-12'?: boolean;
   'px-12'?: boolean;
   'py-12'?: boolean;
@@ -4373,7 +4863,10 @@ export type setupSizeTypes = {
   'top-12'?: boolean;
   'bottom-12'?: boolean;
   'fs-13'?: boolean;
+  'gap-13'?: boolean;
   'rounded-13'?: boolean;
+  'rounded-left-13'?: boolean;
+  'rounded-right-13'?: boolean;
   'mx-13'?: boolean;
   'px-13'?: boolean;
   'py-13'?: boolean;
@@ -4394,7 +4887,10 @@ export type setupSizeTypes = {
   'top-13'?: boolean;
   'bottom-13'?: boolean;
   'fs-14'?: boolean;
+  'gap-14'?: boolean;
   'rounded-14'?: boolean;
+  'rounded-left-14'?: boolean;
+  'rounded-right-14'?: boolean;
   'mx-14'?: boolean;
   'px-14'?: boolean;
   'py-14'?: boolean;
@@ -4415,7 +4911,10 @@ export type setupSizeTypes = {
   'top-14'?: boolean;
   'bottom-14'?: boolean;
   'fs-15'?: boolean;
+  'gap-15'?: boolean;
   'rounded-15'?: boolean;
+  'rounded-left-15'?: boolean;
+  'rounded-right-15'?: boolean;
   'mx-15'?: boolean;
   'px-15'?: boolean;
   'py-15'?: boolean;
@@ -4436,7 +4935,10 @@ export type setupSizeTypes = {
   'top-15'?: boolean;
   'bottom-15'?: boolean;
   'fs-16'?: boolean;
+  'gap-16'?: boolean;
   'rounded-16'?: boolean;
+  'rounded-left-16'?: boolean;
+  'rounded-right-16'?: boolean;
   'mx-16'?: boolean;
   'px-16'?: boolean;
   'py-16'?: boolean;
@@ -4457,7 +4959,10 @@ export type setupSizeTypes = {
   'top-16'?: boolean;
   'bottom-16'?: boolean;
   'fs-17'?: boolean;
+  'gap-17'?: boolean;
   'rounded-17'?: boolean;
+  'rounded-left-17'?: boolean;
+  'rounded-right-17'?: boolean;
   'mx-17'?: boolean;
   'px-17'?: boolean;
   'py-17'?: boolean;
@@ -4478,7 +4983,10 @@ export type setupSizeTypes = {
   'top-17'?: boolean;
   'bottom-17'?: boolean;
   'fs-18'?: boolean;
+  'gap-18'?: boolean;
   'rounded-18'?: boolean;
+  'rounded-left-18'?: boolean;
+  'rounded-right-18'?: boolean;
   'mx-18'?: boolean;
   'px-18'?: boolean;
   'py-18'?: boolean;
@@ -4499,7 +5007,10 @@ export type setupSizeTypes = {
   'top-18'?: boolean;
   'bottom-18'?: boolean;
   'fs-19'?: boolean;
+  'gap-19'?: boolean;
   'rounded-19'?: boolean;
+  'rounded-left-19'?: boolean;
+  'rounded-right-19'?: boolean;
   'mx-19'?: boolean;
   'px-19'?: boolean;
   'py-19'?: boolean;
@@ -4520,7 +5031,10 @@ export type setupSizeTypes = {
   'top-19'?: boolean;
   'bottom-19'?: boolean;
   'fs-20'?: boolean;
+  'gap-20'?: boolean;
   'rounded-20'?: boolean;
+  'rounded-left-20'?: boolean;
+  'rounded-right-20'?: boolean;
   'mx-20'?: boolean;
   'px-20'?: boolean;
   'py-20'?: boolean;
@@ -4541,7 +5055,10 @@ export type setupSizeTypes = {
   'top-20'?: boolean;
   'bottom-20'?: boolean;
   'fs-21'?: boolean;
+  'gap-21'?: boolean;
   'rounded-21'?: boolean;
+  'rounded-left-21'?: boolean;
+  'rounded-right-21'?: boolean;
   'mx-21'?: boolean;
   'px-21'?: boolean;
   'py-21'?: boolean;
@@ -4562,7 +5079,10 @@ export type setupSizeTypes = {
   'top-21'?: boolean;
   'bottom-21'?: boolean;
   'fs-22'?: boolean;
+  'gap-22'?: boolean;
   'rounded-22'?: boolean;
+  'rounded-left-22'?: boolean;
+  'rounded-right-22'?: boolean;
   'mx-22'?: boolean;
   'px-22'?: boolean;
   'py-22'?: boolean;
@@ -4583,7 +5103,10 @@ export type setupSizeTypes = {
   'top-22'?: boolean;
   'bottom-22'?: boolean;
   'fs-23'?: boolean;
+  'gap-23'?: boolean;
   'rounded-23'?: boolean;
+  'rounded-left-23'?: boolean;
+  'rounded-right-23'?: boolean;
   'mx-23'?: boolean;
   'px-23'?: boolean;
   'py-23'?: boolean;
@@ -4604,7 +5127,10 @@ export type setupSizeTypes = {
   'top-23'?: boolean;
   'bottom-23'?: boolean;
   'fs-24'?: boolean;
+  'gap-24'?: boolean;
   'rounded-24'?: boolean;
+  'rounded-left-24'?: boolean;
+  'rounded-right-24'?: boolean;
   'mx-24'?: boolean;
   'px-24'?: boolean;
   'py-24'?: boolean;
@@ -4625,7 +5151,10 @@ export type setupSizeTypes = {
   'top-24'?: boolean;
   'bottom-24'?: boolean;
   'fs-25'?: boolean;
+  'gap-25'?: boolean;
   'rounded-25'?: boolean;
+  'rounded-left-25'?: boolean;
+  'rounded-right-25'?: boolean;
   'mx-25'?: boolean;
   'px-25'?: boolean;
   'py-25'?: boolean;
@@ -4646,7 +5175,10 @@ export type setupSizeTypes = {
   'top-25'?: boolean;
   'bottom-25'?: boolean;
   'fs-26'?: boolean;
+  'gap-26'?: boolean;
   'rounded-26'?: boolean;
+  'rounded-left-26'?: boolean;
+  'rounded-right-26'?: boolean;
   'mx-26'?: boolean;
   'px-26'?: boolean;
   'py-26'?: boolean;
@@ -4667,7 +5199,10 @@ export type setupSizeTypes = {
   'top-26'?: boolean;
   'bottom-26'?: boolean;
   'fs-27'?: boolean;
+  'gap-27'?: boolean;
   'rounded-27'?: boolean;
+  'rounded-left-27'?: boolean;
+  'rounded-right-27'?: boolean;
   'mx-27'?: boolean;
   'px-27'?: boolean;
   'py-27'?: boolean;
@@ -4688,7 +5223,10 @@ export type setupSizeTypes = {
   'top-27'?: boolean;
   'bottom-27'?: boolean;
   'fs-28'?: boolean;
+  'gap-28'?: boolean;
   'rounded-28'?: boolean;
+  'rounded-left-28'?: boolean;
+  'rounded-right-28'?: boolean;
   'mx-28'?: boolean;
   'px-28'?: boolean;
   'py-28'?: boolean;
@@ -4709,7 +5247,10 @@ export type setupSizeTypes = {
   'top-28'?: boolean;
   'bottom-28'?: boolean;
   'fs-29'?: boolean;
+  'gap-29'?: boolean;
   'rounded-29'?: boolean;
+  'rounded-left-29'?: boolean;
+  'rounded-right-29'?: boolean;
   'mx-29'?: boolean;
   'px-29'?: boolean;
   'py-29'?: boolean;
@@ -4730,7 +5271,10 @@ export type setupSizeTypes = {
   'top-29'?: boolean;
   'bottom-29'?: boolean;
   'fs-30'?: boolean;
+  'gap-30'?: boolean;
   'rounded-30'?: boolean;
+  'rounded-left-30'?: boolean;
+  'rounded-right-30'?: boolean;
   'mx-30'?: boolean;
   'px-30'?: boolean;
   'py-30'?: boolean;
@@ -4751,7 +5295,10 @@ export type setupSizeTypes = {
   'top-30'?: boolean;
   'bottom-30'?: boolean;
   'fs-31'?: boolean;
+  'gap-31'?: boolean;
   'rounded-31'?: boolean;
+  'rounded-left-31'?: boolean;
+  'rounded-right-31'?: boolean;
   'mx-31'?: boolean;
   'px-31'?: boolean;
   'py-31'?: boolean;
@@ -4772,7 +5319,10 @@ export type setupSizeTypes = {
   'top-31'?: boolean;
   'bottom-31'?: boolean;
   'fs-32'?: boolean;
+  'gap-32'?: boolean;
   'rounded-32'?: boolean;
+  'rounded-left-32'?: boolean;
+  'rounded-right-32'?: boolean;
   'mx-32'?: boolean;
   'px-32'?: boolean;
   'py-32'?: boolean;
@@ -4793,7 +5343,10 @@ export type setupSizeTypes = {
   'top-32'?: boolean;
   'bottom-32'?: boolean;
   'fs-33'?: boolean;
+  'gap-33'?: boolean;
   'rounded-33'?: boolean;
+  'rounded-left-33'?: boolean;
+  'rounded-right-33'?: boolean;
   'mx-33'?: boolean;
   'px-33'?: boolean;
   'py-33'?: boolean;
@@ -4814,7 +5367,10 @@ export type setupSizeTypes = {
   'top-33'?: boolean;
   'bottom-33'?: boolean;
   'fs-34'?: boolean;
+  'gap-34'?: boolean;
   'rounded-34'?: boolean;
+  'rounded-left-34'?: boolean;
+  'rounded-right-34'?: boolean;
   'mx-34'?: boolean;
   'px-34'?: boolean;
   'py-34'?: boolean;
@@ -4835,7 +5391,10 @@ export type setupSizeTypes = {
   'top-34'?: boolean;
   'bottom-34'?: boolean;
   'fs-35'?: boolean;
+  'gap-35'?: boolean;
   'rounded-35'?: boolean;
+  'rounded-left-35'?: boolean;
+  'rounded-right-35'?: boolean;
   'mx-35'?: boolean;
   'px-35'?: boolean;
   'py-35'?: boolean;
@@ -4856,7 +5415,10 @@ export type setupSizeTypes = {
   'top-35'?: boolean;
   'bottom-35'?: boolean;
   'fs-36'?: boolean;
+  'gap-36'?: boolean;
   'rounded-36'?: boolean;
+  'rounded-left-36'?: boolean;
+  'rounded-right-36'?: boolean;
   'mx-36'?: boolean;
   'px-36'?: boolean;
   'py-36'?: boolean;
@@ -4877,7 +5439,10 @@ export type setupSizeTypes = {
   'top-36'?: boolean;
   'bottom-36'?: boolean;
   'fs-37'?: boolean;
+  'gap-37'?: boolean;
   'rounded-37'?: boolean;
+  'rounded-left-37'?: boolean;
+  'rounded-right-37'?: boolean;
   'mx-37'?: boolean;
   'px-37'?: boolean;
   'py-37'?: boolean;
@@ -4898,7 +5463,10 @@ export type setupSizeTypes = {
   'top-37'?: boolean;
   'bottom-37'?: boolean;
   'fs-38'?: boolean;
+  'gap-38'?: boolean;
   'rounded-38'?: boolean;
+  'rounded-left-38'?: boolean;
+  'rounded-right-38'?: boolean;
   'mx-38'?: boolean;
   'px-38'?: boolean;
   'py-38'?: boolean;
@@ -4919,7 +5487,10 @@ export type setupSizeTypes = {
   'top-38'?: boolean;
   'bottom-38'?: boolean;
   'fs-39'?: boolean;
+  'gap-39'?: boolean;
   'rounded-39'?: boolean;
+  'rounded-left-39'?: boolean;
+  'rounded-right-39'?: boolean;
   'mx-39'?: boolean;
   'px-39'?: boolean;
   'py-39'?: boolean;
@@ -4940,7 +5511,10 @@ export type setupSizeTypes = {
   'top-39'?: boolean;
   'bottom-39'?: boolean;
   'fs-40'?: boolean;
+  'gap-40'?: boolean;
   'rounded-40'?: boolean;
+  'rounded-left-40'?: boolean;
+  'rounded-right-40'?: boolean;
   'mx-40'?: boolean;
   'px-40'?: boolean;
   'py-40'?: boolean;
@@ -4961,7 +5535,10 @@ export type setupSizeTypes = {
   'top-40'?: boolean;
   'bottom-40'?: boolean;
   'fs-41'?: boolean;
+  'gap-41'?: boolean;
   'rounded-41'?: boolean;
+  'rounded-left-41'?: boolean;
+  'rounded-right-41'?: boolean;
   'mx-41'?: boolean;
   'px-41'?: boolean;
   'py-41'?: boolean;
@@ -4982,7 +5559,10 @@ export type setupSizeTypes = {
   'top-41'?: boolean;
   'bottom-41'?: boolean;
   'fs-42'?: boolean;
+  'gap-42'?: boolean;
   'rounded-42'?: boolean;
+  'rounded-left-42'?: boolean;
+  'rounded-right-42'?: boolean;
   'mx-42'?: boolean;
   'px-42'?: boolean;
   'py-42'?: boolean;
@@ -5003,7 +5583,10 @@ export type setupSizeTypes = {
   'top-42'?: boolean;
   'bottom-42'?: boolean;
   'fs-43'?: boolean;
+  'gap-43'?: boolean;
   'rounded-43'?: boolean;
+  'rounded-left-43'?: boolean;
+  'rounded-right-43'?: boolean;
   'mx-43'?: boolean;
   'px-43'?: boolean;
   'py-43'?: boolean;
@@ -5024,7 +5607,10 @@ export type setupSizeTypes = {
   'top-43'?: boolean;
   'bottom-43'?: boolean;
   'fs-44'?: boolean;
+  'gap-44'?: boolean;
   'rounded-44'?: boolean;
+  'rounded-left-44'?: boolean;
+  'rounded-right-44'?: boolean;
   'mx-44'?: boolean;
   'px-44'?: boolean;
   'py-44'?: boolean;
@@ -5045,7 +5631,10 @@ export type setupSizeTypes = {
   'top-44'?: boolean;
   'bottom-44'?: boolean;
   'fs-45'?: boolean;
+  'gap-45'?: boolean;
   'rounded-45'?: boolean;
+  'rounded-left-45'?: boolean;
+  'rounded-right-45'?: boolean;
   'mx-45'?: boolean;
   'px-45'?: boolean;
   'py-45'?: boolean;
@@ -5066,7 +5655,10 @@ export type setupSizeTypes = {
   'top-45'?: boolean;
   'bottom-45'?: boolean;
   'fs-46'?: boolean;
+  'gap-46'?: boolean;
   'rounded-46'?: boolean;
+  'rounded-left-46'?: boolean;
+  'rounded-right-46'?: boolean;
   'mx-46'?: boolean;
   'px-46'?: boolean;
   'py-46'?: boolean;
@@ -5087,7 +5679,10 @@ export type setupSizeTypes = {
   'top-46'?: boolean;
   'bottom-46'?: boolean;
   'fs-47'?: boolean;
+  'gap-47'?: boolean;
   'rounded-47'?: boolean;
+  'rounded-left-47'?: boolean;
+  'rounded-right-47'?: boolean;
   'mx-47'?: boolean;
   'px-47'?: boolean;
   'py-47'?: boolean;
@@ -5108,7 +5703,10 @@ export type setupSizeTypes = {
   'top-47'?: boolean;
   'bottom-47'?: boolean;
   'fs-48'?: boolean;
+  'gap-48'?: boolean;
   'rounded-48'?: boolean;
+  'rounded-left-48'?: boolean;
+  'rounded-right-48'?: boolean;
   'mx-48'?: boolean;
   'px-48'?: boolean;
   'py-48'?: boolean;
@@ -5129,7 +5727,10 @@ export type setupSizeTypes = {
   'top-48'?: boolean;
   'bottom-48'?: boolean;
   'fs-49'?: boolean;
+  'gap-49'?: boolean;
   'rounded-49'?: boolean;
+  'rounded-left-49'?: boolean;
+  'rounded-right-49'?: boolean;
   'mx-49'?: boolean;
   'px-49'?: boolean;
   'py-49'?: boolean;
@@ -5150,7 +5751,10 @@ export type setupSizeTypes = {
   'top-49'?: boolean;
   'bottom-49'?: boolean;
   'fs-50'?: boolean;
+  'gap-50'?: boolean;
   'rounded-50'?: boolean;
+  'rounded-left-50'?: boolean;
+  'rounded-right-50'?: boolean;
   'mx-50'?: boolean;
   'px-50'?: boolean;
   'py-50'?: boolean;
@@ -5171,6 +5775,8 @@ export type setupSizeTypes = {
   'top-50'?: boolean;
   'bottom-50'?: boolean;
   'rounded-51'?: boolean;
+  'rounded-left-51'?: boolean;
+  'rounded-right-51'?: boolean;
   'mx-51'?: boolean;
   'px-51'?: boolean;
   'py-51'?: boolean;
@@ -5191,6 +5797,8 @@ export type setupSizeTypes = {
   'top-51'?: boolean;
   'bottom-51'?: boolean;
   'rounded-52'?: boolean;
+  'rounded-left-52'?: boolean;
+  'rounded-right-52'?: boolean;
   'mx-52'?: boolean;
   'px-52'?: boolean;
   'py-52'?: boolean;
@@ -5211,6 +5819,8 @@ export type setupSizeTypes = {
   'top-52'?: boolean;
   'bottom-52'?: boolean;
   'rounded-53'?: boolean;
+  'rounded-left-53'?: boolean;
+  'rounded-right-53'?: boolean;
   'mx-53'?: boolean;
   'px-53'?: boolean;
   'py-53'?: boolean;
@@ -5231,6 +5841,8 @@ export type setupSizeTypes = {
   'top-53'?: boolean;
   'bottom-53'?: boolean;
   'rounded-54'?: boolean;
+  'rounded-left-54'?: boolean;
+  'rounded-right-54'?: boolean;
   'mx-54'?: boolean;
   'px-54'?: boolean;
   'py-54'?: boolean;
@@ -5251,6 +5863,8 @@ export type setupSizeTypes = {
   'top-54'?: boolean;
   'bottom-54'?: boolean;
   'rounded-55'?: boolean;
+  'rounded-left-55'?: boolean;
+  'rounded-right-55'?: boolean;
   'mx-55'?: boolean;
   'px-55'?: boolean;
   'py-55'?: boolean;
@@ -5271,6 +5885,8 @@ export type setupSizeTypes = {
   'top-55'?: boolean;
   'bottom-55'?: boolean;
   'rounded-56'?: boolean;
+  'rounded-left-56'?: boolean;
+  'rounded-right-56'?: boolean;
   'mx-56'?: boolean;
   'px-56'?: boolean;
   'py-56'?: boolean;
@@ -5291,6 +5907,8 @@ export type setupSizeTypes = {
   'top-56'?: boolean;
   'bottom-56'?: boolean;
   'rounded-57'?: boolean;
+  'rounded-left-57'?: boolean;
+  'rounded-right-57'?: boolean;
   'mx-57'?: boolean;
   'px-57'?: boolean;
   'py-57'?: boolean;
@@ -5311,6 +5929,8 @@ export type setupSizeTypes = {
   'top-57'?: boolean;
   'bottom-57'?: boolean;
   'rounded-58'?: boolean;
+  'rounded-left-58'?: boolean;
+  'rounded-right-58'?: boolean;
   'mx-58'?: boolean;
   'px-58'?: boolean;
   'py-58'?: boolean;
@@ -5331,6 +5951,8 @@ export type setupSizeTypes = {
   'top-58'?: boolean;
   'bottom-58'?: boolean;
   'rounded-59'?: boolean;
+  'rounded-left-59'?: boolean;
+  'rounded-right-59'?: boolean;
   'mx-59'?: boolean;
   'px-59'?: boolean;
   'py-59'?: boolean;
@@ -5351,6 +5973,8 @@ export type setupSizeTypes = {
   'top-59'?: boolean;
   'bottom-59'?: boolean;
   'rounded-60'?: boolean;
+  'rounded-left-60'?: boolean;
+  'rounded-right-60'?: boolean;
   'mx-60'?: boolean;
   'px-60'?: boolean;
   'py-60'?: boolean;
@@ -5371,6 +5995,8 @@ export type setupSizeTypes = {
   'top-60'?: boolean;
   'bottom-60'?: boolean;
   'rounded-61'?: boolean;
+  'rounded-left-61'?: boolean;
+  'rounded-right-61'?: boolean;
   'mx-61'?: boolean;
   'px-61'?: boolean;
   'py-61'?: boolean;
@@ -5391,6 +6017,8 @@ export type setupSizeTypes = {
   'top-61'?: boolean;
   'bottom-61'?: boolean;
   'rounded-62'?: boolean;
+  'rounded-left-62'?: boolean;
+  'rounded-right-62'?: boolean;
   'mx-62'?: boolean;
   'px-62'?: boolean;
   'py-62'?: boolean;
@@ -5411,6 +6039,8 @@ export type setupSizeTypes = {
   'top-62'?: boolean;
   'bottom-62'?: boolean;
   'rounded-63'?: boolean;
+  'rounded-left-63'?: boolean;
+  'rounded-right-63'?: boolean;
   'mx-63'?: boolean;
   'px-63'?: boolean;
   'py-63'?: boolean;
@@ -5431,6 +6061,8 @@ export type setupSizeTypes = {
   'top-63'?: boolean;
   'bottom-63'?: boolean;
   'rounded-64'?: boolean;
+  'rounded-left-64'?: boolean;
+  'rounded-right-64'?: boolean;
   'mx-64'?: boolean;
   'px-64'?: boolean;
   'py-64'?: boolean;
@@ -5451,6 +6083,8 @@ export type setupSizeTypes = {
   'top-64'?: boolean;
   'bottom-64'?: boolean;
   'rounded-65'?: boolean;
+  'rounded-left-65'?: boolean;
+  'rounded-right-65'?: boolean;
   'mx-65'?: boolean;
   'px-65'?: boolean;
   'py-65'?: boolean;
@@ -5471,6 +6105,8 @@ export type setupSizeTypes = {
   'top-65'?: boolean;
   'bottom-65'?: boolean;
   'rounded-66'?: boolean;
+  'rounded-left-66'?: boolean;
+  'rounded-right-66'?: boolean;
   'mx-66'?: boolean;
   'px-66'?: boolean;
   'py-66'?: boolean;
@@ -5491,6 +6127,8 @@ export type setupSizeTypes = {
   'top-66'?: boolean;
   'bottom-66'?: boolean;
   'rounded-67'?: boolean;
+  'rounded-left-67'?: boolean;
+  'rounded-right-67'?: boolean;
   'mx-67'?: boolean;
   'px-67'?: boolean;
   'py-67'?: boolean;
@@ -5511,6 +6149,8 @@ export type setupSizeTypes = {
   'top-67'?: boolean;
   'bottom-67'?: boolean;
   'rounded-68'?: boolean;
+  'rounded-left-68'?: boolean;
+  'rounded-right-68'?: boolean;
   'mx-68'?: boolean;
   'px-68'?: boolean;
   'py-68'?: boolean;
@@ -5531,6 +6171,8 @@ export type setupSizeTypes = {
   'top-68'?: boolean;
   'bottom-68'?: boolean;
   'rounded-69'?: boolean;
+  'rounded-left-69'?: boolean;
+  'rounded-right-69'?: boolean;
   'mx-69'?: boolean;
   'px-69'?: boolean;
   'py-69'?: boolean;
@@ -5551,6 +6193,8 @@ export type setupSizeTypes = {
   'top-69'?: boolean;
   'bottom-69'?: boolean;
   'rounded-70'?: boolean;
+  'rounded-left-70'?: boolean;
+  'rounded-right-70'?: boolean;
   'mx-70'?: boolean;
   'px-70'?: boolean;
   'py-70'?: boolean;
@@ -5571,6 +6215,8 @@ export type setupSizeTypes = {
   'top-70'?: boolean;
   'bottom-70'?: boolean;
   'rounded-71'?: boolean;
+  'rounded-left-71'?: boolean;
+  'rounded-right-71'?: boolean;
   'mx-71'?: boolean;
   'px-71'?: boolean;
   'py-71'?: boolean;
@@ -5591,6 +6237,8 @@ export type setupSizeTypes = {
   'top-71'?: boolean;
   'bottom-71'?: boolean;
   'rounded-72'?: boolean;
+  'rounded-left-72'?: boolean;
+  'rounded-right-72'?: boolean;
   'mx-72'?: boolean;
   'px-72'?: boolean;
   'py-72'?: boolean;
@@ -5611,6 +6259,8 @@ export type setupSizeTypes = {
   'top-72'?: boolean;
   'bottom-72'?: boolean;
   'rounded-73'?: boolean;
+  'rounded-left-73'?: boolean;
+  'rounded-right-73'?: boolean;
   'mx-73'?: boolean;
   'px-73'?: boolean;
   'py-73'?: boolean;
@@ -5631,6 +6281,8 @@ export type setupSizeTypes = {
   'top-73'?: boolean;
   'bottom-73'?: boolean;
   'rounded-74'?: boolean;
+  'rounded-left-74'?: boolean;
+  'rounded-right-74'?: boolean;
   'mx-74'?: boolean;
   'px-74'?: boolean;
   'py-74'?: boolean;
@@ -5651,6 +6303,8 @@ export type setupSizeTypes = {
   'top-74'?: boolean;
   'bottom-74'?: boolean;
   'rounded-75'?: boolean;
+  'rounded-left-75'?: boolean;
+  'rounded-right-75'?: boolean;
   'mx-75'?: boolean;
   'px-75'?: boolean;
   'py-75'?: boolean;
@@ -5671,6 +6325,8 @@ export type setupSizeTypes = {
   'top-75'?: boolean;
   'bottom-75'?: boolean;
   'rounded-76'?: boolean;
+  'rounded-left-76'?: boolean;
+  'rounded-right-76'?: boolean;
   'mx-76'?: boolean;
   'px-76'?: boolean;
   'py-76'?: boolean;
@@ -5691,6 +6347,8 @@ export type setupSizeTypes = {
   'top-76'?: boolean;
   'bottom-76'?: boolean;
   'rounded-77'?: boolean;
+  'rounded-left-77'?: boolean;
+  'rounded-right-77'?: boolean;
   'mx-77'?: boolean;
   'px-77'?: boolean;
   'py-77'?: boolean;
@@ -5711,6 +6369,8 @@ export type setupSizeTypes = {
   'top-77'?: boolean;
   'bottom-77'?: boolean;
   'rounded-78'?: boolean;
+  'rounded-left-78'?: boolean;
+  'rounded-right-78'?: boolean;
   'mx-78'?: boolean;
   'px-78'?: boolean;
   'py-78'?: boolean;
@@ -5731,6 +6391,8 @@ export type setupSizeTypes = {
   'top-78'?: boolean;
   'bottom-78'?: boolean;
   'rounded-79'?: boolean;
+  'rounded-left-79'?: boolean;
+  'rounded-right-79'?: boolean;
   'mx-79'?: boolean;
   'px-79'?: boolean;
   'py-79'?: boolean;
@@ -5751,6 +6413,8 @@ export type setupSizeTypes = {
   'top-79'?: boolean;
   'bottom-79'?: boolean;
   'rounded-80'?: boolean;
+  'rounded-left-80'?: boolean;
+  'rounded-right-80'?: boolean;
   'mx-80'?: boolean;
   'px-80'?: boolean;
   'py-80'?: boolean;
@@ -5771,6 +6435,8 @@ export type setupSizeTypes = {
   'top-80'?: boolean;
   'bottom-80'?: boolean;
   'rounded-81'?: boolean;
+  'rounded-left-81'?: boolean;
+  'rounded-right-81'?: boolean;
   'mx-81'?: boolean;
   'px-81'?: boolean;
   'py-81'?: boolean;
@@ -5791,6 +6457,8 @@ export type setupSizeTypes = {
   'top-81'?: boolean;
   'bottom-81'?: boolean;
   'rounded-82'?: boolean;
+  'rounded-left-82'?: boolean;
+  'rounded-right-82'?: boolean;
   'mx-82'?: boolean;
   'px-82'?: boolean;
   'py-82'?: boolean;
@@ -5811,6 +6479,8 @@ export type setupSizeTypes = {
   'top-82'?: boolean;
   'bottom-82'?: boolean;
   'rounded-83'?: boolean;
+  'rounded-left-83'?: boolean;
+  'rounded-right-83'?: boolean;
   'mx-83'?: boolean;
   'px-83'?: boolean;
   'py-83'?: boolean;
@@ -5831,6 +6501,8 @@ export type setupSizeTypes = {
   'top-83'?: boolean;
   'bottom-83'?: boolean;
   'rounded-84'?: boolean;
+  'rounded-left-84'?: boolean;
+  'rounded-right-84'?: boolean;
   'mx-84'?: boolean;
   'px-84'?: boolean;
   'py-84'?: boolean;
@@ -5851,6 +6523,8 @@ export type setupSizeTypes = {
   'top-84'?: boolean;
   'bottom-84'?: boolean;
   'rounded-85'?: boolean;
+  'rounded-left-85'?: boolean;
+  'rounded-right-85'?: boolean;
   'mx-85'?: boolean;
   'px-85'?: boolean;
   'py-85'?: boolean;
@@ -5871,6 +6545,8 @@ export type setupSizeTypes = {
   'top-85'?: boolean;
   'bottom-85'?: boolean;
   'rounded-86'?: boolean;
+  'rounded-left-86'?: boolean;
+  'rounded-right-86'?: boolean;
   'mx-86'?: boolean;
   'px-86'?: boolean;
   'py-86'?: boolean;
@@ -5891,6 +6567,8 @@ export type setupSizeTypes = {
   'top-86'?: boolean;
   'bottom-86'?: boolean;
   'rounded-87'?: boolean;
+  'rounded-left-87'?: boolean;
+  'rounded-right-87'?: boolean;
   'mx-87'?: boolean;
   'px-87'?: boolean;
   'py-87'?: boolean;
@@ -5911,6 +6589,8 @@ export type setupSizeTypes = {
   'top-87'?: boolean;
   'bottom-87'?: boolean;
   'rounded-88'?: boolean;
+  'rounded-left-88'?: boolean;
+  'rounded-right-88'?: boolean;
   'mx-88'?: boolean;
   'px-88'?: boolean;
   'py-88'?: boolean;
@@ -5931,6 +6611,8 @@ export type setupSizeTypes = {
   'top-88'?: boolean;
   'bottom-88'?: boolean;
   'rounded-89'?: boolean;
+  'rounded-left-89'?: boolean;
+  'rounded-right-89'?: boolean;
   'mx-89'?: boolean;
   'px-89'?: boolean;
   'py-89'?: boolean;
@@ -5951,6 +6633,8 @@ export type setupSizeTypes = {
   'top-89'?: boolean;
   'bottom-89'?: boolean;
   'rounded-90'?: boolean;
+  'rounded-left-90'?: boolean;
+  'rounded-right-90'?: boolean;
   'mx-90'?: boolean;
   'px-90'?: boolean;
   'py-90'?: boolean;
@@ -5971,6 +6655,8 @@ export type setupSizeTypes = {
   'top-90'?: boolean;
   'bottom-90'?: boolean;
   'rounded-91'?: boolean;
+  'rounded-left-91'?: boolean;
+  'rounded-right-91'?: boolean;
   'mx-91'?: boolean;
   'px-91'?: boolean;
   'py-91'?: boolean;
@@ -5991,6 +6677,8 @@ export type setupSizeTypes = {
   'top-91'?: boolean;
   'bottom-91'?: boolean;
   'rounded-92'?: boolean;
+  'rounded-left-92'?: boolean;
+  'rounded-right-92'?: boolean;
   'mx-92'?: boolean;
   'px-92'?: boolean;
   'py-92'?: boolean;
@@ -6011,6 +6699,8 @@ export type setupSizeTypes = {
   'top-92'?: boolean;
   'bottom-92'?: boolean;
   'rounded-93'?: boolean;
+  'rounded-left-93'?: boolean;
+  'rounded-right-93'?: boolean;
   'mx-93'?: boolean;
   'px-93'?: boolean;
   'py-93'?: boolean;
@@ -6031,6 +6721,8 @@ export type setupSizeTypes = {
   'top-93'?: boolean;
   'bottom-93'?: boolean;
   'rounded-94'?: boolean;
+  'rounded-left-94'?: boolean;
+  'rounded-right-94'?: boolean;
   'mx-94'?: boolean;
   'px-94'?: boolean;
   'py-94'?: boolean;
@@ -6051,6 +6743,8 @@ export type setupSizeTypes = {
   'top-94'?: boolean;
   'bottom-94'?: boolean;
   'rounded-95'?: boolean;
+  'rounded-left-95'?: boolean;
+  'rounded-right-95'?: boolean;
   'mx-95'?: boolean;
   'px-95'?: boolean;
   'py-95'?: boolean;
@@ -6071,6 +6765,8 @@ export type setupSizeTypes = {
   'top-95'?: boolean;
   'bottom-95'?: boolean;
   'rounded-96'?: boolean;
+  'rounded-left-96'?: boolean;
+  'rounded-right-96'?: boolean;
   'mx-96'?: boolean;
   'px-96'?: boolean;
   'py-96'?: boolean;
@@ -6091,6 +6787,8 @@ export type setupSizeTypes = {
   'top-96'?: boolean;
   'bottom-96'?: boolean;
   'rounded-97'?: boolean;
+  'rounded-left-97'?: boolean;
+  'rounded-right-97'?: boolean;
   'mx-97'?: boolean;
   'px-97'?: boolean;
   'py-97'?: boolean;
@@ -6111,6 +6809,8 @@ export type setupSizeTypes = {
   'top-97'?: boolean;
   'bottom-97'?: boolean;
   'rounded-98'?: boolean;
+  'rounded-left-98'?: boolean;
+  'rounded-right-98'?: boolean;
   'mx-98'?: boolean;
   'px-98'?: boolean;
   'py-98'?: boolean;
@@ -6131,6 +6831,8 @@ export type setupSizeTypes = {
   'top-98'?: boolean;
   'bottom-98'?: boolean;
   'rounded-99'?: boolean;
+  'rounded-left-99'?: boolean;
+  'rounded-right-99'?: boolean;
   'mx-99'?: boolean;
   'px-99'?: boolean;
   'py-99'?: boolean;
@@ -6151,6 +6853,8 @@ export type setupSizeTypes = {
   'top-99'?: boolean;
   'bottom-99'?: boolean;
   'rounded-100'?: boolean;
+  'rounded-left-100'?: boolean;
+  'rounded-right-100'?: boolean;
   'mx-100'?: boolean;
   'px-100'?: boolean;
   'py-100'?: boolean;
@@ -6171,6 +6875,8 @@ export type setupSizeTypes = {
   'top-100'?: boolean;
   'bottom-100'?: boolean;
   'rounded-101'?: boolean;
+  'rounded-left-101'?: boolean;
+  'rounded-right-101'?: boolean;
   'mx-101'?: boolean;
   'px-101'?: boolean;
   'py-101'?: boolean;
@@ -6191,6 +6897,8 @@ export type setupSizeTypes = {
   'top-101'?: boolean;
   'bottom-101'?: boolean;
   'rounded-102'?: boolean;
+  'rounded-left-102'?: boolean;
+  'rounded-right-102'?: boolean;
   'mx-102'?: boolean;
   'px-102'?: boolean;
   'py-102'?: boolean;
@@ -6211,6 +6919,8 @@ export type setupSizeTypes = {
   'top-102'?: boolean;
   'bottom-102'?: boolean;
   'rounded-103'?: boolean;
+  'rounded-left-103'?: boolean;
+  'rounded-right-103'?: boolean;
   'mx-103'?: boolean;
   'px-103'?: boolean;
   'py-103'?: boolean;
@@ -6231,6 +6941,8 @@ export type setupSizeTypes = {
   'top-103'?: boolean;
   'bottom-103'?: boolean;
   'rounded-104'?: boolean;
+  'rounded-left-104'?: boolean;
+  'rounded-right-104'?: boolean;
   'mx-104'?: boolean;
   'px-104'?: boolean;
   'py-104'?: boolean;
@@ -6251,6 +6963,8 @@ export type setupSizeTypes = {
   'top-104'?: boolean;
   'bottom-104'?: boolean;
   'rounded-105'?: boolean;
+  'rounded-left-105'?: boolean;
+  'rounded-right-105'?: boolean;
   'mx-105'?: boolean;
   'px-105'?: boolean;
   'py-105'?: boolean;
@@ -6271,6 +6985,8 @@ export type setupSizeTypes = {
   'top-105'?: boolean;
   'bottom-105'?: boolean;
   'rounded-106'?: boolean;
+  'rounded-left-106'?: boolean;
+  'rounded-right-106'?: boolean;
   'mx-106'?: boolean;
   'px-106'?: boolean;
   'py-106'?: boolean;
@@ -6291,6 +7007,8 @@ export type setupSizeTypes = {
   'top-106'?: boolean;
   'bottom-106'?: boolean;
   'rounded-107'?: boolean;
+  'rounded-left-107'?: boolean;
+  'rounded-right-107'?: boolean;
   'mx-107'?: boolean;
   'px-107'?: boolean;
   'py-107'?: boolean;
@@ -6311,6 +7029,8 @@ export type setupSizeTypes = {
   'top-107'?: boolean;
   'bottom-107'?: boolean;
   'rounded-108'?: boolean;
+  'rounded-left-108'?: boolean;
+  'rounded-right-108'?: boolean;
   'mx-108'?: boolean;
   'px-108'?: boolean;
   'py-108'?: boolean;
@@ -6331,6 +7051,8 @@ export type setupSizeTypes = {
   'top-108'?: boolean;
   'bottom-108'?: boolean;
   'rounded-109'?: boolean;
+  'rounded-left-109'?: boolean;
+  'rounded-right-109'?: boolean;
   'mx-109'?: boolean;
   'px-109'?: boolean;
   'py-109'?: boolean;
@@ -6351,6 +7073,8 @@ export type setupSizeTypes = {
   'top-109'?: boolean;
   'bottom-109'?: boolean;
   'rounded-110'?: boolean;
+  'rounded-left-110'?: boolean;
+  'rounded-right-110'?: boolean;
   'mx-110'?: boolean;
   'px-110'?: boolean;
   'py-110'?: boolean;
@@ -6371,6 +7095,8 @@ export type setupSizeTypes = {
   'top-110'?: boolean;
   'bottom-110'?: boolean;
   'rounded-111'?: boolean;
+  'rounded-left-111'?: boolean;
+  'rounded-right-111'?: boolean;
   'mx-111'?: boolean;
   'px-111'?: boolean;
   'py-111'?: boolean;
@@ -6391,6 +7117,8 @@ export type setupSizeTypes = {
   'top-111'?: boolean;
   'bottom-111'?: boolean;
   'rounded-112'?: boolean;
+  'rounded-left-112'?: boolean;
+  'rounded-right-112'?: boolean;
   'mx-112'?: boolean;
   'px-112'?: boolean;
   'py-112'?: boolean;
@@ -6411,6 +7139,8 @@ export type setupSizeTypes = {
   'top-112'?: boolean;
   'bottom-112'?: boolean;
   'rounded-113'?: boolean;
+  'rounded-left-113'?: boolean;
+  'rounded-right-113'?: boolean;
   'mx-113'?: boolean;
   'px-113'?: boolean;
   'py-113'?: boolean;
@@ -6431,6 +7161,8 @@ export type setupSizeTypes = {
   'top-113'?: boolean;
   'bottom-113'?: boolean;
   'rounded-114'?: boolean;
+  'rounded-left-114'?: boolean;
+  'rounded-right-114'?: boolean;
   'mx-114'?: boolean;
   'px-114'?: boolean;
   'py-114'?: boolean;
@@ -6451,6 +7183,8 @@ export type setupSizeTypes = {
   'top-114'?: boolean;
   'bottom-114'?: boolean;
   'rounded-115'?: boolean;
+  'rounded-left-115'?: boolean;
+  'rounded-right-115'?: boolean;
   'mx-115'?: boolean;
   'px-115'?: boolean;
   'py-115'?: boolean;
@@ -6471,6 +7205,8 @@ export type setupSizeTypes = {
   'top-115'?: boolean;
   'bottom-115'?: boolean;
   'rounded-116'?: boolean;
+  'rounded-left-116'?: boolean;
+  'rounded-right-116'?: boolean;
   'mx-116'?: boolean;
   'px-116'?: boolean;
   'py-116'?: boolean;
@@ -6491,6 +7227,8 @@ export type setupSizeTypes = {
   'top-116'?: boolean;
   'bottom-116'?: boolean;
   'rounded-117'?: boolean;
+  'rounded-left-117'?: boolean;
+  'rounded-right-117'?: boolean;
   'mx-117'?: boolean;
   'px-117'?: boolean;
   'py-117'?: boolean;
@@ -6511,6 +7249,8 @@ export type setupSizeTypes = {
   'top-117'?: boolean;
   'bottom-117'?: boolean;
   'rounded-118'?: boolean;
+  'rounded-left-118'?: boolean;
+  'rounded-right-118'?: boolean;
   'mx-118'?: boolean;
   'px-118'?: boolean;
   'py-118'?: boolean;
@@ -6531,6 +7271,8 @@ export type setupSizeTypes = {
   'top-118'?: boolean;
   'bottom-118'?: boolean;
   'rounded-119'?: boolean;
+  'rounded-left-119'?: boolean;
+  'rounded-right-119'?: boolean;
   'mx-119'?: boolean;
   'px-119'?: boolean;
   'py-119'?: boolean;
@@ -6551,6 +7293,8 @@ export type setupSizeTypes = {
   'top-119'?: boolean;
   'bottom-119'?: boolean;
   'rounded-120'?: boolean;
+  'rounded-left-120'?: boolean;
+  'rounded-right-120'?: boolean;
   'mx-120'?: boolean;
   'px-120'?: boolean;
   'py-120'?: boolean;
@@ -6571,6 +7315,8 @@ export type setupSizeTypes = {
   'top-120'?: boolean;
   'bottom-120'?: boolean;
   'rounded-121'?: boolean;
+  'rounded-left-121'?: boolean;
+  'rounded-right-121'?: boolean;
   'mx-121'?: boolean;
   'px-121'?: boolean;
   'py-121'?: boolean;
@@ -6591,6 +7337,8 @@ export type setupSizeTypes = {
   'top-121'?: boolean;
   'bottom-121'?: boolean;
   'rounded-122'?: boolean;
+  'rounded-left-122'?: boolean;
+  'rounded-right-122'?: boolean;
   'mx-122'?: boolean;
   'px-122'?: boolean;
   'py-122'?: boolean;
@@ -6611,6 +7359,8 @@ export type setupSizeTypes = {
   'top-122'?: boolean;
   'bottom-122'?: boolean;
   'rounded-123'?: boolean;
+  'rounded-left-123'?: boolean;
+  'rounded-right-123'?: boolean;
   'mx-123'?: boolean;
   'px-123'?: boolean;
   'py-123'?: boolean;
@@ -6631,6 +7381,8 @@ export type setupSizeTypes = {
   'top-123'?: boolean;
   'bottom-123'?: boolean;
   'rounded-124'?: boolean;
+  'rounded-left-124'?: boolean;
+  'rounded-right-124'?: boolean;
   'mx-124'?: boolean;
   'px-124'?: boolean;
   'py-124'?: boolean;
@@ -6651,6 +7403,8 @@ export type setupSizeTypes = {
   'top-124'?: boolean;
   'bottom-124'?: boolean;
   'rounded-125'?: boolean;
+  'rounded-left-125'?: boolean;
+  'rounded-right-125'?: boolean;
   'mx-125'?: boolean;
   'px-125'?: boolean;
   'py-125'?: boolean;
@@ -6671,6 +7425,8 @@ export type setupSizeTypes = {
   'top-125'?: boolean;
   'bottom-125'?: boolean;
   'rounded-126'?: boolean;
+  'rounded-left-126'?: boolean;
+  'rounded-right-126'?: boolean;
   'mx-126'?: boolean;
   'px-126'?: boolean;
   'py-126'?: boolean;
@@ -6691,6 +7447,8 @@ export type setupSizeTypes = {
   'top-126'?: boolean;
   'bottom-126'?: boolean;
   'rounded-127'?: boolean;
+  'rounded-left-127'?: boolean;
+  'rounded-right-127'?: boolean;
   'mx-127'?: boolean;
   'px-127'?: boolean;
   'py-127'?: boolean;
@@ -6711,6 +7469,8 @@ export type setupSizeTypes = {
   'top-127'?: boolean;
   'bottom-127'?: boolean;
   'rounded-128'?: boolean;
+  'rounded-left-128'?: boolean;
+  'rounded-right-128'?: boolean;
   'mx-128'?: boolean;
   'px-128'?: boolean;
   'py-128'?: boolean;
@@ -6731,6 +7491,8 @@ export type setupSizeTypes = {
   'top-128'?: boolean;
   'bottom-128'?: boolean;
   'rounded-129'?: boolean;
+  'rounded-left-129'?: boolean;
+  'rounded-right-129'?: boolean;
   'mx-129'?: boolean;
   'px-129'?: boolean;
   'py-129'?: boolean;
@@ -6751,6 +7513,8 @@ export type setupSizeTypes = {
   'top-129'?: boolean;
   'bottom-129'?: boolean;
   'rounded-130'?: boolean;
+  'rounded-left-130'?: boolean;
+  'rounded-right-130'?: boolean;
   'mx-130'?: boolean;
   'px-130'?: boolean;
   'py-130'?: boolean;
@@ -6771,6 +7535,8 @@ export type setupSizeTypes = {
   'top-130'?: boolean;
   'bottom-130'?: boolean;
   'rounded-131'?: boolean;
+  'rounded-left-131'?: boolean;
+  'rounded-right-131'?: boolean;
   'mx-131'?: boolean;
   'px-131'?: boolean;
   'py-131'?: boolean;
@@ -6791,6 +7557,8 @@ export type setupSizeTypes = {
   'top-131'?: boolean;
   'bottom-131'?: boolean;
   'rounded-132'?: boolean;
+  'rounded-left-132'?: boolean;
+  'rounded-right-132'?: boolean;
   'mx-132'?: boolean;
   'px-132'?: boolean;
   'py-132'?: boolean;
@@ -6811,6 +7579,8 @@ export type setupSizeTypes = {
   'top-132'?: boolean;
   'bottom-132'?: boolean;
   'rounded-133'?: boolean;
+  'rounded-left-133'?: boolean;
+  'rounded-right-133'?: boolean;
   'mx-133'?: boolean;
   'px-133'?: boolean;
   'py-133'?: boolean;
@@ -6831,6 +7601,8 @@ export type setupSizeTypes = {
   'top-133'?: boolean;
   'bottom-133'?: boolean;
   'rounded-134'?: boolean;
+  'rounded-left-134'?: boolean;
+  'rounded-right-134'?: boolean;
   'mx-134'?: boolean;
   'px-134'?: boolean;
   'py-134'?: boolean;
@@ -6851,6 +7623,8 @@ export type setupSizeTypes = {
   'top-134'?: boolean;
   'bottom-134'?: boolean;
   'rounded-135'?: boolean;
+  'rounded-left-135'?: boolean;
+  'rounded-right-135'?: boolean;
   'mx-135'?: boolean;
   'px-135'?: boolean;
   'py-135'?: boolean;
@@ -6871,6 +7645,8 @@ export type setupSizeTypes = {
   'top-135'?: boolean;
   'bottom-135'?: boolean;
   'rounded-136'?: boolean;
+  'rounded-left-136'?: boolean;
+  'rounded-right-136'?: boolean;
   'mx-136'?: boolean;
   'px-136'?: boolean;
   'py-136'?: boolean;
@@ -6891,6 +7667,8 @@ export type setupSizeTypes = {
   'top-136'?: boolean;
   'bottom-136'?: boolean;
   'rounded-137'?: boolean;
+  'rounded-left-137'?: boolean;
+  'rounded-right-137'?: boolean;
   'mx-137'?: boolean;
   'px-137'?: boolean;
   'py-137'?: boolean;
@@ -6911,6 +7689,8 @@ export type setupSizeTypes = {
   'top-137'?: boolean;
   'bottom-137'?: boolean;
   'rounded-138'?: boolean;
+  'rounded-left-138'?: boolean;
+  'rounded-right-138'?: boolean;
   'mx-138'?: boolean;
   'px-138'?: boolean;
   'py-138'?: boolean;
@@ -6931,6 +7711,8 @@ export type setupSizeTypes = {
   'top-138'?: boolean;
   'bottom-138'?: boolean;
   'rounded-139'?: boolean;
+  'rounded-left-139'?: boolean;
+  'rounded-right-139'?: boolean;
   'mx-139'?: boolean;
   'px-139'?: boolean;
   'py-139'?: boolean;
@@ -6951,6 +7733,8 @@ export type setupSizeTypes = {
   'top-139'?: boolean;
   'bottom-139'?: boolean;
   'rounded-140'?: boolean;
+  'rounded-left-140'?: boolean;
+  'rounded-right-140'?: boolean;
   'mx-140'?: boolean;
   'px-140'?: boolean;
   'py-140'?: boolean;
@@ -6971,6 +7755,8 @@ export type setupSizeTypes = {
   'top-140'?: boolean;
   'bottom-140'?: boolean;
   'rounded-141'?: boolean;
+  'rounded-left-141'?: boolean;
+  'rounded-right-141'?: boolean;
   'mx-141'?: boolean;
   'px-141'?: boolean;
   'py-141'?: boolean;
@@ -6991,6 +7777,8 @@ export type setupSizeTypes = {
   'top-141'?: boolean;
   'bottom-141'?: boolean;
   'rounded-142'?: boolean;
+  'rounded-left-142'?: boolean;
+  'rounded-right-142'?: boolean;
   'mx-142'?: boolean;
   'px-142'?: boolean;
   'py-142'?: boolean;
@@ -7011,6 +7799,8 @@ export type setupSizeTypes = {
   'top-142'?: boolean;
   'bottom-142'?: boolean;
   'rounded-143'?: boolean;
+  'rounded-left-143'?: boolean;
+  'rounded-right-143'?: boolean;
   'mx-143'?: boolean;
   'px-143'?: boolean;
   'py-143'?: boolean;
@@ -7031,6 +7821,8 @@ export type setupSizeTypes = {
   'top-143'?: boolean;
   'bottom-143'?: boolean;
   'rounded-144'?: boolean;
+  'rounded-left-144'?: boolean;
+  'rounded-right-144'?: boolean;
   'mx-144'?: boolean;
   'px-144'?: boolean;
   'py-144'?: boolean;
@@ -7051,6 +7843,8 @@ export type setupSizeTypes = {
   'top-144'?: boolean;
   'bottom-144'?: boolean;
   'rounded-145'?: boolean;
+  'rounded-left-145'?: boolean;
+  'rounded-right-145'?: boolean;
   'mx-145'?: boolean;
   'px-145'?: boolean;
   'py-145'?: boolean;
@@ -7071,6 +7865,8 @@ export type setupSizeTypes = {
   'top-145'?: boolean;
   'bottom-145'?: boolean;
   'rounded-146'?: boolean;
+  'rounded-left-146'?: boolean;
+  'rounded-right-146'?: boolean;
   'mx-146'?: boolean;
   'px-146'?: boolean;
   'py-146'?: boolean;
@@ -7091,6 +7887,8 @@ export type setupSizeTypes = {
   'top-146'?: boolean;
   'bottom-146'?: boolean;
   'rounded-147'?: boolean;
+  'rounded-left-147'?: boolean;
+  'rounded-right-147'?: boolean;
   'mx-147'?: boolean;
   'px-147'?: boolean;
   'py-147'?: boolean;
@@ -7111,6 +7909,8 @@ export type setupSizeTypes = {
   'top-147'?: boolean;
   'bottom-147'?: boolean;
   'rounded-148'?: boolean;
+  'rounded-left-148'?: boolean;
+  'rounded-right-148'?: boolean;
   'mx-148'?: boolean;
   'px-148'?: boolean;
   'py-148'?: boolean;
@@ -7131,6 +7931,8 @@ export type setupSizeTypes = {
   'top-148'?: boolean;
   'bottom-148'?: boolean;
   'rounded-149'?: boolean;
+  'rounded-left-149'?: boolean;
+  'rounded-right-149'?: boolean;
   'mx-149'?: boolean;
   'px-149'?: boolean;
   'py-149'?: boolean;
@@ -7151,6 +7953,8 @@ export type setupSizeTypes = {
   'top-149'?: boolean;
   'bottom-149'?: boolean;
   'rounded-150'?: boolean;
+  'rounded-left-150'?: boolean;
+  'rounded-right-150'?: boolean;
   'mx-150'?: boolean;
   'px-150'?: boolean;
   'py-150'?: boolean;
@@ -7171,6 +7975,8 @@ export type setupSizeTypes = {
   'top-150'?: boolean;
   'bottom-150'?: boolean;
   'rounded-151'?: boolean;
+  'rounded-left-151'?: boolean;
+  'rounded-right-151'?: boolean;
   'mx-151'?: boolean;
   'px-151'?: boolean;
   'py-151'?: boolean;
@@ -7191,6 +7997,8 @@ export type setupSizeTypes = {
   'top-151'?: boolean;
   'bottom-151'?: boolean;
   'rounded-152'?: boolean;
+  'rounded-left-152'?: boolean;
+  'rounded-right-152'?: boolean;
   'mx-152'?: boolean;
   'px-152'?: boolean;
   'py-152'?: boolean;
@@ -7211,6 +8019,8 @@ export type setupSizeTypes = {
   'top-152'?: boolean;
   'bottom-152'?: boolean;
   'rounded-153'?: boolean;
+  'rounded-left-153'?: boolean;
+  'rounded-right-153'?: boolean;
   'mx-153'?: boolean;
   'px-153'?: boolean;
   'py-153'?: boolean;
@@ -7231,6 +8041,8 @@ export type setupSizeTypes = {
   'top-153'?: boolean;
   'bottom-153'?: boolean;
   'rounded-154'?: boolean;
+  'rounded-left-154'?: boolean;
+  'rounded-right-154'?: boolean;
   'mx-154'?: boolean;
   'px-154'?: boolean;
   'py-154'?: boolean;
@@ -7251,6 +8063,8 @@ export type setupSizeTypes = {
   'top-154'?: boolean;
   'bottom-154'?: boolean;
   'rounded-155'?: boolean;
+  'rounded-left-155'?: boolean;
+  'rounded-right-155'?: boolean;
   'mx-155'?: boolean;
   'px-155'?: boolean;
   'py-155'?: boolean;
@@ -7271,6 +8085,8 @@ export type setupSizeTypes = {
   'top-155'?: boolean;
   'bottom-155'?: boolean;
   'rounded-156'?: boolean;
+  'rounded-left-156'?: boolean;
+  'rounded-right-156'?: boolean;
   'mx-156'?: boolean;
   'px-156'?: boolean;
   'py-156'?: boolean;
@@ -7291,6 +8107,8 @@ export type setupSizeTypes = {
   'top-156'?: boolean;
   'bottom-156'?: boolean;
   'rounded-157'?: boolean;
+  'rounded-left-157'?: boolean;
+  'rounded-right-157'?: boolean;
   'mx-157'?: boolean;
   'px-157'?: boolean;
   'py-157'?: boolean;
@@ -7311,6 +8129,8 @@ export type setupSizeTypes = {
   'top-157'?: boolean;
   'bottom-157'?: boolean;
   'rounded-158'?: boolean;
+  'rounded-left-158'?: boolean;
+  'rounded-right-158'?: boolean;
   'mx-158'?: boolean;
   'px-158'?: boolean;
   'py-158'?: boolean;
@@ -7331,6 +8151,8 @@ export type setupSizeTypes = {
   'top-158'?: boolean;
   'bottom-158'?: boolean;
   'rounded-159'?: boolean;
+  'rounded-left-159'?: boolean;
+  'rounded-right-159'?: boolean;
   'mx-159'?: boolean;
   'px-159'?: boolean;
   'py-159'?: boolean;
@@ -7351,6 +8173,8 @@ export type setupSizeTypes = {
   'top-159'?: boolean;
   'bottom-159'?: boolean;
   'rounded-160'?: boolean;
+  'rounded-left-160'?: boolean;
+  'rounded-right-160'?: boolean;
   'mx-160'?: boolean;
   'px-160'?: boolean;
   'py-160'?: boolean;
@@ -7371,6 +8195,8 @@ export type setupSizeTypes = {
   'top-160'?: boolean;
   'bottom-160'?: boolean;
   'rounded-161'?: boolean;
+  'rounded-left-161'?: boolean;
+  'rounded-right-161'?: boolean;
   'mx-161'?: boolean;
   'px-161'?: boolean;
   'py-161'?: boolean;
@@ -7391,6 +8217,8 @@ export type setupSizeTypes = {
   'top-161'?: boolean;
   'bottom-161'?: boolean;
   'rounded-162'?: boolean;
+  'rounded-left-162'?: boolean;
+  'rounded-right-162'?: boolean;
   'mx-162'?: boolean;
   'px-162'?: boolean;
   'py-162'?: boolean;
@@ -7411,6 +8239,8 @@ export type setupSizeTypes = {
   'top-162'?: boolean;
   'bottom-162'?: boolean;
   'rounded-163'?: boolean;
+  'rounded-left-163'?: boolean;
+  'rounded-right-163'?: boolean;
   'mx-163'?: boolean;
   'px-163'?: boolean;
   'py-163'?: boolean;
@@ -7431,6 +8261,8 @@ export type setupSizeTypes = {
   'top-163'?: boolean;
   'bottom-163'?: boolean;
   'rounded-164'?: boolean;
+  'rounded-left-164'?: boolean;
+  'rounded-right-164'?: boolean;
   'mx-164'?: boolean;
   'px-164'?: boolean;
   'py-164'?: boolean;
@@ -7451,6 +8283,8 @@ export type setupSizeTypes = {
   'top-164'?: boolean;
   'bottom-164'?: boolean;
   'rounded-165'?: boolean;
+  'rounded-left-165'?: boolean;
+  'rounded-right-165'?: boolean;
   'mx-165'?: boolean;
   'px-165'?: boolean;
   'py-165'?: boolean;
@@ -7471,6 +8305,8 @@ export type setupSizeTypes = {
   'top-165'?: boolean;
   'bottom-165'?: boolean;
   'rounded-166'?: boolean;
+  'rounded-left-166'?: boolean;
+  'rounded-right-166'?: boolean;
   'mx-166'?: boolean;
   'px-166'?: boolean;
   'py-166'?: boolean;
@@ -7491,6 +8327,8 @@ export type setupSizeTypes = {
   'top-166'?: boolean;
   'bottom-166'?: boolean;
   'rounded-167'?: boolean;
+  'rounded-left-167'?: boolean;
+  'rounded-right-167'?: boolean;
   'mx-167'?: boolean;
   'px-167'?: boolean;
   'py-167'?: boolean;
@@ -7511,6 +8349,8 @@ export type setupSizeTypes = {
   'top-167'?: boolean;
   'bottom-167'?: boolean;
   'rounded-168'?: boolean;
+  'rounded-left-168'?: boolean;
+  'rounded-right-168'?: boolean;
   'mx-168'?: boolean;
   'px-168'?: boolean;
   'py-168'?: boolean;
@@ -7531,6 +8371,8 @@ export type setupSizeTypes = {
   'top-168'?: boolean;
   'bottom-168'?: boolean;
   'rounded-169'?: boolean;
+  'rounded-left-169'?: boolean;
+  'rounded-right-169'?: boolean;
   'mx-169'?: boolean;
   'px-169'?: boolean;
   'py-169'?: boolean;
@@ -7551,6 +8393,8 @@ export type setupSizeTypes = {
   'top-169'?: boolean;
   'bottom-169'?: boolean;
   'rounded-170'?: boolean;
+  'rounded-left-170'?: boolean;
+  'rounded-right-170'?: boolean;
   'mx-170'?: boolean;
   'px-170'?: boolean;
   'py-170'?: boolean;
@@ -7571,6 +8415,8 @@ export type setupSizeTypes = {
   'top-170'?: boolean;
   'bottom-170'?: boolean;
   'rounded-171'?: boolean;
+  'rounded-left-171'?: boolean;
+  'rounded-right-171'?: boolean;
   'mx-171'?: boolean;
   'px-171'?: boolean;
   'py-171'?: boolean;
@@ -7591,6 +8437,8 @@ export type setupSizeTypes = {
   'top-171'?: boolean;
   'bottom-171'?: boolean;
   'rounded-172'?: boolean;
+  'rounded-left-172'?: boolean;
+  'rounded-right-172'?: boolean;
   'mx-172'?: boolean;
   'px-172'?: boolean;
   'py-172'?: boolean;
@@ -7611,6 +8459,8 @@ export type setupSizeTypes = {
   'top-172'?: boolean;
   'bottom-172'?: boolean;
   'rounded-173'?: boolean;
+  'rounded-left-173'?: boolean;
+  'rounded-right-173'?: boolean;
   'mx-173'?: boolean;
   'px-173'?: boolean;
   'py-173'?: boolean;
@@ -7631,6 +8481,8 @@ export type setupSizeTypes = {
   'top-173'?: boolean;
   'bottom-173'?: boolean;
   'rounded-174'?: boolean;
+  'rounded-left-174'?: boolean;
+  'rounded-right-174'?: boolean;
   'mx-174'?: boolean;
   'px-174'?: boolean;
   'py-174'?: boolean;
@@ -7651,6 +8503,8 @@ export type setupSizeTypes = {
   'top-174'?: boolean;
   'bottom-174'?: boolean;
   'rounded-175'?: boolean;
+  'rounded-left-175'?: boolean;
+  'rounded-right-175'?: boolean;
   'mx-175'?: boolean;
   'px-175'?: boolean;
   'py-175'?: boolean;
@@ -7671,6 +8525,8 @@ export type setupSizeTypes = {
   'top-175'?: boolean;
   'bottom-175'?: boolean;
   'rounded-176'?: boolean;
+  'rounded-left-176'?: boolean;
+  'rounded-right-176'?: boolean;
   'mx-176'?: boolean;
   'px-176'?: boolean;
   'py-176'?: boolean;
@@ -7691,6 +8547,8 @@ export type setupSizeTypes = {
   'top-176'?: boolean;
   'bottom-176'?: boolean;
   'rounded-177'?: boolean;
+  'rounded-left-177'?: boolean;
+  'rounded-right-177'?: boolean;
   'mx-177'?: boolean;
   'px-177'?: boolean;
   'py-177'?: boolean;
@@ -7711,6 +8569,8 @@ export type setupSizeTypes = {
   'top-177'?: boolean;
   'bottom-177'?: boolean;
   'rounded-178'?: boolean;
+  'rounded-left-178'?: boolean;
+  'rounded-right-178'?: boolean;
   'mx-178'?: boolean;
   'px-178'?: boolean;
   'py-178'?: boolean;
@@ -7731,6 +8591,8 @@ export type setupSizeTypes = {
   'top-178'?: boolean;
   'bottom-178'?: boolean;
   'rounded-179'?: boolean;
+  'rounded-left-179'?: boolean;
+  'rounded-right-179'?: boolean;
   'mx-179'?: boolean;
   'px-179'?: boolean;
   'py-179'?: boolean;
@@ -7751,6 +8613,8 @@ export type setupSizeTypes = {
   'top-179'?: boolean;
   'bottom-179'?: boolean;
   'rounded-180'?: boolean;
+  'rounded-left-180'?: boolean;
+  'rounded-right-180'?: boolean;
   'mx-180'?: boolean;
   'px-180'?: boolean;
   'py-180'?: boolean;
@@ -7771,6 +8635,8 @@ export type setupSizeTypes = {
   'top-180'?: boolean;
   'bottom-180'?: boolean;
   'rounded-181'?: boolean;
+  'rounded-left-181'?: boolean;
+  'rounded-right-181'?: boolean;
   'mx-181'?: boolean;
   'px-181'?: boolean;
   'py-181'?: boolean;
@@ -7791,6 +8657,8 @@ export type setupSizeTypes = {
   'top-181'?: boolean;
   'bottom-181'?: boolean;
   'rounded-182'?: boolean;
+  'rounded-left-182'?: boolean;
+  'rounded-right-182'?: boolean;
   'mx-182'?: boolean;
   'px-182'?: boolean;
   'py-182'?: boolean;
@@ -7811,6 +8679,8 @@ export type setupSizeTypes = {
   'top-182'?: boolean;
   'bottom-182'?: boolean;
   'rounded-183'?: boolean;
+  'rounded-left-183'?: boolean;
+  'rounded-right-183'?: boolean;
   'mx-183'?: boolean;
   'px-183'?: boolean;
   'py-183'?: boolean;
@@ -7831,6 +8701,8 @@ export type setupSizeTypes = {
   'top-183'?: boolean;
   'bottom-183'?: boolean;
   'rounded-184'?: boolean;
+  'rounded-left-184'?: boolean;
+  'rounded-right-184'?: boolean;
   'mx-184'?: boolean;
   'px-184'?: boolean;
   'py-184'?: boolean;
@@ -7851,6 +8723,8 @@ export type setupSizeTypes = {
   'top-184'?: boolean;
   'bottom-184'?: boolean;
   'rounded-185'?: boolean;
+  'rounded-left-185'?: boolean;
+  'rounded-right-185'?: boolean;
   'mx-185'?: boolean;
   'px-185'?: boolean;
   'py-185'?: boolean;
@@ -7871,6 +8745,8 @@ export type setupSizeTypes = {
   'top-185'?: boolean;
   'bottom-185'?: boolean;
   'rounded-186'?: boolean;
+  'rounded-left-186'?: boolean;
+  'rounded-right-186'?: boolean;
   'mx-186'?: boolean;
   'px-186'?: boolean;
   'py-186'?: boolean;
@@ -7891,6 +8767,8 @@ export type setupSizeTypes = {
   'top-186'?: boolean;
   'bottom-186'?: boolean;
   'rounded-187'?: boolean;
+  'rounded-left-187'?: boolean;
+  'rounded-right-187'?: boolean;
   'mx-187'?: boolean;
   'px-187'?: boolean;
   'py-187'?: boolean;
@@ -7911,6 +8789,8 @@ export type setupSizeTypes = {
   'top-187'?: boolean;
   'bottom-187'?: boolean;
   'rounded-188'?: boolean;
+  'rounded-left-188'?: boolean;
+  'rounded-right-188'?: boolean;
   'mx-188'?: boolean;
   'px-188'?: boolean;
   'py-188'?: boolean;
@@ -7931,6 +8811,8 @@ export type setupSizeTypes = {
   'top-188'?: boolean;
   'bottom-188'?: boolean;
   'rounded-189'?: boolean;
+  'rounded-left-189'?: boolean;
+  'rounded-right-189'?: boolean;
   'mx-189'?: boolean;
   'px-189'?: boolean;
   'py-189'?: boolean;
@@ -7951,6 +8833,8 @@ export type setupSizeTypes = {
   'top-189'?: boolean;
   'bottom-189'?: boolean;
   'rounded-190'?: boolean;
+  'rounded-left-190'?: boolean;
+  'rounded-right-190'?: boolean;
   'mx-190'?: boolean;
   'px-190'?: boolean;
   'py-190'?: boolean;
@@ -7971,6 +8855,8 @@ export type setupSizeTypes = {
   'top-190'?: boolean;
   'bottom-190'?: boolean;
   'rounded-191'?: boolean;
+  'rounded-left-191'?: boolean;
+  'rounded-right-191'?: boolean;
   'mx-191'?: boolean;
   'px-191'?: boolean;
   'py-191'?: boolean;
@@ -7991,6 +8877,8 @@ export type setupSizeTypes = {
   'top-191'?: boolean;
   'bottom-191'?: boolean;
   'rounded-192'?: boolean;
+  'rounded-left-192'?: boolean;
+  'rounded-right-192'?: boolean;
   'mx-192'?: boolean;
   'px-192'?: boolean;
   'py-192'?: boolean;
@@ -8011,6 +8899,8 @@ export type setupSizeTypes = {
   'top-192'?: boolean;
   'bottom-192'?: boolean;
   'rounded-193'?: boolean;
+  'rounded-left-193'?: boolean;
+  'rounded-right-193'?: boolean;
   'mx-193'?: boolean;
   'px-193'?: boolean;
   'py-193'?: boolean;
@@ -8031,6 +8921,8 @@ export type setupSizeTypes = {
   'top-193'?: boolean;
   'bottom-193'?: boolean;
   'rounded-194'?: boolean;
+  'rounded-left-194'?: boolean;
+  'rounded-right-194'?: boolean;
   'mx-194'?: boolean;
   'px-194'?: boolean;
   'py-194'?: boolean;
@@ -8051,6 +8943,8 @@ export type setupSizeTypes = {
   'top-194'?: boolean;
   'bottom-194'?: boolean;
   'rounded-195'?: boolean;
+  'rounded-left-195'?: boolean;
+  'rounded-right-195'?: boolean;
   'mx-195'?: boolean;
   'px-195'?: boolean;
   'py-195'?: boolean;
@@ -8071,6 +8965,8 @@ export type setupSizeTypes = {
   'top-195'?: boolean;
   'bottom-195'?: boolean;
   'rounded-196'?: boolean;
+  'rounded-left-196'?: boolean;
+  'rounded-right-196'?: boolean;
   'mx-196'?: boolean;
   'px-196'?: boolean;
   'py-196'?: boolean;
@@ -8091,6 +8987,8 @@ export type setupSizeTypes = {
   'top-196'?: boolean;
   'bottom-196'?: boolean;
   'rounded-197'?: boolean;
+  'rounded-left-197'?: boolean;
+  'rounded-right-197'?: boolean;
   'mx-197'?: boolean;
   'px-197'?: boolean;
   'py-197'?: boolean;
@@ -8111,6 +9009,8 @@ export type setupSizeTypes = {
   'top-197'?: boolean;
   'bottom-197'?: boolean;
   'rounded-198'?: boolean;
+  'rounded-left-198'?: boolean;
+  'rounded-right-198'?: boolean;
   'mx-198'?: boolean;
   'px-198'?: boolean;
   'py-198'?: boolean;
@@ -8131,6 +9031,8 @@ export type setupSizeTypes = {
   'top-198'?: boolean;
   'bottom-198'?: boolean;
   'rounded-199'?: boolean;
+  'rounded-left-199'?: boolean;
+  'rounded-right-199'?: boolean;
   'mx-199'?: boolean;
   'px-199'?: boolean;
   'py-199'?: boolean;

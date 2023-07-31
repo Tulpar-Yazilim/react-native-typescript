@@ -3,26 +3,27 @@ import React, {memo} from 'react';
 import {ViewStyle} from 'react-native/types';
 import Animated, {AnimatedStyleProp, useAnimatedStyle, withSpring} from 'react-native-reanimated';
 
+import {useTheme} from '@/hooks';
+
 import Block from '../Block';
 import Text from '../Text';
-
-import {useTheme} from '@/hooks';
 
 export type RadioButtonItem = {
   label: string;
   value: string | number;
 };
 
-type RadioButton = {
+type RadioButtonType = {
   item: RadioButtonItem;
   checked: boolean;
   setChecked: () => void;
 };
 
-function RadioButton({item, checked, setChecked}: RadioButton) {
+const RadioButton = ({item, checked, setChecked}: RadioButtonType) => {
   const theme = useTheme();
 
   const checkedStyle = useAnimatedStyle(() => {
+    'worklet';
     return {
       backgroundColor: theme.colors.radioButtonChecked,
       display: checked ? 'flex' : 'none',
@@ -49,6 +50,6 @@ function RadioButton({item, checked, setChecked}: RadioButton) {
       </Text>
     </Block>
   );
-}
+};
 
 export default memo(RadioButton);

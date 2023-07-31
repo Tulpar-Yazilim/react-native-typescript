@@ -12,26 +12,35 @@ Array.from({length: 200}).forEach((_, i) => {
   let value = i;
 
   if (value <= 9) {
-     createSizes['flex-' + i] = {flex: value};
-     createSizeTypes['flex-' + i] = `_boolean_`; 
+    createSizes['flex-' + i] = {flex: value};
+    createSizeTypes['flex-' + i] = `_boolean_`;
   }
- 
+
   if (value <= 12) {
-     createSizes['col-' + i] = {width: (100 / 12) * value + '%'};
-     createSizeTypes['col-' + i] = `_boolean_`;
+    createSizes['col-' + i] = {width: (100 / 12) * value + '%'};
+    createSizeTypes['col-' + i] = `_boolean_`;
   }
 
   if (value <= 50) {
-     createSizes['fs-' + i] = {fontSize: `_fontPixel(${value})_`};
-     createSizeTypes['fs-' + i] = `_boolean_`;
+    createSizes['fs-' + i] = {fontSize: `_fontPixel(${value})_`};
+    createSizeTypes['fs-' + i] = `_boolean_`;
+
+    createSizes['gap-' + i] = {gap: value};
+    createSizeTypes['gap-' + i] = `_boolean_`;
   }
-  
+
   createSizes['rounded-' + i] = {borderRadius: value};
   createSizeTypes['rounded-' + i] = `_boolean_`;
 
+  createSizes['rounded-left-' + i] = {borderTopLeftRadius: value, borderBottomLeftRadius: value};
+  createSizeTypes['rounded-left-' + i] = `_boolean_`;
+
+  createSizes['rounded-right-' + i] = {borderTopRightRadius: value, borderBottomRightRadius: value};
+  createSizeTypes['rounded-right-' + i] = `_boolean_`;
+
   createSizes['mx-' + i] = {marginHorizontal: `_widthPixel(${value})_`};
   createSizeTypes['mx-' + i] = `_boolean_`;
- 
+
   createSizes['px-' + i] = {paddingHorizontal: `_widthPixel(${value})_`};
   createSizeTypes['px-' + i] = `_boolean_`;
 
@@ -73,7 +82,7 @@ Array.from({length: 200}).forEach((_, i) => {
 
   createSizes['w-' + i] = {width: `_widthPixel(${value})_`};
   createSizeTypes['w-' + i] = `_boolean_`;
- 
+
   createSizes['right-' + i] = {right: `_widthPixel(${value})_`};
   createSizeTypes['right-' + i] = `_boolean_`;
 
@@ -85,17 +94,14 @@ Array.from({length: 200}).forEach((_, i) => {
 
   createSizes['bottom-' + i] = {bottom: `_heightPixel(${value})_`};
   createSizeTypes['bottom-' + i] = `_boolean_`;
- 
 });
 
 if (createSizes) {
   const writeContent = `
     import {fontPixel,heightPixel,widthPixel} from "../size-helper"
     export const setupSizes = ${JSON.stringify(createSizes)}
-    export type setupSizeTypes = ${JSON.stringify(createSizeTypes)}`
-    ;
-
-  const temp = writeContent.replace(/"_/g, '').replace(/_"/g, '').replace(/:/g, '?:'); 
+    export type setupSizeTypes = ${JSON.stringify(createSizeTypes)}`;
+  const temp = writeContent.replace(/"_/g, '').replace(/_"/g, '').replace(/:/g, '?:');
   fs.writeFile(SIZE_PATH, temp, err => {
     if (err) {
       console.log('error: ', err);

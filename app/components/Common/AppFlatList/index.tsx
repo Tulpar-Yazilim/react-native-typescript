@@ -1,9 +1,9 @@
 import React, {ReactNode, RefObject, useState} from 'react';
 import {ActivityIndicator, FlatListProps, FlatList as FList, ImageStyle, RefreshControl, ScrollView, TextStyle, View, ViewStyle} from 'react-native';
 
-import Block from '../Block';
-
 import {COLORS} from '@/theme';
+
+import Block from '../Block';
 
 interface IFListProps<T> extends FlatListProps<T> {
   data: ReadonlyArray<T>;
@@ -94,7 +94,7 @@ function FlatList<T>(props: IFListProps<T>) {
   ) : (
     <FList
       ref={reference}
-      data={data && data.length > 0 ? data : []}
+      data={data ?? []}
       renderItem={renderItem}
       ListFooterComponent={usePagination ? renderFooter : null}
       onEndReached={usePagination ? onEndReached : null}

@@ -1,8 +1,8 @@
-import {HomeStackNavigationProps} from './types';
-import routes from '../../Routes';
-
 import {FetchDataPage, FormPage, HomePage} from '@/screens';
 import {IScreen} from '@/utils';
+
+import {HomeStackNavigationProps} from './types';
+import routes from '../../Routes';
 
 const Screens = [
   {

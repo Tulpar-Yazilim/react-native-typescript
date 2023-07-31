@@ -1,10 +1,10 @@
+import {LoginPage, SplashScreen} from '@/screens';
+import {IScreen} from '@/utils';
+
 import {RootStackNavigationProps} from './types';
 import {BottomTabNavigation} from '../../bottom-tab/BottomTabNavigation';
 import {DrawerMenuNavigaiton} from '../../drawer/DrawerMenuNavigation';
 import Routes from '../../Routes';
-
-import {LoginPage, SplashScreen} from '@/screens';
-import {IScreen} from '@/utils';
 
 const Screens = [
   {

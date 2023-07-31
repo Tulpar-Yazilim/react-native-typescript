@@ -1,10 +1,10 @@
 import React, {JSXElementConstructor, ReactElement, ReactNode, useRef} from 'react';
 import {FlatList} from 'react-native';
 
+import {COLORS, window} from '@/theme';
+
 import {AppFlatList, Block, SegmentedControl} from '..';
 import AppScreen from '../AppScreen';
-
-import {COLORS, window} from '@/theme';
 
 interface SegmentProps {
   label: string;

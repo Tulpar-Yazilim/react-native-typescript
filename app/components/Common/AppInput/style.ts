@@ -6,7 +6,6 @@ const styles = StyleSheet.create({
   container: {
     borderRadius: 4,
     paddingHorizontal: 14,
-    marginVertical: 6,
   },
   input: {
     fontSize: 14,
@@ -16,10 +15,10 @@ const styles = StyleSheet.create({
     left: Platform.OS === 'android' ? 5 : 8,
   },
   errorInput: {
-    color: 'tomato',
+    color: COLORS.error,
   },
   errorContainer: {
-    borderColor: 'tomato',
+    borderColor: COLORS.error,
   },
 });
 
