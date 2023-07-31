@@ -4,6 +4,7 @@ import {Pressable} from 'react-native';
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
 
 import {Images} from '@/assets';
+import images from '@/assets/images';
 import {AppBottomSheet, AppButton, AppIcon, AppImage, AppScreen, AppSwitch, Block, Col, DateTimePicker, FloatingButton, Row, SegmentedControl, Text} from '@/components';
 import {useAppDispatch, useAppSelector, useDialog, useStyledTag} from '@/hooks';
 import {HomeStackNavigationPropsType, Routes} from '@/navigation';
@@ -79,7 +80,7 @@ const HomePage = () => {
           }}
         />
 
-        <Block center middle mb={20}>
+        <Block center middle mt-10 mb-10>
           <AppImage resizeMode="contain" url={Images.TulparLogo.light} width={200} height={60} />
         </Block>
 
