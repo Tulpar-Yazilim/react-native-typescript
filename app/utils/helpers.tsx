@@ -5,19 +5,18 @@ import MultipleImagePicker from '@baronha/react-native-multiple-image-picker';
 import notifee, {Notification, TimestampTrigger, TriggerType} from '@notifee/react-native';
 import {fetch} from '@react-native-community/netinfo';
 import {Buffer} from 'buffer';
-import * as md5Encrypt from 'md5';
+import md5Encrypt from 'md5';
 import {launchImageLibrary} from 'react-native-image-picker';
 import ImageResizer from 'react-native-image-resizer';
 import RenderHtml, {defaultSystemFonts, HTMLContentModel, HTMLElementModel} from 'react-native-render-html';
 import Toast from 'react-native-toast-message';
 
-import {LocalNotificationType, ToastType} from './infrastructure/enums';
-import {Coordinates, ToastParams} from './infrastructure/models';
-import {ImagePickerResultType, ImageResizeResultType, ImageType, LocalNotificationParams} from './infrastructure/types';
-import {Permission, PERMISSION_TYPE} from './permission';
-
 import {i18next} from '@/lang';
 import {FONTS as THEME_FONTS} from '@/theme';
+
+import {LocalNotificationType, ToastType} from './infrastructure/enums';
+import {Coordinates, ImagePickerResultType, ImageResizeResultType, ImageType, LocalNotificationParams, ToastParams} from './infrastructure/types';
+import {Permission, PERMISSION_TYPE} from './permission';
 
 const {width} = Dimensions.get('screen');
 const {t} = i18next;
@@ -71,7 +70,7 @@ const getIpAddress = async (): Promise<string> => {
 const getNetInfo = async () => await fetch();
 
 const md5 = (sourceText: string): string => {
-  return md5Encrypt.default(sourceText).toUpperCase();
+  return md5Encrypt(sourceText).toUpperCase();
 };
 
 const showToast = async (params: ToastParams) => {
@@ -79,7 +78,8 @@ const showToast = async (params: ToastParams) => {
     type: params.type,
     text1: params.title,
     text2: params.message,
-    visibilityTime: params.duration,
+    visibilityTime: params.duration ?? 5000,
+    position: params.position ?? 'top',
   });
 };
 
@@ -87,9 +87,9 @@ const openMap = (coordinates: Coordinates) => {
   const destination = coordinates.latitude + ',' + coordinates.longitude;
   let destionationUrl = '';
   if (Platform.OS === 'ios') {
-    destionationUrl = 'maps://?q=' + destination;
+    destionationUrl = `maps://?q=${destination}`;
   } else {
-    destionationUrl = 'geo:0,0?q=' + destination + '(' + coordinates.title + ')';
+    destionationUrl = `geo:0,0?q=${destination}${coordinates.title && '(' + coordinates.title + ')'}`;
   }
   Linking.openURL(destionationUrl);
 };
@@ -297,9 +297,7 @@ export {
   getIpAddress,
   getNetInfo,
   md5,
-  ToastParams,
   showToast,
-  Coordinates,
   openMap,
   openUrl,
   openPhone,

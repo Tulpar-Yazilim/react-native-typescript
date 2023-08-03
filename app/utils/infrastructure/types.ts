@@ -1,9 +1,11 @@
 /* eslint-disable @typescript-eslint/ban-types */
 import React, {FunctionComponent, ReactElement} from 'react';
 
-import {LocalNotificationType} from './enums';
+import {ToastPosition} from 'react-native-toast-message';
 
 import {SchemaInputType} from '@/components/Common/Form/types';
+
+import {LocalNotificationType, ToastType} from './enums';
 
 export type ScreenType = {
   title?: string;
@@ -13,6 +15,21 @@ export type ScreenType = {
   component?: ReactElement | FunctionComponent | React.FC;
   headerShown?: boolean;
   props?: never;
+};
+
+export type ToastParams = {
+  type: ToastType;
+  title: string;
+  message: string;
+  duration?: number;
+  position?: ToastPosition;
+};
+
+export type Coordinates = {
+  title?: string;
+  description?: string;
+  latitude: number;
+  longitude: number;
 };
 
 export type FormitDescription = {

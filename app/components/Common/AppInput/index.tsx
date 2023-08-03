@@ -18,7 +18,7 @@ import Block from '../Block';
 import Text from '../Text';
 
 const inputHeight = 50;
-const offsetHeight = inputHeight / 3.9;
+const offsetHeight = inputHeight / 3.3;
 
 interface AppInputProps extends TextInputProps {
   placeholder?: string;
