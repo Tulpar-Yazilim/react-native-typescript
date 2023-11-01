@@ -41,7 +41,6 @@ const AppCollapsible = ({title, collapseHeaderHeight = 56, defaultHeight = 0, ch
 
   const onLayout = useCallback((event: LayoutChangeEvent) => {
     const {height} = event.nativeEvent.layout;
-    console.log(height);
     setLayoutHeight(height);
   }, []);
 

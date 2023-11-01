@@ -10,6 +10,7 @@ export * from './device-helper';
 export * from './size-helper';
 export * from './currency';
 export * from './style/size';
+export * from './deepLink';
 
 import rgba from './rgba';
 export {rgba};

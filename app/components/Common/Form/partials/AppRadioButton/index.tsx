@@ -22,7 +22,6 @@ const AppRadioButton: FC<Props | any> = props => {
               item={item}
               checked={value === item.value}
               setChecked={() => {
-                console.log(item.value);
                 onChange?.(item.value);
               }}
             />

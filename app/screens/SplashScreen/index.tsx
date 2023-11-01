@@ -16,7 +16,7 @@ const SplashScreen = () => {
     setTimeout(() => {
       const navigationName = layout.menu === 'drawer' ? Routes.MAIN_DRAWER_ROOT : Routes.MAIN_TABS_ROOT;
       navigation.replace(navigationName);
-    }, 2000);
+    }, 50);
   }, []);
 
   return (

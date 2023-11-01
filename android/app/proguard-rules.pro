@@ -13,3 +13,5 @@
 -keep class com.facebook.react.turbomodule.** { *; } 
 -keep public class com.horcrux.svg.** {*;}   
 -keep class androidx.camera.core.** {*;}
+-keep class com.boilerplate.BuildConfig { *; }
+-keepresources string/build_config_package
