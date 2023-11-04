@@ -1,7 +1,9 @@
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
+import Config from 'react-native-config';
 
-import {baseURL} from './config';
 import type {RootState} from '../store';
+
+const baseURL = Config.API_URL;
 
 const baseApi = createApi({
   reducerPath: 'baseApiReducer',

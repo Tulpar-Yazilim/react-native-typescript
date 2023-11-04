@@ -9,7 +9,7 @@ const Drawer = createDrawerNavigator();
 export const DrawerMenuNavigaiton = () => {
   return (
     <>
-      <Drawer.Navigator initialRouteName="Home">
+      <Drawer.Navigator>
         {DrawerMenuItemList.map(item => (
           <Drawer.Screen key={item.label} options={{headerShown: item.headerShown}} name={item.label as string} component={item.component as FunctionComponent} />
         ))}

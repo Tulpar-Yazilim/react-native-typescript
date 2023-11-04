@@ -99,3 +99,8 @@ export type NavigationScreenListenerEvent = {
     type: string;
   };
 };
+
+export type DeeplinkConfigType = {
+  route: string;
+  component: FunctionComponent;
+};
