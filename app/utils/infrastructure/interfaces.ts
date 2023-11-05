@@ -4,6 +4,7 @@ import {StyleProp, TextStyle, ViewStyle} from 'react-native';
 import {BottomTabNavigationEventMap} from '@react-navigation/bottom-tabs';
 import {EventListenerCallback} from '@react-navigation/native';
 
+import {Routes} from '@/navigation';
 import {COLORS} from '@/theme';
 
 import {ICONS} from '../icon-enums';
@@ -143,4 +144,18 @@ export interface DialogProps {
   option?: DialogOption;
   alertType?: 'confirm' | 'alert' | 'prompt';
   action?: Array<DialogAction>;
+}
+
+export interface ModalProps {
+  route: keyof typeof Routes;
+  params: object;
+}
+export interface ResetRoutesParams {
+  name: string;
+  params?: object;
+}
+export interface ResetRouteParams {
+  index?: number;
+  routes: ResetRoutesParams[];
+  params?: object;
 }

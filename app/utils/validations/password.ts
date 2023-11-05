@@ -1,4 +1,4 @@
-import {TFunction} from 'i18next';
+import {t} from 'i18next';
 import * as yup from 'yup';
 
 // Constants
@@ -11,7 +11,7 @@ const min = 6;
 // En az bir sayı içermelidir.
 
 // Validation
-const passwordValidation = (t: TFunction<'translation', undefined, 'translation'>, key = 'password') => ({
+const passwordValidation = (key = 'password') => ({
   [key]: yup
     .string()
     .required()
@@ -28,7 +28,7 @@ const passwordValidation = (t: TFunction<'translation', undefined, 'translation'
 });
 
 // Validation
-const passwordConfirmationValidation = (t: TFunction<'translation', undefined, 'translation'>, key = 'password_confirmation', ref = 'password') => ({
+const passwordConfirmationValidation = (key = 'password_confirmation', ref = 'password') => ({
   [key]: yup
     .string()
     .required()

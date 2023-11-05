@@ -20,7 +20,7 @@ function FloatingButton({isVisible = false, buttonText = 'approve', onPress = ()
   });
 
   useEffect(() => {
-    bottomTranslateValue.value = withSpring(isVisible ? 5 : 175);
+    bottomTranslateValue.value = withSpring(isVisible ? 5 : 175, {duration: 1500});
   }, [isVisible]);
   //#endregion
 

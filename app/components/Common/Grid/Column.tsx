@@ -5,16 +5,19 @@ import {IStyleShortcuts} from '@/utils';
 
 interface Props extends IStyleShortcuts {
   children: ReactNode;
+  col?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 }
 
-const Row: FC<Props> = props => {
-  const {children} = props;
+const Column: FC<Props> = props => {
+  const {children, col} = props;
+
+  const s = col ? `w-${(100 / 12) * col}%` : undefined;
 
   return (
-    <Block w="100%" row {...props}>
+    <Block s={s} {...props}>
       {children}
     </Block>
   );
 };
 
-export default memo(Row);
+export default memo(Column);

@@ -4,7 +4,6 @@ import {Pressable} from 'react-native';
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
 
 import {Images} from '@/assets';
-import images from '@/assets/images';
 import {AppBottomSheet, AppButton, AppIcon, AppImage, AppScreen, AppSwitch, Block, Col, DateTimePicker, FloatingButton, Row, SegmentedControl, Text} from '@/components';
 import {useAppDispatch, useAppSelector, useDialog, useStyledTag} from '@/hooks';
 import {HomeStackNavigationPropsType, Routes} from '@/navigation';
@@ -117,7 +116,7 @@ const HomePage = () => {
         />
 
         <DatePickerArea>
-          <Row row>
+          <Row>
             <Col col-6 pr-2>
               <AppButton
                 type="primary"
@@ -142,7 +141,7 @@ const HomePage = () => {
         <DateTimePicker visible={dateVisible} onClose={() => setDateVisible(false)} />
         <DateTimePicker mode="datetime" visible={dateTimeVisible} onClose={() => setDateTimeVisible(false)} />
 
-        <Row row>
+        <Row>
           <Col col-6 pr-2>
             <AppButton
               mt-5
@@ -188,7 +187,7 @@ const HomePage = () => {
             />
           </Col>
         </Row>
-        <Row row>
+        <Row>
           <Col col-6 pr-2>
             <AppButton
               mt-5
@@ -236,7 +235,7 @@ const HomePage = () => {
         </Row>
 
         <LanguageArea mt-5>
-          <Row row>
+          <Row>
             <Col col-6 pr-2>
               <AppButton type="primary" title={'Türkçe'} onPress={() => onChangeLang('tr')} mb-10 />
             </Col>

@@ -21,7 +21,7 @@ import Alert from './Dialog';
 import EmptyList from './EmptyList';
 import FloatingButton from './FloatingButton';
 import Form from './Form/Form';
-import Col from './Grid/Col';
+import Col from './Grid/Column';
 import Row from './Grid/Row';
 import LoadingCard from './LoadingCard';
 import LoadingScreen from './LoadingScreen';

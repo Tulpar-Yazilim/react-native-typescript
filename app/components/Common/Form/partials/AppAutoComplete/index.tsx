@@ -4,11 +4,11 @@ import {Modal, Pressable, SafeAreaView, StyleSheet} from 'react-native';
 import {debounce, get} from 'lodash';
 import {Controller, UseFormReturn} from 'react-hook-form';
 
-import AppInput from '../../../AppInput';
-import {SelectOptions} from '../../types';
-
 import {AppButton, AppFlatList, Block, Text} from '@/components';
 import {useTheme} from '@/hooks';
+
+import AppInput from '../../../AppInput';
+import {SelectOptions} from '../../types';
 
 interface AppAutoCompleteProps {
   placeholder?: string;

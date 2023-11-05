@@ -2,23 +2,23 @@ import React, {useEffect, useState} from 'react';
 
 import {yupResolver} from '@hookform/resolvers/yup';
 import {useRoute} from '@react-navigation/native';
-import {useForm} from 'react-hook-form';
+import {SubmitHandler, useForm} from 'react-hook-form';
 import * as Yup from 'yup';
 
-import {AppButton, AppInput, AppScreen, fields, Form, Text} from '@/components';
+import {AppButton, AppScreen, fields, Form, Text} from '@/components';
 import {HomeStackNavigationRouteType} from '@/navigation';
 
 const SelectOptions = [
   {
-    value: 1,
+    value: '1',
     label: 'Armut',
   },
   {
-    value: 2,
+    value: '2',
     label: 'Elma',
   },
   {
-    value: 3,
+    value: '3',
     label: 'Karpuz',
   },
 ];
@@ -27,10 +27,8 @@ const initial = {
   name: '',
   date: '',
   password: '',
-  select: '1',
+  select: '',
   autoComplete: '',
-  multipleSelect: [],
-  radio: undefined,
 };
 
 const FormPage = () => {
@@ -44,11 +42,6 @@ const FormPage = () => {
     password: fields.password.label('Password').min(6, 'En az 6 karakter olmalı').required('Lütfen parola giriniz'),
     select: fields.select(SelectOptions, 'string', 'label', 'value').label('Select').required('select required message'),
     autoComplete: fields.autoComplete(users, 'string', 'name.first', 'name.first').required('test message').label('Auto Complete'),
-    multipleSelect: fields.multipleSelect(users ?? [], 'string', 'name.first', 'name.first').label('Multiple Select'),
-    radio: fields.radio([
-      {label: 'radio-1', value: 1},
-      {label: 'radio 2', value: 2},
-    ]),
   });
 
   useEffect(() => {
@@ -66,8 +59,8 @@ const FormPage = () => {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = (values: typeof initial) => {
-    console.log(values);
+  const onSubmit: SubmitHandler<typeof initial> = data => {
+    console.log(data);
   };
 
   return (
