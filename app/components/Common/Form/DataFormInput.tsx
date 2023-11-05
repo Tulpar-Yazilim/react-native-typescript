@@ -23,7 +23,7 @@ interface IDataFormInput<T> {
   valueProp?: string;
 }
 
-export default function DataFormInput({name, meta, form, mb}: IDataFormInput<unknown>) {
+export default function DataFormInput({name, meta, form}: IDataFormInput<unknown>) {
   const inputName = name ?? meta.name;
   switch (meta.field) {
     case SchemaField.InputText:
@@ -37,7 +37,7 @@ export default function DataFormInput({name, meta, form, mb}: IDataFormInput<unk
     case SchemaField.InputMultipleSelect:
       return <AppMultipleSelect {...meta} key={inputName} name={inputName} form={form} />;
     case SchemaField.RadioButton:
-      return <AppRadioButton {...meta} key={inputName} name={inputName} form={form} mb={mb} />;
+      return <AppRadioButton {...meta} key={inputName} name={inputName} form={form} />;
     case SchemaField.InputSelect:
       return <AppSelector {...meta} key={inputName} name={inputName} form={form} />;
     default:

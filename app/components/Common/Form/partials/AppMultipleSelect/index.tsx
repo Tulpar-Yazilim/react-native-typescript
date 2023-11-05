@@ -4,11 +4,11 @@ import {Keyboard, Modal} from 'react-native';
 import {debounce, get} from 'lodash';
 import {Controller, UseFormReturn} from 'react-hook-form';
 
+import {AppButton, AppFlatList, Block, Text} from '@/components';
+
 import RenderItem from './RenderItem';
 import AppInput from '../../../AppInput';
 import {SelectOptionItemType, SelectOptions} from '../../types';
-
-import {AppButton, AppFlatList, Block, Text} from '@/components';
 
 interface AppMultipleSelectProps {
   placeholder?: string;

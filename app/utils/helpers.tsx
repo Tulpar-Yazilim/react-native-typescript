@@ -4,6 +4,7 @@ import {Dimensions, Linking, Platform} from 'react-native';
 import MultipleImagePicker from '@baronha/react-native-multiple-image-picker';
 import notifee, {Notification, TimestampTrigger, TriggerType} from '@notifee/react-native';
 import {fetch} from '@react-native-community/netinfo';
+import {CommonActions} from '@react-navigation/native';
 import {Buffer} from 'buffer';
 import md5Encrypt from 'md5';
 import {launchImageLibrary} from 'react-native-image-picker';
@@ -12,9 +13,11 @@ import RenderHtml, {defaultSystemFonts, HTMLContentModel, HTMLElementModel} from
 import Toast from 'react-native-toast-message';
 
 import {i18next} from '@/lang';
+import {rootNavigationRef} from '@/navigation';
 import {FONTS as THEME_FONTS} from '@/theme';
 
 import {LocalNotificationType, ToastType} from './infrastructure/enums';
+import {ResetRouteParams, ResetRoutesParams} from './infrastructure/interfaces';
 import {Coordinates, ImagePickerResultType, ImageResizeResultType, ImageType, LocalNotificationParams, ToastParams} from './infrastructure/types';
 import {Permission, PERMISSION_TYPE} from './permission';
 
@@ -291,6 +294,24 @@ const cancelLocalNotification = async (localNotificationId: string) => {
 
 const convertToCurrency = (amount: number | string, currency = '₺') => `${Number.parseFloat(amount.toString()).toFixed(2)} ${currency}`;
 
+const navigatePage = (route: ResetRoutesParams) => {
+  rootNavigationRef?.current?.dispatch(
+    CommonActions.navigate({
+      name: route.name,
+      params: route.params,
+    }),
+  );
+};
+
+const resetPage = (route: ResetRouteParams) => {
+  rootNavigationRef?.current?.dispatch(
+    CommonActions.reset({
+      index: route.index ?? 0,
+      routes: route.routes,
+    }),
+  );
+};
+
 export {
   HtmlRender,
   base64,
@@ -309,4 +330,6 @@ export {
   createLocalNotification,
   cancelLocalNotification,
   convertToCurrency,
+  navigatePage,
+  resetPage,
 };

@@ -6,15 +6,11 @@ import Animated, {AnimatedStyleProp, useAnimatedStyle, withSpring} from 'react-n
 import {useTheme} from '@/hooks';
 
 import Block from '../Block';
+import {SelectOptionItemType} from '../Form/types';
 import Text from '../Text';
 
-export type RadioButtonItem = {
-  label: string;
-  value: string | number;
-};
-
 type RadioButtonType = {
-  item: RadioButtonItem;
+  item: SelectOptionItemType;
   checked: boolean;
   setChecked: () => void;
 };

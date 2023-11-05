@@ -1,11 +1,11 @@
+import {t} from 'i18next';
 import * as yup from 'yup';
-import {TFunction} from 'i18next';
 
 const min = 26;
 const max = 26;
 
 // Validation
-const ibanValidation = (t: TFunction<'translation', undefined, 'translation'>, key = 'iban') => ({
+const ibanValidation = (key = 'iban') => ({
   [key]: yup
     .string()
     .required(t('validations.iban.required').toString())

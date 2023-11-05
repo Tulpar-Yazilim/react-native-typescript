@@ -1,12 +1,12 @@
 import {StyleProp, ViewProps} from 'react-native';
 
+import {COLORS, FONTS, SIZES, themeColors, window} from '@/theme';
+import {fontPixel} from '@/utils';
+
 import {IStyles, ITextStyles} from './infrastructure/interfaces';
 import {UseThemeType} from './infrastructure/types';
 import rgba from './rgba';
 import {setupSizes} from './style/size';
-
-import {COLORS, FONTS, SIZES, themeColors, window} from '@/theme';
-import {fontPixel} from '@/utils';
 
 const getStyles = (t: 'light' | 'dark') => {
   const colors = themeColors[t || 'light'];

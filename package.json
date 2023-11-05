@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "android": "react-native run-android warning-mode=all",
-    "ios": "react-native run-ios",
+    "ios": "react-native run-ios --simulator 'iPhone 14'",
+    "ios-device": "react-native run-ios --device 'iPhone 12'",
     "pod": "npx pod-install ios",
     "clean:android": "cd android && ./gradlew clean --warning-mode all && cd ..",
     "clean:ios": "cd ios && xcodebuild clean && cd ..",
@@ -28,7 +29,8 @@
     "deeplink-add-ios": "npx uri-scheme add boilerplate --ios",
     "deeplink-add-android": "npx uri-scheme add boilerplate --android",
     "deeplink-open-ios": "npx uri-scheme open boilerplate:// --ios",
-    "deeplink-open-android": "npx uri-scheme open boilerplate:// --android"
+    "deeplink-open-android": "npx uri-scheme open boilerplate:// --android",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@baronha/react-native-multiple-image-picker": "^1.0.0",
@@ -138,7 +140,8 @@
   },
   "lint-staged": {
     "app/**/*.{ts,tsx}": [
-      "yarn lint"
+      "yarn lint",
+      "yarn tsc"
     ],
     "./app/**": [
       "yarn format"

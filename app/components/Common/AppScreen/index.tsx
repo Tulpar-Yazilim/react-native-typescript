@@ -1,8 +1,9 @@
 import React, {memo, ReactNode, useState} from 'react';
-import {ImageBackground, Keyboard, Pressable, ScrollView, StyleSheet, View, ViewStyle} from 'react-native';
+import {ImageResizeMode, Keyboard, Pressable, ScrollView, StyleProp, View, ViewStyle} from 'react-native';
 
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationOptions} from '@react-navigation/stack';
+import Config from 'react-native-config';
 import {RefreshControl} from 'react-native-gesture-handler';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {SafeAreaView} from 'react-native-safe-area-context';
@@ -10,13 +11,10 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import {Block, Text} from '@/components';
 import {useTheme} from '@/hooks';
 import {Header} from '@/navigation';
-import {bottomTabHeight, window} from '@/theme';
-import {heightPixel, UseThemeType} from '@/utils';
+import {bottomTabHeight, generalStyles, window} from '@/theme';
+import {getStyleShortcuts, heightPixel, UseThemeType} from '@/utils';
 
-import layout from '../../../config/layout.json';
-import {getStyleShortcuts} from '../../../utils/style-shortcuts';
-
-type Props<T> = {
+type Props = {
   scroll?: boolean;
   safe?: boolean;
   keyboardScroll?: boolean;
@@ -27,13 +25,13 @@ type Props<T> = {
   loading?: boolean;
   title?: string;
   canGoBack?: boolean;
-  navigation?: T;
   onRefreshData?: () => void;
   backgroundImage?: string;
+  backgroundResizeMode?: ImageResizeMode;
 };
 
-function AppScreen<T>(props: Props<T>) {
-  const {children, title, scroll, safe, canGoBack, keyboardScroll, customStyle, navigationOptions, flatList, loading, backgroundImage, onRefreshData} = props;
+function AppScreen(props: Readonly<Props>) {
+  const {children, title, scroll, safe, canGoBack, keyboardScroll, customStyle, navigationOptions, flatList, loading, backgroundImage, backgroundResizeMode, onRefreshData} = props;
   const navigation = useNavigation();
   const {colors} = useTheme();
   const screenProps = props as UseThemeType;
@@ -47,13 +45,13 @@ function AppScreen<T>(props: Props<T>) {
 
   const screenCommonStyles = {
     padding: heightPixel(window.offset),
-    paddingBottom: layout.menu === 'bottom' ? heightPixel(bottomTabHeight) : heightPixel(20),
-    flex: 1,
+    paddingBottom: Config.MENU === 'tab' ? heightPixel(bottomTabHeight) : heightPixel(20),
     backgroundColor: !backgroundImage && colors.screenBgColor,
+    ...generalStyles.flex,
     ...customStyle,
   };
 
-  const Container = backgroundImage ? ImageBackground : Block;
+  const scrollViewStyles = [screenCommonStyles as StyleProp<ViewStyle>, getStyleShortcuts(screenProps) as StyleProp<ViewStyle>];
 
   return (
     <>
@@ -61,11 +59,11 @@ function AppScreen<T>(props: Props<T>) {
       {loading ? (
         <Text>loading</Text>
       ) : (
-        <Container source={backgroundImage || ''} resizeMode={'cover'} style={styles.container}>
+        <Block flex backgroundImage={backgroundImage} resizeMode={backgroundResizeMode}>
           <>
             {scroll && safe && !keyboardScroll && (
               <ScrollView
-                style={{...screenCommonStyles, ...getStyleShortcuts(screenProps)}}
+                style={scrollViewStyles}
                 refreshControl={
                   onRefreshData ? (
                     <RefreshControl
@@ -82,7 +80,7 @@ function AppScreen<T>(props: Props<T>) {
                   onPress={() => Keyboard.dismiss()}
                   style={[
                     {
-                      paddingBottom: layout.menu === 'bottom' ? bottomTabHeight + 20 : 50,
+                      paddingBottom: Config.MENU === 'tab' ? bottomTabHeight + 20 : 50,
                     },
                   ]}>
                   <SafeAreaView>{children}</SafeAreaView>
@@ -90,7 +88,7 @@ function AppScreen<T>(props: Props<T>) {
               </ScrollView>
             )}
             {scroll && !safe && (
-              <ScrollView style={{...screenCommonStyles, ...getStyleShortcuts(screenProps)}} showsVerticalScrollIndicator={false} showsHorizontalScrollIndicator={false}>
+              <ScrollView style={scrollViewStyles} showsVerticalScrollIndicator={false} showsHorizontalScrollIndicator={false}>
                 <Pressable
                   style={{
                     minHeight: '100%',
@@ -99,7 +97,7 @@ function AppScreen<T>(props: Props<T>) {
                   <View
                     style={[
                       {
-                        paddingBottom: layout.menu === 'bottom' ? bottomTabHeight + 20 : 50,
+                        paddingBottom: Config.MENU === 'tab' ? bottomTabHeight + 20 : 50,
                       },
                     ]}>
                     {children}
@@ -108,21 +106,15 @@ function AppScreen<T>(props: Props<T>) {
               </ScrollView>
             )}
             {!scroll && safe && !keyboardScroll && (
-              <SafeAreaView
-                style={[
-                  {
-                    ...screenCommonStyles,
-                  },
-                  {...getStyleShortcuts(screenProps)},
-                ]}>
-                <Pressable style={{flex: 1}} onPress={() => Keyboard.dismiss()}>
+              <SafeAreaView style={scrollViewStyles}>
+                <Pressable style={generalStyles.flex} onPress={() => Keyboard.dismiss()}>
                   {children}
                 </Pressable>
               </SafeAreaView>
             )}
             {keyboardScroll && !safe && (
               <KeyboardAwareScrollView
-                style={{...screenCommonStyles, ...getStyleShortcuts(screenProps)}}
+                style={scrollViewStyles}
                 showsVerticalScrollIndicator={false}
                 showsHorizontalScrollIndicator={false}
                 scrollEnabled={scroll}
@@ -135,7 +127,7 @@ function AppScreen<T>(props: Props<T>) {
                   <View
                     style={[
                       {
-                        paddingBottom: layout.menu === 'bottom' ? bottomTabHeight + 20 : 50,
+                        paddingBottom: Config.MENU === 'tab' ? bottomTabHeight + 20 : 50,
                       },
                       getStyleShortcuts(screenProps),
                     ]}>
@@ -146,58 +138,25 @@ function AppScreen<T>(props: Props<T>) {
             )}
             {keyboardScroll && safe && (
               <KeyboardAwareScrollView
-                style={[
-                  {
-                    ...screenCommonStyles,
-                  },
-                  {...getStyleShortcuts(screenProps)},
-                ]}
+                style={scrollViewStyles}
                 showsVerticalScrollIndicator={false}
                 showsHorizontalScrollIndicator={false}
-                contentContainerStyle={{
-                  flex: 1,
-                }}
+                contentContainerStyle={generalStyles.flex}
                 scrollEnabled={scroll}>
                 <SafeAreaView>{children}</SafeAreaView>
               </KeyboardAwareScrollView>
             )}
             {!scroll && !safe && !keyboardScroll && !flatList && (
-              <Block pressable style={{flex: 1}} onPress={() => Keyboard.dismiss()}>
-                <View
-                  style={[
-                    {
-                      ...screenCommonStyles,
-                      flex: 1,
-                    },
-                    {...getStyleShortcuts(screenProps)},
-                  ]}>
-                  {children}
-                </View>
+              <Block flex pressable onPress={() => Keyboard.dismiss()}>
+                <View style={[scrollViewStyles, generalStyles.flex]}>{children}</View>
               </Block>
             )}
-            {flatList && (
-              <View
-                style={[
-                  {
-                    ...screenCommonStyles,
-                    flex: 1,
-                  },
-                  {...getStyleShortcuts(screenProps)},
-                ]}>
-                {children}
-              </View>
-            )}
+            {flatList && <View style={[scrollViewStyles, generalStyles.flex]}>{children}</View>}
           </>
-        </Container>
+        </Block>
       )}
     </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
 
 export default memo(AppScreen);

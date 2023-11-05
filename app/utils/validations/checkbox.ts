@@ -1,8 +1,8 @@
+import {t} from 'i18next';
 import * as yup from 'yup';
-import {TFunction} from 'i18next';
 
 // Validation
-const checkBoxValidations = (t: TFunction<'translation', undefined, 'translation'>, key: string) => ({
+const checkBoxValidations = (key: string) => ({
   [key]: yup
     .boolean()
     .oneOf([true], t(`labels.${key}`).toString())

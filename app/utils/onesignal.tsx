@@ -1,13 +1,12 @@
 import {Platform} from 'react-native';
 
+import Config from 'react-native-config';
 import OneSignal from 'react-native-onesignal';
-
-import {config} from '@/config';
 
 const initializeOnesignal = () => {
   //OneSignal Init Code
   OneSignal.setLogLevel(6, 0);
-  OneSignal.setAppId(config.ONESIGNAL_APP_ID);
+  OneSignal.setAppId(Config.ONESIGNAL_APP_ID);
   //END OneSignal Init Code
 
   if (Platform.OS === 'ios') {

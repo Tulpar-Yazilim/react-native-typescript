@@ -1,5 +1,5 @@
 import React, {FC, memo, ReactElement, ReactNode} from 'react';
-import {ImageBackground, LayoutChangeEvent, Pressable, StyleProp, StyleSheet, View, ViewStyle} from 'react-native';
+import {ImageBackground, ImageResizeMode, LayoutChangeEvent, Pressable, StyleProp, StyleSheet, View, ViewStyle} from 'react-native';
 
 import Animated from 'react-native-reanimated';
 
@@ -17,9 +17,10 @@ interface Props extends SetupSizeTypes, IStyleShortcuts {
   animated?: boolean;
   onLayout?: (event: LayoutChangeEvent) => void;
   backgroundImage?: string;
+  resizeMode?: ImageResizeMode;
 }
 
-const Block: FC<Props> = ({children, animated, onLayout, backgroundImage, If, ...props}) => {
+const Block: FC<Props> = ({children, animated, onLayout, backgroundImage, resizeMode, If, ...props}) => {
   const {styles} = useTheme(props as UseThemeType);
 
   if (If === false) {
@@ -45,7 +46,7 @@ const Block: FC<Props> = ({children, animated, onLayout, backgroundImage, If, ..
   return (
     <View onLayout={onLayout} style={[styles, props.style]}>
       {backgroundImage ? (
-        <ImageBackground source={backgroundImage} resizeMode={'cover'} style={blockStyles.container}>
+        <ImageBackground source={{uri: backgroundImage}} resizeMode={resizeMode ?? 'cover'} style={blockStyles.container}>
           {children}
         </ImageBackground>
       ) : (

@@ -1,11 +1,11 @@
+import {t} from 'i18next';
 import * as yup from 'yup';
-import {TFunction} from 'i18next';
 
 // Constants
 // const min = 6;
 
 // Validation
-const emailOrPhoneValidation = (t: TFunction<'translation', undefined, 'translation'>, key = 'email') => ({
+const emailOrPhoneValidation = (key = 'email') => ({
   [key]: yup
     .string()
     .required()
