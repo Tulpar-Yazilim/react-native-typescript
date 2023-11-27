@@ -1,6 +1,7 @@
 import React, {memo} from 'react';
 import {Dimensions, Linking, Platform} from 'react-native';
 
+import ImageResizer from '@bam.tech/react-native-image-resizer';
 import MultipleImagePicker from '@baronha/react-native-multiple-image-picker';
 import notifee, {Notification, TimestampTrigger, TriggerType} from '@notifee/react-native';
 import {fetch} from '@react-native-community/netinfo';
@@ -8,7 +9,6 @@ import {CommonActions} from '@react-navigation/native';
 import {Buffer} from 'buffer';
 import md5Encrypt from 'md5';
 import {launchImageLibrary} from 'react-native-image-picker';
-import ImageResizer from 'react-native-image-resizer';
 import RenderHtml, {defaultSystemFonts, HTMLContentModel, HTMLElementModel} from 'react-native-render-html';
 import Toast from 'react-native-toast-message';
 
