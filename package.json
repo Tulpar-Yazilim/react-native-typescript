@@ -33,6 +33,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@bam.tech/react-native-image-resizer": "^3.0.7",
     "@baronha/react-native-multiple-image-picker": "^1.0.0",
     "@gorhom/bottom-sheet": "^4.4.7",
     "@hookform/resolvers": "^3.1.1",
@@ -69,7 +70,6 @@
     "react-native-icomoon": "^0.1.1",
     "react-native-image-picker": "^5.6.0",
     "react-native-image-progress": "^1.2.0",
-    "react-native-image-resizer": "^1.4.5",
     "react-native-keyboard-aware-scroll-view": "^0.9.5",
     "react-native-linear-gradient": "^2.7.3",
     "react-native-modal": "^13.0.1",
