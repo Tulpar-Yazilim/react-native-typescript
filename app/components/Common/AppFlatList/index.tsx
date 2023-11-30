@@ -1,32 +1,11 @@
-import React, {ReactNode, RefObject, useState} from 'react';
-import {ActivityIndicator, FlatListProps, FlatList as FList, ImageStyle, RefreshControl, ScrollView, TextStyle, View, ViewStyle} from 'react-native';
+import React, {useState} from 'react';
+import {ActivityIndicator, FlatList as FList, RefreshControl, ScrollView} from 'react-native';
 
+import {useThemeMode} from '@/hooks';
 import {COLORS} from '@/theme';
 
+import {IFListProps} from './app-flatlist';
 import Block from '../Block';
-
-interface IFListProps<T> extends FlatListProps<T> {
-  data: ReadonlyArray<T>;
-  usePagination?: boolean;
-  loading?: boolean;
-  onEndReached?: () => void;
-  onEndReachedThreshold?: number;
-  refreshing?: boolean;
-  onRefresh?: () => void;
-  preloader?: ReactNode;
-  preloaderLength?: number;
-  preloaderWidth?: number;
-  preloaderHeight?: number;
-  preloaderContainerStyle?: ViewStyle | TextStyle | ImageStyle;
-  contentContainerStyle?: ViewStyle | TextStyle | ImageStyle;
-  horizontal?: boolean;
-  sticky?: boolean;
-  index?: number;
-  removeClippedSubviews?: boolean;
-  flex?: boolean;
-  reference?: RefObject<FList>;
-  onRefreshData?: () => void;
-}
 
 function FlatList<T>(props: IFListProps<T>) {
   const {
@@ -50,6 +29,8 @@ function FlatList<T>(props: IFListProps<T>) {
     onRefreshData,
     ...rest
   } = props;
+
+  const themeMode = useThemeMode();
   const [refreshing, setRefreshing] = useState(false);
 
   const onRefresh = async () => {
@@ -63,8 +44,8 @@ function FlatList<T>(props: IFListProps<T>) {
       return <></>;
     }
     return (
-      <Block center middle>
-        <ActivityIndicator animating color={COLORS.black} size="large" style={{marginTop: 15, marginBottom: 15}} />
+      <Block center middle py-15>
+        <ActivityIndicator animating color={themeMode === 'light' ? COLORS.black : COLORS.white} size="large" />
       </Block>
     );
   };
@@ -72,25 +53,17 @@ function FlatList<T>(props: IFListProps<T>) {
   const PreloaderRenderItem = <Block h={preloaderHeight} w={preloaderWidth} style={[{marginBottom: 10}, preloaderContainerStyle]} />;
 
   return preloader ? (
-    <>
+    <React.Fragment>
       {horizontal ? (
-        <ScrollView showsVerticalScrollIndicator={false} showsHorizontalScrollIndicator={false} horizontal style={[preloaderContainerStyle]}>
+        <ScrollView showsVerticalScrollIndicator={false} showsHorizontalScrollIndicator={false} horizontal style={preloaderContainerStyle}>
           {[...Array(preloaderLength)]?.map(() => PreloaderRenderItem)}
         </ScrollView>
       ) : (
-        <View
-          style={[
-            {
-              flexDirection: 'row',
-              flexWrap: 'wrap',
-              justifyContent: 'center',
-            },
-            preloaderContainerStyle,
-          ]}>
+        <Block row wrap center style={preloaderContainerStyle}>
           {[...Array(preloaderLength)]?.map(() => PreloaderRenderItem)}
-        </View>
+        </Block>
       )}
-    </>
+    </React.Fragment>
   ) : (
     <FList
       ref={reference}

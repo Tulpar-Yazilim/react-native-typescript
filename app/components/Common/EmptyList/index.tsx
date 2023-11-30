@@ -1,23 +1,24 @@
 import React from 'react';
 
-import images from '@/assets/images';
-import {Text} from '@/components';
+import {Images} from '@/assets';
+import {AppIcon, Text} from '@/components';
+import {useThemeMode} from '@/hooks';
+import {COLORS} from '@/theme';
 
+import {EmptyListProps} from './empty-list';
 import AppImage from '../AppImage';
 import Block from '../Block';
 
-interface IEmptyList {
-  text: string;
-  image?: string;
-}
+const EmptyList = (props: EmptyListProps) => {
+  const {text, image, showImage = true, imageResizeMode = 'contain', imageHeight, imageWidth, icon, iconSize = 32, iconColor = COLORS.primary, ...otherProps} = props;
 
-const EmptyList = (props: IEmptyList) => {
-  const {text, image = false} = props;
+  const themeMode = useThemeMode();
 
   return (
-    <Block pressable flex center middle mb-72>
-      {image && <AppImage resizeMode={'contain'} url={images.TulparLogo} height={75} width={66} />}
-      <Text caption mt-32 center>
+    <Block pressable flex center middle mb-72 {...otherProps}>
+      {showImage && <AppImage resizeMode={imageResizeMode} url={image ?? Images.EmptyDataImage[themeMode]} height={imageHeight ?? 80} width={imageWidth ?? 80} />}
+      {icon && <AppIcon name={icon} size={iconSize} color={iconColor as string} />}
+      <Text caption mt-30 center>
         {text}
       </Text>
     </Block>

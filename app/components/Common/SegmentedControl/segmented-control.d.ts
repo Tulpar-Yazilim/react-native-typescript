@@ -1,15 +1,15 @@
-interface Segments {
+export type SegmentsProps = {
   label: string;
-}
+};
 
-export interface Props extends SegmentProps {
-  segments: Array<Segments>;
+export type SegmentedControlProps = {
+  segments: SegmentsProps[];
   currentIndex: number;
   onChange?: (index: number) => void;
   containerMargin?: number;
-  tabColor?: string | any;
-  activeColor?: string | any;
-  titleColor?: string | any;
-  activeTitleColor?: string | any;
+  tabColor?: string;
+  activeColor?: string;
+  titleColor?: string;
+  activeTitleColor?: string;
   width?: number;
-}
+};

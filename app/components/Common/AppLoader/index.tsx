@@ -1,15 +1,16 @@
 import React, {memo, useCallback, useRef} from 'react';
 import {Animated, Easing, Modal} from 'react-native';
 
-import LottieView from 'lottie-react-native';
-import {useSelector} from 'react-redux';
+import AnimatedLottieView from 'lottie-react-native';
 
-import {RootState} from '@/store';
+import {Animations} from '@/assets';
+import {useAppSelector} from '@/hooks';
 
+import styles from './styles';
 import Block from '../Block';
 
 const AppLoader = () => {
-  const loading = useSelector<RootState>(state => state.settings.appLoader) as boolean;
+  const loading = useAppSelector(state => state.settings.appLoader);
 
   const progress = useRef(new Animated.Value(0));
 
@@ -27,7 +28,7 @@ const AppLoader = () => {
   return (
     <Modal visible={loading} transparent animationType="fade">
       <Block flex center middle bg-white h="100%">
-        <LottieView source={require('./loading-circles.json')} progress={progress.current} loop autoPlay={true} style={{width: 100, height: 200}} />
+        <AnimatedLottieView source={Animations.LoadingCircles} progress={progress.current} loop autoPlay style={styles.lottieView} />
       </Block>
     </Modal>
   );

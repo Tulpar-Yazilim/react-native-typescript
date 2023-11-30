@@ -1,62 +1,62 @@
 import React, {memo} from 'react';
-import {Animated, Dimensions, Pressable, StyleProp, StyleSheet, Text, TextStyle} from 'react-native';
+import {Animated, Pressable, StyleSheet, Text, TouchableOpacity} from 'react-native';
 
 import {RFValue} from 'react-native-responsive-fontsize';
 
 import {useTheme, useTranslate} from '@/hooks';
-import {SIZES} from '@/theme';
-import {ITextStyles, setupSizeTypes, UseThemeType} from '@/utils';
+import {SCREEN, SIZES} from '@/theme';
+import {HtmlRender, UseThemeType} from '@/utils';
 
-type SetupSizeTypes = Omit<setupSizeTypes, 'setupSizeTypes'>;
+import {TextProps} from './text';
 
-interface Props extends SetupSizeTypes, ITextStyles {
-  params?: object;
-  children?: string | string[];
-  animated?: boolean;
-  style?: StyleProp<TextStyle>;
-  pressable?: boolean;
-  onPress?: () => void;
-}
-
-const Typography = (props: Props) => {
-  const {children, params, pressable, onPress, animated, ...rest} = props;
+const Typography = (props: TextProps) => {
+  const {children, params, pressable, touchable, html, onPress, animated, ...otherProps} = props;
   const {textStyles, styles} = useTheme(props as UseThemeType);
 
   // Translations
   const _translate = useTranslate(children as string, params);
-  const i18nText = _translate ? _translate : children;
+  const i18nText = _translate || children;
 
   // Content
-  const content = i18nText || '';
+  const content = i18nText ?? '';
 
   const insideStyles = StyleSheet.flatten([
     {
-      fontSize: RFValue(SIZES.font, Dimensions.get('window').height),
+      fontSize: RFValue(SIZES.font, SCREEN.height),
     },
+    textStyles,
+    styles,
+    props.style,
   ]);
 
-  if (animated) {
+  const TextComponent = animated ? Animated.Text : Text;
+  const PressableComponent = pressable ? Pressable : TouchableOpacity;
+
+  if (pressable || touchable) {
+    if (html) {
+      return (
+        <PressableComponent onPress={onPress}>
+          <HtmlRender html={content as string} styles={insideStyles} />
+        </PressableComponent>
+      );
+    }
     return (
-      <Animated.Text {...rest} style={[insideStyles, textStyles, styles, props.style]}>
-        {content}
-      </Animated.Text>
+      <PressableComponent onPress={onPress}>
+        <TextComponent {...otherProps} style={insideStyles}>
+          {content}
+        </TextComponent>
+      </PressableComponent>
     );
   }
 
-  if (pressable) {
-    return (
-      <Pressable onPress={onPress}>
-        <Text {...rest} style={[textStyles, styles, props.style]}>
-          {content}
-        </Text>
-      </Pressable>
-    );
+  if (html) {
+    return <HtmlRender html={content as string} />;
   }
 
   return (
-    <Text {...rest} style={[textStyles, styles, props.style]}>
+    <TextComponent {...otherProps} style={insideStyles}>
       {content}
-    </Text>
+    </TextComponent>
   );
 };
 

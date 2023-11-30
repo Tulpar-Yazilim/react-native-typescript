@@ -1,42 +1,40 @@
 import React, {FC, memo, useState} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet} from 'react-native';
 
 import Accordion from 'react-native-collapsible/Accordion';
 
-interface ISection {
-  title?: string;
-  content?: string;
-}
+import {COLORS} from '@/theme';
+import {widthPixel} from '@/utils';
 
-type Props = {
-  sections: Array<ISection>;
-};
+import {AccordionListProps, SectionProps} from './app-accordion-list';
+import Block from '../Block';
+import Text from '../Text';
 
-const AccordionList: FC<Props> = props => {
-  const {sections: SECTIONS} = props;
+const AccordionList: FC<AccordionListProps> = props => {
+  const {sections: SECTIONS, titleStyles, headerStyles} = props;
   const [activeSections, setActiveSections] = useState<Array<number>>([]);
 
-  const _renderSectionTitle = (section: ISection) => {
+  const _renderSectionTitle = (section: SectionProps) => {
     return (
-      <View style={styles.content}>
+      <Block>
+        <Text style={titleStyles}>{section.title}</Text>
+      </Block>
+    );
+  };
+
+  const _renderHeader = (section: SectionProps) => {
+    return (
+      <Block style={[styles.header, headerStyles]}>
         <Text>{section.title}</Text>
-      </View>
+      </Block>
     );
   };
 
-  const _renderHeader = (section: ISection) => {
+  const _renderContent = (section: SectionProps) => {
     return (
-      <View style={styles.header}>
-        <Text style={styles.headerText}>{section.title}</Text>
-      </View>
-    );
-  };
-
-  const _renderContent = (section: ISection) => {
-    return (
-      <View style={styles.content}>
+      <Block>
         <Text>{section.content}</Text>
-      </View>
+      </Block>
     );
   };
 
@@ -53,10 +51,8 @@ export default memo(AccordionList);
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: '#f1f1f1',
+    backgroundColor: COLORS.lightGray,
     borderWidth: 1,
-    padding: 6,
+    padding: widthPixel(5),
   },
-  headerText: {},
-  content: {},
 });

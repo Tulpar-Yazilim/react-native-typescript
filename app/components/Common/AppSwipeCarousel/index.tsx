@@ -1,20 +1,11 @@
 import React, {useRef, useState} from 'react';
-import {FlatListProps, ViewToken} from 'react-native';
+import {ViewToken} from 'react-native';
 
 import {useStyledTag} from '@/hooks';
 import {COLORS} from '@/theme';
 
+import {AppSwipeCarouselProps, DataItem, DotProps} from './app-swipe-carousel';
 import {AppFlatList, Block} from '..';
-
-type DataItem = string | object | number;
-
-type DotProps = {
-  index?: number;
-};
-
-interface AppSwipeCarouselProps<T> extends FlatListProps<T> {
-  data: ReadonlyArray<T>;
-}
 
 export const AppSwipeCarousel = (props: AppSwipeCarouselProps<DataItem>) => {
   const {renderItem, data} = props;
@@ -44,11 +35,11 @@ export const AppSwipeCarousel = (props: AppSwipeCarouselProps<DataItem>) => {
       <AppFlatList renderItem={renderItem} data={data} horizontal pagingEnabled scrollEnabled={data.length > 1} viewabilityConfigCallbackPairs={viewabilityConfigCallbackPairs.current} />
       <Block center row>
         {data.length > 1 && (
-          <>
+          <React.Fragment>
             {data.map((_, index: number) => (
-              <Dot key={index} index={index} />
+              <Dot key={`${index}_swipe_carousel_dot`} index={index} />
             ))}
-          </>
+          </React.Fragment>
         )}
       </Block>
     </>

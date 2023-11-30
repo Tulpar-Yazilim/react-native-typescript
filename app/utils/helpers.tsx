@@ -1,5 +1,5 @@
 import React, {memo} from 'react';
-import {Dimensions, Linking, Platform} from 'react-native';
+import {Linking, Platform} from 'react-native';
 
 import ImageResizer from '@bam.tech/react-native-image-resizer';
 import MultipleImagePicker from '@baronha/react-native-multiple-image-picker';
@@ -14,14 +14,13 @@ import Toast from 'react-native-toast-message';
 
 import {i18next} from '@/lang';
 import {rootNavigationRef} from '@/navigation';
-import {FONTS as THEME_FONTS} from '@/theme';
+import {SCREEN, FONTS as THEME_FONTS} from '@/theme';
 
 import {LocalNotificationType, ToastType} from './infrastructure/enums';
 import {ResetRouteParams, ResetRoutesParams} from './infrastructure/interfaces';
 import {Coordinates, ImagePickerResultType, ImageResizeResultType, ImageType, LocalNotificationParams, ToastParams} from './infrastructure/types';
 import {Permission, PERMISSION_TYPE} from './permission';
 
-const {width} = Dimensions.get('screen');
 const {t} = i18next;
 
 const systemFonts = [...defaultSystemFonts, THEME_FONTS.fontFamily];
@@ -41,7 +40,7 @@ const RenderHtmlComponent = ({html = '', styles = {}}) => {
         fontFamily: THEME_FONTS.fontFamily,
         ...styles,
       }}
-      contentWidth={width}
+      contentWidth={SCREEN.width}
       source={{html}}
       customHTMLElementModels={customHTMLElementModels}
       enableExperimentalMarginCollapsing
@@ -229,11 +228,11 @@ const launchSingleImage = async (): Promise<ImagePickerResultType> => {
         const selectedImage = res.assets?.[0];
         if (selectedImage) {
           const customImage: ImageType = {
-            width: selectedImage.width || 0,
-            height: selectedImage.height || 0,
-            filename: selectedImage.fileName || '',
-            path: selectedImage.uri || '',
-            type: selectedImage.type || '',
+            width: selectedImage.width ?? 0,
+            height: selectedImage.height ?? 0,
+            filename: selectedImage.fileName ?? '',
+            path: selectedImage.uri ?? '',
+            type: selectedImage.type ?? '',
           };
           const resizedImage = await resizeImageSingle(customImage);
           resolve({image: resizedImage, status: true});
@@ -275,7 +274,7 @@ const createLocalNotification = async (notification: LocalNotificationParams) =>
     // Create a time-based trigger
     const trigger: TimestampTrigger = {
       type: TriggerType.TIMESTAMP,
-      timestamp: notification.scheduleDate?.getTime() || 0,
+      timestamp: notification.scheduleDate?.getTime() ?? 0,
     };
 
     // Display a notification

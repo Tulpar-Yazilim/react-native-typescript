@@ -1,6 +1,7 @@
 import {Dimensions, Platform} from 'react-native';
 
-const {width, height} = Dimensions.get('window');
+import {IConfigScreen} from '@/utils';
+
 const platform = Platform.OS;
 
 //#region theme colors
@@ -46,6 +47,7 @@ export const themeColors = {
     error: '#DC3545',
     errorBg: '#f9d7da',
     warning: '#FFE358',
+    success: '#d4edda',
     successBg: '#d4edda',
     successText: '#155624',
     info: '#4DA1FF',
@@ -103,6 +105,7 @@ export const themeColors = {
     error: '#DC3545',
     errorBg: '#f9d7da',
     warning: '#FFE358',
+    success: '#d4edda',
     successBg: '#d4edda',
     successText: '#155624',
     info: '#4DA1FF',
@@ -125,6 +128,20 @@ export const COLORS = {
   ...themeColors.light,
 };
 
+export const SCREEN: IConfigScreen = {
+  offset: 10,
+  height: Dimensions.get('screen').height,
+  width: Dimensions.get('screen').width,
+  designHeight: 810,
+  designWidth: 375,
+};
+
+export const PADDING = [5, 10, 15, 20, 25, 30, 35, 40, 45];
+
+export const BOTTOM_TAB_HEIGHT = SCREEN.height < 680 ? 50 : 75;
+
+export const FINGER_SIZE = 40;
+
 export const SIZES = {
   // global sizes
   base: 8,
@@ -133,7 +150,7 @@ export const SIZES = {
   padding: 16,
   radiusBtn: 8,
 
-  inputHeight: 45,
+  inputHeight: 50,
   iconSize: 24,
 
   // font sizes
@@ -150,18 +167,14 @@ export const SIZES = {
   inputText: 15,
   inputLabel: 14,
   inputError: 13,
-  // app dimensions
-  width,
-  height,
 
   // header
   header: 50,
   subheader: 30,
 
   // bottom tab
-  tabText: width * 0.035,
-  tabIcon: width * 0.04,
-  bottomTabHeight: 60,
+  tabText: SCREEN.width * 0.035,
+  tabIcon: SCREEN.width * 0.04,
 
   // product detail header
   headerIconSize: 24,
@@ -169,10 +182,10 @@ export const SIZES = {
   // buttonHeight
   buttonHeight: 45,
 
-  starSize: width * 0.045,
+  starSize: SCREEN.width * 0.045,
 
   shadow: {
-    shadowColor: 'rgba(0,0,0,0.075)',
+    shadowColor: 'rgba(0,0,0,0.075',
     shadowOffset: {width: 0, height: 2},
     shadowRadius: 4,
   },
@@ -266,19 +279,3 @@ export const FONTS = {
     fontFamily: 'Poppins-Regular',
   },
 };
-
-export const window = {
-  offset: 10,
-  height: Dimensions.get('window').height,
-  width: Dimensions.get('window').width,
-  designHeight: 810,
-  designWidth: 375,
-};
-
-export const fontSize = [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30];
-
-export const padding = [5, 10, 15, 20, 25, 30, 35, 40, 45];
-
-export const bottomTabHeight = window.height < 680 ? 50 : 75;
-
-export const fingerSize = 40;

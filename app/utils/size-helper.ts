@@ -1,11 +1,11 @@
 import {PixelRatio} from 'react-native';
 
-import {window} from '../theme/Config';
+import {SCREEN} from '../theme/config';
 
-const screenWidth = window.width;
-const screenHeight = window.height;
-const defaultWidth = window.designWidth;
-const defaultHeight = window.designHeight;
+const screenWidth = SCREEN.width;
+const screenHeight = SCREEN.height;
+const defaultWidth = SCREEN.designWidth;
+const defaultHeight = SCREEN.designHeight;
 const widthBaseScale = screenWidth / defaultWidth;
 const heightBaseScale = screenHeight / defaultHeight;
 

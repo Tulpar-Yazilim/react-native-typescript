@@ -1,88 +1,110 @@
-import React, {memo, useState} from 'react';
-import {Pressable, StyleSheet} from 'react-native';
+/* eslint-disable react/no-unstable-nested-components */
+import React, {memo, useEffect, useState} from 'react';
+import {Pressable} from 'react-native';
 
 import moment from 'moment';
 import {Calendar} from 'react-native-calendars';
+import {Direction, Theme} from 'react-native-calendars/src/types';
 
-import {COLORS, FONTS, SIZES} from '@/theme';
+import {useTheme, useThemeMode} from '@/hooks';
+import {FONTS, SIZES} from '@/theme';
 
+import {AppCalendarProps, DateComponentProps} from './app-calendar';
+import {styles} from './styles';
 import AppIcon from '../AppIcon';
 import Block from '../Block';
 import Text from '../Text';
 
-const AppCalendar = ({onSelectDay = (_date: string) => {}, ...props}) => {
+const AppCalendar = (props: AppCalendarProps) => {
+  const {firstDay = 1, enableSwipeMonths = true, onSelectDay, ...otherProps} = props;
+
+  const themeMode = useThemeMode();
+  const {colors} = useTheme();
   const [selectedDate, setSelectedDate] = useState(moment().format('YYYY-MM-DD'));
-  return (
-    <Calendar
-      firstDay={1}
-      enableSwipeMonths
-      style={styles.calendar}
-      theme={{
-        backgroundColor: COLORS.primary,
-        calendarBackground: COLORS.primary,
-        textSectionTitleColor: COLORS.gray,
-        textSectionTitleDisabledColor: COLORS.lightGray,
-        selectedDayBackgroundColor: COLORS.secondary,
-        selectedDayTextColor: COLORS.white,
-        todayTextColor: COLORS.white,
-        dayTextColor: COLORS.white,
-        textDisabledColor: COLORS.gray,
-        dotColor: COLORS.secondary,
-        selectedDotColor: '#FFF',
-        arrowColor: COLORS.gray,
-        disabledArrowColor: COLORS.lightGray,
-        monthTextColor: COLORS.gray,
-        indicatorColor: COLORS.gray,
-        textDayFontFamily: FONTS.regular,
-        textMonthFontFamily: FONTS.medium,
-        textDayHeaderFontFamily: FONTS.semiBold,
-        textMonthFontWeight: '400',
-        textDayFontSize: 14,
-        textMonthFontSize: 20,
-        textDayHeaderFontSize: 13,
-      }}
-      renderArrow={direction => <AppIcon name={direction === 'left' ? 'chevronLeft' : 'chevronRight'} size={22} color={COLORS.gray} />}
-      dayComponent={({
-        date = {
-          dateString: '',
-          day: '',
-          month: '',
-          year: '',
-          timestamp: 0,
+
+  const initialTheme = {
+    backgroundColor: colors.primary,
+    calendarBackground: colors.primary,
+    textSectionTitleColor: colors.gray,
+    textSectionTitleDisabledColor: colors.lightGray,
+    selectedDayBackgroundColor: colors.secondary,
+    selectedDayTextColor: colors.white,
+    todayTextColor: colors.white,
+    dayTextColor: colors.white,
+    textDisabledColor: colors.gray,
+    dotColor: colors.secondary,
+    selectedDotColor: '#FFF',
+    arrowColor: colors.gray,
+    disabledArrowColor: colors.lightGray,
+    monthTextColor: colors.gray,
+    indicatorColor: colors.gray,
+    textDayFontFamily: FONTS.regular,
+    textMonthFontFamily: FONTS.medium,
+    textDayHeaderFontFamily: FONTS.semiBold,
+    textMonthFontWeight: '400',
+    textDayFontSize: 14,
+    textMonthFontSize: 20,
+    textDayHeaderFontSize: 13,
+  } as Theme;
+
+  const [{key, theme}, setTheme] = useState({
+    key: (themeMode === 'dark' ? 'dark_' : 'normal_') + new Date().getTime(),
+    theme: initialTheme,
+  });
+
+  useEffect(() => {
+    if (themeMode === 'dark') {
+      setTheme({
+        ...theme,
+        key: 'dark_' + new Date().getTime(),
+        theme: {
+          ...initialTheme,
+          backgroundColor: colors?.cardBg,
+          calendarBackground: colors?.cardBg,
+          selectedDayBackgroundColor: colors?.cardBg,
         },
-        marking = {marked: false},
-      }) => {
-        return (
-          <Pressable
-            onPress={() => {
-              setSelectedDate(date?.dateString);
-              onSelectDay(date?.dateString);
-            }}>
-            <Block backgroundColor={date?.dateString === selectedDate ? 'secondary' : 'primary'} borderRadius={SIZES.radius} w={46} h={46} pt={7} pr={12}>
-              <Block>
-                <Text medium size={14} color={COLORS.white}>
-                  {date.day.toString()}
-                </Text>
-              </Block>
-              {marking?.marked && (
-                <Block pt-7 pl-9>
-                  <Block w={12} h={4} borderRadius={SIZES.radius} backgroundColor={date?.dateString === selectedDate ? 'white' : 'secondary'} />
-                </Block>
-              )}
+      });
+    } else {
+      setTheme({
+        ...theme,
+        key: 'normal_' + new Date().getTime(),
+        theme: {
+          ...initialTheme,
+        },
+      });
+    }
+  }, [themeMode, colors]);
+
+  const DayComponent = ({date, marking}: DateComponentProps) => {
+    return (
+      <Pressable
+        onPress={() => {
+          if (date?.dateString) {
+            setSelectedDate(date?.dateString);
+            onSelectDay?.(date?.dateString);
+          }
+        }}>
+        <Block backgroundColor={date?.dateString === selectedDate ? 'secondary' : 'primary'} borderRadius={SIZES.radius} w={46} h={46} pt={7} pr={12}>
+          <Block>
+            <Text medium size={14} color={colors.white}>
+              {date?.day?.toString?.()}
+            </Text>
+          </Block>
+          {marking?.marked && (
+            <Block pt-7 pl-9>
+              <Block w={12} h={4} borderRadius={SIZES.radius} backgroundColor={date?.dateString === selectedDate ? 'white' : 'secondary'} />
             </Block>
-          </Pressable>
-        );
-      }}
-      {...props}
-    />
+          )}
+        </Block>
+      </Pressable>
+    );
+  };
+
+  const ArrowComponent = (direction: Direction) => <AppIcon name={direction === 'left' ? 'chevronLeft' : 'chevronRight'} size={22} color={colors.gray} />;
+
+  return (
+    <Calendar key={key} firstDay={firstDay} enableSwipeMonths={enableSwipeMonths} style={styles.calendar} theme={theme} renderArrow={ArrowComponent} dayComponent={DayComponent} {...otherProps} />
   );
 };
-
-const styles = StyleSheet.create({
-  calendar: {
-    height: '100%',
-    width: '100%',
-  },
-});
 
 export default memo(AppCalendar);

@@ -1,5 +1,6 @@
-import React, {forwardRef, ReactNode, Ref, useEffect, useImperativeHandle, useMemo, useRef} from 'react';
-import {Pressable, StatusBar, StyleSheet, ViewStyle} from 'react-native';
+/* eslint-disable react/no-unstable-nested-components */
+import React, {forwardRef, Ref, useEffect, useImperativeHandle, useMemo, useRef} from 'react';
+import {Pressable, StatusBar, StyleSheet} from 'react-native';
 
 import BottomSheet, {BottomSheetBackdropProps, BottomSheetScrollView, BottomSheetView, useBottomSheetDynamicSnapPoints, useBottomSheetTimingConfigs} from '@gorhom/bottom-sheet';
 import {BottomSheetMethods} from '@gorhom/bottom-sheet/lib/typescript/types';
@@ -7,22 +8,11 @@ import {Portal} from 'react-native-portalize';
 import Animated, {Easing, Extrapolate, interpolate, useAnimatedStyle} from 'react-native-reanimated';
 
 import {useTheme, useThemeMode} from '@/hooks';
-import {COLORS, window} from '@/theme';
+import {COLORS, generalStyles, SCREEN} from '@/theme';
 import {heightPixel, rgba} from '@/utils';
 
+import {AppBottomSheetProps} from './app-bottom-sheet';
 import Block from '../Block';
-
-interface AppBottomSheetProps {
-  children: ReactNode;
-  snapPoints?: Array<number>;
-  backdrop?: boolean;
-  portal?: boolean;
-  customStyles?: ViewStyle;
-  isFlatList?: boolean;
-  isVisible?: boolean;
-  enablePanDownToClose?: boolean;
-  onClose?: () => void;
-}
 
 const AppBottomSheet = (props: AppBottomSheetProps, ref: Ref<BottomSheetMethods>) => {
   const {children = <></>, enablePanDownToClose = true, backdrop = true, onClose = () => {}, portal = true, isFlatList = false, isVisible = false, snapPoints, customStyles = {}} = props;
@@ -31,7 +21,7 @@ const AppBottomSheet = (props: AppBottomSheetProps, ref: Ref<BottomSheetMethods>
   const {colors} = useTheme();
   const bottomSheetRef = useRef<BottomSheet>(null);
 
-  const initialSnapPoints = useMemo(() => (snapPoints ? snapPoints : ['CONTENT_HEIGHT']), [snapPoints]);
+  const initialSnapPoints = useMemo(() => snapPoints ?? ['CONTENT_HEIGHT'], [snapPoints]);
   const {animatedHandleHeight, animatedSnapPoints, animatedContentHeight, handleContentLayout} = useBottomSheetDynamicSnapPoints(initialSnapPoints);
 
   const animationConfigs = useBottomSheetTimingConfigs({
@@ -69,7 +59,7 @@ const AppBottomSheet = (props: AppBottomSheetProps, ref: Ref<BottomSheetMethods>
     return (
       <Animated.View style={containerStyle}>
         <Pressable
-          style={{flex: 1}}
+          style={generalStyles.flex}
           onPress={() => {
             bottomSheetRef.current?.close();
           }}
@@ -99,7 +89,7 @@ const AppBottomSheet = (props: AppBottomSheetProps, ref: Ref<BottomSheetMethods>
         snapPoints={animatedSnapPoints}
         handleHeight={animatedHandleHeight}
         contentHeight={animatedContentHeight}
-        topInset={StatusBar.currentHeight || 0}
+        topInset={StatusBar.currentHeight ?? 0}
         onClose={onClose}
         backdropComponent={BackdropComponent}
         style={{
@@ -125,7 +115,7 @@ const AppBottomSheet = (props: AppBottomSheetProps, ref: Ref<BottomSheetMethods>
                 styles.bottomSheetView,
                 customStyles,
                 {
-                  maxHeight: window.height - heightPixel(180),
+                  maxHeight: SCREEN.height - heightPixel(180),
                 },
               ]}>
               {children}

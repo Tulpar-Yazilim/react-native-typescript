@@ -1,12 +1,14 @@
-interface TrackColor {
-  true: string | any;
-  false: string | any;
-}
+import {SwitchProps} from 'react-native';
 
-export interface Props extends AppSwitch {
+export type TrackColor = {
+  true: string;
+  false: string;
+};
+
+export type Props = {
   value: boolean;
   onChange: EventEmitter;
   trackColor?: TrackColor;
   thumbColor?: TrackColor;
-  iosBackgroundColor?: string | any;
-}
+  iosBackgroundColor?: string;
+} & SwitchProps;

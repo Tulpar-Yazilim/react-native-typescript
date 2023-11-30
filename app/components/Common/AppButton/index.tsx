@@ -1,18 +1,17 @@
 import React, {memo} from 'react';
 import {ActivityIndicator} from 'react-native';
 
-import {useStyledTag} from '@/hooks';
+import {useStyledTag, useTheme} from '@/hooks';
 import {COLORS} from '@/theme';
 import {ICONS, UseThemeType} from '@/utils';
 
-import {EnumButtonType, Props} from './app-button';
+import {ButtonProps, EnumButtonType} from './app-button';
 import styles from './style';
-import useTheme from '../../../hooks/useTheme';
 import AppIcon from '../AppIcon';
 import Block from '../Block';
 import Text from '../Text';
 
-const AppButton = (props: Props | never) => {
+const AppButton = (props: ButtonProps) => {
   const {disabled, type, title, titleColor = COLORS.white, icon, iconColor, iconSize = 22, width = '100%', height = 56, loading, loadingTitle = 'please_wait', style} = props;
 
   const theme = useTheme(props as UseThemeType);
@@ -47,10 +46,10 @@ const AppButton = (props: Props | never) => {
         )}
 
         {!loading && (
-          <>
+          <React.Fragment>
             {title && <Text style={[styles.text, {color: titleColor}]}>{title}</Text>}
             {type === 'icon' && <AppIcon name={icon as keyof typeof ICONS} color={iconColor ?? theme.colors.defaultTextColor} size={iconSize} />}
-          </>
+          </React.Fragment>
         )}
       </React.Fragment>
     </Element>

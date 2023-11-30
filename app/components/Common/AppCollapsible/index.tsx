@@ -1,22 +1,17 @@
-import React, {memo, ReactElement, useCallback, useEffect, useState} from 'react';
-import {LayoutChangeEvent, Pressable, StyleProp, StyleSheet, ViewStyle} from 'react-native';
+import React, {memo, useCallback, useEffect, useState} from 'react';
+import {LayoutChangeEvent, Pressable} from 'react-native';
 
 import {Easing, useAnimatedStyle, useSharedValue, withTiming} from 'react-native-reanimated';
 
+import {AppCollapsibleType} from './app-collapsible';
+import {styles} from './styles';
 import AppIcon from '../AppIcon';
 import Block from '../Block';
 import Text from '../Text';
 
-export type AppCollapsibleType = {
-  title: string | ReactElement;
-  collapseHeaderHeight?: number;
-  defaultHeight?: number;
-  children: ReactElement;
-  style?: StyleProp<ViewStyle>;
-  isOpen?: boolean;
-};
+const AppCollapsible = (props: AppCollapsibleType) => {
+  const {title, collapseHeaderHeight = 56, defaultHeight = 0, children = <></>, style = {}, isOpen = false} = props;
 
-const AppCollapsible = ({title, collapseHeaderHeight = 56, defaultHeight = 0, children = <></>, style = {}, isOpen = false}: AppCollapsibleType) => {
   const titleType = typeof title;
 
   const heightAnim = useSharedValue(defaultHeight);
@@ -71,12 +66,5 @@ const AppCollapsible = ({title, collapseHeaderHeight = 56, defaultHeight = 0, ch
     </Block>
   );
 };
-
-const styles = StyleSheet.create({
-  contentStyle: {
-    position: 'absolute',
-    width: '100%',
-  },
-});
 
 export default memo(AppCollapsible);

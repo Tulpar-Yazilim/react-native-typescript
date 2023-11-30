@@ -1,65 +1,52 @@
-import React, {FC, memo, ReactElement, ReactNode} from 'react';
-import {ImageBackground, ImageResizeMode, LayoutChangeEvent, Pressable, StyleProp, StyleSheet, View, ViewStyle} from 'react-native';
+import React, {FC, memo} from 'react';
+import {ImageBackground, Pressable, StyleSheet, TouchableOpacity, View} from 'react-native';
 
 import Animated from 'react-native-reanimated';
 
 import {useTheme} from '@/hooks';
-import {IStyleShortcuts, setupSizeTypes, UseThemeType} from '@/utils';
+import {generalStyles} from '@/theme';
+import {UseThemeType} from '@/utils';
 
-type SetupSizeTypes = Omit<setupSizeTypes, 'setupSizeTypes'>;
+import {BlockProps} from './block';
 
-interface Props extends SetupSizeTypes, IStyleShortcuts {
-  If?: boolean;
-  children?: ReactElement | ReactNode;
-  pressable?: boolean;
-  style?: StyleProp<ViewStyle> | ViewStyle;
-  onPress?: () => void;
-  animated?: boolean;
-  onLayout?: (event: LayoutChangeEvent) => void;
-  backgroundImage?: string;
-  resizeMode?: ImageResizeMode;
-}
-
-const Block: FC<Props> = ({children, animated, onLayout, backgroundImage, resizeMode, If, ...props}) => {
+const Block: FC<BlockProps> = ({children, animated, onLayout, backgroundImage, resizeMode, If, ...props}) => {
   const {styles} = useTheme(props as UseThemeType);
 
   if (If === false) {
     return <></>;
   }
 
-  if (props.pressable) {
+  const insideStyles = StyleSheet.flatten([styles, props.style]);
+
+  const PressableComponent = props.pressable ? Pressable : TouchableOpacity;
+
+  if (props.pressable || props.touchable) {
     return (
-      <Pressable {...props} style={[styles, props.style]}>
+      <PressableComponent {...props} style={insideStyles}>
         {children}
-      </Pressable>
+      </PressableComponent>
     );
   }
 
   if (animated) {
     return (
-      <Animated.View onLayout={onLayout} style={[styles, props.style]}>
+      <Animated.View onLayout={onLayout} style={insideStyles}>
         {children}
       </Animated.View>
     );
   }
 
   return (
-    <View onLayout={onLayout} style={[styles, props.style]}>
+    <View onLayout={onLayout} style={insideStyles}>
       {backgroundImage ? (
-        <ImageBackground source={{uri: backgroundImage}} resizeMode={resizeMode ?? 'cover'} style={blockStyles.container}>
+        <ImageBackground source={{uri: backgroundImage}} resizeMode={resizeMode ?? 'cover'} style={generalStyles.flex}>
           {children}
         </ImageBackground>
       ) : (
-        <>{children}</>
+        children
       )}
     </View>
   );
 };
-
-const blockStyles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
 
 export default memo(Block);

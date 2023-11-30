@@ -1,32 +1,26 @@
 import React, {memo} from 'react';
 
 import {ViewStyle} from 'react-native/types';
-import Animated, {AnimatedStyleProp, useAnimatedStyle, withSpring} from 'react-native-reanimated';
+import Animated, {AnimatedStyleProp, useAnimatedStyle, withTiming} from 'react-native-reanimated';
 
-import {useTheme} from '@/hooks';
+import {COLORS, generalStyles} from '@/theme';
 
+import {RadioButtonProps} from './radio-button';
 import Block from '../Block';
-import {SelectOptionItemType} from '../Form/types';
 import Text from '../Text';
 
-type RadioButtonType = {
-  item: SelectOptionItemType;
-  checked: boolean;
-  setChecked: () => void;
-};
-
-const RadioButton = ({item, checked, setChecked}: RadioButtonType) => {
-  const theme = useTheme();
+const RadioButton = (props: RadioButtonProps) => {
+  const {item, checked, setChecked} = props;
 
   const checkedStyle = useAnimatedStyle(() => {
     'worklet';
     return {
-      backgroundColor: theme.colors.radioButtonChecked,
+      backgroundColor: COLORS.radioButtonChecked,
       display: checked ? 'flex' : 'none',
       borderRadius: 25,
       transform: [
         {
-          scale: withSpring(checked ? 1.5 : 0.7),
+          scale: withTiming(checked ? 1.5 : 0.7),
         },
       ],
       flex: 1,
@@ -36,8 +30,8 @@ const RadioButton = ({item, checked, setChecked}: RadioButtonType) => {
 
   return (
     <Block row mt-5 center pressable onPress={setChecked}>
-      <Block border w-25 h-25 rounded-25 style={{borderColor: theme.colors.radioButtonBorder}}>
-        <Block flex m-2 rounded-25 style={{overflow: 'hidden'}}>
+      <Block border borderColor="radioButtonBorder" w-25 h-25 rounded-25>
+        <Block flex m-2 rounded-25 style={generalStyles.overflow}>
           <Animated.View style={checkedStyle} />
         </Block>
       </Block>

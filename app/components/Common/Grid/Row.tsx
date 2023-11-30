@@ -1,13 +1,10 @@
-import React, {FC, memo, ReactNode} from 'react';
+import React, {FC, memo} from 'react';
 
 import {Block} from '@/components';
-import {IStyleShortcuts} from '@/utils';
 
-interface Props extends IStyleShortcuts {
-  children: ReactNode;
-}
+import {RowProps} from './grid';
 
-const Row: FC<Props> = props => {
+const Row: FC<RowProps> = props => {
   const {children} = props;
 
   return (

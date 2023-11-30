@@ -1,26 +1,21 @@
 import React, {FC, memo} from 'react';
 
+import {useTranslation} from 'react-i18next';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 
-import {useAppSelector} from '@/hooks';
-import {i18next} from '@/lang';
+import {useAppSelector, useTheme, useThemeMode} from '@/hooks';
 
-import useTheme from '../../../hooks/useTheme';
+import {DateTimePickerProps} from './date-time-picker';
 
-type Props = {
-  visible: boolean;
-  mode?: 'date' | 'time' | 'datetime';
-  date?: Date;
-  isDarkModeEnabled?: boolean;
-  minimumDate?: Date;
-  maximumDate?: Date;
-  onDateChange?: (_date: Date) => void;
-  onClose?: (_date?: Date) => void;
-};
+const DateTimePicker: FC<DateTimePickerProps> = props => {
+  const {visible, mode = 'date', minimumDate, maximumDate, date, onDateChange, onClose} = props;
 
-const DateTimePicker: FC<Props> = ({visible, mode = 'date', isDarkModeEnabled, minimumDate, maximumDate, date, onDateChange, onClose}) => {
   const language = useAppSelector(state => state.settings.language);
+  const themeMode = useThemeMode();
   const theme = useTheme();
+
+  const {t} = useTranslation();
+
   const handleConfirm = (_date: Date) => {
     onClose?.(_date);
     onDateChange?.(_date);
@@ -28,8 +23,8 @@ const DateTimePicker: FC<Props> = ({visible, mode = 'date', isDarkModeEnabled, m
 
   return (
     <DateTimePickerModal
-      confirmTextIOS={i18next.t('confirm').toString()}
-      cancelTextIOS={i18next.t('close').toString()}
+      confirmTextIOS={t('confirm')}
+      cancelTextIOS={t('close')}
       date={date}
       locale={language}
       isVisible={visible}
@@ -40,9 +35,9 @@ const DateTimePicker: FC<Props> = ({visible, mode = 'date', isDarkModeEnabled, m
       minimumDate={minimumDate}
       maximumDate={maximumDate}
       buttonTextColorIOS={theme.colors.defaultTextColor}
-      isDarkModeEnabled={isDarkModeEnabled}
-      textColor={isDarkModeEnabled ? 'white' : 'auto'}
-      themeVariant={isDarkModeEnabled ? 'dark' : 'light'}
+      isDarkModeEnabled={themeMode === 'dark'}
+      textColor={themeMode === 'dark' ? 'white' : 'auto'}
+      themeVariant={themeMode === 'dark' ? 'dark' : 'light'}
       display={mode === 'time' ? 'spinner' : 'inline'}
     />
   );
