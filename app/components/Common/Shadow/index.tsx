@@ -1,30 +1,11 @@
-import React, {FC, memo, ReactElement} from 'react';
-import {AnimatableNumericValue, ColorValue, StyleProp, ViewStyle} from 'react-native';
+import React, {FC, memo} from 'react';
 
 import DropShadow from 'react-native-drop-shadow';
 
-import {defaultShadows} from './style';
+import {ShadowProps} from './shadow';
+import {defaultShadows} from './styles';
 
-type Offset = {
-  width: number;
-  height: number;
-};
-
-type Props = {
-  xs?: boolean;
-  sm?: boolean;
-  md?: boolean;
-  lg?: boolean;
-  xl?: boolean;
-  shadowColor?: ColorValue;
-  shadowOpacity?: AnimatableNumericValue;
-  shadowRadius?: number;
-  shadowOffset?: Offset;
-  children?: ReactElement;
-  style?: StyleProp<ViewStyle>;
-};
-
-const Shadow: FC<Props> = ({children, ...props}) => {
+const Shadow: FC<ShadowProps> = ({children, ...props}) => {
   const {xs, sm, md, lg, xl, shadowColor, shadowOpacity, shadowRadius, shadowOffset, style} = props;
 
   return (

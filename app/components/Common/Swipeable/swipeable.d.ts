@@ -1,22 +1,24 @@
+import Swipeable from 'react-native-gesture-handler/Swipeable';
+
 import {ICONS} from '@/utils';
 
-interface Icon {
+export type SwipeIcon = {
   name: keyof typeof ICONS;
   size?: number;
   color?: string;
-}
+};
 
-export interface SwipItem {
+export type SwipItem = {
   text: string;
   textColor?: string;
   icon: Icon;
   background: string;
   titleStyle?: never;
   onPress?: () => void;
-}
+};
 
-export interface Props extends Swipeable {
+export type SwipeProps = {
   leftItems: Array<SwipItem>;
   rightItems: Array<SwipItem>;
   children: ReactElement;
-}
+} & Swipeable;

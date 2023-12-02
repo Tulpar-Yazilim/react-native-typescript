@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 
-import {COLORS, fingerSize, FONTS} from '@/theme';
+import {COLORS, FINGER_SIZE, FONTS} from '@/theme';
 
 import {IButtonTypes} from './app-button';
 
@@ -16,6 +16,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontFamily: FONTS.semiBold,
+    textAlign: 'center',
   },
   activityIndicator: {
     paddingRight: 10,
@@ -44,8 +45,8 @@ export const buttonTypesStyles: IButtonTypes = {
   },
   icon: {
     container: {
-      width: fingerSize,
-      height: fingerSize,
+      width: FINGER_SIZE,
+      height: FINGER_SIZE,
       padding: 0,
     },
     text: {},

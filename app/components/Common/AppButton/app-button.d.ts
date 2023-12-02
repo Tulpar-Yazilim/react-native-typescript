@@ -1,9 +1,9 @@
 import {ReactNode} from 'react';
 import {GestureResponderEvent, TextStyle, ViewStyle} from 'react-native';
 
-import {IStyleShortcuts} from '../../../utils/style-shortcuts';
+import {ICONS, IStyleShortcuts, SetupSizeTypes} from '@/utils';
 
-export interface Props extends IStyleShortcuts {
+export type ButtonProps = {
   onPress?: (event: GestureResponderEvent) => void;
   type?: EnumButtonType;
   disabled?: boolean;
@@ -18,7 +18,8 @@ export interface Props extends IStyleShortcuts {
   loadingTitle?: string;
   style?: ReactNode;
   iconSize?: number;
-}
+} & SetupSizeTypes &
+  IStyleShortcuts;
 
 export interface IButtonTypes {
   primary: IButtonTypeItem;

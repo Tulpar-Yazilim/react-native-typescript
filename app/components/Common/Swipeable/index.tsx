@@ -1,17 +1,18 @@
 import React, {memo} from 'react';
-import {Animated, StyleSheet} from 'react-native';
+import {Animated} from 'react-native';
 
 import {RectButton} from 'react-native-gesture-handler';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 
 import {Block, Text} from '@/components';
 
-import {Props, SwipItem} from './swipeable';
+import styles from './styles';
+import {SwipeProps, SwipItem} from './swipeable';
 import AppIcon from '../AppIcon';
 
 type AnimatedInterpolation = ReturnType<Animated.Value['interpolate']>;
 
-function ISwipeable({leftItems, rightItems, children}: Props) {
+function ISwipeable({leftItems, rightItems, children}: Readonly<SwipeProps>) {
   const renderLeftActions = (_progressAnimatedValue: AnimatedInterpolation, dragAnimatedValue: AnimatedInterpolation, _swipeable: Swipeable) => {
     const trans = dragAnimatedValue.interpolate({
       inputRange: [0, 100],
@@ -86,21 +87,5 @@ function ISwipeable({leftItems, rightItems, children}: Props) {
     </Swipeable>
   );
 }
-
-const styles = StyleSheet.create({
-  leftAction: {
-    justifyContent: 'center',
-  },
-  rightAction: {
-    justifyContent: 'center',
-    alignItems: 'flex-end',
-  },
-  actionText: {
-    padding: 20,
-    alignItems: 'center',
-    justifyContent: 'center',
-    alignContent: 'center',
-  },
-});
 
 export default memo(ISwipeable);

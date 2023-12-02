@@ -1,14 +1,16 @@
 import React, {memo} from 'react';
-import {ImageResizeMode} from 'react-native';
 
 import FastImage from 'react-native-fast-image';
 import {createImageProgress} from 'react-native-image-progress';
 
 import {COLORS} from '@/theme';
-import {getStyleShortcuts, widthPixel} from '@/utils';
+import {getStyleShortcuts, heightPixel, widthPixel} from '@/utils';
+
+import {ImageProps} from './app-image';
 const Image = createImageProgress(FastImage);
 
-const AppImage = ({url, size, width, height, resizeMode = 'cover' as ImageResizeMode, indicatorColor = COLORS.gray, style, ...otherProps}: any) => {
+const AppImage = (props: ImageProps) => {
+  const {url, size, width = 50, height = 50, resizeMode = 'cover', indicatorColor = COLORS.gray, style, ...otherProps} = props;
   return (
     <Image
       source={typeof url === 'string' ? {uri: url, priority: FastImage.priority.high} : url}
@@ -17,8 +19,8 @@ const AppImage = ({url, size, width, height, resizeMode = 'cover' as ImageResize
       }}
       resizeMode={resizeMode}
       style={{
-        width: widthPixel(width ? width : size),
-        height: widthPixel(height ? height : size),
+        width: widthPixel(size ?? width),
+        height: heightPixel(size ?? height),
       }}
       imageStyle={[style, getStyleShortcuts(otherProps)]}
       {...otherProps}

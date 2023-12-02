@@ -46,6 +46,7 @@ export interface IStyleShortcuts {
   bottom?: StyleProp<ViewStyle> | boolean | number;
   wrap?: StyleProp<ViewStyle> | boolean;
   border?: StyleProp<ViewStyle> | boolean | number;
+  borderColor?: keyof typeof COLORS;
   borderBottom?: StyleProp<ViewStyle> | boolean | number;
   borderTop?: StyleProp<ViewStyle> | boolean | number;
   borderLeft?: StyleProp<ViewStyle> | boolean | number;
@@ -119,6 +120,13 @@ export interface ITextStyles {
   color?: StyleProp<TextStyle> | string;
 }
 
+export interface IConfigScreen {
+  offset: number;
+  height: number;
+  width: number;
+  designWidth: number;
+  designHeight: number;
+}
 export interface IStyles {
   shortcutStyles: IStyleShortcuts;
   predefinedStyles: IStyleShortcuts;

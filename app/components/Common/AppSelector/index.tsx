@@ -1,48 +1,30 @@
 import React, {memo} from 'react';
-import {Pressable, StyleProp, ViewStyle} from 'react-native';
+import {Pressable} from 'react-native';
 
 import {useTranslation} from 'react-i18next';
 
 import {AppButton, AppIcon, Block, Text} from '@/components';
 import {useTheme} from '@/hooks';
-import {ICONS} from '@/utils';
+import {heightPixel} from '@/utils';
 
+import {AppSelectorProps, ItemProp} from './app-selector';
 import AppBottomSheet from '../AppBottomSheet';
 import AppFlatList from '../AppFlatList';
 
-interface ItemProp {
-  title: string;
-  value: string | number;
-  icon?: React.ReactNode | React.ReactElement | null;
-  isIcon?: boolean;
-  iconColor?: string;
-  iconName?: keyof typeof ICONS;
-}
-
-interface Props {
-  headerTitle?: string;
-  isVisible: boolean;
-  onClose?: () => void;
-  onSelect?: (_value: ItemProp) => void;
-  itemsList: ItemProp[];
-  selectedItem?: ItemProp;
-  containerStyle?: StyleProp<ViewStyle>;
-}
-
-const AppSelector = ({headerTitle = '', isVisible = false, onClose, onSelect, itemsList, selectedItem, containerStyle}: Props) => {
+const AppSelector = ({headerTitle = '', isVisible = false, onClose, onSelect, itemsList, selectedItem, containerStyle}: AppSelectorProps) => {
   const {t} = useTranslation();
   const {colors} = useTheme();
 
-  const RenderItem = ({item}: {item: ItemProp}) => (
+  const renderItem = ({item}: {item: ItemProp}) => (
     <Pressable
       onPress={() => {
         onSelect?.(item);
         onClose?.();
       }}>
       <Block flex row middle pt-15 pb-15 px-30 borderBottom>
-        {item?.isIcon && (
+        {item?.isIcon && item?.iconName && (
           <Block left pr-15>
-            <AppIcon name={item.iconName!} size={22} color={item.iconColor ? item.iconColor : colors.primary} />
+            <AppIcon name={item.iconName} size={22} color={item.iconColor ?? colors.primary} />
             {item.icon}
           </Block>
         )}
@@ -50,7 +32,7 @@ const AppSelector = ({headerTitle = '', isVisible = false, onClose, onSelect, it
           <Text
             style={{
               color: item?.value === selectedItem?.value ? colors.primary : colors.defaultTextColor,
-              fontSize: item?.value === selectedItem?.value ? 16 : 15,
+              fontSize: item?.value === selectedItem?.value ? heightPixel(16) : heightPixel(15),
               fontWeight: item?.value === selectedItem?.value ? 'bold' : 'normal',
             }}>
             {item?.title}
@@ -76,7 +58,7 @@ const AppSelector = ({headerTitle = '', isVisible = false, onClose, onSelect, it
           </Block>
         )}
         <Block>
-          <AppFlatList<ItemProp> data={itemsList} renderItem={RenderItem} />
+          <AppFlatList<ItemProp> data={itemsList} renderItem={renderItem} />
         </Block>
 
         {!!selectedItem?.value && (

@@ -1,16 +1,18 @@
 import React, {memo, useEffect} from 'react';
-import {StyleSheet, ViewStyle} from 'react-native';
+import {ViewStyle} from 'react-native';
 
 import LinearGradient from 'react-native-linear-gradient';
-import Animated, {AnimatedStyleProp, useAnimatedStyle, useSharedValue, withSpring} from 'react-native-reanimated';
+import Animated, {AnimatedStyleProp, useAnimatedStyle, useSharedValue, withTiming} from 'react-native-reanimated';
 
 import {Block, Text} from '@/components';
-import {useAppSelector} from '@/hooks';
-import {COLORS} from '@/theme';
+import {useThemeMode} from '@/hooks';
 
-import {Props} from './floating-button';
+import {FloatingButtonProps} from './floating-button';
+import styles from './styles';
 
-function FloatingButton({isVisible = false, buttonText = 'approve', onPress = () => {}, closeButtonText = 'not_now', onClose = () => {}}: Props) {
+function FloatingButton(props: FloatingButtonProps) {
+  const {isVisible, buttonText = 'approve', closeButtonText = 'not_now', onPress, onClose} = props;
+
   //#region Animation
   const bottomTranslateValue = useSharedValue(0);
   const animatedStyles = useAnimatedStyle(() => {
@@ -20,19 +22,19 @@ function FloatingButton({isVisible = false, buttonText = 'approve', onPress = ()
   });
 
   useEffect(() => {
-    bottomTranslateValue.value = withSpring(isVisible ? 5 : 175, {duration: 1500});
+    bottomTranslateValue.value = withTiming(isVisible ? 5 : 175);
   }, [isVisible]);
   //#endregion
 
-  const theme = useAppSelector(state => state.settings.theme);
-  const shadowColors = theme === 'light' ? ['#00000000', '#000000B3', '#000000'] : ['#00000000', '#000000B3', '#000000'];
+  const themeMode = useThemeMode();
+  const shadowColors = themeMode === 'light' ? ['#00000000', '#000000B3', '#000000'] : ['#FFFFFFFF', '#FFFFFFB3', '#FFFFFF'];
 
   return (
     <Animated.View style={[styles.animatedView, animatedStyles]}>
       <LinearGradient colors={shadowColors} style={styles.menuGradient}>
         <Block center mt-10>
           <Block pressable onPress={onPress}>
-            <Block p-10 px-20 rounded-50 style={{backgroundColor: COLORS.primary}}>
+            <Block p-10 px-20 rounded-50 bg-primary>
               <Text white>{buttonText}</Text>
             </Block>
           </Block>
@@ -44,18 +46,5 @@ function FloatingButton({isVisible = false, buttonText = 'approve', onPress = ()
     </Animated.View>
   );
 }
-
-const styles = StyleSheet.create({
-  animatedView: {
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    bottom: 0,
-  },
-  menuGradient: {
-    height: 175,
-    flex: 1,
-  },
-});
 
 export default memo(FloatingButton);

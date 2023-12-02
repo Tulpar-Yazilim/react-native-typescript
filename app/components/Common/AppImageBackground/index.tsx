@@ -1,41 +1,21 @@
 import React, {memo} from 'react';
-import {ImageBackground, ImageResizeMode, StyleSheet} from 'react-native';
+import {ImageBackground, ImageResizeMode} from 'react-native';
+
 import {createImageProgress} from 'react-native-image-progress';
-import PropTypes from 'prop-types';
+
+import {generalStyles} from '@/theme';
+
+import {ImageBackgroundProps} from './app-image-background';
 const Image = createImageProgress(ImageBackground);
 
-const AppImageBackground = ({
-  children = <></>,
-  source = '',
-  resizeMode = 'cover' as ImageResizeMode,
-  style = {},
-  containerStyle = {},
-}) => (
-  <Image
-    source={typeof source === 'string' ? {uri: source} : source}
-    resizeMode={resizeMode}
-    style={[styles.imageContainer, containerStyle]}
-    imageStyle={style}>
-    {children}
-  </Image>
-);
+const AppImageBackground = (props: ImageBackgroundProps) => {
+  const {children, url, resizeMode = 'cover' as ImageResizeMode, style, containerStyle} = props;
 
-AppImageBackground.protoTypes = {
-  children: PropTypes.node,
-  source: PropTypes.any,
-  resizeMode: PropTypes.string,
-  style: PropTypes.object,
+  return (
+    <Image source={typeof url === 'string' ? {uri: url} : url} resizeMode={resizeMode} style={[generalStyles.flex, generalStyles.fullWidthHeight, containerStyle]} imageStyle={style}>
+      {children}
+    </Image>
+  );
 };
-
-AppImageBackground.defaultProps = {
-  children: <></>,
-  source: '',
-  resizeMode: 'cover',
-  style: {},
-};
-
-const styles = StyleSheet.create({
-  imageContainer: {flex: 1, width: '100%', height: '100%'},
-});
 
 export default memo(AppImageBackground);

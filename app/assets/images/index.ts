@@ -3,4 +3,9 @@ const TulparLogo = {
   dark: require('./logo.png'),
 };
 
-export default {TulparLogo};
+const EmptyDataImage = {
+  light: require('./empty-data.png'),
+  dark: require('./empty-data.png'),
+};
+
+export default {TulparLogo, EmptyDataImage};

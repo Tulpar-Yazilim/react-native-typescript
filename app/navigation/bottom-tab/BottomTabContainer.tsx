@@ -1,17 +1,17 @@
 import React from 'react';
-import {Dimensions, StyleSheet, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 
 import {BottomTabBarProps} from '@react-navigation/bottom-tabs';
 import {random} from 'lodash';
 
 import {useAppSelector, useTheme} from '@/hooks';
-import {bottomTabHeight, COLORS} from '@/theme';
+import {BOTTOM_TAB_HEIGHT, COLORS} from '@/theme';
 import {fontPixel, heightPixel} from '@/utils';
 
 import {BottomTabItem} from './BottomTabItem';
 
 export const bottomTabConfig = {
-  height: heightPixel(bottomTabHeight),
+  height: heightPixel(BOTTOM_TAB_HEIGHT),
   fontSize: fontPixel(11),
   iconSize: fontPixel(26),
 };
@@ -23,7 +23,7 @@ export const BottomTabContainer = (props: BottomTabBarProps) => {
   const {colors} = useTheme();
 
   return (
-    <>
+    <React.Fragment>
       {bottomTabDisplay && (
         <View
           style={[
@@ -49,14 +49,12 @@ export const BottomTabContainer = (props: BottomTabBarProps) => {
           })}
         </View>
       )}
-    </>
+    </React.Fragment>
   );
 };
 
 const styles = StyleSheet.create({
   tab: {
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
     alignItems: 'center',
     backgroundColor: COLORS.white,
     position: 'absolute',
@@ -64,6 +62,6 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     flexDirection: 'row',
-    width: Dimensions.get('window').width,
+    width: '100%',
   },
 });

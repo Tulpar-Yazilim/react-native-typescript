@@ -1,3 +1,5 @@
+import Animations from './animations';
 import Images from './images';
+import SelectionJson from './selection.json';
 
-export {Images};
+export {Animations, Images, SelectionJson};

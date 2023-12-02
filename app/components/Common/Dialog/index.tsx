@@ -1,15 +1,17 @@
+/* eslint-disable react/no-unstable-nested-components */
 import React, {useEffect, useState} from 'react';
-import {BackHandler, Keyboard, Pressable, StyleSheet} from 'react-native';
+import {BackHandler, Keyboard, Pressable} from 'react-native';
 
 import {useNavigation, useRoute} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {random} from 'lodash';
-import Animated, {useAnimatedStyle, useSharedValue, withSpring} from 'react-native-reanimated';
+import Animated, {useAnimatedStyle, useSharedValue, withTiming} from 'react-native-reanimated';
 
 import {useTheme} from '@/hooks';
 import {RootStackNavigationRouteType} from '@/navigation';
 import {DialogAction} from '@/utils';
 
+import styles from './styles';
 import AppInput from '../AppInput';
 import Block from '../Block';
 import Text from '../Text';
@@ -64,7 +66,6 @@ export default function Alert() {
 
     return () => backHandler.remove();
   }, [navigation]);
-
   //#endregion
 
   //#region Action Button
@@ -108,7 +109,7 @@ export default function Alert() {
   //#endregion
 
   useEffect(() => {
-    offset.value = withSpring(50);
+    offset.value = withTiming(50);
     return () => {
       offset.value = 0;
     };
@@ -146,33 +147,3 @@ export default function Alert() {
     </React.Fragment>
   );
 }
-
-const styles = StyleSheet.create({
-  bg: {
-    height: '100%',
-    zIndex: -2,
-  },
-  contain: {
-    zIndex: 9999,
-    alignItems: 'center',
-    position: 'absolute',
-    width: '100%',
-  },
-  content: {
-    width: '90%',
-    borderRadius: 8,
-  },
-  contentButton: {
-    justifyContent: 'flex-end',
-    padding: 10,
-    borderColor: 'gray',
-    flexDirection: 'row',
-  },
-  button: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 10,
-    paddingHorizontal: 30,
-    borderRadius: 10,
-  },
-});

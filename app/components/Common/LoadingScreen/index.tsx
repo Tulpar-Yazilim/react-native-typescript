@@ -1,25 +1,17 @@
 import React, {memo} from 'react';
-import {ActivityIndicator, StyleSheet, View} from 'react-native';
+import {ActivityIndicator} from 'react-native';
 
-const LoadingScreen = ({backgroundColor = 'rgba(0,0,0,0.7)', color = '#FFF'}) => {
+import {generalStyles} from '@/theme';
+
+import {LoadingScreenProps} from './loading-screen';
+import Block from '../Block';
+
+const LoadingScreen = (props: LoadingScreenProps) => {
+  const {backgroundColor = 'rgba(0,0,0,0.7)', color} = props;
   return (
-    <View style={[styles.container, {backgroundColor}]}>
+    <Block center middle style={[generalStyles.absoluteFill, {backgroundColor}]}>
       <ActivityIndicator color={color} size="large" />
-    </View>
+    </Block>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    zIndex: 9999,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
-
 export default memo(LoadingScreen);

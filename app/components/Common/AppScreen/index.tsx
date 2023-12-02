@@ -1,8 +1,7 @@
-import React, {memo, ReactNode, useState} from 'react';
-import {ImageResizeMode, Keyboard, Pressable, ScrollView, StyleProp, View, ViewStyle} from 'react-native';
+import React, {memo, useState} from 'react';
+import {Keyboard, Pressable, ScrollView, StyleProp, View, ViewStyle} from 'react-native';
 
 import {useNavigation} from '@react-navigation/native';
-import {StackNavigationOptions} from '@react-navigation/stack';
 import Config from 'react-native-config';
 import {RefreshControl} from 'react-native-gesture-handler';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
@@ -11,30 +10,18 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import {Block, Text} from '@/components';
 import {useTheme} from '@/hooks';
 import {Header} from '@/navigation';
-import {bottomTabHeight, generalStyles, window} from '@/theme';
+import {BOTTOM_TAB_HEIGHT, generalStyles, SCREEN} from '@/theme';
 import {getStyleShortcuts, heightPixel, UseThemeType} from '@/utils';
 
-type Props = {
-  scroll?: boolean;
-  safe?: boolean;
-  keyboardScroll?: boolean;
-  customStyle?: ViewStyle;
-  navigationOptions?: StackNavigationOptions;
-  flatList?: boolean;
-  children: ReactNode;
-  loading?: boolean;
-  title?: string;
-  canGoBack?: boolean;
-  onRefreshData?: () => void;
-  backgroundImage?: string;
-  backgroundResizeMode?: ImageResizeMode;
-};
+import {ScreenProps} from './app-screen';
 
-function AppScreen(props: Readonly<Props>) {
+function AppScreen(props: Readonly<ScreenProps>) {
   const {children, title, scroll, safe, canGoBack, keyboardScroll, customStyle, navigationOptions, flatList, loading, backgroundImage, backgroundResizeMode, onRefreshData} = props;
+
   const navigation = useNavigation();
   const {colors} = useTheme();
   const screenProps = props as UseThemeType;
+
   const [refreshing, setRefreshing] = useState(false);
 
   const onRefresh = async () => {
@@ -44,17 +31,18 @@ function AppScreen(props: Readonly<Props>) {
   };
 
   const screenCommonStyles = {
-    padding: heightPixel(window.offset),
-    paddingBottom: Config.MENU === 'tab' ? heightPixel(bottomTabHeight) : heightPixel(20),
+    padding: heightPixel(SCREEN.offset),
+    paddingBottom: Config.MENU === 'tab' ? heightPixel(BOTTOM_TAB_HEIGHT) : heightPixel(20),
     backgroundColor: !backgroundImage && colors.screenBgColor,
     ...generalStyles.flex,
+    ...generalStyles.flexGrow,
     ...customStyle,
   };
 
   const scrollViewStyles = [screenCommonStyles as StyleProp<ViewStyle>, getStyleShortcuts(screenProps) as StyleProp<ViewStyle>];
 
   return (
-    <>
+    <React.Fragment>
       <Header title={title} canGoBack={canGoBack} navigationOptions={navigationOptions} navigation={navigation} />
       {loading ? (
         <Text>loading</Text>
@@ -80,7 +68,7 @@ function AppScreen(props: Readonly<Props>) {
                   onPress={() => Keyboard.dismiss()}
                   style={[
                     {
-                      paddingBottom: Config.MENU === 'tab' ? bottomTabHeight + 20 : 50,
+                      paddingBottom: Config.MENU === 'tab' ? BOTTOM_TAB_HEIGHT + 20 : 50,
                     },
                   ]}>
                   <SafeAreaView>{children}</SafeAreaView>
@@ -89,15 +77,11 @@ function AppScreen(props: Readonly<Props>) {
             )}
             {scroll && !safe && (
               <ScrollView style={scrollViewStyles} showsVerticalScrollIndicator={false} showsHorizontalScrollIndicator={false}>
-                <Pressable
-                  style={{
-                    minHeight: '100%',
-                  }}
-                  onPress={() => Keyboard.dismiss()}>
+                <Pressable style={generalStyles.fullMinHeight} onPress={() => Keyboard.dismiss()}>
                   <View
                     style={[
                       {
-                        paddingBottom: Config.MENU === 'tab' ? bottomTabHeight + 20 : 50,
+                        paddingBottom: Config.MENU === 'tab' ? BOTTOM_TAB_HEIGHT + 20 : 50,
                       },
                     ]}>
                     {children}
@@ -119,15 +103,11 @@ function AppScreen(props: Readonly<Props>) {
                 showsHorizontalScrollIndicator={false}
                 scrollEnabled={scroll}
                 contentContainerStyle={{...getStyleShortcuts(screenProps)}}>
-                <Pressable
-                  style={{
-                    minHeight: '100%',
-                  }}
-                  onPress={() => Keyboard.dismiss()}>
+                <Pressable style={generalStyles.fullMinHeight} onPress={() => Keyboard.dismiss()}>
                   <View
                     style={[
                       {
-                        paddingBottom: Config.MENU === 'tab' ? bottomTabHeight + 20 : 50,
+                        paddingBottom: Config.MENU === 'tab' ? BOTTOM_TAB_HEIGHT + 20 : 50,
                       },
                       getStyleShortcuts(screenProps),
                     ]}>
@@ -155,7 +135,7 @@ function AppScreen(props: Readonly<Props>) {
           </>
         </Block>
       )}
-    </>
+    </React.Fragment>
   );
 }
 

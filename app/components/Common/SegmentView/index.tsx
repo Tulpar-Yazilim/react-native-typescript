@@ -1,27 +1,12 @@
-import React, {JSXElementConstructor, ReactElement, ReactNode, useRef} from 'react';
+/* eslint-disable react/no-unstable-nested-components */
+import React, {useCallback, useRef} from 'react';
 import {FlatList} from 'react-native';
 
-import {COLORS, window} from '@/theme';
+import {COLORS} from '@/theme';
 
+import {SegmentViewProps, TabPageProps} from './segment-view';
 import {AppFlatList, Block, SegmentedControl} from '..';
 import AppScreen from '../AppScreen';
-
-interface SegmentProps {
-  label: string;
-  id: number;
-}
-
-interface SegmentViewProps {
-  children: Array<ReactElement<string | JSXElementConstructor<never>> | ReactNode>;
-  activeTab: number;
-  setActiveTab: (index: number) => void;
-  segments: Array<SegmentProps>;
-}
-
-interface TabPageProps {
-  pages: Array<ReactElement<string | JSXElementConstructor<never>> | ReactNode>;
-  index: number;
-}
 
 const SegmentView = (props: SegmentViewProps) => {
   const {segments, children, activeTab, setActiveTab} = props;
@@ -30,10 +15,12 @@ const SegmentView = (props: SegmentViewProps) => {
   const TabPage = ({index, pages}: TabPageProps) => {
     return (
       <AppScreen scroll p-0>
-        <Block style={{width: window.width}}>{pages?.[index]}</Block>
+        <Block flex>{pages?.[index]}</Block>
       </AppScreen>
     );
   };
+
+  const renderItem = useCallback(({index}: {index: number}) => <TabPage index={index} pages={children} />, []);
 
   return (
     <React.Fragment>
@@ -41,12 +28,11 @@ const SegmentView = (props: SegmentViewProps) => {
         <SegmentedControl
           currentIndex={activeTab}
           onChange={(index: number) => {
-            setActiveTab(index);
-            flat.current &&
-              flat.current.scrollToIndex({
-                animated: true,
-                index: index,
-              });
+            setActiveTab?.(index);
+            flat?.current?.scrollToIndex?.({
+              animated: true,
+              index: index,
+            });
           }}
           segments={segments}
           tabColor={COLORS.primaryDark}
@@ -56,7 +42,7 @@ const SegmentView = (props: SegmentViewProps) => {
         />
       </Block>
       <AppScreen p-0>
-        <AppFlatList horizontal pagingEnabled scrollEnabled={false} reference={flat} data={segments.map(i => i.id)} renderItem={item => <TabPage index={item.index} pages={children} />} />
+        <AppFlatList horizontal pagingEnabled scrollEnabled={false} reference={flat} data={segments.map(i => i.id)} renderItem={renderItem} />
       </AppScreen>
     </React.Fragment>
   );

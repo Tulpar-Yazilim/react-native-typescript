@@ -1,7 +1,6 @@
-import React, {memo, useEffect} from 'react';
+import React, {memo, useCallback, useEffect} from 'react';
 import {useWindowDimensions, ViewStyle} from 'react-native';
 
-import {random} from 'lodash';
 import Animated, {AnimatedStyleProp, useAnimatedStyle, useSharedValue, withSpring} from 'react-native-reanimated';
 
 import {Block, Text} from '@/components';
@@ -9,17 +8,19 @@ import {useTheme} from '@/hooks';
 import {COLORS} from '@/theme';
 import {widthPixel} from '@/utils';
 
-import {Props} from './segmented-control';
+import {SegmentedControlProps} from './segmented-control';
 
-function SegmentedControl({segments, currentIndex, onChange, containerMargin = 10, tabColor, activeColor, titleColor = COLORS.black, activeTitleColor = COLORS.black, width, ...props}: Props) {
+function SegmentedControl(props: Readonly<SegmentedControlProps>) {
+  const {segments, currentIndex, onChange, containerMargin = 10, tabColor, activeColor, titleColor = COLORS.black, activeTitleColor = COLORS.black, width, ...otherProps} = props;
+
   const theme = useTheme();
   const {width: windowWidth} = useWindowDimensions();
 
-  const marginExtraction = (width || windowWidth) - containerMargin * 4;
+  const marginExtraction = (width ?? windowWidth) - containerMargin * 4;
   const translateValue = marginExtraction / segments.length;
   const tabTranslateValue = useSharedValue(0);
 
-  const memoizedTabPressCallback = React.useCallback(
+  const memoizedTabPressCallback = useCallback(
     (index: number) => {
       onChange?.(index);
     },
@@ -48,9 +49,9 @@ function SegmentedControl({segments, currentIndex, onChange, containerMargin = 1
   //#endregion
 
   return (
-    <Block {...props} row wrap style={{backgroundColor: tabColor ?? theme.colors.segmentBar}}>
+    <Block {...otherProps} row wrap style={{backgroundColor: tabColor ?? theme.colors.segmentBar}}>
       {segments?.map((segment, index) => (
-        <Block key={`${random(1000)}_segment_item`} flex pressable onPress={() => memoizedTabPressCallback(index)}>
+        <Block key={`${segment.label}_segment_item`} flex pressable onPress={() => memoizedTabPressCallback(index)}>
           <Block center middle h-50 rounded-10>
             <Text
               medium

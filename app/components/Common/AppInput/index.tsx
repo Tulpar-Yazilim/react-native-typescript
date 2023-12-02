@@ -1,117 +1,72 @@
 import 'intl';
 import 'intl/locale-data/jsonp/tr';
 
-import React, {FC, LegacyRef, memo, useCallback, useEffect, useState} from 'react';
-import {NativeSyntheticEvent, StyleSheet, TextInput, TextInputFocusEventData, TextInputProps, TextStyle, ViewStyle} from 'react-native';
+import React, {FC, memo, useCallback, useEffect, useState} from 'react';
+import {NativeSyntheticEvent, TextInput, TextInputFocusEventData, TextStyle, ViewStyle} from 'react-native';
 
-import {UseFormReturn} from 'react-hook-form';
 import {useTranslation} from 'react-i18next';
 import Animated, {AnimatedStyleProp, Easing, useAnimatedStyle, useSharedValue, withTiming} from 'react-native-reanimated';
 
 import {useTheme} from '@/hooks';
-import {COLORS, FONTS} from '@/theme';
-import {ICONS} from '@/utils';
+import {COLORS, generalStyles, SIZES} from '@/theme';
 
-import styles from './style';
+import {AppInputProps} from './app-input';
+import {useCreditCardInput, useCurrencyInput} from './hooks';
+import styles, {useContainerStyle} from './styles';
 import AppIcon from '../AppIcon';
 import Block from '../Block';
 import Text from '../Text';
 
-const inputHeight = 50;
-const offsetHeight = inputHeight / 3.3;
-
-interface AppInputProps extends TextInputProps {
-  placeholder?: string;
-  onChangeText?: (_text: string) => void;
-  onBlur?: (e: NativeSyntheticEvent<TextInputFocusEventData>) => void;
-  onFocus?: (e: NativeSyntheticEvent<TextInputFocusEventData>) => void;
-  errorMessage?: string;
-  animatedPlaceholder?: string;
-  icon?: keyof typeof ICONS;
-  label?: string;
-  form?: UseFormReturn;
-  name?: string;
-  error?: string;
-  onPress?: () => void;
-  onClear?: () => void;
-  reference?: LegacyRef<TextInput>;
-  inputProps?: object;
-  skipNext?: boolean;
-  disabled?: boolean;
-  type?: 'password' | 'text' | 'currency' | 'card';
-}
-
-const {format: formatCurrency} = Intl.NumberFormat('tr-TR', {
-  currency: 'TRY',
-  style: 'currency',
-});
-
-const useCurrencyInput = (initialValue: string | undefined) => {
-  const [value, setValue] = useState(initialValue || '');
-
-  useEffect(() => {
-    handleChange(initialValue + '00');
-  }, []);
-
-  const handleChange = (v: string) => {
-    const decimal = Number(v.replace(/\D/g, '')) / 100;
-    setValue(
-      formatCurrency(decimal || 0)
-        .split('₺')[1]
-        .replace('R$\xa0', ''),
-    );
-  };
-  return [value, handleChange] as [string, (v: string) => void];
-};
-
-const useCreditCardInput = (initialValue = '', onChangeText?: (_cardValue: string) => void) => {
-  const [value, setValue] = useState(initialValue);
-
-  const handleChange = (v: string) => {
-    const cardValue = v.replace(/\D/g, '').match(/(\d{0,4})(\d{0,4})(\d{0,4})(\d{0,4})/);
-    if (cardValue) {
-      const test = !cardValue[2] ? cardValue[1] : `${cardValue[1]} ${cardValue[2]}${`${cardValue[3] ? ` ${cardValue[3]}` : ''}`}${`${cardValue[4] ? ` ${cardValue[4]}` : ''}`}`;
-      setValue(test.toString());
-      onChangeText?.(test.toString());
-    }
-  };
-  return [value, handleChange] as [string, (v: string) => void];
-};
+const offsetHeight = SIZES.inputHeight / 3.3;
 
 const AppInput: FC<AppInputProps> = props => {
   const {
     returnKeyType,
     placeholder,
-    onChangeText,
     value,
     error,
-    onPress,
-    onClear,
-    onBlur,
     animatedPlaceholder,
     icon,
-    onFocus,
     editable = true,
     reference,
     type,
     form,
     name,
     label,
-    skipNext = false,
+    skipNext,
+    onChangeText,
+    onSubmitEditing,
+    onFocus,
+    onPress,
+    onClear,
+    onBlur,
     ...rest
   } = props;
 
+  const {t} = useTranslation();
+  const containerStyle = useContainerStyle(error);
+
   const offset = useSharedValue(offsetHeight);
   const scale = useSharedValue(1);
+
   const [text, setText] = useState('');
   const {colors} = useTheme();
-  const theme = useTheme();
 
   const [isVisiblePassword, setIsVisiblePassword] = useState(false);
   const [currencyValue, setCurrencyValue] = useCurrencyInput(value);
   const [cardValue, setCardValue] = useCreditCardInput(value, onChangeText);
 
-  const {t} = useTranslation();
+  const animatedStyles = useAnimatedStyle(() => {
+    return {
+      transform: [{translateY: offset.value}],
+    } as AnimatedStyleProp<ViewStyle>;
+  });
+
+  const animatedStylesText = useAnimatedStyle(() => {
+    return {
+      transform: [{scale: scale.value}],
+    } as AnimatedStyleProp<TextStyle>;
+  });
 
   const onIconPress = () => {
     setIsVisiblePassword(!isVisiblePassword);
@@ -137,18 +92,6 @@ const AppInput: FC<AppInputProps> = props => {
     }
   }, [editable, onAnimation, value]);
 
-  const animatedStyles = useAnimatedStyle(() => {
-    return {
-      transform: [{translateY: offset.value}],
-    } as AnimatedStyleProp<ViewStyle>;
-  });
-
-  const animatedStylesText = useAnimatedStyle(() => {
-    return {
-      transform: [{scale: scale.value}],
-    } as AnimatedStyleProp<TextStyle>;
-  });
-
   const handleOnBlur = (e: NativeSyntheticEvent<TextInputFocusEventData>) => {
     onBlur?.(e);
     if (!text) {
@@ -163,18 +106,20 @@ const AppInput: FC<AppInputProps> = props => {
       setCurrencyValue?.(textValue);
       txt = textValue.split(',').join('');
       txt = txt.substring(0, txt.length - 2);
-    } else if (type === 'card') {
+    }
+
+    if (type === 'card') {
       setCardValue?.(textValue);
       txt = textValue.split('').join('');
-    } else {
-      setText(txt);
-      onChangeText?.(txt);
     }
+
+    setText(txt);
+    onChangeText?.(txt);
   };
 
   const goToNextInput = () => {
     const values = Object.keys(form ? form?.getValues() : {});
-    const currentIndex = values.indexOf(name || '');
+    const currentIndex = values.indexOf(name ?? '');
     const nextInput = values?.[currentIndex + 1];
 
     if (text) {
@@ -198,51 +143,24 @@ const AppInput: FC<AppInputProps> = props => {
     <React.Fragment>
       <Text>{label}</Text>
       <Block {...props}>
-        <Block
-          style={[
-            styles.container,
-            {
-              backgroundColor: colors.inputBg,
-              borderWidth: error ? 0.5 : 0,
-              borderColor: theme.colors.error,
-            },
-          ]}>
+        <Block style={containerStyle}>
           <Block row center {...rest}>
             <Block
               style={[
                 {
-                  height: inputHeight,
-                  flex: 1,
-                  position: 'relative',
+                  height: SIZES.inputHeight,
                 },
+                generalStyles.relative,
+                generalStyles.flex,
               ]}>
-              {onPress && (
-                <Block
-                  pressable
-                  onPress={onPress}
-                  style={{
-                    position: 'absolute',
-                    zIndex: 99,
-                    left: 0,
-                    top: 0,
-                    bottom: 0,
-                    right: 0,
-                  }}
-                />
-              )}
+              {onPress && <Block pressable onPress={onPress} style={generalStyles.absoluteFill} />}
               <Block>
                 {animatedPlaceholder && (
-                  <Animated.View style={[{position: 'absolute'}, animatedStyles]}>
-                    <Animated.View
-                      style={[
-                        animatedStylesText,
-                        {
-                          flex: 1,
-                        },
-                      ]}>
+                  <Animated.View style={[generalStyles.absolute, animatedStyles]}>
+                    <Animated.View style={[animatedStylesText, generalStyles.flex]}>
                       <Animated.Text
                         style={[
-                          style.animatedPlaceholderStyle,
+                          styles.animatedPlaceholderStyle,
                           {
                             backgroundColor: colors.inputBg,
                           },
@@ -267,29 +185,30 @@ const AppInput: FC<AppInputProps> = props => {
                   style={[
                     styles.input,
                     {
-                      bottom: animatedPlaceholder ? -(inputHeight / 8) : 0,
-                      height: inputHeight,
-                      color: error ? theme.colors.error : colors.inputText,
+                      bottom: animatedPlaceholder ? -(SIZES.inputHeight / 8) : 0,
+                      height: SIZES.inputHeight,
+                      color: error ? colors.error : colors.inputText,
                     },
                   ]}
                   allowFontScaling={false}
                   value={getValue()}
                   secureTextEntry={props.secureTextEntry && !isVisiblePassword}
                   returnKeyType={returnKeyType}
-                  onSubmitEditing={() => {
+                  onSubmitEditing={onSubmit => {
                     skipNext && goToNextInput();
+                    onSubmitEditing?.(onSubmit);
                   }}
                 />
               </Block>
             </Block>
             {icon && (
               <Block center middle>
-                <AppIcon name={icon} size={24} color={COLORS.gray} />
+                <AppIcon name={icon} size={props.iconSize ?? 22} color={props.iconColor ?? COLORS.gray} />
               </Block>
             )}
             {type === 'password' && (
               <Block center middle pressable onPress={onIconPress}>
-                <AppIcon name={isVisiblePassword ? 'eye' : 'eyeOff'} size={24} color={COLORS.gray} />
+                <AppIcon name={isVisiblePassword ? 'eye' : 'eyeOff'} size={props.iconSize ?? 22} color={props.iconColor ?? COLORS.gray} />
               </Block>
             )}
             {value && (
@@ -303,7 +222,7 @@ const AppInput: FC<AppInputProps> = props => {
                 center
                 middle
                 p-10>
-                <AppIcon name={'close'} size={16} color={COLORS.gray} />
+                <AppIcon name="close" size={props.iconSize ?? 22} color={props.iconColor ?? COLORS.gray} />
               </Block>
             )}
           </Block>
@@ -319,17 +238,3 @@ const AppInput: FC<AppInputProps> = props => {
 };
 
 export default memo(AppInput);
-
-const style = StyleSheet.create({
-  animatedPlaceholderStyle: {
-    flex: 1,
-    left: 0,
-    position: 'absolute',
-    fontSize: 14,
-    backgroundColor: '#fff',
-    paddingHorizontal: 10,
-    borderRadius: 100,
-    fontFamily: FONTS.medium,
-    color: '#ACACAC',
-  },
-});

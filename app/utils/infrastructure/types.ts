@@ -6,6 +6,7 @@ import {ToastPosition} from 'react-native-toast-message';
 import {SchemaInputType} from '@/components/Common/Form/types';
 
 import {LocalNotificationType, ToastType} from './enums';
+import {setupSizeTypes} from '../style/size';
 
 export type ScreenType = {
   title?: string;
@@ -71,6 +72,8 @@ export type LocalNotificationParams = {
 export type UseThemeType = {
   s?: string;
 };
+
+export type SetupSizeTypes = Omit<setupSizeTypes, 'setupSizeTypes'>;
 
 export type Nullable<T> = T | null;
 export type Undefined<T> = T | null | undefined;
