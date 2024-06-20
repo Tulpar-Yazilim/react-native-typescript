@@ -49,14 +49,10 @@ const HomePage = () => {
     setIsPermission(cameraPermissionsStatus);
   };
 
-  const isSCameraPermissionsCheck = async () => {
-    const isCheckPermission = await Permission.checkPermission(PERMISSION_TYPE.camera);
-    setIsPermission(isCheckPermission);
-  };
-
+   
   useFocusEffect(
     useCallback(() => {
-      isSCameraPermissionsCheck();
+      cameraPermissions();
     }, []),
   );
 

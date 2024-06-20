@@ -40,7 +40,7 @@ class AppPermission {
   checkPermission = async (type: string) => {
     try {
       const permissions = REQUEST_PERMISSION_TYPE[type][Platform.OS];
-      const statuses = await checkMultiple(permissions);
+      const statuses = await checkMultiple(permissions); 
       const isAllGranted = Object.entries(statuses)
         .map(item => item[1])
         .every(item => item === RESULTS.GRANTED);
@@ -56,7 +56,7 @@ class AppPermission {
 
   requestPermission = async (permissions: never) => {
     try {
-      const statuses = await requestMultiple(permissions);
+      const statuses = await requestMultiple(permissions); 
       const isAllGranted = Object.entries(statuses)
         .map(item => item[1])
         .every(item => item === RESULTS.GRANTED);

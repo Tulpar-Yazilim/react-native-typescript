@@ -2,10 +2,10 @@ import 'intl';
 import 'intl/locale-data/jsonp/tr';
 
 import React, {FC, memo, useCallback, useEffect, useState} from 'react';
-import {NativeSyntheticEvent, TextInput, TextInputFocusEventData, TextStyle, ViewStyle} from 'react-native';
+import {NativeSyntheticEvent, TextInput, TextInputFocusEventData} from 'react-native';
 
 import {useTranslation} from 'react-i18next';
-import Animated, {AnimatedStyleProp, Easing, useAnimatedStyle, useSharedValue, withTiming} from 'react-native-reanimated';
+import Animated, {Easing, useAnimatedStyle, useSharedValue, withTiming} from 'react-native-reanimated';
 
 import {useTheme} from '@/hooks';
 import {COLORS, generalStyles, SIZES} from '@/theme';
@@ -59,13 +59,13 @@ const AppInput: FC<AppInputProps> = props => {
   const animatedStyles = useAnimatedStyle(() => {
     return {
       transform: [{translateY: offset.value}],
-    } as AnimatedStyleProp<ViewStyle>;
+    };
   });
 
   const animatedStylesText = useAnimatedStyle(() => {
     return {
       transform: [{scale: scale.value}],
-    } as AnimatedStyleProp<TextStyle>;
+    };
   });
 
   const onIconPress = () => {

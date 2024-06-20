@@ -1,7 +1,7 @@
 import React, {memo, useCallback, useEffect} from 'react';
-import {useWindowDimensions, ViewStyle} from 'react-native';
+import {useWindowDimensions} from 'react-native';
 
-import Animated, {AnimatedStyleProp, useAnimatedStyle, useSharedValue, withSpring} from 'react-native-reanimated';
+import Animated, {useAnimatedStyle, useSharedValue, withSpring} from 'react-native-reanimated';
 
 import {Block, Text} from '@/components';
 import {useTheme} from '@/hooks';
@@ -40,7 +40,7 @@ function SegmentedControl(props: Readonly<SegmentedControlProps>) {
   const animatedStyles = useAnimatedStyle(() => {
     return {
       transform: [{translateX: tabTranslateValue.value}],
-    } as AnimatedStyleProp<ViewStyle>;
+    };
   });
 
   useEffect(() => {

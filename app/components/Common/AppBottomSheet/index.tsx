@@ -1,11 +1,10 @@
-/* eslint-disable react/no-unstable-nested-components */
 import React, {forwardRef, Ref, useEffect, useImperativeHandle, useMemo, useRef} from 'react';
 import {Pressable, StatusBar, StyleSheet} from 'react-native';
 
-import BottomSheet, {BottomSheetBackdropProps, BottomSheetScrollView, BottomSheetView, useBottomSheetDynamicSnapPoints, useBottomSheetTimingConfigs} from '@gorhom/bottom-sheet';
+import BottomSheet, {BottomSheetBackdropProps, BottomSheetScrollView, BottomSheetView, useBottomSheetTimingConfigs} from '@gorhom/bottom-sheet';
 import {BottomSheetMethods} from '@gorhom/bottom-sheet/lib/typescript/types';
 import {Portal} from 'react-native-portalize';
-import Animated, {Easing, Extrapolate, interpolate, useAnimatedStyle} from 'react-native-reanimated';
+import Animated, {Easing, Extrapolation, interpolate, useAnimatedStyle} from 'react-native-reanimated';
 
 import {useTheme, useThemeMode} from '@/hooks';
 import {COLORS, generalStyles, SCREEN} from '@/theme';
@@ -15,14 +14,11 @@ import {AppBottomSheetProps} from './app-bottom-sheet';
 import Block from '../Block';
 
 const AppBottomSheet = (props: AppBottomSheetProps, ref: Ref<BottomSheetMethods>) => {
-  const {children = <></>, enablePanDownToClose = true, backdrop = true, onClose = () => {}, portal = true, isFlatList = false, isVisible = false, snapPoints, customStyles = {}} = props;
+  const {children, enablePanDownToClose = true, backdrop = true, onClose = () => {}, portal = true, isFlatList = false, isVisible = false, customStyles = {}} = props;
 
   const themeMode = useThemeMode();
   const {colors} = useTheme();
   const bottomSheetRef = useRef<BottomSheet>(null);
-
-  const initialSnapPoints = useMemo(() => snapPoints ?? ['CONTENT_HEIGHT'], [snapPoints]);
-  const {animatedHandleHeight, animatedSnapPoints, animatedContentHeight, handleContentLayout} = useBottomSheetDynamicSnapPoints(initialSnapPoints);
 
   const animationConfigs = useBottomSheetTimingConfigs({
     duration: 200,
@@ -31,17 +27,18 @@ const AppBottomSheet = (props: AppBottomSheetProps, ref: Ref<BottomSheetMethods>
 
   useImperativeHandle(ref, () => ({
     snapToIndex: (value: number) => bottomSheetRef?.current?.snapToIndex?.(value),
-    snapToPosition: () => {},
-    expand: () => {},
-    collapse: () => {},
-    close: () => {},
-    forceClose: () => {},
+    snapToPosition: (position: string | number) => bottomSheetRef?.current?.snapToPosition?.(position, animationConfigs),
+    expand: () => bottomSheetRef?.current?.expand?.(),
+    collapse: () => bottomSheetRef?.current?.collapse?.(),
+    close: () => bottomSheetRef?.current?.close?.(),
+    forceClose: () => bottomSheetRef?.current?.forceClose?.(),
   }));
 
+  // eslint-disable-next-line react/no-unstable-nested-components
   const CustomBackdrop = ({style}: BottomSheetBackdropProps) => {
     // animated variables
     const containerAnimatedStyle = useAnimatedStyle(() => ({
-      opacity: interpolate(isVisible ? 1 : 0, [0, 1], [0, 1], Extrapolate.CLAMP),
+      opacity: interpolate(isVisible ? 1 : 0, [0, 1], [0, 1], Extrapolation.CLAMP),
     }));
 
     // styles
@@ -86,16 +83,10 @@ const AppBottomSheet = (props: AppBottomSheetProps, ref: Ref<BottomSheetMethods>
         ref={bottomSheetRef}
         index={-1}
         enablePanDownToClose={enablePanDownToClose}
-        snapPoints={animatedSnapPoints}
-        handleHeight={animatedHandleHeight}
-        contentHeight={animatedContentHeight}
+        enableDynamicSizing
         topInset={StatusBar.currentHeight ?? 0}
         onClose={onClose}
         backdropComponent={BackdropComponent}
-        style={{
-          borderRadius: 20,
-          overflow: 'hidden',
-        }}
         handleIndicatorStyle={{
           backgroundColor: themeMode === 'dark' ? colors?.gray : colors?.black,
         }}
@@ -103,14 +94,11 @@ const AppBottomSheet = (props: AppBottomSheetProps, ref: Ref<BottomSheetMethods>
         keyboardBlurBehavior="restore">
         <Block flex>
           {isFlatList ? (
-            <BottomSheetView onLayout={handleContentLayout} style={[styles.bottomSheetView, customStyles]}>
-              {children}
-            </BottomSheetView>
+            <BottomSheetView style={[styles.bottomSheetView, customStyles]}>{children}</BottomSheetView>
           ) : (
             <BottomSheetScrollView
               showsVerticalScrollIndicator={false}
               showsHorizontalScrollIndicator={false}
-              onLayout={handleContentLayout}
               style={[
                 styles.bottomSheetView,
                 customStyles,

@@ -1,5 +1,5 @@
-import {configureStore} from '@reduxjs/toolkit';
-import {setupListeners} from '@reduxjs/toolkit/dist/query';
+import {configureStore} from '@reduxjs/toolkit'; 
+import { setupListeners } from '@reduxjs/toolkit/query';
 import EncryptedStorage from 'react-native-encrypted-storage';
 import {combineReducers} from 'redux';
 import {persistReducer, persistStore} from 'redux-persist';
@@ -8,6 +8,7 @@ import {baseApi, rtkQueryErrorHandler, rtkQueryLoaderHandler} from '@/api';
 
 import * as authRedux from './auth';
 import * as settingsRedux from './settings';
+
 
 export {authRedux, settingsRedux};
 

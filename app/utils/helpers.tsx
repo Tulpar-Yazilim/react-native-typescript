@@ -2,7 +2,6 @@ import React, {memo} from 'react';
 import {Linking, Platform} from 'react-native';
 
 import ImageResizer from '@bam.tech/react-native-image-resizer';
-import MultipleImagePicker from '@baronha/react-native-multiple-image-picker';
 import notifee, {Notification, TimestampTrigger, TriggerType} from '@notifee/react-native';
 import {fetch} from '@react-native-community/netinfo';
 import {CommonActions} from '@react-navigation/native';
@@ -19,7 +18,6 @@ import {SCREEN, FONTS as THEME_FONTS} from '@/theme';
 import {LocalNotificationType, ToastType} from './infrastructure/enums';
 import {ResetRouteParams, ResetRoutesParams} from './infrastructure/interfaces';
 import {Coordinates, ImagePickerResultType, ImageResizeResultType, ImageType, LocalNotificationParams, ToastParams} from './infrastructure/types';
-import {Permission, PERMISSION_TYPE} from './permission';
 
 const {t} = i18next;
 
@@ -213,14 +211,6 @@ const resizeImageMultiple = async (response: Array<ImageType>): Promise<Array<Im
   return resizedImages;
 };
 
-const launchMultipleImages = async () => {
-  await Permission.checkPermission(PERMISSION_TYPE.photo);
-  const response = await MultipleImagePicker.openPicker({});
-  const customImages = response.map(image => ({width: image.width, height: image.height, filename: image.fileName, path: image.path, type: image.type} as ImageType));
-  const resizedImagesArr = await resizeImageMultiple(customImages);
-  return resizedImagesArr;
-};
-
 const launchSingleImage = async (): Promise<ImagePickerResultType> => {
   return new Promise(resolve => {
     launchImageLibrary({mediaType: 'photo'}, async res => {
@@ -324,7 +314,6 @@ export {
   openEmail,
   resizeImageSingle,
   resizeImageMultiple,
-  launchMultipleImages,
   launchSingleImage,
   createLocalNotification,
   cancelLocalNotification,
