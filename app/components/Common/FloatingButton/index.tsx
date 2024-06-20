@@ -1,8 +1,7 @@
 import React, {memo, useEffect} from 'react';
-import {ViewStyle} from 'react-native';
 
 import LinearGradient from 'react-native-linear-gradient';
-import Animated, {AnimatedStyleProp, useAnimatedStyle, useSharedValue, withTiming} from 'react-native-reanimated';
+import Animated, {useAnimatedStyle, useSharedValue, withTiming} from 'react-native-reanimated';
 
 import {Block, Text} from '@/components';
 import {useThemeMode} from '@/hooks';
@@ -10,7 +9,7 @@ import {useThemeMode} from '@/hooks';
 import {FloatingButtonProps} from './floating-button';
 import styles from './styles';
 
-function FloatingButton(props: FloatingButtonProps) {
+function FloatingButton(props: Readonly<FloatingButtonProps>) {
   const {isVisible, buttonText = 'approve', closeButtonText = 'not_now', onPress, onClose} = props;
 
   //#region Animation
@@ -18,7 +17,7 @@ function FloatingButton(props: FloatingButtonProps) {
   const animatedStyles = useAnimatedStyle(() => {
     return {
       transform: [{translateY: bottomTranslateValue.value}],
-    } as AnimatedStyleProp<ViewStyle>;
+    };
   });
 
   useEffect(() => {

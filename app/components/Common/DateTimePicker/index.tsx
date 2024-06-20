@@ -1,4 +1,4 @@
-import React, {FC, memo} from 'react';
+import React, {memo} from 'react';
 
 import {useTranslation} from 'react-i18next';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
@@ -7,7 +7,7 @@ import {useAppSelector, useTheme, useThemeMode} from '@/hooks';
 
 import {DateTimePickerProps} from './date-time-picker';
 
-const DateTimePicker: FC<DateTimePickerProps> = props => {
+const DateTimePicker = (props: Readonly<DateTimePickerProps>) => {
   const {visible, mode = 'date', minimumDate, maximumDate, date, onDateChange, onClose} = props;
 
   const language = useAppSelector(state => state.settings.language);

@@ -16,6 +16,7 @@ const AppCollapsible = (props: AppCollapsibleType) => {
 
   const heightAnim = useSharedValue(defaultHeight);
   const heightStyles = useAnimatedStyle(() => {
+    'worklet';
     return {
       overflow: 'hidden',
       height: withTiming(heightAnim.value, {

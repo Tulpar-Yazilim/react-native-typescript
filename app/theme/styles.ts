@@ -2,7 +2,7 @@ import {StyleSheet} from 'react-native';
 
 import {fontPixel, IStyles, IStyleShortcuts, ITextStyles, rgba} from '@/utils';
 
-import {COLORS, FONTS, SCREEN, SIZES, themeColors} from './config';
+import {COLORS, FONTS, SCREEN, SIZES, themeColors} from './Config';
 
 export const generalStyles = StyleSheet.create({
   flex: {

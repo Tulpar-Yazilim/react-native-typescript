@@ -1,7 +1,6 @@
 import React, {memo} from 'react';
 
-import {ViewStyle} from 'react-native/types';
-import Animated, {AnimatedStyleProp, useAnimatedStyle, withTiming} from 'react-native-reanimated';
+import Animated, {useAnimatedStyle, withTiming} from 'react-native-reanimated';
 
 import {COLORS, generalStyles} from '@/theme';
 
@@ -25,7 +24,7 @@ const RadioButton = (props: RadioButtonProps) => {
       ],
       flex: 1,
       zIndex: 9999,
-    } as AnimatedStyleProp<ViewStyle>;
+    };
   });
 
   return (

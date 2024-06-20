@@ -3,7 +3,6 @@ import {ViewStyle} from 'react-native';
 
 export interface AppBottomSheetProps {
   children: ReactNode;
-  snapPoints?: Array<number>;
   backdrop?: boolean;
   portal?: boolean;
   customStyles?: ViewStyle;
